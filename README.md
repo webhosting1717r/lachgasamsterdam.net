@@ -27,11 +27,11 @@ Een nieuwe zoekopdracht-pagina toevoegen = een object toevoegen in `lib/content/
 ## Vercel
 
 1. Push naar een GitHub-repo en importeer die in Vercel (framework wordt automatisch als Next.js herkend; build `npm run build`).
-2. Voeg bij Domains `lachgasamsterdam.net` toe (primair) en `www.lachgasamsterdam.net`; `vercel.json` stuurt www permanent door naar de kale domeinnaam.
+2. Voeg bij Domains `www.lachgasamsterdam.net` toe (primair) en `lachgasamsterdam.net`, dat in het dashboard naar www doorstuurt. Zet in `vercel.json` geen tweede redirect in de andere richting: dat geeft een redirectlus.
 3. Zet bij je DNS-provider de records die Vercel noemt.
-4. Search Console: voeg `https://lachgasamsterdam.net/` toe als Domein-property, dien `https://lachgasamsterdam.net/sitemap.xml` in en vraag de homepage te laten indexeren.
+4. Search Console: voeg `https://www.lachgasamsterdam.net/` toe als Domein-property, dien `https://www.lachgasamsterdam.net/sitemap.xml` in en vraag de homepage te laten indexeren.
 
-Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sitemap en de JSON-LD gebruiken `https://lachgasamsterdam.net` zonder www.
+Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sitemap en de JSON-LD gebruiken `https://www.lachgasamsterdam.net`.
 
 ## Na wijzigingen controleren
 

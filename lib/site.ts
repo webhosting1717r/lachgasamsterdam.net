@@ -4,8 +4,8 @@ const digits = (s: string) => s.replace(/\D/g, '');
 export const site = {
   name: 'Lachgas Amsterdam',
   brand: 'Fastgas',
-  url: 'https://lachgasamsterdam.net',
-  host: 'lachgasamsterdam.net',
+  url: 'https://www.lachgasamsterdam.net',
+  host: 'www.lachgasamsterdam.net',
   lastmod: '2026-10-29',
   /* Nummers gelijk aan fastgasservice.nl (sinds 2026-10-28). */
   phone: '+31852128051',
