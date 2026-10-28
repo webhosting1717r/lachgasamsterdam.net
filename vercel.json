@@ -21,16 +21,12 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/(bg-v1.mp4|bg-poster-v1.webp|fastgas-(.*).webp)",
+      "source": "/(bg-v1.mp4|bg-poster-v1.webp|fastgas-2kg.webp|fastgas-4kg.webp|fastgas-10kg.webp|fastgas-2kg-tile.webp|fastgas-4kg-tile.webp|fastgas-10kg-tile.webp|fastgas-blueprint.webp|fastgas-close-up.webp)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/(og.png|icon.svg|icon-192.png|icon-512.png|apple-icon.png|manifest.webmanifest)",
+      "source": "/(og.png|icon.svg|icon-192.png|icon-512.png|apple-icon.png|favicon.ico|manifest.webmanifest)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
-    },
-    {
-      "source": "/bg-v1.mp4",
-      "headers": [{ "key": "Accept-Ranges", "value": "bytes" }]
     },
     {
       "source": "/(.*)",
