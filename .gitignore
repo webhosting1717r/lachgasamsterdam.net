@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+npm-ci.log
+serve.log
+*.tsbuildinfo
+.env*.local
+.vercel
+_build/
+assets/
+/favicon.ico

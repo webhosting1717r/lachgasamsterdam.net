@@ -1,0 +1,248 @@
+import type { ReactNode } from 'react';
+import type { Block, Faq, Page } from '@/lib/types';
+import { bySlug } from '@/lib/pages';
+import { locationData } from '@/lib/content/locations';
+import { site, telHref, waHref } from '@/lib/site';
+
+/* **vet** en [label](/pad/) worden <strong> en <a>. Gewone <a>: statische site, geen client-routing nodig. */
+export function Rich({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+  return (
+    <>
+      {parts.map((p, i) => {
+        if (p.startsWith('**')) return <strong key={i}>{p.slice(2, -2)}</strong>;
+        const m = p.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (m) return <a key={i} href={m[2]}>{m[1]}</a>;
+        return p;
+      })}
+    </>
+  );
+}
+
+const IconWa = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 20l1.2-4.1A8.5 8.5 0 1 1 8.300 19L4 20Z" />
+    <path d="M9 8.500c.3 2.600 2.800 5.200 6 6l1.200-1.300-2-1-.9.800c-.9-.4-1.900-1.400-2.300-2.300l.8-.9-1-2L9 8.500Z" fill="currentColor" stroke="none" />
+  </svg>
+);
+const IconTel = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+  </svg>
+);
+
+export function Cta({ text }: { text?: string }) {
+  return (
+    <div className="cta">
+      <a className="btn pri" href={waHref(text)} rel="noopener">
+        <IconWa /> Bestel via WhatsApp
+      </a>
+      <a className="btn sec" href={telHref}>
+        <IconTel /> Bel {site.phoneText}
+      </a>
+    </div>
+  );
+}
+
+export function Blocks({ blocks }: { blocks: Block[] }) {
+  return (
+    <>
+      {blocks.map((b, i) => {
+        switch (b.t) {
+          case 'h2':
+            return <h2 key={i}>{b.x}</h2>;
+          case 'p':
+            return <p key={i}><Rich text={b.x} /></p>;
+          case 'ul':
+            return <ul key={i} className="ticks">{b.x.map((x, j) => <li key={j}><Rich text={x} /></li>)}</ul>;
+          case 'steps':
+            return (
+              <ol key={i} className="steps">
+                {b.x.map(([h, p], j) => (
+                  <li key={j}><strong>{h}</strong><span><Rich text={p} /></span></li>
+                ))}
+              </ol>
+            );
+          case 'cards':
+            return (
+              <div key={i} className="cards">
+                {b.x.map((c) => (
+                  <a key={c.href} className="card" href={c.href}>
+                    <strong>{c.h}</strong>
+                    <span>{c.p}</span>
+                  </a>
+                ))}
+              </div>
+            );
+          case 'table':
+            return (
+              <div key={i} className="tw">
+                <table>
+                  <thead><tr>{b.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr></thead>
+                  <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}><Rich text={c} /></td>)}</tr>)}</tbody>
+                </table>
+              </div>
+            );
+          case 'note':
+            return <p key={i} className="note"><Rich text={b.x} /></p>;
+        }
+      })}
+    </>
+  );
+}
+
+export function FaqList({ faq, title = 'Veelgestelde vragen' }: { faq: Faq[]; title?: string }) {
+  return (
+    <section className="faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">{title}</h2>
+      {faq.map((f) => (
+        <details key={f.q}>
+          <summary>{f.q}</summary>
+          <p><Rich text={f.a} /></p>
+        </details>
+      ))}
+    </section>
+  );
+}
+
+export function Related({ slugs, title = 'Bekijk ook' }: { slugs: string[]; title?: string }) {
+  return (
+    <section aria-labelledby="rel-h">
+      <h2 id="rel-h">{title}</h2>
+      <div className="cards">
+        {slugs.map((s) => {
+          const p = bySlug.get(s)!;
+          return (
+            <a key={s} className="card" href={`/${s}/`}>
+              <strong>{p.nav}</strong>
+              <span>{p.kicker}</span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export function trailOf(p: Page): { name: string; path: string }[] {
+  const t: { name: string; path: string }[] = [{ name: 'Home', path: '/' }];
+  const chain: Page[] = [];
+  let cur: Page | undefined = p;
+  while (cur) {
+    chain.unshift(cur);
+    cur = cur.parent && cur.parent !== 'home' ? bySlug.get(cur.parent) : undefined;
+  }
+  for (const c of chain) t.push({ name: c.nav, path: `/${c.slug}/` });
+  return t;
+}
+
+export function Crumbs({ trail }: { trail: { name: string; path: string }[] }) {
+  return (
+    <nav className="crumbs" aria-label="Kruimelpad">
+      <ol>
+        {trail.map((t, i) => (
+          <li key={t.path}>
+            {i < trail.length - 1 ? <a href={t.path}>{t.name}</a> : <span aria-current="page">{t.name}</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+const navItems = [
+  ['Tanks', '/lachgas-tanks/'],
+  ['Bezorggebied', '/bezorggebied/'],
+  ['Bestellen', '/bestellen/'],
+  ['Horeca', '/lachgas-horeca/'],
+  ['Info', '/lachgas-informatie/'],
+  ['Contact', '/contact/'],
+] as const;
+
+export function Header() {
+  return (
+    <header className="nav">
+      <div className="wrap navin">
+        <a className="brand" href="/" aria-label="Lachgas Amsterdam, naar de homepage">
+          <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+            <rect x="8" y="4" width="8" height="17" rx="2.5" fill="#0b1b4a" stroke="#fff" strokeWidth="1.2" />
+            <rect x="8" y="8" width="8" height="2.2" fill="#ffd60a" />
+            <rect x="10.5" y="1.5" width="3" height="3" rx="1" fill="#fff" />
+          </svg>
+          <span>Lachgas Amsterdam</span>
+        </a>
+        <nav className="links" aria-label="Hoofdmenu">
+          {navItems.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
+        </nav>
+        <a className="btn pri sm hide-s" href={waHref()} rel="noopener">Bestel</a>
+        <details className="menu">
+          <summary aria-label="Menu"><span /><span /></summary>
+          <div className="sheet">
+            {navItems.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
+            <a href="/lachgas-24-7/">Lachgas 24/7</a>
+            <a href={telHref}>Bel {site.phoneText}</a>
+          </div>
+        </details>
+      </div>
+    </header>
+  );
+}
+
+const col = (slugs: string[]) =>
+  slugs.map((s) => <li key={s}><a href={`/${s}/`}>{bySlug.get(s)!.nav}</a></li>);
+
+export function Footer() {
+  return (
+    <footer className="foot">
+      <div className="wrap fgrid">
+        <div>
+          <strong className="fh">Lachgas Amsterdam</strong>
+          <p className="fp">Bezorgdienst voor de originele Fastgas Wegwerp Tank in Amsterdam en omstreken. Dag en nacht bereikbaar.</p>
+          <p className="fp"><a href={telHref}>{site.phoneText}</a><br /><a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a></p>
+        </div>
+        <div>
+          <strong className="fh">Producten</strong>
+          <ul>{col(['lachgas-tanks', 'fastgas-2kg', 'fastgas-4kg', 'fastgas-10kg', 'wegwerp-lachgas-tanks', 'slagroompatronen', 'slagroomspuiten', 'nitrous-oxide-tanks'])}</ul>
+        </div>
+        <div>
+          <strong className="fh">Bestellen</strong>
+          <ul>{col(['lachgas-kopen-amsterdam', 'lachgas-bestellen-amsterdam', 'lachgas-bezorgen', 'lachgas-bezorgdienst', 'lachgas-koerier', 'lachgas-24-7', 'lachgas-nachtlevering', 'overdag-bestellen', 'lachgas-prijs', 'lachgas-horeca', 'lachgas-evenementen', 'laughing-gas-delivery-amsterdam'])}</ul>
+        </div>
+        <div className="f2">
+          <strong className="fh">Bezorggebied</strong>
+          <ul className="two">{locationData.map((l) => <li key={l.slug}><a href={`/${l.slug}/`}>{l.name}</a></li>)}</ul>
+        </div>
+        <div>
+          <strong className="fh">Informatie</strong>
+          <ul>
+            {col(['wat-is-lachgas', 'is-lachgas-verboden', 'lachgas-in-het-verkeer', 'veilig-gebruik-lachgas', 'hoe-werkt-een-slagroomspuit', 'lachgas-opslag-en-transport', 'veelgestelde-vragen', 'over-ons', 'contact'])}
+            <li><a href="/overzicht/">Alle pagina&rsquo;s</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="wrap fbot">
+        <p>Levering uitsluitend aan 18+ en uitsluitend voor toegestaan gebruik. Lachgas valt onder de Opiumwet; zie de <a href="/is-lachgas-verboden/">wettelijke status</a>.</p>
+        <p>&copy; 2026 {site.name} &middot; <a href="/privacy-en-cookies/">Privacy en cookies</a> &middot; <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></p>
+      </div>
+    </footer>
+  );
+}
+
+export function StickyCta() {
+  return (
+    <div className="sticky" role="group" aria-label="Snel bestellen">
+      <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> WhatsApp</a>
+      <a className="btn sec" href={telHref}><IconTel /> Bel</a>
+    </div>
+  );
+}
+
+export function JsonLd({ data }: { data: unknown }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }} />;
+}
+
+/* Poster is het eerste beeld (LCP); de twee gespiegelde video's (zelfde bestand) faden er na load overheen. */
+export function Bg(): ReactNode {
+  const html = `<img class="poster" src="/bg-poster-v1.webp" alt="" width="960" height="540" decoding="async" fetchpriority="high"><video class="v1" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video><video class="v2" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video>`;
+  return <div className="bg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: html }} />;
+}
