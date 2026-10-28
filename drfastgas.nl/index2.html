@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="description" content="DrGas — Professionele gaslevering voor horeca en catering. CO₂, stikstof, mengsels." />
+<title>DrGas — Professionele horecagas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <style>
+:root{--bg:#0c0c0c;--fg:#fafafa;--muted:#737373;--stroke:#292929;--card:#161616;--ease:cubic-bezier(.22,1,.36,1);--r:14px;}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
+.grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;animation:bgmove 32s linear infinite;opacity:.4}
+@keyframes bgmove{to{background-position:48px 48px}}
+.blob{position:fixed;width:min(560px,80vw);height:min(560px,80vw);border-radius:50%;filter:blur(140px);background:#fff;opacity:.095;pointer-events:none;z-index:0;top:-15%;right:-12%;will-change:transform}
+.blob2{bottom:-25%;left:-15%;top:auto;right:auto}
+@media(prefers-reduced-motion:no-preference){
+.blob{animation:blobDrift_a 62s ease-in-out infinite alternate}
+.blob.blob2{animation:blobDrift_b 52s ease-in-out infinite alternate;animation-delay:-18s}}
+@keyframes blobDrift_a{from{transform:translate3d(0,0,0)}to{transform:translate3d(-2.8vmin,3.8vmin,0) scale(1.06)}}
+@keyframes blobDrift_b{from{transform:translate3d(0,0,0)}to{transform:translate3d(3.8vmin,-2.5vmin,0) scale(1.05)}}
+.w{width:min(1180px,92%);margin:0 auto;position:relative;z-index:2}
+header{position:sticky;top:0;z-index:50;background:rgba(12,12,12,.86);backdrop-filter:blur(20px);border-bottom:1px solid var(--stroke);transition:border-color .4s ease,box-shadow .5s ease,background .35s ease}
+header.scrolled{box-shadow:0 18px 40px rgba(0,0,0,.42);border-bottom-color:#3a3a3a;background:rgba(10,10,10,.93)}
+.h{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--fg);font-weight:700;font-size:1.15rem;letter-spacing:-.02em}
+.logo .lm{font-size:.7rem;width:34px;height:34px;display:grid;place-items:center;background:var(--fg);color:#0c0c0c;border-radius:9px;font-weight:800;line-height:1;-webkit-appearance:none;-moz-appearance:none;appearance:none;transition:transform .42s var(--ease),box-shadow .45s ease}
+.logo:hover .lm,.logo:focus-visible .lm{transform:scale(1.06) rotate(-2.5deg);box-shadow:0 0 0 4px rgba(255,255,255,.06),0 12px 32px rgba(0,0,0,.35)}
+.logo:focus-visible{outline:2px solid #bfbfbf;outline-offset:4px;border-radius:10px}
+nav{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.875rem;font-weight:500}
+nav a{color:#9ca3af;text-decoration:none;transition:color .25s ease;text-shadow:0 0 24px transparent}
+@media (prefers-reduced-motion:no-preference){
+nav a{position:relative;display:inline-block}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);opacity:.55;transition:transform .32s var(--ease),opacity .25s ease;transform-origin:50% 50%}
+nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+}
+nav a:hover{color:var(--fg);text-shadow:0 0 20px rgba(255,255,255,.12)}
+.cartbtn{background:#1a1a1a;border:1px solid #3f3f3f;color:var(--fg);padding:.55rem 1rem;border-radius:999px;font-weight:600;font-size:.8rem;font-family:inherit;cursor:pointer;position:relative;transition:background .35s ease,border-color .3s ease,transform .22s ease,box-shadow .35s ease}
+.cartbtn:hover{background:#222;border-color:#5c5c5c;transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.cartbtn:active{transform:translateY(0)}
+.cartbtn .n{position:absolute;top:-8px;right:-6px;min-width:22px;height:22px;padding:0 5px;background:var(--fg);color:#0c0c0c;border-radius:999px;font-size:.65rem;font-weight:800;display:none;align-items:center;justify-content:center;border:2px solid var(--bg);transition:transform .22s ease}
+.cartbtn.has .n{display:flex;}
+@media(prefers-reduced-motion:no-preference){
+.cartbtn.has .n.isnew{animation:badge-pop .55s var(--ease) both}
+}
+@keyframes badge-pop{0%{transform:scale(.35)}45%{transform:scale(1.18)}72%{transform:scale(.93)}100%{transform:scale(1)}}
+.hero{border-bottom:1px solid var(--stroke);padding:clamp(3rem,8vw,5.5rem) 0 clamp(2.75rem,5vw,3.75rem);}
+.hrow{display:grid;gap:2rem;align-items:end}@media(min-width:920px){.hrow{grid-template-columns:1.05fr .95fr}}
+.kicker{font-size:.72rem;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+h1{margin:.75rem 0 1rem;font-weight:750;font-size:clamp(2.12rem,5.4vw,3.72rem);line-height:1.05;letter-spacing:-.035em;color:var(--fg)}
+.lead{color:#b3b3b3;font-size:1.085rem;line-height:1.55;max-width:44ch;margin:0 0 1.65rem;}
+.row{display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:.5rem}
+.btna,.btnb{border-radius:999px;padding:.73rem 1.28rem;font-size:.848rem;font-weight:650;font-family:inherit;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;border:none;transition:background .35s ease ,border-color .3s ease,transform .38s var(--ease),box-shadow .4s ease,filter .3s ease}
+.btna{background:var(--fg);color:#0c0c0c;font-weight:700}
+@media(prefers-reduced-motion:no-preference){
+.btna:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.12)}}
+.btna:hover{background:#e5e5e5}
+.btna:active{transform:translateY(0)!important}
+.btnb{background:transparent;border:1px solid #4f4f4f;color:var(--fg)}
+@media(prefers-reduced-motion:no-preference){
+.btnb:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.32)}}
+.btnb:hover{border-color:#8c8c8c;background:rgba(255,255,255,.04)}
+.btnb:active{transform:translateY(0)!important}
+.mini{font-size:.77rem;line-height:1.45;color:#6b7280;margin-top:.6rem;margin-bottom:0;max-width:49ch;}
+.card{border-radius:var(--r);padding:1.45rem;background:linear-gradient(135deg,var(--card) 0%,#111111 90%);border:1px solid var(--stroke);position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.04) 50%,transparent 60%);animation:glass 10s linear infinite}
+@keyframes glass{from{transform:translateX(-40%)}to{transform:translateX(45%)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;position:relative;z-index:2;text-align:center}
+.stats article{padding:.85rem .5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;font-size:.7rem;line-height:1.35;color:var(--muted);text-transform:uppercase;letter-spacing:.085em;font-weight:600;transition:border-color .4s ease,background .35s ease,transform .4s var(--ease)}
+.stats article:nth-child(-n+3):hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.07)}
+@media(prefers-reduced-motion:no-preference){
+.card.hi .stats article:nth-child(1){animation:stat-rise .72s var(--ease) .2s backwards}
+.card.hi .stats article:nth-child(2){animation:stat-rise .72s var(--ease) .36s backwards}
+.card.hi .stats article:nth-child(3){animation:stat-rise .72s var(--ease) .52s backwards}
+}
+@keyframes stat-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.stats article strong{font-size:1.12rem;font-weight:740;color:var(--fg);margin-bottom:.2rem;display:block;letter-spacing:0;text-transform:none}
+section{padding:clamp(2.75rem,6vw,4.75rem) 0;border-bottom:1px solid var(--stroke)}
+h2{margin:0 0 .75rem;font-size:clamp(1.5rem,3.1vw,2.05rem);font-weight:720;letter-spacing:-.03em;line-height:1.15;color:var(--fg)}
+.sub{color:#9ca3af;margin:0 0 .5rem;line-height:1.62;max-width:59ch;font-size:.96rem;margin-bottom:1.85rem!important}
+.cols{display:grid;gap:.85rem;margin-top:.5rem;border-left:none;list-style:none;padding:0;max-width:760px;color:#ababab;line-height:1.55;font-size:.9rem}
+.cols li{border-left:none;padding:.75rem .25rem .75rem 1.15rem;background:none;position:relative}
+.cols li span{display:block;font-weight:690;color:#f5f5f5;margin-bottom:.28rem;font-size:.91rem;font-weight:590}
+@media(prefers-reduced-motion:no-preference){
+.cols li.rv::before{content:"";position:absolute;left:0;top:.5rem;bottom:.5rem;width:2px;border-radius:2px;background:linear-gradient(185deg,var(--fg) 12%,rgba(163,163,163,.72));transform-origin:top center;transform:scaleY(0);transition:transform .62s var(--ease)}
+.cols li.rv.on::before{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){
+.cols li{border-left:2px solid #fff;padding-left:1.15rem}}
+.cards4{display:grid;gap:1rem}@media(min-width:700px){.cards4{grid-template-columns:1fr 1fr}}@media(min-width:1000px){.cards4{grid-template-columns:repeat(4,1fr)}}
+.c4{border-radius:var(--r);border:1px solid var(--stroke);padding:1.25rem;background:var(--card);transition:border-color .3s ease,transform .38s var(--ease),box-shadow .4s ease,opacity .55s ease}
+.c4:hover{border-color:#595959;transform:translateY(-7px);box-shadow:0 26px 50px rgba(0,0,0,.58)}
+@media(prefers-reduced-motion:no-preference){
+.cards4 .c4.rv:nth-child(1){transition-delay:.05s}.cards4 .c4.rv:nth-child(2){transition-delay:.1s}.cards4 .c4.rv:nth-child(3){transition-delay:.14s}.cards4 .c4.rv:nth-child(4){transition-delay:.18s}}
+.lab{font-weight:750;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:#888;margin-bottom:.55rem;display:block}
+.c4 h3{margin:0 0 .45rem;font-size:.96rem;font-weight:650;color:var(--fg)}
+.c4 p{margin:0;font-size:.83rem;color:#9ca3af;line-height:1.5}
+.shop{display:grid;gap:1.05rem}@media(min-width:640px){.shop{grid-template-columns:1fr 1fr}}@media(min-width:980px){.shop{grid-template-columns:repeat(3,1fr)}}
+.p{border:1px solid var(--stroke);border-radius:var(--r);overflow:hidden;background:#121212;display:flex;flex-direction:column;border-color:#262626;transition:border-color .3s ease,transform .38s var(--ease),box-shadow .42s ease,opacity .62s ease,filter .52s ease}
+@media(prefers-reduced-motion:no-preference){
+.shop .p[data-io]{opacity:0;filter:blur(6px);transform:translateY(22px);transition-delay:var(--ent,0ms);will-change:transform,opacity}
+.shop .p[data-io].on{opacity:1;filter:none;transform:translateY(0)}
+.shop .p[data-io].on:hover{transform:translateY(-7px);box-shadow:0 24px 44px rgba(0,0,0,.5);border-color:#4a4a4a}}
+@media(prefers-reduced-motion:reduce){
+.shop .p[data-io]{opacity:1!important;filter:none!important;transform:none!important}}
+.shop .p:hover{border-color:#3a3a3a}
+.pt{padding:1.2rem 1.2rem 1rem;border-bottom:1px solid #242424;flex:1;display:flex;flex-direction:column;gap:.5rem}
+.pt h3{margin:0;font-size:.98rem;font-weight:650;color:var(--fg)}
+.pt p{margin:0;font-size:.79rem;color:#9ca3af;line-height:1.48}
+.pr{display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem;margin-top:auto;padding-top:.65rem;border-top:1px solid #2a2a2a}
+.price{font-size:1.3rem;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--fg);transition:color .35s ease,filter .38s ease}
+.p:hover .price,.p[data-io].on:hover .price{color:#fff;filter:drop-shadow(0 0 22px rgba(255,255,255,.075))}
+.px{font-size:.65rem;color:var(--muted);display:block;margin-top:.12rem;font-weight:500}
+.dep{font-size:.68rem;color:#6b7280;line-height:1.4;margin-top:.28rem;display:block}
+.pf{padding:.85rem 1rem;display:flex;justify-content:flex-end;background:#0c0c0c}
+.add{background:var(--fg);color:#0c0c0c;border:none;font-weight:700;font-size:.8rem;padding:.55rem 1rem;border-radius:9px;font-family:inherit;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s ease,filter .28s ease,box-shadow .32s ease}
+@media(prefers-reduced-motion:no-preference){
+.add::after{content:"";position:absolute;top:0;left:-115%;bottom:0;width:68%;transform:skewX(-20deg);background:linear-gradient(95deg,rgba(255,255,255,.2),transparent 58%);transition:left .65s var(--ease),opacity .3s ease;opacity:.6;pointer-events:none}
+.add:hover::after{left:155%;transition:left .75s var(--ease)}}
+.add:hover{filter:brightness(1.04);box-shadow:0 12px 26px rgba(0,0,0,.4)}
+.add:active{transform:scale(.96)}
+.box{text-align:center;border:1px solid var(--stroke);border-radius:var(--r);padding:clamp(2rem,5vw,3rem) 1rem;background:linear-gradient(180deg,#151515,var(--bg))}
+.box p{color:#969696;margin:0 auto 1rem;max-width:44ch;font-size:.9425rem}
+footer{padding:2.75rem 0 5rem;color:var(--muted);font-size:.81rem;line-height:1.55;border-top:none}
+.fr{display:flex;flex-wrap:wrap;justify-content:space-between;padding-bottom:1.4rem;margin-bottom:.9rem;border-bottom:1px solid var(--stroke);gap:1rem;align-items:center}
+.lg{font-weight:750;color:var(--fg)}
+.lgl{font-size:.71rem;line-height:1.53;color:#6b7280;max-width:78ch;margin:0}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.58);backdrop-filter:blur(5px);z-index:100;opacity:0;visibility:hidden;transition:opacity .34s cubic-bezier(.22,1,.36,1),visibility .34s linear,backdrop-filter .45s ease}
+.ov.show{opacity:1;visibility:visible;backdrop-filter:blur(11px)}
+.sheet{position:fixed;top:0;right:0;z-index:110;height:100%;width:min(440px,calc(100vw - env(safe-area-inset-left)));max-width:100%;background:#101010;border-left:1px solid var(--stroke);transform:translateX(103%);transition:transform .48s var(--ease),opacity .38s ease,box-shadow .45s ease;opacity:.93;display:flex;flex-direction:column;box-shadow:-28px 0 80px rgba(0,0,0,.65)}
+.sheet.show{transform:translateX(0);opacity:1;box-shadow:-36px 0 100px rgba(0,0,0,.75)}
+.sh{display:flex;align-items:center;justify-content:space-between;padding:1.15rem 1.25rem;border-bottom:1px solid var(--stroke)}
+.sh h2{margin:0;font-size:1.06rem}
+.x{background:#1c1c1c;border:1px solid #3d3d3d;color:var(--fg);width:42px;height:42px;border-radius:11px;font-size:1.5rem;line-height:1;cursor:pointer;font-family:inherit;transition:background .26s ease,border-color .26s ease,transform .22s ease,box-shadow .3s ease}
+@media(prefers-reduced-motion:no-preference){
+.sheet.show .sf > .sum{opacity:1;animation:sf-in .5s var(--ease) backwards}
+.sheet.show .sf > .sum:nth-child(2){animation-delay:.08s}
+.sheet.show .sf > .sum:nth-child(3){animation-delay:.14s}
+.sheet.show .go{animation:sf-in .5s var(--ease) .2s backwards}
+.sheet.show .hnt{animation:sf-in .5s var(--ease) .18s backwards}
+.sheet.show .clr{animation:sf-in .5s var(--ease) .24s backwards}}
+@keyframes sf-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.x:hover{background:#2a2a2a;border-color:#6b6b6b;transform:rotate(-4deg)}
+.x:active{transform:scale(.92)}
+.sb{flex:1;overflow-y:auto;padding:0 1.15rem}
+.se{padding:2.5rem .5rem;text-align:center;color:var(--muted);font-size:.89rem;line-height:1.55}
+.item{padding:1.05rem 0;border-bottom:1px solid #262626;display:grid;grid-template-columns:1fr auto;gap:.45rem;align-items:start}
+.item h4{margin:0;font-size:.9rem;font-weight:650;color:var(--fg);line-height:1.3}
+.item .d{font-size:.72rem;color:#858585;line-height:1.45;margin-top:.12rem;display:block}
+.q{display:inline-flex;border:1px solid #3c3c3c;border-radius:8px;overflow:hidden;margin-top:.45rem;transition:border-color .25s ease}
+.q button{width:36px;height:34px;background:#222;border:none;color:var(--fg);font-size:1.1rem;cursor:pointer;font-family:inherit;line-height:1;transition:background .22s ease,transform .14s ease}
+.q button:active{transform:scale(.86)}
+.q span{min-width:40px;display:grid;place-items:center;font-size:.8rem;font-weight:700;font-variant-numeric:tabular-nums;background:#181818}
+.lt{font-weight:750;font-size:.9rem;font-variant-numeric:tabular-nums;color:#e5e5e5}
+.sf{padding:1.2rem 1.25rem;border-top:1px solid var(--stroke)}
+.sum{display:flex;justify-content:space-between;font-size:.88rem;font-weight:600;color:#d4d4d4;margin:.25rem 0}
+.sum.t{font-size:1.14rem;font-weight:750;color:var(--fg);margin-top:.75rem;padding-top:.75rem;border-top:1px solid #333}
+.hnt{font-size:.68rem;color:var(--muted);line-height:1.45;margin:.45rem 0 1rem;text-align:right;display:block}
+.go{display:block;text-align:center;padding:.95rem;border-radius:999px;background:var(--fg);color:#0c0c0c;font-weight:750;text-decoration:none;margin-bottom:.45rem;font-size:.86rem}
+.clr{width:100%;padding:.68rem;border-radius:10px;border:1px solid #404040;background:transparent;color:#9ca3af;font-size:.8rem;font-family:inherit;cursor:pointer}
+.clr:hover{color:var(--fg);border-color:#737373}
+body.noscroll{overflow:hidden}
+.rv[data-io]{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+.rv[data-io]{opacity:1;transform:translateY(12px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv[data-io].on{transform:none;opacity:1}
+}
+@keyframes hi{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.hi{animation:hi .86s var(--ease) both}
+@media(prefers-reduced-motion:no-preference){
+.hero .hrow > div:first-child > .hi:nth-child(1){animation-delay:.04s}
+.hero .hrow > div:first-child > .hi:nth-child(2){animation-delay:.12s}
+.hero .hrow > div:first-child > .hi:nth-child(3){animation-delay:.2s}
+.hero .hrow > div:first-child > .hi:nth-child(4){animation-delay:.28s}
+.hero .hrow > div:first-child > .hi:nth-child(5){animation-delay:.35s}}
+    </style>
+  </head>
+  <body>
+<div class="grid" aria-hidden="true"></div>
+<div class="blob" aria-hidden="true"></div>
+<div class="blob blob2" aria-hidden="true"></div>
+
+    <header>
+  <div class="w h">
+    <a class="logo hi" href="#" aria-label="DrGas home"><span class="lm">d</span><span style="margin-left:.15rem;font-weight:700;font-size:1.12rem;">drgas</span></a>
+    <nav class="nav hi">
+      <a href="#gebruik">Toepassing</a>
+      <a href="#types">Gas-types</a>
+      <a href="#catalogus">Assortiment</a>
+        </nav>
+    <button type="button" class="cartbtn hi" id="oCart" aria-expanded="false"><span>Winkelmand</span><span id="badge" class="n">0</span></button>
+      </div>
+    </header>
+
+<main>
+  <section class="hero">
+    <div class="w hrow">
+          <div>
+        <p class="kicker hi">Horecaspecialist cilinder &amp; menggas</p>
+        <h1 class="hi">Professionele gassen voor keukens, taps &amp; buitenbereiding.</h1>
+        <p class="lead hi">DrGas levert cilinders en menggassen aan gastronomische keukens taps en grootkeukens. U krijgt duidelijke offertes inclusief btw-opbouw statiegeldindicatie en een afgestemd bezorg- of ruilmoment waar dat past bij uw werkproces.</p>
+        <div class="row hi">
+          <a class="btna" href="#catalogus">Bekijk prijzen &amp; mand</a>
+          <a class="btnb" href="#types">Welk gas past waar?</a>
+        </div>
+        <p class="mini hi">Prijzen excl. btw. Statiegeld en routekosten staan gespecificeerd in de schriftelijke bevestiging. Alleen zakelijke bestemming waar wet en plaatselijke vergunningen dat toestaan.</p>
+            </div>
+      <aside class="card hi" style="animation-delay:.06s;">
+        <p style="margin:0 0 1rem;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;color:#9ca3af;position:relative;z-index:2">Service-indicatie</p>
+        <div class="stats">
+          <article><strong>24/7</strong>bestelmoment*</article>
+          <article><strong>NL</strong>routebundels*</article>
+          <article><strong>100%</strong>zakelijk</article>
+        </div>
+        <p style="margin:1rem 0 0;font-size:.7rem;color:#6b7280;line-height:1.45;position:relative;z-index:2">*Concreet levertijd en route na telefonisch of schriftelijk akkoord op uw adres en aantallen.</p>
+      </aside>
+        </div>
+      </section>
+
+  <section id="gebruik">
+    <div class="w">
+      <h2 class="rv" data-io>Horecaprofessionals gebruiken elk gas met een ander doel</h2>
+      <p class="sub rv" data-io>Uw dispenserinstallateur werkgeversaansprakelijkheid VE en uw gasleverancier zijn één keten verkeerde keuze of menging heeft direct gevolgen voor smaak onderhoud en veiligheid.</p>
+      <ul class="cols">
+        <li class="rv" data-io style="transition-delay:.04s;"><span>CO<sub>2</sub> voor tap &amp; postmix</span>Carboniseert dranken beschermt bier tegen oxidatie gebruik altijd voedselveilige (foodgrade) CO<sub>2</sub> geschikt voor de voedselketen — niet industriële varianten waar geuren of oliën kunnen meekomen.</li>
+        <li class="rv" data-io style="transition-delay:.08s;"><span>Zuivere N<sub>2</sub> voor keuken en bar </span>Toepassing onder meer rapid chill mousses en beschermgas voor geopende dranken volgens uw technische dossier. Wij leveren géén middelen voor illegale recreatieve N<sub>2</sub>O-consumering daar waar dit verboden is.</li>
+        <li class="rv" data-io style="transition-delay:.12s;"><span>Menggas (Ar&nbsp;/&nbsp;CO<sub>2</sub>) </span>Wijnmachines en dispenserlijnen vragen vaak een vaste mengverhouding om oxidatie tegen te gaan tussen shifts volgens apparaten-handleiding leverancierspecificatie.</li>
+        <li class="rv" data-io style="transition-delay:.16s;"><span>LPG (propaan) </span>Voor gekwalificeerde buiten‑ en mobiele bereiding waar brandgas onder ADR werkgeversaansprakelijkheid rookafzuig vergunde opslag wordt toegelaten conform uw papieren.</li>
+              </ul>
+        </div>
+      </section>
+
+  <section id="types">
+    <div class="w">
+      <h2 class="rv" data-io>Belangrijkste gasfamilieën in de horeca</h2>
+      <p class="sub rv" data-io>Een compacte oriëntatie voor inkopers en operationeel management: waar let u op tussen CO<sub>2</sub>‑kwaliteit N<sub>2</sub>‑zuiverheid mengverhouding en plaatsing onder ADR/regio?</p>
+      <div class="cards4">
+        <article class="c4 rv" data-io><span class="lab">CO<sub>2</sub></span><h3>Tap &amp; frisdispenser</h3><p>Stabiliseert druk in postmix‑ en taplijnen en voorkomt verzadigingsproblemen. Gebruik uitsluitend een geschikte reducer en een foodgrade-kwaliteit conform fabrikantenhandleiding.</p></article>
+        <article class="c4 rv" data-io style="transition-delay:.04s;"><span class="lab">N<sub>2</sub></span><h3>Gerechten &amp; display</h3><p>Technische ondersteuning voor rapid chill mousses beschermgas op fles daar waar uw QMS‑ of leveranciersdossier zuivere stikstof voorschrijft.</p></article>
+        <article class="c4 rv" data-io style="transition-delay:.08s;"><span class="lab">Meng</span><h3>Wijn &amp; dispensers</h3><p>Voorgeschreven Ar/CO<sub>2</sub>‑mengingen verminderen oxidatie tussen diensten; mengverhouding mag niet vrij worden gewisseld tussen merken.</p></article>
+        <article class="c4 rv" data-io style="transition-delay:.12s;"><span class="lab">LPG</span><h3>Buiten &amp; mobiel</h3><p>Propaan voor branders alleen tegen vergunning veilige opslag afstand rookafzuig instructie gebruiker en werkgeversaansprakelijkheid dossier waar brandgas nog is toegelaten.</p></article>
+          </div>
+        </div>
+      </section>
+
+  <section id="catalogus">
+    <div class="w">
+      <h2 class="rv" data-io>Assortiment met realistische referentieprijs</h2>
+      <p class="sub rv" data-io>Voeg cilinders toe; er wordt geen betaling afgerekend via deze pagina. U opent uw mailprogramma met regels subtotalen en btw — daarna stemmen we levertijd en statiegeld af per offerte.</p>
+      <div class="shop" id="goods"></div>
+        </div>
+      </section>
+
+  <section>
+    <div class="w">
+      <div class="box rv" data-io>
+        <h2 style="margin:0 0 .75rem;color:var(--fg);font-size:clamp(1.45rem,2.75vw,1.92rem);line-height:1.15;font-weight:750;">Contractkeukens of spoedbezorgmoment?</h2>
+        <p>Uw adres aantallen en gewenste levertijd? Bel direct of gebruik WhatsApp voor een inhoudelijke bevestiging en routeprijzen.</p>
+        <div class="row" style="justify-content:center">
+          <a class="btna" href="tel:+31685609460">Bel 06 85609460</a>
+          <a class="btnb" href="https://wa.me/31685609460?text=DrGas%20-%20horecagas%20aanvraag" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+    </main>
+
+    <footer>
+  <div class="w">
+    <div class="fr rv" data-io>
+      <strong class="lg">DrGas cilinderdesk</strong>
+      <nav style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#gebruik" style="color:#9ca3af;text-decoration:none">Toepassing</a>
+        <a href="#catalogus" style="color:#9ca3af;text-decoration:none">Assortiment</a>
+          </nav>
+        </div>
+    <p class="lgl rv" data-io>Alle prijzen en teksten op deze pagina zijn indicatief. Rechten ontstaan pas na een door beide partijen aanvaarde schriftelijke offerte of leveringsbevestiging met batchgegevens waar van toepassing. Geen verkoop of promotie van stikstofoxide (lachgas) voor recreatief gebruik.</p>
+      </div>
+    </footer>
+
+<div class="ov" id="ov"></div>
+<aside id="she" class="sheet" aria-modal="true" role="dialog" aria-labelledby="shT">
+  <div class="sh">
+    <h2 id="shT">Winkelmandje</h2>
+    <button type="button" class="x" id="cls" aria-label="Sluiten">×</button>
+  </div>
+  <div class="sb" id="lines"></div>
+  <div class="sf">
+    <div class="sum"><span>Subtotaal excl. btw</span><span id="ex"></span></div>
+    <div class="sum"><span>Btw 21%</span><span id="vt"></span></div>
+    <div class="sum t"><span>Totaal incl. btw</span><span id="inc"></span></div>
+    <span class="hnt">Levertijd en plaatsing bevestigen we na uw mail of tijdens telefonisch vervolggesprek.</span>
+    <a href="#" id="checkout" class="go">Checkout — opent uw e‑mailprogramma</a>
+    <button type="button" class="clr" id="clr">Winkelmand leeg</button>
+  </div>
+</aside>
+
+    <script>
+(function(){
+'use strict';
+var KEY='drgas_nl_cart_v5';
+var _fmt=null;
+try{_fmt=new Intl.NumberFormat('nl-NL',{style:'currency',currency:'EUR'});}catch(e){}
+function mon(x){var n=Number(x)||0;return _fmt?_fmt.format(n):('€\u00a0'+n.toFixed(2).replace('.',','));}
+/** Indicatieve DrGas-shoplijn — prijzen en statiegeld zijn voorbeeld; echte levering gaat voor op de offerte. */
+var products=[
+{id:'co2_625',title:'CO₂ foodgrade 6,25 kg ruilcilinder',hint:'Standaard voor biertappen en kleinere postmix; reducer-keuze en werkdruk volgens installateursadvies VE.',eur:77.49,dep:'Ruil-/statiegeld indicatie circa € 48.'},
+{id:'co2_10',title:'CO₂ foodgrade 10 kg ruilcilinder',hint:'Minder ruilverkeer bij middelgroot tapsvolume tussen shifts.',eur:134.95,dep:'Ruil-/statiegeld indicatie circa € 59.'},
+{id:'co2_15',title:'CO₂ foodgrade 15 kg ruilcilinder',hint:'Ideaal waar postmix veelgelijntaps of grootkeuken een hoog carbonateerverbruik heeft.',eur:194.49,dep:'Ruil-/statiegeld indicatie circa € 69.'},
+{id:'co2_234',title:'CO₂ foodgrade noodcilinder ±2,34 kg reservebuffer',hint:'Compacte tussenbuffer tot het volgende ruilmoment gekoppelde secundaire lijn.',eur:36.49,dep:'Ruil-/statiegeld indicatie circa € 24.'},
+{id:'n2_5',title:'N₂ culinary 5 L (inhoud volgens cilinderwaterschaal leverancier)',hint:'Kleinere volume voor mousses en bescherm-/spoeltaken waar dossier klein formaat citeert.',eur:96.89,dep:'Ruil-/statiegeld indicatie circa € 41.'},
+{id:'n2_10',title:'N₂ culinary 10 L (inhoud volgens cilinderwaterschaal leverancier)',hint:'Keuken en display tegen oxidatie daar waar dossier dit volume citeert werkplek VE.',eur:158.89,dep:'Ruil-/statiegeld indicatie circa € 56.'},
+{id:'mix_wijn',title:'Dispensermengsel Ar 60 % / CO₂ 40 % — referentievulling ca. 22 L‑eq.',hint:'Oxidering beperken tussen shifts mengverhouding volgens dispenserfabrikant niet zonder advies verwisselen.',eur:152.89,dep:'Ruil-/statiegeld indicatie circa € 76.'},
+{id:'mix_post',title:'Postmix-mengsel Ar 52 % / CO₂ 48 % dispenserklasse',hint:'Fris/snack postmix slang reducer en klasse dossier werkplek VE gekoppeld fabrieksfiche installerende partij.',eur:226.89,dep:'Ruil-/statiegeld indicatie circa € 91.'},
+{id:'mix_nitro',title:'N₂/CO₂ basismeng nitro‑bar voor gekoppelde barinstallatie',hint:'Alleen met geschikte barmodule werkgeversaansprakelijkheid dossier rook/plan regio géén levering naar particuliere verkoophoek.',eur:182.89,dep:'Ruil-/statiegeld indicatie circa € 66.'},
+{id:'n2o_48',title:'Doos 48× gastronomische N₂O‑patrons (stikstofoxide / slagroom)',lab:'Foodgrade gastronomisch · niet voor recreatief inhalatie‑gebruik',hint:'Uitsluitend tegen zakelijke keuken patisserie of grootkeuken waar wet en dossier gastronomisch N₂O inhoudelijke toestaat geen particuliere verkoophoek of recreatief uitgiftekanaal;',eur:69.89,dep:'Retourkartonnage en milieuprotocol zoals gekoppeld in offerte niet vergelijkbaar met cilinder‑ruilstatiegeld.'},
+{id:'n2o_576',title:'Wholesale 576× gastronomische N₂O‑patrons (stikstofoxide referentievoorraad)',lab:'Zakelijke bestemming werkplek dossier · geen vrijgave recreatief',hint:'Alleen leverbaar naar bedrijfsadres met transport‑ en dossiercheck volgens werkplek VE en regiobundel géén vrij consumentenkanaal of café‑bezorg;',eur:986.89,dep:'Palethandling zone‑specifieke ADR/BORS en borgsommen volgens offerte en transportspecificatie vermeld.',},
+{id:'co2_box96',title:'Bak 96× CO₂‑patronen zakelijk refill tap‑corner',hint:'Alleen met gekoppelde patroonsystemen leverbaar géén losse verkoop aan particulieren;',eur:58.89,dep:'Eigen verpakking retour tegen milieuprotocol zoals in offerte; los van ruilcilinder‑statiegeld.'},
+{id:'he_evt',title:'Helium zakelijk refill evenementset kleinformaat cilinderconcept',hint:'Leverbaar tegen ingevuld adresformulier rook‑/ballonkader verschilt per regio levering wordt telefonisch afgestemd;',eur:104.89,dep:'Waarborgbundel depositum circa € 98 na retour volgens formulier leegconcept.'},
+{id:'lpg_51',title:'LPG propaan cilinder circa 5,1 kg terrasmobiliteit',hint:'Mobiele bereiding rookafzuig afstand dossier werkgever ADR/VE volgens werkplekinrichting;',eur:61.89,dep:'Cylinder-depositum bandbreedte circa € 15–€ 22 regiospecifiek verrekend in offerte.'},
+{id:'lpg_112',title:'LPG propaan cilinder circa 11,2 kg groot terrasbereiding',hint:'Outdoor buffet warmte rookafzuig instructie werkgeversaansprakelijkheid dossier werkplek;',eur:75.89,dep:'Cylinder-depositum circa € 19 indicatie naar regio verrekend in offerte.'},
+{id:'acc_hose',title:'Slang-/adapterset tap en postmix conceptprijs werkplekinspectie',hint:'Flexslangen reduceradapter merkcombinatie vervangen volgens interval werkplekinspectie / installateursplan dossier;',eur:43.89,dep:'Eigen aanschaf geen cilinderstatiegeld onderhoudsinterval vastleggen met installateur.'}
+];
+
+function lc(){try{var j=localStorage.getItem(KEY);return j?JSON.parse(j):{}}catch(e){return{}}}
+function sc(x){try{localStorage.setItem(KEY,JSON.stringify(x))}catch(e){}}
+var cart=lc();
+Object.keys(cart).forEach(function(k){
+var q=cart[k]|0;
+if(q<=0){delete cart[k];return;}
+if(products.some(function(p){return p.id===k}))cart[k]=q;else delete cart[k];
+});
+sc(cart);
+
+function pid(id){for(var i=0;i<products.length;i++)if(products[i].id===id)return products[i];return null}
+
+function $id(x){return document.getElementById(x)}
+function tot(){
+var s=0;Object.keys(cart).forEach(function(k){var p=pid(k);if(p)s+=Number(p.eur)*(cart[k]|0)});
+return s;
+}
+function updBadge(){
+var n=Object.keys(cart).reduce(function(a,k){return a+(products.some(function(p){return p.id===k})?(cart[k]|0):0)},0);
+var b=$id('badge'),btn=$id('oCart');var pv=updBadge._pv;if(pv===undefined)pv=null;updBadge._pv=n;
+if(!n){b.style.display='none';btn.classList.remove('has');b.classList.remove('isnew');return;}
+b.style.display='flex';b.textContent=n>99?'99+':String(n);btn.classList.add('has');
+if(pv!==null&&n>pv){b.classList.add('isnew');setTimeout(function(){b.classList.remove('isnew');},580);}
+}
+
+function redraw(){
+updBadge();var bd=$id('lines');
+var ids=Object.keys(cart).filter(function(k){return (cart[k]|0)>0&&products.some(function(p){return p.id===k})});
+if(!ids.length){bd.innerHTML='<p class="se">Nog niets gekozen.<br/><br/>Selecteer cilinders hieronder bij Assortiment.</p>';$id('ex').textContent=$id('vt').textContent=$id('inc').textContent=mon(0);$id('checkout').style.opacity=.5;$id('checkout').pointerEvents='none';return;}
+$id('checkout').style.opacity='';$id('checkout').pointerEvents='';var subt=0;
+bd.innerHTML=ids.map(function(id){
+var p=pid(id);if(!p)return '';
+var q=cart[id]|0;subt+=Number(p.eur)*q;
+return '<div class="item" data-pid="'+id+'"><div><h4>'+esc(p.title)+'</h4><span class="d">'+esc(p.hint.slice(0,120))+(p.hint.length>120?'…':'')+'</span><span class="d" style="margin-top:.4rem;display:block;color:#696969;font-size:.655rem;line-height:1.35">'+'Statiegeld/ruilpakket: '+esc(p.dep)+'</span><div class="q"><button type="button" data-a="m">−</button><span>'+q+'</span><button type="button" data-a="p">+</button></div></div><span class="lt">'+mon(p.eur*q)+'</span></div>';
+}).filter(Boolean).join('');
+bd.querySelectorAll('.item').forEach(function(el){
+var id=el.getAttribute('data-pid');
+el.querySelectorAll('[data-a]').forEach(function(bt){
+bt.addEventListener('click',function(){
+var q=cart[id]|0,m=bt.getAttribute('data-a')==='p'?1:-1,nx=Math.max(0,q+m);
+if(nx)cart[id]=nx;else delete cart[id];sc(cart);redraw();});
+});});
+var bt=subt*0.21;$id('ex').textContent=mon(subt);$id('vt').textContent=mon(bt);$id('inc').textContent=mon(subt+bt);
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+
+function cats(){
+var h=$id('goods');
+h.innerHTML=products.map(function(p,ix){var dlay=Math.min(ix*72,760);
+return '<article class="p" data-io style="--ent:'+dlay+'ms"><div class="pt"><span class="lab">'+(esc(p.lab||'Professioneel zakelijk gebruik · per offerte geleverd'))+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.hint)+(p.hint.length>245?'':'')+'</p><div class="pr"><div><strong class="price">'+mon(p.eur)+'</strong><span class="px">excl.&nbsp;b.t.w.&nbsp;per&nbsp;stuk</span><span class="dep">'+esc(p.dep)+'</span></div></div></div><div class="pf"><button type="button" class="add" data-id="'+esc(p.id)+'">In mandje</button></div></article>';
+}).join('');
+h.querySelectorAll('.add').forEach(function(b){
+b.addEventListener('click',function(){
+var id=b.getAttribute('data-id');cart[id]=(cart[id]|0)+1;sc(cart);opens();redraw();
+});});}
+
+function opens(){$id('she').classList.add('show');$id('ov').classList.add('show');document.body.classList.add('noscroll');$id('oCart').setAttribute('aria-expanded','true')}
+function shuts(){$id('she').classList.remove('show');$id('ov').classList.remove('show');document.body.classList.remove('noscroll');$id('oCart').setAttribute('aria-expanded','false')}
+
+$id('oCart').addEventListener('click',function(){redraw();opens()});
+$id('cls').addEventListener('click',shuts);$id('ov').addEventListener('click',shuts);
+
+$id('clr').addEventListener('click',function(){cart={};sc(cart);redraw()});
+
+$id('checkout').addEventListener('click',function(e){
+var ids=Object.keys(cart).filter(function(k){return (cart[k]|0)>0&&products.some(function(z){return z.id===k})});if(!ids.length){e.preventDefault();return}
+var sx=tot(),bt=sx*.21;var lines=["DrGas bestelconcept (geen contract tot schriftelijke bevestiging van onze zijde)","===============",""]; 
+lines.push("Bedrijfsnaam: ________________");lines.push("KVK (indien van toepassing): _________");lines.push("Bezorgadres inclusief postcode: _________________________________ ");lines.push("Contact voor levering onderweg : _________________ ");lines.push("");
+ids.forEach(function(id){var p=pid(id);if(!p)return;var q=cart[id]|0;lines.push((q>1?q+'× ':'')+p.title+'  —  '+mon(p.eur)+' excl btw / stuksom '+mon(p.eur*q));});lines.push("");lines.push('Subtotaal excl btw '+mon(sx));lines.push('Btw21 '+mon(bt));lines.push('INCL btw '+mon(sx+bt));lines.push('');
+this.href='mailto:info@drfastgas.nl?subject='+encodeURIComponent('DrGas aanvraag assortiment cilinderservices')+'&body='+encodeURIComponent(lines.join('\n'));
+});
+
+
+cats();redraw();
+
+
+if(typeof IntersectionObserver!=='undefined'){
+var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting)en.target.classList.add('on');});},{root:null,threshold:0,rootMargin:'0px 0px 12% 0px'});
+document.querySelectorAll('[data-io]').forEach(function(el){io.observe(el);});}
+else document.querySelectorAll('[data-io]').forEach(function(el){el.classList.add('on')});
+
+window.addEventListener('keydown',function(e){if(e.key==='Escape')shuts()});
+var hdr=document.querySelector('header');
+function hdrSc(){if(hdr){hdr.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop)>38);}}
+hdrSc();
+window.addEventListener('scroll',hdrSc,{passive:true});
+      })();
+    </script>
+  </body>
+</html>
