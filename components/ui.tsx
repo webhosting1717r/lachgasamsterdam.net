@@ -246,3 +246,41 @@ export function Bg(): ReactNode {
   const html = `<img class="poster" src="/bg-poster-v1.webp" alt="" width="960" height="540" decoding="async" fetchpriority="high"><video class="v1" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video><video class="v2" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video>`;
   return <div className="bg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: html }} />;
 }
+
+/* Blueprint met inzoomknop. Zonder JavaScript: de knop is een link naar #bp-zoom (:target opent het
+   scherm), "Inzoomen" is een checkbox-label. Het grote bestand (lazy, in een verborgen blok) wordt pas
+   opgehaald als het scherm opengaat. */
+export function BlueprintZoom({ alt, priority }: { alt: string; priority?: boolean }) {
+  return (
+    <div className="bp">
+      <img
+        className="blueprint"
+        src="/fastgas-blueprint.webp"
+        srcSet="/fastgas-blueprint.webp 768w, /fastgas-blueprint-1200.webp 1200w"
+        sizes="(min-width: 900px) 540px, 92vw"
+        alt={alt}
+        width={768}
+        height={512}
+        decoding="async"
+        {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const })}
+      />
+      <a className="zoom" href="#bp-zoom" aria-label="Blueprint vergroten">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="M20 20l-4.8-4.8M10.5 7.5v6M7.5 10.5h6" />
+        </svg>
+        Inzoomen
+      </a>
+      <div id="bp-zoom" className="lb" role="dialog" aria-label="Blueprint vergroot">
+        <input type="checkbox" id="bp-full" className="lbchk" aria-label="Volledige grootte" />
+        <div className="lbbar">
+          <label htmlFor="bp-full" className="btn sec sm lbz"><span className="zin">Inzoomen</span><span className="zout">Uitzoomen</span></label>
+          <a className="btn pri sm" href="#top-bp" aria-label="Sluiten">Sluiten</a>
+        </div>
+        <div className="lbscroll">
+          <img src="/fastgas-blueprint-full.webp" alt={alt} width={1536} height={1024} loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
-import { Cta, FaqList, JsonLd, Rich } from '@/components/ui';
+import { BlueprintZoom, Cta, FaqList, JsonLd, Rich } from '@/components/ui';
 import { locationData } from '@/lib/content/locations';
 import { site } from '@/lib/site';
 import type { Faq } from '@/lib/types';
@@ -51,17 +51,7 @@ export default function Home() {
             <li>{site.minAge}+ en toegestaan gebruik</li>
           </ul>
             </div>
-            <img
-              className="blueprint"
-              src="/fastgas-blueprint.webp"
-              srcSet="/fastgas-blueprint.webp 768w, /fastgas-blueprint-1200.webp 1200w"
-              sizes="(min-width: 900px) 540px, 92vw"
-              alt="Technisch overzicht van de Fastgas 2KG tank: streepcode, serienummer, inhoud 2000 gram, maximale druk 180 bar, keuringslichaam en afmetingen"
-              width={768}
-              height={512}
-              decoding="async"
-              fetchPriority="high"
-            />
+            <BlueprintZoom priority alt="Technisch overzicht van de Fastgas 2KG tank: streepcode, serienummer, inhoud 2000 gram, maximale druk 180 bar, keuringslichaam en afmetingen" />
           </div>
         </div>
       </section>

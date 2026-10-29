@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { bySlug, pages } from '@/lib/pages';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
-import { Blocks, Cta, Crumbs, FaqList, JsonLd, Related, trailOf } from '@/components/ui';
+import { Blocks, BlueprintZoom, Cta, Crumbs, FaqList, JsonLd, Related, trailOf } from '@/components/ui';
 import { site } from '@/lib/site';
 
 export const dynamicParams = false;
@@ -45,7 +45,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               {!p.noCta && <Cta text={`Hoi, ik wil graag bestellen (${p.nav}).`} />}
               {chip && <ul className="chips">{chip.map((c) => <li key={c}>{c}</li>)}</ul>}
             </div>
-            {p.img && (
+            {p.img && p.img.src === '/fastgas-blueprint.webp' && <BlueprintZoom priority alt={p.img.alt} />}
+            {p.img && p.img.src !== '/fastgas-blueprint.webp' && (
               <img className="shot" src={p.img.src} alt={p.img.alt} width={p.img.w} height={p.img.h} decoding="async" fetchPriority="high" style={{ aspectRatio: `${p.img.w} / ${p.img.h}` }} />
             )}
           </div>
