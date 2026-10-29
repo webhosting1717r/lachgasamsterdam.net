@@ -25,7 +25,7 @@
       ]
     },
     {
-      "source": "/(bg-v1.mp4|bg-poster-v1.webp|fastgas-2kg.webp|fastgas-4kg.webp|fastgas-10kg.webp|fastgas-2kg-tile.webp|fastgas-4kg-tile.webp|fastgas-10kg-tile.webp|fastgas-blueprint.webp|fastgas-close-up.webp)",
+      "source": "/(bg-v1.mp4|bg-poster-v1.webp|fastgas-2kg.webp|fastgas-4kg.webp|fastgas-10kg.webp|fastgas-2kg-tile.webp|fastgas-4kg-tile.webp|fastgas-10kg-tile.webp|fastgas-blueprint.webp|fastgas-blueprint-1200.webp|fastgas-close-up.webp)",
       "headers": [
         {
           "key": "Cache-Control",

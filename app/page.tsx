@@ -36,6 +36,8 @@ export default function Home() {
       <JsonLd data={graph(null, [{ name: 'Home', path: '/' }], faq)} />
       <section className="hero home">
         <div className="wrap">
+          <div className="row two">
+            <div>
           <p className="kicker"><span className="dot" aria-hidden="true" />De lachgaskoerier van Amsterdam</p>
           <h1>Lachgas Amsterdam.<br />Binnen {site.etaShort}.</h1>
           <p className="lead">
@@ -48,6 +50,19 @@ export default function Home() {
             <li>Prijs vooraf</li>
             <li>{site.minAge}+ en toegestaan gebruik</li>
           </ul>
+            </div>
+            <img
+              className="blueprint"
+              src="/fastgas-blueprint.webp"
+              srcSet="/fastgas-blueprint.webp 768w, /fastgas-blueprint-1200.webp 1200w"
+              sizes="(min-width: 900px) 540px, 92vw"
+              alt="Technisch overzicht van de Fastgas 2KG tank: streepcode, serienummer, inhoud 2000 gram, maximale druk 180 bar, keuringslichaam en afmetingen"
+              width={768}
+              height={512}
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
         </div>
       </section>
 
