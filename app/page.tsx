@@ -58,7 +58,7 @@ export default function Home() {
 
       <div className="wrap">
         <section className="panel" aria-labelledby="prod-h">
-          <h2 id="prod-h">Drie tanks, drie formaten</h2>
+          <h2 id="prod-h">Alle formaten beschikbaar</h2>
           <p>Wij leveren uitsluitend de originele <a href="/fastgas/">Fastgas</a> Wegwerp Tank. Geen statiegeld, geen lege fles om in te leveren.</p>
           <div className="tiles">
             {sizes.map((s) => (
