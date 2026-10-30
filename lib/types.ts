@@ -4,6 +4,7 @@ export type Faq = { q: string; a: string };
 export type Block =
   | { t: 'p'; x: string }
   | { t: 'h2'; x: string }
+  | { t: 'h3'; x: string }
   | { t: 'ul'; x: string[] }
   | { t: 'steps'; x: [string, string][] }
   | { t: 'cards'; x: { h: string; p: string; href: string }[] }
@@ -36,4 +37,8 @@ export type Page = {
   /** plaatsnaam voor areaServed (alleen location) */
   place?: string;
   noCta?: boolean;
+  /** taal van de inhoud als die niet Nederlands is */
+  lang?: 'en';
+  /** vertaalde tegenhanger (slug), voor hreflang */
+  twin?: string;
 };

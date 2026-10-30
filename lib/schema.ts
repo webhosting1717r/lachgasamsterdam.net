@@ -6,11 +6,16 @@ const strip = (s: string) => s.replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]+
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const hours = { '@type': 'OpeningHoursSpecification', dayOfWeek: days, opens: '00:00', closes: '23:59' };
 
+/* Netto inhoud in gram, zoals op de productpagina's en het label staat. */
+const netto: Record<string, number> = { 'fastgas-2kg': 2000, 'fastgas-4kg': 4000, 'fastgas-10kg': 10000 };
+
 export const business = {
   '@type': 'LocalBusiness',
   '@id': abs('/#business'),
   name: site.name,
   alternateName: 'Lachgaskoerier Amsterdam',
+  slogan: 'Fastgas tank bezorgd, 24/7, binnen 20 tot 30 minuten',
+  knowsAbout: ['Lachgas (distikstofmonoxide, N2O)', 'Slagroomspuiten en slagroompatronen', 'Veilige opslag en transport van gastanks', 'Opiumwet en lachgas'],
   description:
     'Bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. 24/7 bereikbaar, betalen bij aflevering met PIN of contant. Alleen 18+ en voor toegestaan gebruik.',
   url: abs('/'),
@@ -49,17 +54,18 @@ export function crumbs(items: { name: string; path: string }[]) {
   };
 }
 
-export function graph(page: Page | null, trail: { name: string; path: string }[], faq?: Faq[]) {
+export function graph(page: Page | null, trail: { name: string; path: string }[], faq?: Faq[], home?: string) {
   const path = page ? `/${page.slug}/` : '/';
   const nodes: unknown[] = [business, websiteNode];
   nodes.push({
-    '@type': page?.kind === 'article' ? 'WebPage' : 'WebPage',
+    '@type': page?.kind === 'article' ? 'WebPage' : page?.group === 'hub' && page.slug === 'contact' ? 'ContactPage' : 'WebPage',
     '@id': abs(path) + '#webpage',
     url: abs(path),
     name: page ? page.h1 : site.name,
-    description: page?.desc,
-    inLanguage: 'nl-NL',
+    description: page ? page.desc : (home ?? undefined),
+    inLanguage: page?.lang === 'en' ? 'en' : 'nl-NL',
     isPartOf: { '@id': abs('/#website') },
+    primaryImageOfPage: { '@type': 'ImageObject', url: abs(page?.img?.src ?? '/og.png') },
     about: { '@id': abs('/#business') },
     dateModified: site.lastmod,
     breadcrumb: { '@id': abs(path) + '#breadcrumb' },
@@ -73,6 +79,8 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
       name: `Lachgas bezorgen in ${page.place}`,
       serviceType: 'Bezorging van Fastgas Wegwerp Tank (N2O)',
       provider: { '@id': abs('/#business') },
+      termsOfService: abs('/algemene-voorwaarden/'),
+      availableChannel: { '@type': 'ServiceChannel', serviceUrl: abs('/bestellen/'), servicePhone: site.phone, availableLanguage: ['nl', 'en'] },
       areaServed: { '@type': 'City', name: page.place },
       url: abs(path),
       description: page.desc,
@@ -84,6 +92,8 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
       name: page.h1,
       serviceType: 'Bezorging van Fastgas Wegwerp Tank (N2O)',
       provider: { '@id': abs('/#business') },
+      termsOfService: abs('/algemene-voorwaarden/'),
+      availableChannel: { '@type': 'ServiceChannel', serviceUrl: abs('/bestellen/'), servicePhone: site.phone, availableLanguage: ['nl', 'en'] },
       areaServed: { '@type': 'City', name: 'Amsterdam' },
       url: abs(path),
       description: page.desc,
@@ -98,6 +108,7 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
       description: page.desc,
       url: abs(path),
       ...(page.img ? { image: abs(page.img.src) } : {}),
+      ...(netto[page.slug] ? { additionalProperty: [{ '@type': 'PropertyValue', name: 'Netto inhoud lachgas (N2O)', value: netto[page.slug], unitCode: 'GRM' }] } : {}),
     });
   } else if (page?.kind === 'article') {
     nodes.push({
@@ -105,7 +116,8 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
       '@id': abs(path) + '#article',
       headline: page.h1,
       description: page.desc,
-      inLanguage: 'nl-NL',
+      inLanguage: page.lang === 'en' ? 'en' : 'nl-NL',
+      image: abs(page.img?.src ?? '/og.png'),
       dateModified: site.lastmod,
       datePublished: '2026-10-29',
       author: { '@id': abs('/#business') },

@@ -22,6 +22,8 @@ node serve.mjs 8797  # lokaal testen met brotli, op http://localhost:8797
 | `lib/schema.ts` | JSON-LD: LocalBusiness, WebSite, WebPage, BreadcrumbList, Service, ProductModel, Article, FAQPage |
 | `public/` | video (`bg-v1.mp4`), poster, productfoto's, OG-afbeelding, iconen, `llms.txt` |
 
+Blokken in `blocks`: `p`, `h2`, `h3`, `ul`, `steps`, `cards`, `table`, `note`. Bij vier of meer `h2`-koppen komt vanzelf een inhoudsopgave met ankerlinks. `lang: 'en'` zet de taal van een pagina, `twin` koppelt een Nederlandse en een Engelse pagina met hreflang.
+
 Een nieuwe zoekopdracht-pagina toevoegen = een object toevoegen in `lib/content/services.ts` (of een andere groep). Sitemap, footer-overzicht (`/overzicht/`) en routes volgen vanzelf.
 
 ## Vercel
@@ -37,4 +39,6 @@ Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sit
 
 - `npm run build` moet zonder fouten eindigen (postbuild faalt als er nog een `<script src>` naar `/_next/` of een JS-bestand in `out/_next/` over is).
 - Googlebot rekt het venster op tot de hele paginahoogte (bijvoorbeeld 412×8000). Gebruik daarom geen `100vh`, `100svh` of `100%` zonder plafond (`min(…, 1100px)`): anders wordt de hero duizenden pixels hoog en valt de kop buiten de Search Console-screenshot.
+- `npm run seo` (na de build) controleert titels, descriptions, koppen, woordaantallen, interne links, dubbele ids, JSON-LD en de sitemap. Exitcode 1 bij fouten.
+- Werk `lastmod` en `lastmodText` in `lib/site.ts` bij als je inhoud wijzigt.
 - Lighthouse mobile en desktop op home, een product-, locatie- en infopagina.

@@ -77,11 +77,22 @@ h1{margin:0;font-size:clamp(2.35rem,7.2vw,4.6rem);line-height:1.04;letter-spacin
 
 /* content */
 main{display:block}
+.pg{display:contents}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,44px);margin:0 0 20px;content-visibility:auto;contain-intrinsic-size:auto 600px}
 .panel.narrow>*{max-width:760px}
 h2{margin:36px 0 12px;font-size:clamp(1.45rem,3.4vw,2.05rem);line-height:1.15;letter-spacing:-.025em;font-weight:720;text-wrap:balance}
 .panel>h2:first-child,.panel>section>h2:first-child{margin-top:0}
 h3{margin:0 0 6px;font-size:1.15rem;letter-spacing:-.01em}
+.panel h3{margin:26px 0 8px;font-size:1.2rem;line-height:1.25;color:var(--ink)}
+.panel h2[id]{scroll-margin-top:84px}
+.toc{margin:0 0 26px;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:var(--card2)}
+.toc strong{display:block;margin-bottom:8px;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.toc ol{margin:0;padding:0;list-style:none;display:grid;gap:2px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{display:flex;gap:10px;align-items:baseline;min-height:36px;padding:6px 0;color:var(--ink2);text-decoration:none;font-size:.95rem;line-height:1.3}
+.toc a::before{content:counter(t);flex:none;width:22px;color:var(--acc);font-weight:700;font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--ink);text-decoration:underline}
+.updated{margin:0 0 20px;font-size:.88rem;color:var(--mute)}
 p{margin:0 0 14px;color:var(--ink2);text-wrap:pretty}
 .panel p strong,.panel li strong{color:var(--ink)}
 .ticks{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px}

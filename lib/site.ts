@@ -6,7 +6,10 @@ export const site = {
   brand: 'Fastgas',
   url: 'https://www.lachgasamsterdam.net',
   host: 'www.lachgasamsterdam.net',
-  lastmod: '2026-10-29',
+  lastmod: '2026-10-30',
+  /** dag/maand/jaar voor de zichtbare "Bijgewerkt"-regel */
+  lastmodText: '30 oktober 2026',
+  lastmodTextEn: '30 October 2026',
   /* Nummers gelijk aan fastgasservice.nl (sinds 2026-10-28). */
   phone: '+31852128051',
   phoneText: '085 212 8051',

@@ -12,7 +12,7 @@ export function Rich({ text }: { text: string }) {
       {parts.map((p, i) => {
         if (p.startsWith('**')) return <strong key={i}>{p.slice(2, -2)}</strong>;
         const m = p.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-        if (m) return <a key={i} href={m[2]}>{m[1]}</a>;
+        if (m) return /^https?:/.test(m[2]) ? <a key={i} href={m[2]} rel="noopener">{m[1]}</a> : <a key={i} href={m[2]}>{m[1]}</a>;
         return p;
       })}
     </>
@@ -31,16 +31,39 @@ const IconTel = () => (
   </svg>
 );
 
-export function Cta({ text }: { text?: string }) {
+export function Cta({ text, en }: { text?: string; en?: boolean }) {
   return (
     <div className="cta">
       <a className="btn pri" href={waHref(text)} rel="noopener">
-        <IconWa /> Bestel via WhatsApp
+        <IconWa /> {en ? 'Order via WhatsApp' : 'Bestel via WhatsApp'}
       </a>
       <a className="btn sec" href={telHref}>
-        <IconTel /> Bel {site.phoneText}
+        <IconTel /> {en ? 'Call' : 'Bel'} {site.phoneText}
       </a>
     </div>
+  );
+}
+
+/* Ankers voor de inhoudsopgave: "Wat kost een tank?" wordt "wat-kost-een-tank". */
+export const anchor = (s: string) =>
+  s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+/* Inhoudsopgave van een lange pagina: gewone ankerlinks, dus zonder JavaScript. */
+export function Toc({ blocks, title = 'Op deze pagina' }: { blocks: Block[]; title?: string }) {
+  const heads = blocks.filter((b): b is Extract<Block, { t: 'h2' }> => b.t === 'h2');
+  if (heads.length < 4) return null;
+  return (
+    <nav className="toc" aria-label={title}>
+      <strong>{title}</strong>
+      <ol>
+        {heads.map((h) => <li key={h.x}><a href={`#${anchor(h.x)}`}>{h.x}</a></li>)}
+      </ol>
+    </nav>
   );
 }
 
@@ -50,7 +73,9 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
       {blocks.map((b, i) => {
         switch (b.t) {
           case 'h2':
-            return <h2 key={i}>{b.x}</h2>;
+            return <h2 key={i} id={anchor(b.x)}>{b.x}</h2>;
+          case 'h3':
+            return <h3 key={i}>{b.x}</h3>;
           case 'p':
             return <p key={i}><Rich text={b.x} /></p>;
           case 'ul':

@@ -6,7 +6,8 @@
     "dev": "next dev -p 8796",
     "build": "node scripts/build.mjs",
     "start": "npx serve out -l 8797",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "seo": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "next": "^16.4.3",
