@@ -13,7 +13,7 @@ export const business = {
   '@type': 'LocalBusiness',
   '@id': abs('/#business'),
   name: site.name,
-  alternateName: 'Lachgaskoerier Amsterdam',
+  alternateName: ['Lachgaskoerier Amsterdam', 'Lachgas Amsterdam bezorgdienst'],
   slogan: 'Fastgas tank bezorgd, 24/7, binnen 20 tot 30 minuten',
   knowsAbout: ['Lachgas (distikstofmonoxide, N2O)', 'Slagroomspuiten en slagroompatronen', 'Veilige opslag en transport van gastanks', 'Opiumwet en lachgas'],
   description:
@@ -103,7 +103,7 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
     nodes.push({
       '@type': 'ProductModel',
       '@id': abs(path) + '#product',
-      name: page.h1 === 'Lachgas tanks' ? 'Fastgas Wegwerp Tank' : page.h1,
+      name: page.slug === 'lachgas-tanks' ? 'Fastgas Wegwerp Tank' : page.h1,
       brand: { '@type': 'Brand', name: site.brand },
       description: page.desc,
       url: abs(path),

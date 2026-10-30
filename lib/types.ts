@@ -37,6 +37,8 @@ export type Page = {
   /** plaatsnaam voor areaServed (alleen location) */
   place?: string;
   noCta?: boolean;
+  /** titel zonder merk-suffix (voor pagina's waar het merk zelf het zoekwoord is) */
+  absolute?: boolean;
   /** taal van de inhoud als die niet Nederlands is */
   lang?: 'en';
   /** vertaalde tegenhanger (slug), voor hreflang */

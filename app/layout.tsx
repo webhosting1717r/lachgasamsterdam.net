@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { Bg, Footer, Header, StickyCta } from '@/components/ui';
+import { Bg, Footer, Header, StickyCta, WaFloat } from '@/components/ui';
 import { behaviorScript } from '@/lib/behavior';
 import { defaultOg } from '@/lib/meta';
 import { site } from '@/lib/site';
@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <StickyCta />
+        <WaFloat />
         <script dangerouslySetInnerHTML={{ __html: behaviorScript }} />
       </body>
     </html>

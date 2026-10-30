@@ -41,7 +41,7 @@ type Loc = {
 const L: Loc[] = [
   {
     slug: 'lachgas-amsterdam', name: 'Amsterdam', kind: 'stad', region: 'Noord-Holland',
-    title: 'Lachgas Amsterdam bezorgd in elk stadsdeel',
+    title: 'Lachgas Amsterdam: bezorgd in elk stadsdeel, 24/7',
     desc: 'Lachgas bezorgen in Amsterdam: Fastgas Wegwerp Tank (2KG, 4KG, 10KG) in alle stadsdelen, 24/7 en doorgaans binnen 20 tot 30 minuten. Betaal bij aflevering.',
     spots: ['Centraal Station', 'Museumplein', 'NDSM-werf', 'Johan Cruijff ArenA'],
     intro: 'Amsterdam is ons kerngebied en we bezorgen in alle zeven stadsdelen en in Weesp. Sinds 2022 hoort Weesp bij de gemeente Amsterdam, dus je kiest uit acht gebieden.',
@@ -895,7 +895,8 @@ function make(l: Loc): Page {
     group: 'location',
     kind: 'location',
     place: l.name,
-    nav: l.name,
+    nav: stad ? 'Lachgas Amsterdam' : l.name,
+    ...(stad ? { absolute: true } : {}),
     parent: 'bezorggebied',
     title: l.title ?? `Lachgas bezorgen in ${l.name}`,
     desc: l.desc,

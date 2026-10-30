@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const languages = twin
     ? { [p.lang === 'en' ? 'en' : 'nl-NL']: `/${p.slug}/`, [twin.lang === 'en' ? 'en' : 'nl-NL']: `/${twin.slug}/` }
     : undefined;
-  return pageMeta({ title: p.title, description: p.desc, path: `/${p.slug}/`, languages, article: p.kind === 'article', locale: p.lang === 'en' ? 'en_US' : 'nl_NL' });
+  return pageMeta({ title: p.title, description: p.desc, path: `/${p.slug}/`, absolute: p.absolute, languages, article: p.kind === 'article', locale: p.lang === 'en' ? 'en_US' : 'nl_NL' });
 }
 
 const chips: Record<string, string[]> = {

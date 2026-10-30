@@ -14,7 +14,7 @@ export const products: Page[] = [
     slug: 'lachgas-tanks', group: 'product', kind: 'product', nav: 'Lachgas tanks', parent: 'home', twin: 'nitrous-oxide-tanks',
     title: 'Lachgas tanks: Fastgas 2KG, 4KG en 10KG',
     desc: 'Lachgas tank bestellen in Amsterdam: de verzegelde Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Bezorgd binnen 20 tot 30 minuten, PIN of contant.',
-    h1: 'Lachgas tanks', kicker: 'Fastgas Wegwerp Tank',
+    h1: 'Lachgas tanks in Amsterdam', kicker: 'Fastgas Wegwerp Tank',
     lead: 'De Fastgas Wegwerp Tank is verzegeld, heeft een label met serienummer en keuringsgegevens en is direct klaar voor gebruik. Drie formaten, bezorgd in en rond Amsterdam.',
     img: { src: '/fastgas-4kg.webp', alt: 'Fastgas lachgas tanks 2KG en 4KG, navy met gele band', w: 640, h: 512 },
     blocks: [

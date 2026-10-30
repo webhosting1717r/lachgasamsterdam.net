@@ -9,8 +9,8 @@ export const hubs: Page[] = [
     slug: 'bestellen', group: 'hub', kind: 'service', nav: 'Bestellen', parent: 'home',
     title: 'Lachgas bestellen: zo werkt het in 3 stappen',
     desc: 'Bestellen bij Lachgas Amsterdam in drie stappen: WhatsApp of bel, wij bevestigen prijs en tijd, jij betaalt bij aflevering. 24/7.',
-    h1: 'Bestellen', kicker: 'In drie stappen',
-    lead: 'Geen account, geen formulier. Je bestelt met een bericht of telefoontje en betaalt de koerier bij aflevering.',
+    h1: 'Bestellen bij Lachgas Amsterdam', kicker: 'In drie stappen',
+    lead: 'Bij Lachgas Amsterdam bestel je zonder account of formulier: een bericht of telefoontje is genoeg. Je betaalt de koerier bij aflevering.',
     blocks: [
       { t: 'h2', x: 'Lachgas bestellen in drie stappen' },
       { t: 'steps', x: [
@@ -135,8 +135,8 @@ export const hubs: Page[] = [
     slug: 'contact', group: 'hub', kind: 'article', nav: 'Contact', parent: 'home',
     title: 'Contact: bel of app Lachgas Amsterdam',
     desc: 'Contact met Lachgas Amsterdam: bel 085 212 8051 of stuur een WhatsApp naar +31 97010270187. Dag en nacht bereikbaar, ook in het weekend.',
-    h1: 'Contact', kicker: 'Dag en nacht bereikbaar',
-    lead: 'Bestellen of een vraag? Bel ons of stuur een WhatsApp-bericht. We reageren dag en nacht.',
+    h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
+    lead: 'Bestellen of een vraag? Bel Lachgas Amsterdam of stuur een WhatsApp-bericht. We reageren dag en nacht.',
     blocks: [
       { t: 'h2', x: 'Zo bereik je ons' },
       { t: 'ul', x: ['Bel: 085 212 8051', 'WhatsApp: +31 97010270187', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },

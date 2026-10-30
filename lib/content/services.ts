@@ -147,8 +147,8 @@ export const services: Page[] = [
     slug: 'lachgas-bezorgen', group: 'service', kind: 'service', nav: 'Lachgas bezorgen', parent: 'home', twin: 'laughing-gas-delivery-amsterdam',
     title: 'Lachgas bezorgen: 24/7 in Amsterdam en regio',
     desc: 'Lachgas laten bezorgen in Amsterdam en omstreken: verzegelde Fastgas tanks, 24/7, doorgaans binnen 20 tot 30 minuten. Betalen bij aflevering.',
-    h1: 'Lachgas bezorgen', kicker: 'Bezorgservice',
-    lead: 'Onze koeriers bezorgen dag en nacht in Amsterdam en een groot deel van de regio. Je bestelt, wij komen.',
+    h1: 'Lachgas bezorgen in Amsterdam', kicker: 'Bezorgservice',
+    lead: 'Lachgas Amsterdam bezorgt dag en nacht in alle stadsdelen en een groot deel van de regio. Je bestelt, wij komen.',
     blocks: [
       { t: 'h2', x: 'Hoe werkt lachgas bezorgen?' },
       { t: 'p', x: 'Na je bestelling bevestigen we prijs en verwachte aankomsttijd. De koerier brengt de verzegelde tank naar je adres, controleert desgewenst je leeftijd en neemt de betaling aan (PIN of contant). Er is geen afhaalpunt: bezorging is de enige manier waarop wij leveren.' },
@@ -221,7 +221,7 @@ export const services: Page[] = [
     slug: 'lachgas-bezorgdienst', group: 'service', kind: 'service', nav: 'Lachgas bezorgdienst', parent: 'home',
     title: 'Lachgas bezorgdienst: onze werkwijze',
     desc: 'De lachgas bezorgdienst van Amsterdam: wat we leveren, hoe we controleren en voor wie we werken. Eén product, één service, 24/7 bereikbaar.',
-    h1: 'Lachgas bezorgdienst', kicker: 'Eén product, één service',
+    h1: 'Lachgas bezorgdienst Amsterdam', kicker: 'Eén product, één service',
     lead: 'Onze bezorgdienst levert één ding: de originele Fastgas Wegwerp Tank. Daardoor kunnen we snel, duidelijk en consequent werken.',
     blocks: [
       { t: 'h2', x: 'Hoe werkt onze lachgas bezorgdienst?' },
@@ -346,7 +346,7 @@ export const services: Page[] = [
     slug: 'lachgas-24-7', group: 'service', kind: 'service', nav: 'Lachgas 24/7', parent: 'home',
     title: 'Lachgas 24/7 bestellen: dag en nacht open',
     desc: 'Lachgas 24/7: onze bezorgdienst is elke dag van het jaar bereikbaar, ook ’s nachts en op feestdagen. Bestel via WhatsApp of telefoon.',
-    h1: 'Lachgas 24/7', kicker: 'Altijd bereikbaar',
+    h1: 'Lachgas 24/7 in Amsterdam', kicker: 'Altijd bereikbaar',
     lead: 'Bij ons bestaat “gesloten” niet. Je kunt dag en nacht bestellen, ook op zondag en feestdagen.',
     blocks: [
       { t: 'h2', x: 'Openingstijden: elke dag, de hele dag' },

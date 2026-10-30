@@ -15,6 +15,8 @@ export const metadata: Metadata = pageMeta({
 });
 
 const faq: Faq[] = [
+  { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp of telefoon, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
+  { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp of telefoon, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Op [lachgas Amsterdam](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
   { q: 'Hoe snel bezorgen jullie lachgas in Amsterdam?', a: 'Gemiddeld staat onze koerier binnen 20 tot 30 minuten voor de deur, dag en nacht. Buiten Amsterdam hoor je op de pagina van je plaats wat de verwachte tijd is. Bij je bestelling bevestigen we altijd de aankomsttijd.' },
   { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
   { q: 'Wat kost een Fastgas tank?', a: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom noemen we hem per bericht en altijd vooraf. Stuur je adres en formaat via [WhatsApp](/lachgas-bestellen-whatsapp/) en je hoort meestal binnen enkele minuten het totaalbedrag. Meer uitleg staat op [lachgas prijs](/lachgas-prijs/).' },
@@ -63,12 +65,20 @@ export default function Home() {
 
       <div className="wrap">
         <section className="panel narrow" aria-labelledby="intro-h">
-          <h2 id="intro-h">Lachgas bestellen en laten bezorgen in Amsterdam</h2>
+          <h2 id="intro-h">Lachgas Amsterdam: bestellen en laten bezorgen</h2>
           <p>
             <Rich text="**Lachgas Amsterdam** is een bezorgdienst voor één product: de originele Fastgas Wegwerp Tank. Je bestelt via WhatsApp of telefoon, wij bevestigen prijs en aankomsttijd, en de koerier brengt de verzegelde tank naar je adres in Amsterdam of de regio. Je betaalt pas bij aflevering." />
           </p>
+          <h3>Lachgas Amsterdam in het kort</h3>
+          <ul className="ticks">
+            <li><strong>Wat:</strong> bezorging van de originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG</li>
+            <li><strong>Waar:</strong> alle stadsdelen van Amsterdam, Weesp en 15 plaatsen eromheen</li>
+            <li><strong>Wanneer:</strong> 24/7, in Amsterdam doorgaans binnen 20 tot 30 minuten</li>
+            <li><strong>Betalen:</strong> bij aflevering met PIN of contant, de prijs hoor je vooraf</li>
+            <li><strong>Voor wie:</strong> klanten van 18 jaar en ouder met een toegestane toepassing, zoals keuken, horeca, catering en techniek</li>
+          </ul>
           <p>
-            <Rich text="Onze klanten zijn restaurants, bars en cateraars die [slagroom, schuimen en mousses](/slagroomspuiten/) maken, evenementenbedrijven die op locatie werken en particulieren met een toegestane keukentoepassing. Omdat we één product leveren, kunnen we snel, duidelijk en zonder omwegen werken: geen webshop met winkelwagen, geen account, geen wachtmuziek." />
+            <Rich text="Onze klanten zijn restaurants, bars en cateraars die [slagroom, schuimen en mousses](/slagroomspuiten/) maken, evenementenbedrijven die op locatie werken en particulieren met een toegestane keukentoepassing. Omdat we één product leveren, kunnen we snel, duidelijk en zonder omwegen werken: geen webshop met winkelwagen, geen account, geen wachtmuziek. Per stadsdeel lees je meer op [lachgas Amsterdam](/lachgas-amsterdam/)." />
           </p>
           <p>
             <Rich text="Lachgas valt sinds 1 januari 2023 onder de Opiumwet. We leveren daarom alleen aan 18+ en alleen voor toegestaan gebruik. Hoe dat precies zit, lees je onder [is lachgas verboden](/is-lachgas-verboden/)." />
@@ -170,7 +180,7 @@ export default function Home() {
         </section>
 
         <section className="panel" aria-labelledby="area-h">
-          <h2 id="area-h">Waar wij bezorgen</h2>
+          <h2 id="area-h">Lachgas Amsterdam: waar wij bezorgen</h2>
           <p>
             <Rich text="Alle stadsdelen van Amsterdam en 15 plaatsen eromheen. Kies je locatie voor wijken, bereikbaarheid en de verwachte levertijd. Staat je plaats er niet bij, vraag het via [WhatsApp](/contact/); soms kunnen we er toch komen." />
           </p>
