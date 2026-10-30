@@ -15,8 +15,10 @@ a:hover{text-decoration:none}
 .skip:focus{top:12px}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
 
-/* achtergrond: poster eerst, video daarna er overheen */
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg)}
+/* achtergrond: poster eerst, video daarna er overheen.
+   Googlebot rekt het venster op tot de hele paginahoogte: viewport-eenheden en 100% zijn dan duizenden px.
+   Daarom hebben .bg en de hero hieronder een plafond, anders valt de kop buiten de Search Console-screenshot. */
+.bg{position:fixed;inset:0 0 auto;height:min(100%,1600px);z-index:-1;overflow:hidden;background:var(--bg)}
 .bg img,.bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .bg video{opacity:0;pointer-events:none}
 .bg .v2{transform:scaleX(-1)}
@@ -57,7 +59,7 @@ a:hover{text-decoration:none}
 
 /* hero */
 .hero{padding:clamp(44px,9vw,110px) 0 clamp(32px,6vw,70px)}
-.hero.home{min-height:calc(100svh - 60px);display:flex;align-items:center}
+.hero.home{min-height:min(calc(100svh - 60px),1100px);display:flex;align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid var(--line);font-size:.85rem;color:var(--ink2);letter-spacing:.02em}
 .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.22)}
 h1{margin:0;font-size:clamp(2.35rem,7.2vw,4.6rem);line-height:1.04;letter-spacing:-.035em;font-weight:760;text-wrap:balance}
