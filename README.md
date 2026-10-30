@@ -26,7 +26,7 @@ Een nieuwe zoekopdracht-pagina toevoegen = een object toevoegen in `lib/content/
 
 ## Vercel
 
-1. Push naar een GitHub-repo en importeer die in Vercel. `vercel.json` zet `framework` op `null`, de build op `npm run build` en de uitvoer op `out/`, zodat Vercel precies serveert wat de build in `out/` achterlaat. Laat dit staan: met het Next.js-framework gebruikt Vercel een adapter (`NEXT_ADAPTER_PATH`) die `out/` al binnen `next build` kopieert, vóór `postbuild` de runtime eruit haalt. De site staat dan met zes scripts onder `/_next/static/immutable/` live en Search Console meldt die als "Andere fout". `scripts/build.mjs` haalt die variabele daarom ook zelf uit de omgeving.
+1. Push naar een GitHub-repo en importeer die in Vercel. `vercel.json` zet `framework` op `null`, de build op `npm run build` en de uitvoer op `out/`, zodat Vercel precies serveert wat de build in `out/` achterlaat. Laat dit staan: met het Next.js-framework gebruikt Vercel een adapter (`NEXT_ADAPTER_PATH`) die `out/` al binnen `next build` kopieert, vóór `postbuild` de runtime eruit haalt. De site staat dan met de Next-scripts onder `/_next/static/immutable/` live en Search Console meldt die als "Andere fout". `scripts/build.mjs` haalt die variabele daarom ook zelf uit de omgeving.
 2. Voeg bij Domains `www.lachgasamsterdam.net` toe (primair) en `lachgasamsterdam.net`, dat in het dashboard naar www doorstuurt. Zet in `vercel.json` geen tweede redirect in de andere richting: dat geeft een redirectlus.
 3. Zet bij je DNS-provider de records die Vercel noemt.
 4. Search Console: voeg `https://www.lachgasamsterdam.net/` toe als Domein-property, dien `https://www.lachgasamsterdam.net/sitemap.xml` in en vraag de homepage te laten indexeren.
