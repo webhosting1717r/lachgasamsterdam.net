@@ -15,8 +15,8 @@ export const metadata: Metadata = pageMeta({
 });
 
 const faq: Faq[] = [
-  { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp of telefoon, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
-  { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp of telefoon, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Op [lachgas Amsterdam](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
+  { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
+  { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Op [lachgas Amsterdam](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
   { q: 'Hoe snel bezorgen jullie lachgas in Amsterdam?', a: 'Gemiddeld staat onze koerier binnen 20 tot 30 minuten voor de deur, dag en nacht. Buiten Amsterdam hoor je op de pagina van je plaats wat de verwachte tijd is. Bij je bestelling bevestigen we altijd de aankomsttijd.' },
   { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
   { q: 'Wat kost een Fastgas tank?', a: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom noemen we hem per bericht en altijd vooraf. Stuur je adres en formaat via [WhatsApp](/lachgas-bestellen-whatsapp/) en je hoort meestal binnen enkele minuten het totaalbedrag. Meer uitleg staat op [lachgas prijs](/lachgas-prijs/).' },
@@ -28,7 +28,7 @@ const faq: Faq[] = [
   { q: 'Is lachgas verboden?', a: 'Sinds 1 januari 2023 valt lachgas onder de Opiumwet. Recreatief gebruik en bezit daarvoor zijn verboden; toepassingen zoals keuken, techniek en zorg blijven toegestaan. Lees [de uitleg](/is-lachgas-verboden/).' },
   { q: 'Zijn jullie echt 24/7 open?', a: 'Ja. We zijn elke dag van het jaar bereikbaar, doordeweeks, in het weekend en op feestdagen. Zie [lachgas 24/7](/lachgas-24-7/) voor hoe nachtelijke orders verlopen.' },
   { q: 'Wat doe ik met een lege tank?', a: 'Het is een wegwerptank zonder statiegeld, dus je hoeft hem niet terug te brengen. Laat hem volledig leeglopen op een geventileerde plek en voer hem af volgens de lokale regels voor gasflessen of metaal. Meer in [wegwerp lachgas tanks](/wegwerp-lachgas-tanks/).' },
-  { q: 'Kan ik in het Engels bestellen?', a: 'Ja, je kunt ons in het Engels appen of bellen. Zie [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/) voor de Engelstalige uitleg.' },
+  { q: 'Kan ik in het Engels bestellen?', a: 'Ja, je kunt ons in het Engels appen. Zie [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/) voor de Engelstalige uitleg.' },
 ];
 
 const sizes = [
@@ -48,7 +48,7 @@ export default function Home() {
           <p className="kicker"><span className="dot" aria-hidden="true" />De lachgaskoerier van Amsterdam</p>
           <h1>Lachgas Amsterdam.<br />Binnen {site.etaShort}.</h1>
           <p className="lead">
-            De Fastgas Wegwerp Tank, verzegeld en 24/7 bezorgd in Amsterdam en omstreken. Bestel via WhatsApp of telefoon en betaal bij aflevering.
+            De Fastgas Wegwerp Tank, verzegeld en 24/7 bezorgd in Amsterdam en omstreken. Bestel via WhatsApp en betaal bij aflevering.
           </p>
           <Cta />
           <ul className="chips">
@@ -67,7 +67,7 @@ export default function Home() {
         <section className="panel narrow" aria-labelledby="intro-h">
           <h2 id="intro-h">Lachgas Amsterdam: bestellen en laten bezorgen</h2>
           <p>
-            <Rich text="**Lachgas Amsterdam** is een bezorgdienst voor één product: de originele Fastgas Wegwerp Tank. Je bestelt via WhatsApp of telefoon, wij bevestigen prijs en aankomsttijd, en de koerier brengt de verzegelde tank naar je adres in Amsterdam of de regio. Je betaalt pas bij aflevering." />
+            <Rich text="**Lachgas Amsterdam** is een bezorgdienst voor één product: de originele Fastgas Wegwerp Tank. Je bestelt via WhatsApp, wij bevestigen prijs en aankomsttijd, en de koerier brengt de verzegelde tank naar je adres in Amsterdam of de regio. Je betaalt pas bij aflevering." />
           </p>
           <h3>Lachgas Amsterdam in het kort</h3>
           <ul className="ticks">
@@ -125,7 +125,7 @@ export default function Home() {
         <section className="panel narrow" aria-labelledby="how-h">
           <h2 id="how-h">Bestellen in drie stappen</h2>
           <ol className="steps">
-            <li><strong>Stuur een WhatsApp of bel</strong><span>Geef je adres, het gewenste formaat en voor welk gebruik je het nodig hebt.</span></li>
+            <li><strong>Stuur een WhatsApp-bericht</strong><span>Geef je adres, het gewenste formaat en voor welk gebruik je het nodig hebt.</span></li>
             <li><strong>Wij bevestigen prijs en tijd</strong><span>Je hoort vooraf wat het kost en hoe laat de koerier er is.</span></li>
             <li><strong>Betaal bij aflevering</strong><span>PIN of contant, zonder account en zonder vooruitbetaling.</span></li>
           </ol>
@@ -143,7 +143,7 @@ export default function Home() {
               <li><strong>Duidelijke prijs vooraf</strong>, geen verrassingen achteraf</li>
             </ul>
             <ul className="ticks">
-              <li><strong>Bestellen via WhatsApp of telefoon</strong>, geen account nodig</li>
+              <li><strong>Bestellen via WhatsApp</strong>, geen account nodig</li>
               <li><strong>Groot bezorggebied</strong> in en rond Amsterdam</li>
               <li><strong>Leeftijdscontrole</strong> en alleen voor toegestaan gebruik</li>
             </ul>

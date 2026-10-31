@@ -8,13 +8,13 @@ export const hubs: Page[] = [
   {
     slug: 'bestellen', group: 'hub', kind: 'service', nav: 'Bestellen', parent: 'home',
     title: 'Lachgas bestellen: zo werkt het in 3 stappen',
-    desc: 'Bestellen bij Lachgas Amsterdam in drie stappen: WhatsApp of bel, wij bevestigen prijs en tijd, jij betaalt bij aflevering. 24/7.',
+    desc: 'Bestellen bij Lachgas Amsterdam in drie stappen: stuur een WhatsApp, wij bevestigen prijs en tijd, jij betaalt bij aflevering. 24/7.',
     h1: 'Bestellen bij Lachgas Amsterdam', kicker: 'In drie stappen',
-    lead: 'Bij Lachgas Amsterdam bestel je zonder account of formulier: een bericht of telefoontje is genoeg. Je betaalt de koerier bij aflevering.',
+    lead: 'Bij Lachgas Amsterdam bestel je zonder account of formulier: een WhatsApp-bericht is genoeg. Je betaalt de koerier bij aflevering.',
     blocks: [
       { t: 'h2', x: 'Lachgas bestellen in drie stappen' },
       { t: 'steps', x: [
-        ['Stuur een WhatsApp of bel', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
+        ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
         ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
         ['Betaal bij aflevering', 'PIN of contant bij de koerier.'],
       ] },
@@ -51,7 +51,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Bij een beschadigde verzegeling gebruik je de tank niet en neem je direct contact met ons op.' },
 
       { t: 'h2', x: 'Wat als er iets misgaat?' },
-      { t: 'p', x: 'Staat de koerier voor een dichte deur, werkt je bel niet of klopt het formaat niet? Bel of app ons direct, dan lossen we het op. Zijn de verzegeling of het label niet in orde, gebruik de tank dan niet en neem contact met ons op via de [contactpagina](/contact/). Lees ook de [algemene voorwaarden](/algemene-voorwaarden/) voor wat we afspreken over levering en klachten.' },
+      { t: 'p', x: 'Staat de koerier voor een dichte deur, werkt je bel niet of klopt het formaat niet? Stuur ons direct een WhatsApp, dan lossen we het op. Zijn de verzegeling of het label niet in orde, gebruik de tank dan niet en neem contact met ons op via de [contactpagina](/contact/). Lees ook de [algemene voorwaarden](/algemene-voorwaarden/) voor wat we afspreken over levering en klachten.' },
 
       { t: 'h2', x: 'Bestellen op elk moment van de dag' },
       { t: 'p', x: 'We zijn 24 uur per dag bereikbaar, ook in het weekend en op feestdagen. Overdag bezorgen we aan huis, kantoor of horeca, zie [overdag bestellen](/overdag-bestellen/). In de nacht staat er ook een koerier klaar, zie [nachtlevering](/lachgas-nachtlevering/). Meer over de openingstijden staat op [lachgas 24/7](/lachgas-24-7/).' },
@@ -63,7 +63,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Soms vertrekt de koerier zonder tank: als je jonger bent dan 18, als je geen legitimatie kunt tonen of als het gebruik waarvoor je bestelt niet duidelijk toegestaan is. De achtergrond is de wet. Sinds 1 januari 2023 staat lachgas op lijst II van de Opiumwet, waardoor bezit en handel voor recreatief gebruik verboden zijn. Voor keuken, horeca, catering en technisch gebruik blijft een uitzondering gelden. Lees de [uitleg over de wet](/is-lachgas-verboden/).' },
 
       { t: 'h2', x: 'Bestellen in het Engels' },
-      { t: 'p', x: 'Je kunt ook in het Engels bestellen, via WhatsApp en telefoon. Lees de Engelse uitleg op [disposable nitrous oxide tanks](/nitrous-oxide-tanks/) en [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/).' },
+      { t: 'p', x: 'Je kunt ook in het Engels bestellen, via WhatsApp. Lees de Engelse uitleg op [disposable nitrous oxide tanks](/nitrous-oxide-tanks/) en [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
@@ -107,7 +107,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Het gebied is geen vast cirkeltje: bij een bestelling kijken we naar je exacte adres. Soms bezorgen we net buiten de kaart, soms is een adres binnen de kaart lastig bereikbaar. Daarom bevestigen we altijd eerst.' },
 
       { t: 'h2', x: 'Staat je plaats er niet bij?' },
-      { t: 'p', x: 'Stuur je adres via [WhatsApp](/lachgas-bestellen-whatsapp/) of bel ons via de [contactpagina](/contact/). We laten direct weten of we kunnen komen en wat de verwachte tijd is. Zit je in een plaats vlak naast een van onze locaties, zoals Heemstede bij [Haarlem](/lachgas-haarlem/) of Assendelft bij [Krommenie](/lachgas-krommenie/), dan is de kans groot dat het lukt.' },
+      { t: 'p', x: 'Stuur je adres via [WhatsApp](/lachgas-bestellen-whatsapp/) of neem contact op via de [contactpagina](/contact/). We laten direct weten of we kunnen komen en wat de verwachte tijd is. Zit je in een plaats vlak naast een van onze locaties, zoals Heemstede bij [Haarlem](/lachgas-haarlem/) of Assendelft bij [Krommenie](/lachgas-krommenie/), dan is de kans groot dat het lukt.' },
 
       { t: 'h2', x: 'Tips voor een snelle bezorging' },
       { t: 'ul', x: [
@@ -133,17 +133,17 @@ export const hubs: Page[] = [
   },
   {
     slug: 'contact', group: 'hub', kind: 'article', nav: 'Contact', parent: 'home',
-    title: 'Contact: bel of app Lachgas Amsterdam',
-    desc: 'Contact met Lachgas Amsterdam: bel 085 212 8051 of stuur een WhatsApp naar +31 97010270187. Dag en nacht bereikbaar, ook in het weekend.',
+    title: 'Contact: WhatsApp Lachgas Amsterdam',
+    desc: 'Contact met Lachgas Amsterdam: stuur een WhatsApp naar +44 7441 484283. Dag en nacht bereikbaar, ook in het weekend.',
     h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
-    lead: 'Bestellen of een vraag? Bel Lachgas Amsterdam of stuur een WhatsApp-bericht. We reageren dag en nacht.',
+    lead: 'Bestellen of een vraag? Stuur Lachgas Amsterdam een WhatsApp-bericht. We reageren dag en nacht.',
     blocks: [
       { t: 'h2', x: 'Zo bereik je ons' },
-      { t: 'ul', x: ['Bel: 085 212 8051', 'WhatsApp: +31 97010270187', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
+      { t: 'ul', x: ['WhatsApp: +44 7441 484283', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
       { t: 'p', x: 'Er is geen webformulier waarop je een antwoord moet afwachten: je spreekt direct met ons. Dat is de snelste manier om een bestelling te regelen.' },
 
-      { t: 'h2', x: 'Bellen of WhatsApp: wat kies je?' },
-      { t: 'p', x: 'Bel je liever, dan nemen we dag en nacht op. WhatsApp is handig als je een locatiepin wilt delen of een adres met toegangscode wilt doorgeven, omdat je dan niets hoeft te spellen. Je kunt ook gewoon beginnen met een bericht en daarna bellen als iets onduidelijk is.' },
+      { t: 'h2', x: 'Waarom WhatsApp?' },
+      { t: 'p', x: 'WhatsApp is handig als je een locatiepin wilt delen of een adres met toegangscode wilt doorgeven, omdat je dan niets hoeft te spellen. Ons antwoord blijft in de chat staan, zodat je prijs en aankomsttijd kunt terugzien.' },
 
       { t: 'h2', x: 'Wat helpt ons om snel te antwoorden?' },
       { t: 'ul', x: ['Je adres en eventuele toegangscode', 'Het gewenste formaat en aantal', 'Voor welk gebruik je de tank wilt', 'Bij zakelijke bestellingen: bedrijfsnaam en contactpersoon', 'Een locatiepin als je adres lastig te vinden is'] },
@@ -159,7 +159,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'In het Nederlands en in het Engels. De Engelse uitleg staat op [disposable nitrous oxide tanks](/nitrous-oxide-tanks/) en [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/).' },
 
       { t: 'h2', x: 'Hoe snel reageren we?' },
-      { t: 'p', x: 'We reageren dag en nacht. Bij drukte, bijvoorbeeld rond evenementen of feestdagen, kan het een paar minuten langer duren voor je een antwoord hebt. Bereik je ons niet meteen, probeer het dan opnieuw via het andere kanaal.' },
+      { t: 'p', x: 'We reageren dag en nacht. Bij drukte, bijvoorbeeld rond evenementen of feestdagen, kan het een paar minuten langer duren voor je een antwoord hebt. Bereik je ons niet meteen, stuur dan gerust nog een bericht.' },
 
       { t: 'h2', x: 'Vragen over een bestelling, privacy of voorwaarden' },
       { t: 'p', x: 'Heb je een vraag of klacht over een levering, neem dan contact met ons op via hetzelfde nummer. Je vindt onze regels in de [algemene voorwaarden](/algemene-voorwaarden/) en in de [privacyverklaring](/privacy-en-cookies/). Antwoorden op veelgestelde vragen staan op [veelgestelde vragen](/veelgestelde-vragen/).' },
@@ -168,15 +168,15 @@ export const hubs: Page[] = [
       { t: 'p', x: 'We gebruiken je naam, nummer en adres alleen om je bestelling te bevestigen, te bezorgen en te administreren. We plaatsen geen cookies op deze website. Alle details lees je in de [privacyverklaring](/privacy-en-cookies/).' },
 
       { t: 'h2', x: 'Noodgeval of gaslek' },
-      { t: 'p', x: 'Ruik je gas, hoor je een lek of heb je klachten door een tank? Ventileer direct, ga naar buiten en bel bij acuut gevaar 112. Bel ons daarna gerust. Meer in onze gids [veilig omgaan met lachgas](/veilig-gebruik-lachgas/).' },
+      { t: 'p', x: 'Ruik je gas, hoor je een lek of heb je klachten door een tank? Ventileer direct, ga naar buiten en bel bij acuut gevaar 112. Stuur ons daarna gerust een WhatsApp. Meer in onze gids [veilig omgaan met lachgas](/veilig-gebruik-lachgas/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Wat is het telefoonnummer van Lachgas Amsterdam?', a: 'Je belt ons op 085 212 8051. We nemen dag en nacht op, ook in het weekend en op feestdagen.' },
-      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +31 97010270187. Via de knoppen op deze site open je direct een gesprek.' },
+      { q: 'Kan ik Lachgas Amsterdam bellen?', a: 'Nee, we werken uitsluitend via WhatsApp: +44 7441 484283. We reageren dag en nacht, ook in het weekend en op feestdagen.' },
+      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +44 7441 484283. Via de knoppen op deze site open je direct een gesprek.' },
       { q: 'Kan ik jullie ook ’s nachts bereiken?', a: 'Ja, we zijn 24 uur per dag bereikbaar, 7 dagen per week.' },
       { q: 'Is er een winkel of afhaalpunt?', a: 'Nee. We bezorgen uitsluitend aan huis of aan je zaak. Afhalen is niet mogelijk.' },
-      { q: 'Spreken jullie Engels?', a: 'Ja, je kunt in het Engels bestellen via WhatsApp en telefoon.' },
+      { q: 'Spreken jullie Engels?', a: 'Ja, je kunt in het Engels bestellen via WhatsApp.' },
       { q: 'Waar meld ik een klacht?', a: 'Via hetzelfde nummer. We reageren zo snel mogelijk. Je rechten staan in de [algemene voorwaarden](/algemene-voorwaarden/).' },
     ],
     related: ['bestellen', 'lachgas-bestellen-whatsapp', 'veelgestelde-vragen', 'bezorggebied', 'over-ons', 'lachgas-24-7'],
@@ -189,10 +189,10 @@ export const hubs: Page[] = [
     lead: 'Deze website gebruikt geen cookies en geen advertentie- of analysetrackers. We verwerken alleen gegevens die je zelf aan ons doorgeeft.',
     blocks: [
       { t: 'h2', x: 'Wie is verantwoordelijk voor je gegevens?' },
-      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/) of bel 085 212 8051.' },
+      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484283.' },
 
       { t: 'h2', x: 'Welke gegevens verwerken we?' },
-      { t: 'p', x: 'Als je een bestelling plaatst via WhatsApp of telefoon, verwerken we de gegevens die je zelf doorgeeft:' },
+      { t: 'p', x: 'Als je een bestelling plaatst via WhatsApp, verwerken we de gegevens die je zelf doorgeeft:' },
       { t: 'ul', x: [
         'je naam, indien opgegeven, en je telefoonnummer',
         'je afleveradres en eventuele toegangscode of locatiepin',
@@ -233,7 +233,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'We leveren uitsluitend aan personen van 18 jaar en ouder en verwerken niet bewust gegevens van minderjarigen. Merken we dat iemand jonger dan 18 jaar een bestelling heeft geplaatst, dan leveren we niet en verwijderen we de gegevens die we daarvoor niet meer nodig hebben.' },
 
       { t: 'h2', x: 'Doorgifte buiten de EU' },
-      { t: 'p', x: 'WhatsApp wordt aangeboden door Meta, dat gegevens ook buiten de Europese Unie kan verwerken. Wij hebben daar geen invloed op. Wil je liever geen WhatsApp gebruiken, dan kun je ons ook bellen.' },
+      { t: 'p', x: 'WhatsApp wordt aangeboden door Meta, dat gegevens ook buiten de Europese Unie kan verwerken. Wij hebben daar geen invloed op. Contact en bestellingen lopen uitsluitend via WhatsApp.' },
 
       { t: 'h2', x: 'Geautomatiseerde besluiten' },
       { t: 'p', x: 'We nemen geen besluiten die uitsluitend op geautomatiseerde verwerking van je gegevens zijn gebaseerd. Bestellingen worden door mensen beoordeeld.' },
@@ -307,7 +307,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Op deze voorwaarden en op alle bestellingen is Nederlands recht van toepassing. Dwingend consumentenrecht dat jou beschermt, blijft van kracht. We kunnen deze voorwaarden wijzigen. De datum onder deze tekst laat zien wanneer ze voor het laatst is bijgewerkt; op een bestelling zijn de voorwaarden van toepassing die golden toen je bestelde.' },
 
       { t: 'h2', x: '15. Nietigheid en vragen' },
-      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/) of bel 085 212 8051.' },
+      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484283.' },
     ],
     related: ['privacy-en-cookies', 'is-lachgas-verboden', 'contact', 'bestellen', 'veilig-gebruik-lachgas', 'over-ons'],
   },

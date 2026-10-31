@@ -4,7 +4,7 @@ const NOTE =
   'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Lees de [wettelijke status](/is-lachgas-verboden/).';
 
 const STEPS: [string, string][] = [
-  ['Stuur een WhatsApp of bel', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
+  ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
   ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
   ['Betaal bij aflevering', 'PIN of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
 ];
@@ -49,11 +49,11 @@ export const services: Page[] = [
       { t: 'h2', x: 'Wat kost lachgas kopen in Amsterdam?' },
       { t: 'p', x: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom staat er geen vaste prijs op de site. Je hoort de totaalprijs per bericht voordat de koerier rijdt en wat je afspreekt betaal je bij aflevering met PIN of contant. Hoe dat precies werkt, lees je op [lachgas prijs](/lachgas-prijs/).' },
       { t: 'h2', x: 'Waarom kopen met bezorging?' },
-      { t: 'p', x: 'Wij werken uitsluitend met bezorging; afhalen is niet mogelijk. Dat heeft een praktisch voordeel: de tank komt verzegeld bij je aan en je hoeft hem niet zelf te vervoeren. Bestellen kan dag en nacht via [WhatsApp of telefoon](/contact/) en het [bezorggebied](/bezorggebied/) omvat alle stadsdelen van Amsterdam en 15 plaatsen eromheen.' },
+      { t: 'p', x: 'Wij werken uitsluitend met bezorging; afhalen is niet mogelijk. Dat heeft een praktisch voordeel: de tank komt verzegeld bij je aan en je hoeft hem niet zelf te vervoeren. Bestellen kan dag en nacht via [WhatsApp](/contact/) en het [bezorggebied](/bezorggebied/) omvat alle stadsdelen van Amsterdam en 15 plaatsen eromheen.' },
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Kan ik lachgas in een winkel kopen?', a: 'Wij bezorgen aan huis of aan je zaak; afhalen kan niet. Je bestelt via WhatsApp of telefoon en de koerier komt naar je toe met een verzegelde tank. Zie [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/) voor de werkwijze.' },
+      { q: 'Kan ik lachgas in een winkel kopen?', a: 'Wij bezorgen aan huis of aan je zaak; afhalen kan niet. Je bestelt via WhatsApp en de koerier komt naar je toe met een verzegelde tank. Zie [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/) voor de werkwijze.' },
       { q: 'Wat kost lachgas?', a: 'De prijs hangt af van formaat, aantal en locatie. We noemen de actuele totaalprijs vooraf per bericht, zonder kosten achteraf. Een uitleg van wat de prijs bepaalt staat op [lachgas prijs](/lachgas-prijs/).' },
       { q: 'Is lachgas kopen legaal?', a: 'Alleen voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik, en alleen voor 18+. Kopen of bezitten voor recreatief gebruik is sinds 2023 verboden. Lees de uitleg op [is lachgas verboden](/is-lachgas-verboden/).' },
       { q: 'Kan ik lachgas kopen zonder legitimatie?', a: 'De koerier kan bij aflevering om een geldig legitimatiebewijs vragen. Kun je je leeftijd niet aantonen of twijfelt hij aan het gebruik, dan geeft hij de tank niet af.' },
@@ -67,9 +67,9 @@ export const services: Page[] = [
   {
     slug: 'lachgas-bestellen-amsterdam', group: 'service', kind: 'service', nav: 'Lachgas bestellen Amsterdam', parent: 'home',
     title: 'Lachgas bestellen in Amsterdam via WhatsApp',
-    desc: 'Lachgas bestellen in Amsterdam: stuur een WhatsApp of bel, kies 2KG, 4KG of 10KG en betaal bij aflevering. 24/7 bezorgd binnen 20 tot 30 minuten.',
+    desc: 'Lachgas bestellen in Amsterdam: stuur een WhatsApp, kies 2KG, 4KG of 10KG en betaal bij aflevering. 24/7 bezorgd binnen 20 tot 30 minuten.',
     h1: 'Lachgas bestellen in Amsterdam', kicker: 'Bestellen zonder account',
-    lead: 'Bestellen duurt een minuut: een bericht of telefoontje met je adres en formaat, en de koerier rijdt naar je toe.',
+    lead: 'Bestellen duurt een minuut: een WhatsApp-bericht met je adres en formaat, en de koerier rijdt naar je toe.',
     blocks: [
       { t: 'h2', x: 'Lachgas bestellen in Amsterdam in drie stappen' },
       { t: 'p', x: 'Je hebt geen account en geen formulier nodig. Je stuurt een bericht of belt, je krijgt prijs en aankomsttijd terug en je betaalt de koerier bij aflevering. Zo ziet dat eruit:' },
@@ -107,8 +107,8 @@ export const services: Page[] = [
       { t: 'h2', x: 'Wat gebeurt er na je bericht?' },
       { t: 'p', x: 'Wij reageren met de totaalprijs en de verwachte aankomsttijd. Pas als jij akkoord bent, vertrekt de koerier. Onderweg kan hij je bellen of appen als er iets onduidelijk is aan het adres.' },
       { t: 'p', x: 'Bij de deur controleert hij op verzoek je legitimatie, overhandigt hij de verzegelde tank en neemt hij de betaling aan. Hoe dat in zijn werk gaat lees je bij [de lachgaskoerier](/lachgas-koerier/).' },
-      { t: 'h2', x: 'Telefonisch lachgas bestellen' },
-      { t: 'p', x: 'Bellen kan ook. Het nummer is **085 212 8051** en we nemen dag en nacht op. Het is dezelfde procedure: je geeft adres, formaat en gebruik door en je hoort prijs en aankomsttijd. Alle contactmogelijkheden staan op de [contactpagina](/contact/).' },
+      { t: 'h2', x: 'Lachgas bestellen via één nummer' },
+      { t: 'p', x: 'Bestellen gaat uitsluitend via WhatsApp, op **+44 7441 484283**. We reageren dag en nacht. Het is altijd dezelfde procedure: je geeft adres, formaat en gebruik door en je hoort prijs en aankomsttijd. Alle contactmogelijkheden staan op de [contactpagina](/contact/).' },
       { t: 'h2', x: 'Zakelijk bestellen in Amsterdam' },
       { t: 'p', x: 'Restaurants, bars en cateraars bestellen op dezelfde manier, met een vast ontvangstpunt en eventueel een terugkerende levering. Meer daarover op [lachgas voor horeca](/lachgas-horeca/). Voor bezorging tijdens kantooruren is er [overdag bestellen](/overdag-bestellen/); buiten kantooruren kijk je bij [nachtlevering](/lachgas-nachtlevering/).' },
       { t: 'h2', x: 'Welk formaat kies je bij je eerste bestelling?' },
@@ -127,14 +127,14 @@ export const services: Page[] = [
         '**Niet aanwezig zijn:** de tank wordt alleen aan de besteller zelf overhandigd',
         '**Geen legitimatie bij de hand:** zonder leeftijdscontrole levert de koerier niet',
       ] },
-      { t: 'p', x: 'Loop je tegen een probleem aan, bel dan gerust 085 212 8051; dan lossen we het samen op.' },
+      { t: 'p', x: 'Loop je tegen een probleem aan, stuur dan gerust een WhatsApp naar +44 7441 484283; dan lossen we het samen op.' },
       { t: 'h2', x: 'Woon je buiten Amsterdam?' },
       { t: 'p', x: 'We bezorgen ook in 15 plaatsen rondom de stad, van Haarlem tot Almere. Bekijk het volledige [bezorggebied](/bezorggebied/) of ga direct naar [lachgas in de buurt](/lachgas-in-de-buurt/). Staat je plaats er niet bij, stuur dan je adres; dan laten we direct weten of we kunnen komen.' },
       { t: 'note', x: NOTE },
     ],
     faq: [
       { q: 'Hoe bestel ik het snelst?', a: 'Via WhatsApp met een locatiepin, het gewenste formaat en het gebruik. Dan is er zo min mogelijk heen-en-weer en kan de koerier snel vertrekken.' },
-      { q: 'Kan ik telefonisch bestellen?', a: 'Ja, bel 085 212 8051. We nemen dag en nacht op en volgen dezelfde stappen als bij WhatsApp.' },
+      { q: 'Kan ik telefonisch bestellen?', a: 'Nee, bestellen gaat uitsluitend via WhatsApp: +44 7441 484283. We reageren dag en nacht en volgen de stappen hierboven.' },
       { q: 'Zijn er kosten bovenop de prijs?', a: 'We noemen de totaalprijs vooraf. Wat we afspreken, betaal je bij aflevering. Er komen geen kosten achteraf bij.' },
       { q: 'Moet ik thuis zijn als de koerier komt?', a: 'Ja. De tank wordt persoonlijk aan de besteller overhandigd, na een leeftijdscontrole op verzoek. Bestel dus voor een adres waar jij zelf bent.' },
       { q: 'Wat als mijn adres lastig te vinden is?', a: 'Stuur een locatiepin en een korte aanwijzing, zoals de ingang of een toegangscode. Zeker bij nieuwbouw, binnenhoven en bedrijfsterreinen scheelt dat veel tijd.' },
@@ -152,7 +152,7 @@ export const services: Page[] = [
     blocks: [
       { t: 'h2', x: 'Hoe werkt lachgas bezorgen?' },
       { t: 'p', x: 'Na je bestelling bevestigen we prijs en verwachte aankomsttijd. De koerier brengt de verzegelde tank naar je adres, controleert desgewenst je leeftijd en neemt de betaling aan (PIN of contant). Er is geen afhaalpunt: bezorging is de enige manier waarop wij leveren.' },
-      { t: 'p', x: 'Bestellen doe je via [WhatsApp of telefoon](/lachgas-bestellen-amsterdam/), dag en nacht. Zo houden we de lijn kort: één bericht van jou, één bevestiging van ons en dan rijdt de koerier.' },
+      { t: 'p', x: 'Bestellen doe je via [WhatsApp](/lachgas-bestellen-amsterdam/), dag en nacht. Zo houden we de lijn kort: één bericht van jou, één bevestiging van ons en dan rijdt de koerier.' },
       { t: 'h2', x: 'Waar bezorgen we?' },
       { t: 'p', x: 'In alle stadsdelen van Amsterdam en in 15 plaatsen eromheen, van Haarlem tot Almere en van Purmerend tot Amstelveen. Bekijk het volledige [bezorggebied](/bezorggebied/) of zoek je plaats via [lachgas in de buurt](/lachgas-in-de-buurt/).' },
       { t: 'h2', x: 'Levertijd per gebied' },
@@ -318,7 +318,7 @@ export const services: Page[] = [
         'Je hebt de bestelling zelf geplaatst en een bevestiging van prijs en tijd ontvangen',
         'De koerier noemt je adres en de afgesproken bestelling',
         'Het bedrag dat hij vraagt is gelijk aan de bevestigde prijs',
-        'Bij twijfel bel je ons op 085 212 8051 voordat je betaalt',
+        'Bij twijfel stuur je ons een WhatsApp op +44 7441 484283 voordat je betaalt',
       ] },
       { t: 'h2', x: 'Tips voor een soepele overdracht' },
       { t: 'ul', x: [
@@ -335,7 +335,7 @@ export const services: Page[] = [
       { q: 'Hoe weet ik dat de koerier voor mij komt?', a: 'Je hebt de bestelling zelf bij ons geplaatst; de koerier noemt je adres en de afgesproken bestelling. Het bedrag klopt met de bevestiging die je ontving.' },
       { q: 'Wat als ik niet thuis ben?', a: 'Neem contact met ons op; de tank geven we alleen persoonlijk aan de besteller af. Samen spreken we een nieuw moment af.' },
       { q: 'Moet ik mijn identiteitsbewijs laten zien?', a: 'Op verzoek van de koerier, ja. Daarmee controleert hij dat je 18 jaar of ouder bent. Zonder geldig bewijs geeft hij de tank niet af.' },
-      { q: 'Kan ik de koerier bellen?', a: 'Hij kan jou bereiken op het nummer dat je opgaf. Heb je een vraag, bel dan ons nummer 085 212 8051 of stuur een WhatsApp-bericht.' },
+      { q: 'Kan ik de koerier bellen?', a: 'Hij kan jou bereiken op het nummer dat je opgaf. Heb je een vraag, stuur dan een WhatsApp-bericht naar +44 7441 484283.' },
       { q: 'Hoe lang doet de koerier erover?', a: 'In Amsterdam doorgaans 20 tot 30 minuten, daarbuiten 25 tot 45 minuten, afhankelijk van afstand en verkeer. Zie [lachgas bezorgen](/lachgas-bezorgen/) voor de tijden per gebied.' },
       { q: 'Neemt de koerier een lege tank mee terug?', a: 'Nee. Het zijn wegwerptanks zonder statiegeld. Zie [wegwerp lachgas tanks](/wegwerp-lachgas-tanks/) voor het afvoeren.' },
       { q: 'Mag ik de koerier een vraag stellen over gebruik?', a: 'Hij kan vragen naar het beoogde gebruik en wijst je op de veiligheidsregels. Uitgebreide uitleg staat in onze [kennisbank](/lachgas-informatie/).' },
@@ -345,7 +345,7 @@ export const services: Page[] = [
   {
     slug: 'lachgas-24-7', group: 'service', kind: 'service', nav: 'Lachgas 24/7', parent: 'home',
     title: 'Lachgas 24/7 bestellen: dag en nacht open',
-    desc: 'Lachgas 24/7: onze bezorgdienst is elke dag van het jaar bereikbaar, ook ’s nachts en op feestdagen. Bestel via WhatsApp of telefoon.',
+    desc: 'Lachgas 24/7: onze bezorgdienst is elke dag van het jaar bereikbaar, ook ’s nachts en op feestdagen. Bestel via WhatsApp.',
     h1: 'Lachgas 24/7 in Amsterdam', kicker: 'Altijd bereikbaar',
     lead: 'Bij ons bestaat “gesloten” niet. Je kunt dag en nacht bestellen, ook op zondag en feestdagen.',
     blocks: [
@@ -371,12 +371,12 @@ export const services: Page[] = [
       ] },
       { t: 'h2', x: 'Zo bestel je buiten kantooruren' },
       { t: 'steps', x: [
-        ['Stuur een bericht of bel', 'Noem je adres, formaat en gebruik. Ook om 4 uur ’s nachts reageren we.'],
+        ['Stuur een WhatsApp-bericht', 'Noem je adres, formaat en gebruik. Ook om 4 uur ’s nachts reageren we.'],
         ['Bevestig prijs en tijd', 'Je hoort de totaalprijs en hoe laat de koerier er is.'],
         ['Houd legitimatie en betaalmiddel klaar', 'De koerier controleert op verzoek je leeftijd en neemt de betaling aan.'],
       ] },
       { t: 'h2', x: 'Vooruit plannen of spontaan bestellen?' },
-      { t: 'p', x: 'Omdat we altijd bereikbaar zijn, kun je spontaan bestellen. Toch loont plannen als je een drukke dag voorziet. Rond Koningsdag, Kerst en Oud & Nieuw is het langer wachten, en dan scheelt het als je eerder bestelt en de gewenste tijd noemt. Voor een vaste behoefte, bijvoorbeeld een keuken met wekelijks verbruik, is een terugkerende afspraak handiger dan elke keer opnieuw bellen.' },
+      { t: 'p', x: 'Omdat we altijd bereikbaar zijn, kun je spontaan bestellen. Toch loont plannen als je een drukke dag voorziet. Rond Koningsdag, Kerst en Oud & Nieuw is het langer wachten, en dan scheelt het als je eerder bestelt en de gewenste tijd noemt. Voor een vaste behoefte, bijvoorbeeld een keuken met wekelijks verbruik, is een terugkerende afspraak handiger dan elke keer opnieuw een bericht sturen.' },
       { t: 'h2', x: 'Wat blijft dag en nacht gelijk?' },
       { t: 'ul', x: [
         'Alleen levering aan 18+, met een leeftijdscontrole op verzoek',
@@ -392,7 +392,7 @@ export const services: Page[] = [
       { q: 'Zijn jullie echt 24/7 open?', a: 'Ja. We zijn elke dag van het jaar bereikbaar, doordeweeks, in het weekend en op feestdagen.' },
       { q: 'Is de prijs ’s nachts hoger?', a: 'We noemen de totaalprijs vooraf, ongeacht het tijdstip. Wat we afspreken, betaal je bij aflevering. De exacte prijs vraag je op via [lachgas prijs](/lachgas-prijs/).' },
       { q: 'Bezorgen jullie ook op Koningsdag en Oud & Nieuw?', a: 'Ja, ook op die dagen zijn we bereikbaar. Op drukke dagen kan de levertijd afwijken; we bevestigen de verwachte tijd bij je bestelling.' },
-      { q: 'Kan ik midden in de nacht nog bellen?', a: 'Ja, bel 085 212 8051 of stuur een WhatsApp-bericht. We nemen op elk uur op.' },
+      { q: 'Kan ik midden in de nacht nog bestellen?', a: 'Ja, stuur een WhatsApp-bericht naar +44 7441 484283. We reageren op elk uur.' },
       { q: 'Hoe snel is de levering ’s nachts?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam; vaak sneller doordat het rustiger is op de weg. We bevestigen de tijd altijd bij de bestelling.' },
       { q: 'Gelden er ’s nachts andere regels?', a: 'Nee. Ook ’s nachts leveren we alleen aan 18+ en alleen voor toegestaan gebruik, met een leeftijdscontrole op verzoek.' },
     ],
@@ -406,7 +406,7 @@ export const services: Page[] = [
     lead: 'Ook na middernacht staat er een koerier klaar. Dat is vooral handig voor horeca en evenementen die laat nog iets nodig hebben.',
     blocks: [
       { t: 'h2', x: 'Hoe werkt nachtlevering?' },
-      { t: 'p', x: 'Je bestelt gewoon via WhatsApp of telefoon. In de nacht zijn de straten leger, dus de aankomsttijd is vaak korter dan overdag. We bevestigen de tijd altijd bij je bestelling.' },
+      { t: 'p', x: 'Je bestelt gewoon via WhatsApp. In de nacht zijn de straten leger, dus de aankomsttijd is vaak korter dan overdag. We bevestigen de tijd altijd bij je bestelling.' },
       { t: 'p', x: 'De procedure is gelijk aan die van elke andere levering: bericht, bevestiging van prijs en tijd, bezorging en betaling bij de deur. Wie voor het eerst bestelt, vindt de stappen op [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/).' },
       { t: 'h2', x: 'Wanneer bestel je ’s nachts?' },
       { t: 'p', x: 'Nachtlevering is bedoeld voor situaties waarin je buiten kantooruren niet kunt wachten. Een paar voorbeelden:' },
@@ -444,7 +444,7 @@ export const services: Page[] = [
     ],
     faq: [
       { q: 'Bezorgen jullie ook om 3 uur ’s nachts?', a: 'Ja, we zijn de hele nacht bereikbaar en bezorgen in het hele gebied.' },
-      { q: 'Moet ik vooraf bellen?', a: 'Een WhatsApp-bericht of telefoontje is genoeg; vooraf plannen hoeft niet.' },
+      { q: 'Moet ik vooraf contact opnemen?', a: 'Een WhatsApp-bericht is genoeg; vooraf plannen hoeft niet.' },
       { q: 'Hoe snel is nachtlevering?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam en vaak sneller dan overdag. Buiten de stad is het 25 tot 45 minuten. We bevestigen de tijd bij je bestelling.' },
       { q: 'Wordt er ’s nachts ook op leeftijd gecontroleerd?', a: 'Ja. De koerier kan om legitimatie vragen en levert alleen aan 18+ en voor toegestaan gebruik.' },
       { q: 'Wat als niemand opendoet?', a: 'Dan geeft de koerier de tank niet af; hij overhandigt hem alleen aan de besteller. Neem contact op via [contact](/contact/) en spreek een nieuw moment af.' },
@@ -461,7 +461,7 @@ export const services: Page[] = [
     blocks: [
       { t: 'h2', x: 'Overdag lachgas bestellen: wat is anders?' },
       { t: 'p', x: 'Overdag is het drukker op de weg, dus de aankomsttijd kan wat langer zijn dan ’s nachts. Bij je bestelling bevestigen we de verwachte tijd. Je kunt ook een tijdstip afspreken waarop jij er bent.' },
-      { t: 'p', x: 'Verder verandert er niets: je [bestelt via WhatsApp of telefoon](/lachgas-bestellen-amsterdam/), je hoort prijs en tijd vooraf en je betaalt bij aflevering met PIN of contant.' },
+      { t: 'p', x: 'Verder verandert er niets: je [bestelt via WhatsApp](/lachgas-bestellen-amsterdam/), je hoort prijs en tijd vooraf en je betaalt bij aflevering met PIN of contant.' },
       { t: 'h2', x: 'Verkeer en bereikbaarheid overdag' },
       { t: 'p', x: 'Drie dingen bepalen overdag hoe snel de koerier er is:' },
       { t: 'ul', x: [
@@ -513,7 +513,7 @@ export const services: Page[] = [
   {
     slug: 'lachgas-bestellen-whatsapp', group: 'service', kind: 'service', nav: 'Lachgas bestellen via WhatsApp', parent: 'home',
     title: 'Lachgas bestellen via WhatsApp',
-    desc: 'Lachgas bestellen via WhatsApp: stuur adres en formaat naar +31 97010270187 en ontvang de Fastgas tank binnen 20 tot 30 minuten. Betalen bij aflevering.',
+    desc: 'Lachgas bestellen via WhatsApp: stuur adres en formaat naar +44 7441 484283 en ontvang de Fastgas tank binnen 20 tot 30 minuten. Betalen bij aflevering.',
     h1: 'Lachgas bestellen via WhatsApp', kicker: 'Snelste manier',
     lead: 'Via WhatsApp bestel je in een minuut. Je krijgt direct een bevestiging van prijs en aankomsttijd.',
     blocks: [
@@ -543,14 +543,14 @@ export const services: Page[] = [
       { t: 'p', x: 'Ga je akkoord, dan vertrekt de koerier. De rest van de levering lees je bij [de lachgaskoerier](/lachgas-koerier/).' },
       { t: 'h2', x: 'Voordelen van bestellen via WhatsApp' },
       { t: 'ul', x: ['Locatie delen met één tik', 'Geen account en geen wachtmuziek', 'Je krijgt een bevestiging die je kunt terugzien', 'De koerier kan je bereiken als hij onderweg is'] },
-      { t: 'h2', x: 'WhatsApp of bellen: wat past bij jou?' },
-      { t: 'table', head: ['', 'WhatsApp', 'Telefoon'], rows: [
-        ['Nummer', '+31 97010270187', '085 212 8051'],
-        ['Locatie delen', 'Met één tik via een pin', 'Mondeling doorgeven'],
-        ['Bevestiging', 'Schriftelijk in de chat', 'Mondeling'],
-        ['Geschikt voor', 'Eerste bestelling en vaste klanten', 'Dringende vragen of onduidelijke adressen'],
+      { t: 'h2', x: 'Het WhatsApp-nummer in één oogopslag' },
+      { t: 'table', head: ['', 'WhatsApp'], rows: [
+        ['Nummer', '+44 7441 484283'],
+        ['Locatie delen', 'Met één tik via een pin'],
+        ['Bevestiging', 'Schriftelijk in de chat'],
+        ['Geschikt voor', 'Eerste bestelling, vaste klanten en vragen over een onduidelijk adres'],
       ] },
-      { t: 'p', x: 'Liever bellen? Dat kan ook: zie [contact](/contact/). Wie voor het eerst bestelt, vindt de volledige procedure op [bestellen](/bestellen/).' },
+      { t: 'p', x: 'Alle contactgegevens staan op [contact](/contact/). Wie voor het eerst bestelt, vindt de volledige procedure op [bestellen](/bestellen/).' },
       { t: 'h2', x: 'Zakelijk bestellen via WhatsApp' },
       { t: 'p', x: 'Bestel je namens een bedrijf, dan helpt het om in je eerste bericht de bedrijfsnaam, het ontvangstpunt en een contactpersoon te noemen. Eén gesprek per bedrijf werkt het best: dan staan eerdere afspraken, adressen en tijden bij elkaar en hoef je ze niet steeds opnieuw door te geven. Voor terugkerende leveringen en administratie zie je [lachgas voor horeca](/lachgas-horeca/).' },
       { t: 'h2', x: 'Veelgemaakte fouten in een bestelbericht' },
@@ -563,17 +563,17 @@ export const services: Page[] = [
       ] },
       { t: 'p', x: 'Met een complete eerste boodschap vallen prijs en aankomsttijd meestal binnen enkele minuten te bevestigen. Bijzonderheden voor jouw wijk lees je in [bestellen per stadsdeel](/lachgas-bestellen-amsterdam/).' },
       { t: 'h2', x: 'Wat als je niets terughoort?' },
-      { t: 'p', x: 'We reageren dag en nacht. Heb je na een paar minuten nog geen antwoord, bel dan 085 212 8051. Controleer ook of je het bericht naar het juiste nummer hebt gestuurd: +31 97010270187.' },
+      { t: 'p', x: 'We reageren dag en nacht. Heb je na een paar minuten nog geen antwoord, stuur dan gerust nog een bericht. Controleer ook of je het naar het juiste nummer hebt gestuurd: +44 7441 484283.' },
       { t: 'h2', x: 'Je gegevens in WhatsApp' },
       { t: 'p', x: 'Berichten verlopen via WhatsApp en vallen onder het privacybeleid van WhatsApp. Wij gebruiken je naam, nummer en adres alleen om je bestelling af te handelen. Details staan in onze [privacyverklaring](/privacy-en-cookies/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +31 97010270187. Via de knoppen op deze site open je direct een gesprek.' },
+      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +44 7441 484283. Via de knoppen op deze site open je direct een gesprek.' },
       { q: 'Reageren jullie ook ’s nachts?', a: 'Ja, ook ’s nachts en in het weekend. Zie [lachgas 24/7](/lachgas-24-7/).' },
       { q: 'Kan ik in het Engels appen?', a: 'Ja, je kunt in het Engels bestellen en chatten. Zie [laughing gas delivery Amsterdam](/laughing-gas-delivery-amsterdam/).' },
       { q: 'Moet ik mijn locatie delen?', a: 'Het hoeft niet, maar het is wel de snelste en nauwkeurigste manier. Anders geef je straat, huisnummer, etage en toegangscode door.' },
-      { q: 'Wat als ik geen WhatsApp heb?', a: 'Bel 085 212 8051. Dezelfde procedure geldt: adres, formaat en gebruik doorgeven en prijs en tijd horen.' },
+      { q: 'Wat als ik geen WhatsApp heb?', a: 'Installeer WhatsApp (gratis voor iPhone en Android) en stuur een bericht naar +44 7441 484283. Daarna geldt dezelfde procedure: adres, formaat en gebruik doorgeven en prijs en tijd horen.' },
       { q: 'Kan ik de prijs per WhatsApp vragen zonder te bestellen?', a: 'Ja. Stuur je formaat en locatie, dan noemen we de prijs en aankomsttijd. Pas als jij akkoord geeft vertrekt de koerier. Meer op [lachgas prijs](/lachgas-prijs/).' },
     ],
     related: ['lachgas-bestellen-amsterdam', 'lachgas-tank-bestellen', 'contact', 'bestellen', 'lachgas-prijs', 'lachgas-koerier'],
@@ -597,7 +597,7 @@ export const services: Page[] = [
         ['Jij bevestigt of laat het zitten', 'Pas als je akkoord geeft, vertrekt de koerier.'],
         ['Betaal bij aflevering', 'PIN of contant, tegen het afgesproken bedrag.'],
       ] },
-      { t: 'p', x: 'Je kunt de prijs ook zonder bestelverplichting opvragen via [WhatsApp](/lachgas-bestellen-whatsapp/) of telefoon.' },
+      { t: 'p', x: 'Je kunt de prijs ook zonder bestelverplichting opvragen via [WhatsApp](/lachgas-bestellen-whatsapp/).' },
       { t: 'h2', x: 'Formaten vergelijken zonder vaste prijzen' },
       { t: 'p', x: 'Wil je weten welk formaat het voordeligst is voor jouw verbruik? Vraag de prijs van twee formaten en deel ze door het aantal patronen waaraan de tank gelijk staat. Zo vergelijk je op dezelfde basis.' },
       { t: 'table', head: ['Formaat', 'Inhoud', 'Gelijk aan', 'Prijs delen door'], rows: [
@@ -636,12 +636,12 @@ export const services: Page[] = [
     title: 'Laughing gas delivery Amsterdam (N2O)',
     desc: 'Laughing gas delivery in Amsterdam: sealed Fastgas tanks 2KG, 4KG and 10KG, delivered 24/7 in 20 to 30 minutes. Order by WhatsApp. 18+ only.',
     h1: 'Laughing gas delivery Amsterdam', kicker: 'English',
-    lead: 'We deliver nitrous oxide (N₂O) in Amsterdam and the surrounding area, day and night. Order in English by WhatsApp or phone.',
+    lead: 'We deliver nitrous oxide (N₂O) in Amsterdam and the surrounding area, day and night. Order in English by WhatsApp.',
     blocks: [
       { t: 'h2', x: 'How laughing gas delivery in Amsterdam works' },
       { t: 'p', x: 'There is no account, no form and no pick-up point. You send a message, we confirm the price and the arrival time, a courier brings the sealed tank to your door and you pay on delivery.' },
       { t: 'steps', x: [
-        ['Message or call', 'Tell us your address, the tank size and what you will use it for.'],
+        ['Send a message', 'Tell us your address, the tank size and what you will use it for.'],
         ['We confirm price and time', 'You hear the total price and expected arrival, usually 20 to 30 minutes.'],
         ['Pay on delivery', 'Card or cash to the courier. No account needed.'],
       ] },
@@ -674,13 +674,13 @@ export const services: Page[] = [
         'A phone that is switched on, so the courier can reach you',
       ] },
       { t: 'h2', x: 'Day and night' },
-      { t: 'p', x: 'We are reachable 24 hours a day, every day of the year, including holidays. Details are on the Dutch page [lachgas 24/7](/lachgas-24-7/). To order or ask a question, use [contact](/contact/): call 085 212 8051 or send a WhatsApp message to +31 97010270187.' },
+      { t: 'p', x: 'We are reachable 24 hours a day, every day of the year, including holidays. Details are on the Dutch page [lachgas 24/7](/lachgas-24-7/). To order or ask a question, use [contact](/contact/) or send a WhatsApp message to +44 7441 484283.' },
       { t: 'note', x: 'Delivery only to adults and only for permitted use. If we doubt the intended use, we do not deliver.' },
     ],
     faq: [
       { q: 'Is it legal to buy laughing gas in Amsterdam?', a: 'Only for permitted uses and for adults. Since 2023 nitrous oxide is covered by the Opium Act, and buying or possessing it for recreational use is prohibited. Catering, hospitality and technical use are exceptions. See the Dutch summary linked above.' },
       { q: 'Do you accept card payments?', a: 'Yes, by card (PIN) or cash on delivery. You do not pay in advance.' },
-      { q: 'Do you deliver in English?', a: 'Yes. You can order and chat in English on WhatsApp or by phone.' },
+      { q: 'Do you deliver in English?', a: 'Yes. You can order and chat in English on WhatsApp.' },
       { q: 'How fast is delivery?', a: 'Usually within 20 to 30 minutes in Amsterdam, 24 hours a day. In towns around Amsterdam it takes 25 to 45 minutes.' },
       { q: 'Can tourists order?', a: 'Tourists are subject to the same law as everyone else. We deliver only to customers aged 18 or over, and only for permitted use such as catering or technical applications.' },
       { q: 'What do I need to show the courier?', a: 'A valid ID. The courier may check your age and hands the tank only to the person who placed the order.' },
@@ -776,7 +776,7 @@ export const services: Page[] = [
         ['Ruim vooraf', 'Schat je verbruik, kies het formaat en bepaal of je een reservetank wilt'],
         ['Enkele dagen vooraf', 'Geef terrein, ontvangstpunt en contactpersoon door en vraag de organisatie of er toegang of een ontheffing nodig is'],
         ['De dag zelf', 'Bevestig de aankomsttijd, houd legitimatie en betaalmiddel klaar'],
-        ['Tijdens het evenement', 'Tekort? Bel of app; ook dan zijn we bereikbaar'],
+        ['Tijdens het evenement', 'Tekort? Stuur een WhatsApp; ook dan zijn we bereikbaar'],
       ] },
       { t: 'ul', x: ['Bestel zo vroeg mogelijk en noem de gewenste tijd', 'Reken op extra drukte bij grote events', 'Houd een tweede tank achter de hand bij onzeker verbruik'] },
       { t: 'h2', x: 'Terreintoegang en afzettingen' },
@@ -831,7 +831,7 @@ export const services: Page[] = [
     lead: 'In plaats van een winkel in de buurt zoeken, laat je de tank bezorgen. Kies hieronder je plaats of stadsdeel.',
     blocks: [
       { t: 'h2', x: 'Zo vind je lachgas in de buurt' },
-      { t: 'p', x: 'Wij werken zonder winkel: de koerier komt naar je toe. Zoek hieronder je stadsdeel of plaats, bekijk de verwachte tijd en open de pagina voor wijken, toegang en lokale tips. Daarna bestel je via [WhatsApp of telefoon](/lachgas-bestellen-amsterdam/).' },
+      { t: 'p', x: 'Wij werken zonder winkel: de koerier komt naar je toe. Zoek hieronder je stadsdeel of plaats, bekijk de verwachte tijd en open de pagina voor wijken, toegang en lokale tips. Daarna bestel je via [WhatsApp](/lachgas-bestellen-amsterdam/).' },
       { t: 'h2', x: 'Amsterdam' },
       { t: 'p', x: '[Heel Amsterdam](/lachgas-amsterdam/) is ons kerngebied. Kies je stadsdeel voor lokale details:' },
       { t: 'table', head: ['Stadsdeel', 'Voorbeelden van wijken', 'Verwachte tijd'], rows: [
@@ -944,7 +944,7 @@ export const services: Page[] = [
         'De tank onbeheerd laten staan binnen bereik van kinderen',
       ] },
       { t: 'h2', x: 'Waar bestel je Fastgas?' },
-      { t: 'p', x: 'Bij ons, bezorgd in Amsterdam en omstreken. Je bestelt via [WhatsApp of telefoon](/lachgas-tank-bestellen/), hoort prijs en aankomsttijd vooraf en betaalt bij aflevering. Zie ook [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/).' },
+      { t: 'p', x: 'Bij ons, bezorgd in Amsterdam en omstreken. Je bestelt via [WhatsApp](/lachgas-tank-bestellen/), hoort prijs en aankomsttijd vooraf en betaalt bij aflevering. Zie ook [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [

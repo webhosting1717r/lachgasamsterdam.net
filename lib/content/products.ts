@@ -4,7 +4,7 @@ const NOTE =
   'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Lees de [wettelijke status](/is-lachgas-verboden/).';
 
 const ORDER_STEPS: [string, string][] = [
-  ['Stuur een WhatsApp of bel', 'Geef je adres, het gewenste formaat en voor welk gebruik je de tank nodig hebt.'],
+  ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat en voor welk gebruik je de tank nodig hebt.'],
   ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
   ['Betaal bij aflevering', 'PIN of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
 ];
@@ -359,7 +359,7 @@ export const products: Page[] = [
       { t: 'p', x: 'Ook een nog ongebruikte wegwerptank staat onder druk. Bewaar hem rechtop, vastgezet, koel, droog en geventileerd, uit de zon en weg van warmtebronnen. Houd hem buiten bereik van kinderen. De volledige uitleg vind je in onze gids [lachgas tank opslaan en vervoeren](/lachgas-opslag-en-transport/).' },
 
       { t: 'h2', x: 'Een wegwerp lachgas tank bestellen in Amsterdam' },
-      { t: 'p', x: 'Bekijk de formaten op [lachgas tanks](/lachgas-tanks/) en bestel via WhatsApp of telefoon. We bevestigen prijs en aankomsttijd en je betaalt bij aflevering. Hoe dat precies werkt, staat op [bestellen](/bestellen/). Levering uitsluitend aan 18+ en voor toegestaan gebruik; lees de [uitleg over de wet](/is-lachgas-verboden/).' },
+      { t: 'p', x: 'Bekijk de formaten op [lachgas tanks](/lachgas-tanks/) en bestel via WhatsApp. We bevestigen prijs en aankomsttijd en je betaalt bij aflevering. Hoe dat precies werkt, staat op [bestellen](/bestellen/). Levering uitsluitend aan 18+ en voor toegestaan gebruik; lees de [uitleg over de wet](/is-lachgas-verboden/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
@@ -376,12 +376,12 @@ export const products: Page[] = [
   {
     slug: 'lachgas-tank-bestellen', group: 'product', kind: 'service', nav: 'Lachgas tank bestellen', parent: 'lachgas-tanks',
     title: 'Lachgas tank bestellen in Amsterdam',
-    desc: 'Lachgas tank bestellen: kies 2KG, 4KG of 10KG en bestel via WhatsApp of telefoon. 24/7 bezorgd in Amsterdam, betalen bij aflevering.',
+    desc: 'Lachgas tank bestellen: kies 2KG, 4KG of 10KG en bestel via WhatsApp. 24/7 bezorgd in Amsterdam, betalen bij aflevering.',
     h1: 'Lachgas tank bestellen', kicker: 'Bestellen in drie stappen',
     lead: 'Een lachgas tank bestel je bij ons zonder account en zonder formulier: een bericht of een telefoontje is genoeg.',
     blocks: [
       { t: 'h2', x: 'Zo bestel je een lachgas tank' },
-      { t: 'p', x: 'Je bestelt via WhatsApp of telefoon en betaalt bij aflevering. Er is geen webwinkel, geen winkelwagen en geen account. Dat scheelt tijd, en je krijgt direct antwoord van iemand die je kunt bereiken.' },
+      { t: 'p', x: 'Je bestelt via WhatsApp en betaalt bij aflevering. Er is geen webwinkel, geen winkelwagen en geen account. Dat scheelt tijd, en je krijgt direct antwoord van iemand die je kunt bereiken.' },
       { t: 'steps', x: ORDER_STEPS },
 
       { t: 'h2', x: 'Wat heb je nodig?' },
@@ -429,7 +429,7 @@ export const products: Page[] = [
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Moet ik een account aanmaken?', a: 'Nee. Je bestelt via WhatsApp of telefoon en betaalt bij aflevering. Een account of vooruitbetaling is niet nodig.' },
+      { q: 'Moet ik een account aanmaken?', a: 'Nee. Je bestelt via WhatsApp en betaalt bij aflevering. Een account of vooruitbetaling is niet nodig.' },
       { q: 'Kan ik ook overdag bestellen?', a: 'Ja, we zijn 24 uur per dag bereikbaar. Zie [overdag bestellen](/overdag-bestellen/).' },
       { q: 'Welke betaalmethoden zijn er?', a: 'PIN of contant bij de koerier, op het moment van aflevering.' },
       { q: 'Hoe lang duurt het voor de tank er is?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam en 25 tot 45 minuten in de regio. Bij je bestelling bevestigen we de verwachte aankomsttijd.' },
@@ -474,7 +474,7 @@ export const products: Page[] = [
 
       { t: 'h2', x: 'How do I order?' },
       { t: 'steps', x: [
-        ['Message or call', 'Send us your address, the tank size and what you will use it for. English is fine on WhatsApp and by phone.'],
+        ['Send a message', 'Send us your address, the tank size and what you will use it for. English is fine on WhatsApp.'],
         ['We confirm price and time', 'You hear the total price and the expected arrival, usually 20 to 30 minutes in Amsterdam.'],
         ['Pay on delivery', 'Card (PIN) or cash to the courier. No account and no payment in advance.'],
       ] },
@@ -494,7 +494,7 @@ export const products: Page[] = [
       { t: 'note', x: 'We deliver to customers aged 18 and over and only for permitted uses such as catering, hospitality and technical applications. In the Netherlands nitrous oxide falls under the Opium Act; see [is lachgas verboden](/is-lachgas-verboden/) (in Dutch).' },
     ],
     faq: [
-      { q: 'Do you deliver in English?', a: 'Yes, you can order and chat in English on WhatsApp or by phone. Most of this website is in Dutch, but the courier and the order process work in English too.' },
+      { q: 'Do you deliver in English?', a: 'Yes, you can order and chat in English on WhatsApp. Most of this website is in Dutch, but the courier and the order process work in English too.' },
       { q: 'How fast is delivery?', a: 'Usually within 20 to 30 minutes in Amsterdam and 25 to 45 minutes in the surrounding towns, 24 hours a day. We confirm the arrival time when you order.' },
       { q: 'Which tank sizes do you deliver?', a: 'The original Fastgas Disposable Tank in 2KG, 4KG and 10KG, sealed and labelled. We do not deliver loose cream chargers.' },
       { q: 'Can I pay by card?', a: 'Yes, by card (PIN) or cash to the courier on delivery. You do not pay in advance and you do not need an account.' },

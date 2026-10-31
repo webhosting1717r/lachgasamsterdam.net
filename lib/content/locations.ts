@@ -576,7 +576,7 @@ const L: Loc[] = [
     ],
     extraQ: [
       { q: 'Waar hangt de levertijd naar Krommenie van af?', a: 'Doorgaans 30 tot 40 minuten, afhankelijk van de A10 en A8. Bij je bestelling noemen we de actuele tijd; ’s nachts is de rit vaak korter.' },
-      { q: 'Zijn jullie 24/7 bereikbaar voor Krommenie?', a: 'Ja, ook ’s nachts en op feestdagen. Je kunt altijd bellen of appen; zie [lachgas 24/7](/lachgas-24-7/).' },
+      { q: 'Zijn jullie 24/7 bereikbaar voor Krommenie?', a: 'Ja, ook ’s nachts en op feestdagen. Je kunt altijd appen; zie [lachgas 24/7](/lachgas-24-7/).' },
       { q: 'Kunnen jullie ook in de polder bezorgen?', a: 'Ja, ook op adressen aan polderwegen. Stuur een locatiepin en een korte aanwijzing, zodat de koerier de oprit herkent.' },
     ],
     near: ['lachgas-wormerveer', 'lachgas-zaandam', 'lachgas-purmerend', 'lachgas-landsmeer'],
@@ -876,7 +876,7 @@ function make(l: Loc): Page {
     {
       t: 'steps',
       x: [
-        ['Stuur een WhatsApp of bel', `Geef je adres ${where}, je gewenste formaat (2KG, 4KG of 10KG) en wat voor gebruik het is.`],
+        ['Stuur een WhatsApp-bericht', `Geef je adres ${where}, je gewenste formaat (2KG, 4KG of 10KG) en wat voor gebruik het is.`],
         ['Wij bevestigen prijs en tijd', `Verwachte aankomst: ${eta}. We noemen vooraf de prijs; er zijn geen verrassingen achteraf.`],
         ['Betaal bij aflevering', 'Betalen kan met PIN of contant. Een account of vooruitbetaling is niet nodig.'],
       ],

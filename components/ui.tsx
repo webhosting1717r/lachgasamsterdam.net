@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import type { Block, Faq, Page } from '@/lib/types';
 import { bySlug } from '@/lib/pages';
 import { locationData } from '@/lib/content/locations';
-import { site, telHref, waHref } from '@/lib/site';
+import { site, waHref } from '@/lib/site';
 
 /* **vet** en [label](/pad/) worden <strong> en <a>. Gewone <a>: statische site, geen client-routing nodig. */
 export function Rich({ text }: { text: string }) {
@@ -25,20 +25,12 @@ const IconWa = () => (
     <path d="M9 8.500c.3 2.600 2.800 5.200 6 6l1.200-1.300-2-1-.9.800c-.9-.4-1.900-1.400-2.300-2.300l.8-.9-1-2L9 8.500Z" fill="currentColor" stroke="none" />
   </svg>
 );
-const IconTel = () => (
-  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
-  </svg>
-);
 
 export function Cta({ text, en }: { text?: string; en?: boolean }) {
   return (
     <div className="cta">
       <a className="btn pri" href={waHref(text)} rel="noopener">
         <IconWa /> {en ? 'Order via WhatsApp' : 'Bestel via WhatsApp'}
-      </a>
-      <a className="btn sec" href={telHref}>
-        <IconTel /> {en ? 'Call' : 'Bel'} {site.phoneText}
       </a>
     </div>
   );
@@ -205,7 +197,7 @@ export function Header() {
           <div className="sheet">
             {navItems.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
             <a href="/lachgas-24-7/">Lachgas 24/7</a>
-            <a href={telHref}>Bel {site.phoneText}</a>
+            <a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a>
           </div>
         </details>
       </div>
@@ -223,7 +215,7 @@ export function Footer() {
         <div>
           <strong className="fh">Lachgas Amsterdam</strong>
           <p className="fp">Bezorgdienst voor de originele Fastgas Wegwerp Tank in Amsterdam en omstreken. Dag en nacht bereikbaar.</p>
-          <p className="fp"><a href={telHref}>{site.phoneText}</a><br /><a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a></p>
+          <p className="fp"><a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a></p>
         </div>
         <div>
           <strong className="fh">Producten</strong>
@@ -268,7 +260,6 @@ export function StickyCta() {
   return (
     <div className="sticky" role="group" aria-label="Snel bestellen">
       <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> WhatsApp</a>
-      <a className="btn sec" href={telHref}><IconTel /> Bel</a>
     </div>
   );
 }
