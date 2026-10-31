@@ -134,12 +134,12 @@ export const hubs: Page[] = [
   {
     slug: 'contact', group: 'hub', kind: 'article', nav: 'Contact', parent: 'home',
     title: 'Contact: WhatsApp Lachgas Amsterdam',
-    desc: 'Contact met Lachgas Amsterdam: stuur een WhatsApp naar +44 7441 484283. Dag en nacht bereikbaar, ook in het weekend.',
+    desc: 'Contact met Lachgas Amsterdam: stuur een WhatsApp naar +44 7441 484380. Dag en nacht bereikbaar, ook in het weekend.',
     h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
     lead: 'Bestellen of een vraag? Stuur Lachgas Amsterdam een WhatsApp-bericht. We reageren dag en nacht.',
     blocks: [
       { t: 'h2', x: 'Zo bereik je ons' },
-      { t: 'ul', x: ['WhatsApp: +44 7441 484283', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
+      { t: 'ul', x: ['WhatsApp: +44 7441 484380', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
       { t: 'p', x: 'Er is geen webformulier waarop je een antwoord moet afwachten: je spreekt direct met ons. Dat is de snelste manier om een bestelling te regelen.' },
 
       { t: 'h2', x: 'Waarom WhatsApp?' },
@@ -172,8 +172,8 @@ export const hubs: Page[] = [
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Kan ik Lachgas Amsterdam bellen?', a: 'Nee, we werken uitsluitend via WhatsApp: +44 7441 484283. We reageren dag en nacht, ook in het weekend en op feestdagen.' },
-      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +44 7441 484283. Via de knoppen op deze site open je direct een gesprek.' },
+      { q: 'Kan ik Lachgas Amsterdam bellen?', a: 'Nee, we werken uitsluitend via WhatsApp: +44 7441 484380. We reageren dag en nacht, ook in het weekend en op feestdagen.' },
+      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +44 7441 484380. Via de knoppen op deze site open je direct een gesprek.' },
       { q: 'Kan ik jullie ook ’s nachts bereiken?', a: 'Ja, we zijn 24 uur per dag bereikbaar, 7 dagen per week.' },
       { q: 'Is er een winkel of afhaalpunt?', a: 'Nee. We bezorgen uitsluitend aan huis of aan je zaak. Afhalen is niet mogelijk.' },
       { q: 'Spreken jullie Engels?', a: 'Ja, je kunt in het Engels bestellen via WhatsApp.' },
@@ -189,7 +189,7 @@ export const hubs: Page[] = [
     lead: 'Deze website gebruikt geen cookies en geen advertentie- of analysetrackers. We verwerken alleen gegevens die je zelf aan ons doorgeeft.',
     blocks: [
       { t: 'h2', x: 'Wie is verantwoordelijk voor je gegevens?' },
-      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484283.' },
+      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484380.' },
 
       { t: 'h2', x: 'Welke gegevens verwerken we?' },
       { t: 'p', x: 'Als je een bestelling plaatst via WhatsApp, verwerken we de gegevens die je zelf doorgeeft:' },
@@ -307,7 +307,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Op deze voorwaarden en op alle bestellingen is Nederlands recht van toepassing. Dwingend consumentenrecht dat jou beschermt, blijft van kracht. We kunnen deze voorwaarden wijzigen. De datum onder deze tekst laat zien wanneer ze voor het laatst is bijgewerkt; op een bestelling zijn de voorwaarden van toepassing die golden toen je bestelde.' },
 
       { t: 'h2', x: '15. Nietigheid en vragen' },
-      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484283.' },
+      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +44 7441 484380.' },
     ],
     related: ['privacy-en-cookies', 'is-lachgas-verboden', 'contact', 'bestellen', 'veilig-gebruik-lachgas', 'over-ons'],
   },
