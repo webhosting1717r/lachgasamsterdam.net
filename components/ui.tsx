@@ -211,12 +211,6 @@ const menuTanks: [string, string][] = [
   ['10KG', '/fastgas-10kg/'],
 ];
 
-const Chevron = () => (
-  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 6l6 6-6 6" />
-  </svg>
-);
-
 export function Header() {
   return (
     <header className="nav">
@@ -247,7 +241,7 @@ export function Header() {
                 <p className="sh">Bestellen</p>
                 <ul className="mlist">
                   {menuGroups[0].items.map(([l, sub, h]) => (
-                    <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span><Chevron /></a></li>
+                    <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span></a></li>
                   ))}
                 </ul>
               </nav>
@@ -262,7 +256,7 @@ export function Header() {
                   <p className="sh">{g.h}</p>
                   <ul className="mlist">
                     {g.items.map(([l, sub, h]) => (
-                      <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span><Chevron /></a></li>
+                      <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span></a></li>
                     ))}
                   </ul>
                 </nav>
