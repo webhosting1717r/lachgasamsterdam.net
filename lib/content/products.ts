@@ -6,7 +6,7 @@ const NOTE =
 const ORDER_STEPS: [string, string][] = [
   ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat en voor welk gebruik je de tank nodig hebt.'],
   ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
-  ['Betaal bij aflevering', 'PIN of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
+  ['Betaal bij aflevering', 'PIN, Tikkie of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
 ];
 
 export const products: Page[] = [
@@ -158,7 +158,7 @@ export const products: Page[] = [
       { q: 'Hoeveel slagroom kan ik ermee maken?', a: 'Als richtgetal: één patroon van 8 gram is genoeg voor een halve liter room, dus 2000 gram komt op ruim 100 liter. Het echte verbruik hangt af van je opstelling en het verlies bij aansluiten.' },
       { q: 'Kan ik de tank bijvullen of terugbrengen?', a: 'Nee. Het is een wegwerptank: niet bijvullen, geen statiegeld en geen inleverafspraak. Na gebruik voer je de lege tank af volgens de lokale regels.' },
       { q: 'Hoe snel is de 2KG bij mij?', a: 'Doorgaans binnen 20 tot 30 minuten in Amsterdam en omstreken, dag en nacht. Bij je bestelling bevestigen we de verwachte aankomsttijd.' },
-      { q: 'Wat kost de Fastgas 2KG?', a: 'We noemen de actuele prijs per bericht, vooraf, en er komen geen kosten achteraf bij. Betalen kan bij aflevering met PIN of contant. Zie ook [lachgas prijs](/lachgas-prijs/).' },
+      { q: 'Wat kost de Fastgas 2KG?', a: 'We noemen de actuele prijs per bericht, vooraf, en er komen geen kosten achteraf bij. Betalen kan bij aflevering met PIN, Tikkie of contant. Zie ook [lachgas prijs](/lachgas-prijs/).' },
       { q: 'Is de 2KG geschikt voor thuisgebruik?', a: 'Voor een serieuze keukentoepassing wel. Je moet 18 jaar of ouder zijn en het gebruik moet toegestaan zijn. Houd de tank rechtop, vastgezet en buiten bereik van kinderen.' },
     ],
     related: ['fastgas-4kg', 'fastgas-10kg', 'lachgas-tank-bestellen', 'lachgas-tanks', 'slagroompatronen', 'lachgas-opslag-en-transport'],
@@ -233,7 +233,7 @@ export const products: Page[] = [
       { q: 'Hoe vaak moet ik een nieuwe tank bestellen?', a: 'Dat hangt van je verbruik af. Houd bij hoe snel je eerste tank leegloopt en bestel daarna op tijd een reserve. Wij bezorgen dag en nacht, dus een aanvulling is snel geregeld.' },
       { q: 'Kan ik twee 4KG tanks tegelijk bestellen?', a: 'Ja. Geef het aantal en je ontvangstpunt door via WhatsApp en we bevestigen beschikbaarheid, prijs en aankomsttijd. Zie ook [lachgas voor evenementen](/lachgas-evenementen/).' },
       { q: 'Kan ik de 4KG terugbrengen of bijvullen?', a: 'Nee. Het is een wegwerptank: niet bijvullen en geen statiegeld. Voer de lege tank af volgens de lokale regels, zie [wegwerp lachgas tanks](/wegwerp-lachgas-tanks/).' },
-      { q: 'Wat kost de Fastgas 4KG?', a: 'De prijs noemen we vooraf per bericht en hangt af van het aantal tanks en je locatie. Je betaalt de koerier bij aflevering met PIN of contant. Zie [lachgas prijs](/lachgas-prijs/).' },
+      { q: 'Wat kost de Fastgas 4KG?', a: 'De prijs noemen we vooraf per bericht en hangt af van het aantal tanks en je locatie. Je betaalt de koerier bij aflevering met PIN, Tikkie of contant. Zie [lachgas prijs](/lachgas-prijs/).' },
       { q: 'Bezorgen jullie de 4KG ook ’s nachts?', a: 'Ja, we zijn 24 uur per dag bereikbaar en bezorgen dag en nacht. Lees meer over [nachtlevering](/lachgas-nachtlevering/) en [lachgas 24/7](/lachgas-24-7/).' },
     ],
     related: ['fastgas-2kg', 'fastgas-10kg', 'lachgas-horeca', 'lachgas-tanks', 'lachgas-evenementen', 'lachgas-tank-bestellen'],
@@ -291,7 +291,7 @@ export const products: Page[] = [
       { t: 'p', x: 'Past een 10KG niet op je opslagplek, of wil je de tank makkelijker kunnen verplaatsen? Dan zijn twee [4KG-tanks](/fastgas-4kg/) een alternatief. Je hebt dan 8000 gram, met lichtere tanks en een reserve achter de hand. Wat het beste werkt, hangt af van je ruimte en je personeel. Stuur ons je situatie, dan denken we mee.' },
 
       { t: 'h2', x: 'Een Fastgas 10KG bestellen' },
-      { t: 'p', x: 'Zet in je bericht het adres, het aantal tanks, het ontvangstpunt en of er een steekwagen of lift beschikbaar is. Bijvoorbeeld: “Goedemiddag, één Fastgas 10KG voor ons hotel in Amsterdam Zuidoost. Ontvangst bij de goederenontvangst, contactpersoon …” We antwoorden met prijs en aankomsttijd en je betaalt bij aflevering met PIN of contant.' },
+      { t: 'p', x: 'Zet in je bericht het adres, het aantal tanks, het ontvangstpunt en of er een steekwagen of lift beschikbaar is. Bijvoorbeeld: “Goedemiddag, één Fastgas 10KG voor ons hotel in Amsterdam Zuidoost. Ontvangst bij de goederenontvangst, contactpersoon …” We antwoorden met prijs en aankomsttijd en je betaalt bij aflevering met PIN, Tikkie of contant.' },
       { t: 'steps', x: ORDER_STEPS },
       { t: 'p', x: 'We bezorgen in [Amsterdam Zuidoost](/lachgas-amsterdam-zuidoost/) rond de ArenA, maar ook in [Haarlem](/lachgas-haarlem/) en [Almere](/lachgas-almere/). Heb je een evenement, lees dan [lachgas voor evenementen](/lachgas-evenementen/).' },
       { t: 'note', x: NOTE },
@@ -303,7 +303,7 @@ export const products: Page[] = [
       { q: 'Kan ik de 10KG op een evenemententerrein laten bezorgen?', a: 'Ja, als je het exacte ontvangstpunt doorgeeft. Bij afzettingen spreken we een alternatief punt af. Lees meer op [lachgas voor evenementen](/lachgas-evenementen/).' },
       { q: 'Krijg ik een factuur voor mijn bedrijf?', a: 'Vraag naar zakelijke administratie bij je eerste bestelling via WhatsApp. We stemmen de details dan met je af.' },
       { q: 'Kan ik een 10KG bijvullen of terugbrengen?', a: 'Nee, het is een wegwerptank: niet bijvullen en geen statiegeld. Voer de lege tank af volgens de lokale regels voor gasflessen.' },
-      { q: 'Wat kost de Fastgas 10KG?', a: 'De prijs noemen we vooraf per bericht, afhankelijk van aantal en locatie. Je betaalt bij aflevering met PIN of contant. Zie [lachgas prijs](/lachgas-prijs/).' },
+      { q: 'Wat kost de Fastgas 10KG?', a: 'De prijs noemen we vooraf per bericht, afhankelijk van aantal en locatie. Je betaalt bij aflevering met PIN, Tikkie of contant. Zie [lachgas prijs](/lachgas-prijs/).' },
     ],
     related: ['fastgas-4kg', 'fastgas-2kg', 'lachgas-horeca', 'lachgas-evenementen', 'lachgas-tanks', 'lachgas-opslag-en-transport'],
   },
@@ -384,16 +384,12 @@ export const products: Page[] = [
     blocks: [
       { t: 'h2', x: 'Zo bestel je een lachgas tank' },
       { t: 'p', x: 'Je bestelt via WhatsApp en betaalt bij aflevering. Er is geen webwinkel, geen winkelwagen en geen account. Dat scheelt tijd, en je krijgt direct antwoord van iemand die je kunt bereiken.' },
-      { t: 'steps', x: ORDER_STEPS },
-
-      { t: 'h2', x: 'Wat heb je nodig?' },
-      { t: 'ul', x: ['Je adres met huisnummer, etage en eventuele toegangscode', 'Het gewenste formaat: 2KG, 4KG of 10KG', 'Een geldig legitimatiebewijs voor de leeftijdscontrole (18+)', 'PIN-pas of contant geld voor de betaling'] },
-
-      { t: 'h2', x: 'Wat zet je in je bericht?' },
-      { t: 'p', x: 'Hoe completer je eerste bericht, hoe sneller de koerier onderweg is. Dit hoort erin:' },
-      { t: 'ul', x: ['Adres, huisnummer en een eventuele bel- of toegangscode', 'Formaat en aantal tanks', 'Het gebruik: keuken, horeca, catering of technisch', 'Een telefoonnummer waarop de koerier je kan bereiken', 'Bij voorkeur een locatiepin, zeker bij een lastig vindbaar adres'] },
-      { t: 'p', x: 'Een voorbeeld: “Hoi, ik wil één Fastgas 4KG bestellen voor ons restaurant in Amsterdam West. Adres is …, belletje bij de zijdeur. Gebruik: desserts en schuimen.” Meer voorbeelden vind je op [lachgas bestellen via WhatsApp](/lachgas-bestellen-whatsapp/).' },
-
+      { t: 'steps', x: [
+        ['Kies je formaat en aantal', 'Noem 2KG, 4KG of 10KG en hoeveel tanks je wilt. Twijfel je, stuur dan je verbruik per week; wij rekenen mee.'],
+        ['Stuur adres en gebruik via WhatsApp', 'Met huisnummer, etage of toegangscode en voor welke toepassing je de tank gebruikt. Wij bevestigen totaalprijs en aankomsttijd.'],
+        ['Controleer de tank bij ontvangst', 'Verzegeling intact, label met serienummer en inhoud aanwezig. Daarna betaal je de koerier met PIN, Tikkie of contant.'],
+      ] },
+      { t: 'p', x: 'Wat je precies in je bericht zet, wat er na je bericht gebeurt en wanneer we niet leveren, staat op [bestellen](/bestellen/). Deze pagina gaat over de keuze van de tank: welk formaat, hoeveel en wat je bij ontvangst controleert.' },
       { t: 'h2', x: 'Veelgemaakte fouten bij het bestellen' },
       { t: 'ul', x: [
         'Een adres zonder etage of toegangscode, waardoor de koerier voor een dichte deur staat',
@@ -403,39 +399,28 @@ export const products: Page[] = [
         'Pas bestellen als de tank al leeg is, zodat je zonder zit',
       ] },
       { t: 'p', x: 'Loop je dit rijtje door voordat je een bericht stuurt, dan gaat de bestelling bijna altijd in één keer goed.' },
-
       { t: 'h2', x: 'Kies je tank' },
       { t: 'cards', x: [
-        { h: 'Fastgas 2KG', p: '2000 gram, circa 250 patronen.', href: '/fastgas-2kg/' },
-        { h: 'Fastgas 4KG', p: '4000 gram, circa 500 patronen.', href: '/fastgas-4kg/' },
-        { h: 'Fastgas 10KG', p: '10.000 gram, circa 1250 patronen.', href: '/fastgas-10kg/' },
+        { h: 'Fastgas 2KG', p: 'Compact en licht; voor een kleine keuken of af en toe gebruik.', href: '/fastgas-2kg/' },
+        { h: 'Fastgas 4KG', p: 'Voor een drukke keuken of catering; het meest bestelde formaat.', href: '/fastgas-4kg/' },
+        { h: 'Fastgas 10KG', p: 'Voor grootverbruik; zwaarder, dus zorg voor een vaste plek.', href: '/fastgas-10kg/' },
       ] },
       { t: 'p', x: 'Weet je niet welk formaat je nodig hebt? Op [lachgas tanks](/lachgas-tanks/) staat per formaat voor wie het geschikt is. Je kunt ook gewoon je situatie sturen, dan adviseren we.' },
-
-      { t: 'h2', x: 'Wat gebeurt er na je bericht?' },
-      { t: 'p', x: 'Wij antwoorden met de totaalprijs en de verwachte aankomsttijd, doorgaans binnen 20 tot 30 minuten in Amsterdam. Ben je het eens, dan vertrekt de koerier. Je kunt onderweg met hem contact houden. Meer over hoe de levering verloopt, lees je op [lachgas bezorgen](/lachgas-bezorgen/) en [de lachgaskoerier](/lachgas-koerier/).' },
-      { t: 'p', x: 'Bij de deur controleert de koerier desgewenst je leeftijd, overhandigt hij de verzegelde tank persoonlijk en neemt hij de betaling aan. Let zelf even op dat de verzegeling intact is en dat het label met serienummer erop zit.' },
-
       { t: 'h2', x: 'Hoeveel tanks bestel je?' },
       { t: 'p', x: 'Begin met het aantal dat je binnen een redelijke tijd gebruikt. Eén tank is voor de meeste bestellingen genoeg. Gebruik je een tank regelmatig, bestel dan meteen een tweede als reserve, zodat je niet midden in een dienst zonder zit. Heb je een evenement of een groot project, geef dan het totaal op en de gewenste tijd, zodat we de levering kunnen plannen. Meer hierover vind je op [lachgas voor evenementen](/lachgas-evenementen/).' },
-
       { t: 'h2', x: 'Betalen en prijs' },
-      { t: 'p', x: 'Je betaalt bij aflevering met PIN of contant. De prijs noemen we per bericht vooraf, omdat hij afhangt van het formaat, het aantal en de locatie. Wat je afspreekt, betaal je, zonder kosten achteraf. Zie [lachgas prijs](/lachgas-prijs/) voor de uitleg.' },
-
-      { t: 'h2', x: 'Wanneer leveren we niet?' },
-      { t: 'p', x: 'We leveren uitsluitend aan klanten van 18 jaar en ouder en uitsluitend voor toegestaan gebruik. Sinds 1 januari 2023 staat lachgas op lijst II van de Opiumwet en is bezit en handel voor recreatief gebruik verboden. Lijkt het beoogde gebruik niet toegestaan, of twijfelen we aan je leeftijd, dan leveren we niet. Lees de [uitleg over de wet](/is-lachgas-verboden/).' },
-
+      { t: 'p', x: 'Je betaalt bij aflevering met PIN, Tikkie of contant. De prijs noemen we per bericht vooraf, omdat hij afhangt van het formaat, het aantal en de locatie. Wat je afspreekt, betaal je, zonder kosten achteraf. Zie [lachgas prijs](/lachgas-prijs/) voor de uitleg.' },
       { t: 'h2', x: 'Bestellen als bedrijf of particulier' },
       { t: 'p', x: 'Bestel je namens een zaak, vermeld dan bedrijfsnaam, contactpersoon en ontvangstpunt. Voor terugkerende levering en administratie zie [lachgas voor horeca](/lachgas-horeca/). Particulieren bestellen op dezelfde manier, met een serieuze keukentoepassing.' },
       { t: 'p', x: 'Overdag, in de avond of midden in de nacht: bestellen kan altijd. Zie [lachgas 24/7](/lachgas-24-7/). Uitgebreide uitleg van de procedure staat ook op [bestellen](/bestellen/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
+      { q: 'Welk formaat kies ik voor een eerste bestelling?', a: 'Begin met de 2KG als je het verbruik nog niet kent; een patroon van 8 gram staat voor ongeveer een halve liter room, dus de 2KG komt overeen met circa 250 patronen. Bestel je vaker, dan is de 4KG per gram voordeliger. Zie [welk formaat past](/lachgas-tanks/).' },
+      { q: 'Kan ik twee formaten in één bestelling combineren?', a: 'Ja. Noem beide formaten en aantallen in je bericht; we bevestigen één totaalprijs en één aankomsttijd.' },
+      { q: 'Wat controleer ik als de koerier de tank overhandigt?', a: 'Of de verzegeling intact is en of het label met serienummer, inhoud en keuringsgegevens aanwezig is. Klopt iets niet, neem de tank dan niet aan; zie [Fastgas uitgelegd](/fastgas/).' },
       { q: 'Moet ik een account aanmaken?', a: 'Nee. Je bestelt via WhatsApp en betaalt bij aflevering. Een account of vooruitbetaling is niet nodig.' },
-      { q: 'Kan ik ook overdag bestellen?', a: 'Ja, we zijn 24 uur per dag bereikbaar. Zie [overdag bestellen](/overdag-bestellen/).' },
-      { q: 'Welke betaalmethoden zijn er?', a: 'PIN of contant bij de koerier, op het moment van aflevering.' },
-      { q: 'Hoe lang duurt het voor de tank er is?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam en 25 tot 45 minuten in de regio. Bij je bestelling bevestigen we de verwachte aankomsttijd.' },
-      { q: 'Kan ik een tijdstip afspreken?', a: 'Ja. Geef in je bericht aan wanneer je wilt dat de koerier komt, bijvoorbeeld als je pas later aanwezig bent.' },
+      { q: 'Welke betaalmethoden zijn er?', a: 'PIN, Tikkie of contant bij de koerier, op het moment van aflevering. Bij Tikkie stuurt de koerier een betaalverzoek dat je in je bankapp betaalt.' },
       { q: 'Moet ik mijn legitimatie laten zien?', a: 'De koerier kan om legitimatie vragen om je leeftijd te controleren. Je moet 18 jaar of ouder zijn.' },
       { q: 'Wat als mijn adres lastig te vinden is?', a: 'Stuur een locatiepin via WhatsApp en noteer een toegangscode of een korte aanwijzing. Dan vindt de koerier je snel.' },
     ],

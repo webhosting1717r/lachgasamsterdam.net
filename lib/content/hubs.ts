@@ -16,7 +16,7 @@ export const hubs: Page[] = [
       { t: 'steps', x: [
         ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
         ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
-        ['Betaal bij aflevering', 'PIN of contant bij de koerier.'],
+        ['Betaal bij aflevering', 'PIN, Tikkie of contant bij de koerier.'],
       ] },
       { t: 'p', x: 'Zo simpel is het. Er is geen webwinkel en geen winkelwagen: je praat direct met ons, dag en nacht. Dat voorkomt dat je een formulier invult en daarna niet weet of de bestelling is aangekomen.' },
 
@@ -25,7 +25,7 @@ export const hubs: Page[] = [
         'Je adres met huisnummer, etage en eventuele bel- of toegangscode',
         'Het gewenste formaat en het aantal tanks',
         'Een geldig legitimatiebewijs voor de leeftijdscontrole (18+)',
-        'Een PIN-pas of contant geld voor de betaling bij aflevering',
+        'Een PIN-pas, Tikkie of contant geld voor de betaling bij aflevering',
         'Een telefoonnummer waarop de koerier je kan bereiken',
       ] },
 
@@ -46,7 +46,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Je kunt onderweg met de koerier contact houden via het nummer waarmee je hebt besteld. Verandert er iets, bijvoorbeeld je ontvangstpunt of het tijdstip, laat het ons dan zo snel mogelijk weten.' },
 
       { t: 'h2', x: 'Bij de deur: leeftijdscontrole en betaling' },
-      { t: 'p', x: 'De koerier overhandigt de verzegelde tank persoonlijk aan de besteller. Hij kan om legitimatie vragen en neemt de betaling aan, met PIN of contant, tegen de vooraf afgesproken prijs. Er komen geen kosten achteraf bij.' },
+      { t: 'p', x: 'De koerier overhandigt de verzegelde tank persoonlijk aan de besteller. Hij kan om legitimatie vragen en neemt de betaling aan, met PIN, Tikkie of contant, tegen de vooraf afgesproken prijs. Er komen geen kosten achteraf bij.' },
       { t: 'ul', x: ['Controleer de verzegeling en het label met serienummer', 'Houd je legitimatie klaar', 'Houd je pinpas of contant geld bij de hand', 'Zorg dat je voordeur goed zichtbaar en verlicht is, zeker ’s nachts'] },
       { t: 'p', x: 'Bij een beschadigde verzegeling gebruik je de tank niet en neem je direct contact met ons op.' },
 
@@ -68,9 +68,10 @@ export const hubs: Page[] = [
     ],
     faq: [
       { q: 'Kan ik ook overdag bestellen?', a: 'Ja, we zijn 24 uur per dag bereikbaar. Zie [overdag bestellen](/overdag-bestellen/).' },
-      { q: 'Wat heb ik nodig?', a: 'Je adres, het gewenste formaat, een legitimatiebewijs en een pinpas of contant geld. Een account of vooruitbetaling is niet nodig.' },
+      { q: 'Kan ik met Tikkie betalen?', a: 'Ja. De koerier stuurt bij aflevering een Tikkie-betaalverzoek dat je in je bankapp betaalt. PIN en contant kunnen ook; vooraf betalen is nooit nodig.' },
+      { q: 'Wat heb ik nodig?', a: 'Je adres, het gewenste formaat, een legitimatiebewijs en een pinpas, Tikkie of contant geld. Een account of vooruitbetaling is niet nodig.' },
       { q: 'Hoe lang duurt het voordat mijn bestelling er is?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam en 25 tot 45 minuten in de regio. Bij je bestelling bevestigen we de verwachte aankomsttijd.' },
-      { q: 'Wat kost een bestelling?', a: 'We noemen de totaalprijs per bericht, vooraf, omdat hij afhangt van formaat, aantal en locatie. Je betaalt bij aflevering met PIN of contant.' },
+      { q: 'Wat kost een bestelling?', a: 'We noemen de totaalprijs per bericht, vooraf, omdat hij afhangt van formaat, aantal en locatie. Je betaalt bij aflevering met PIN, Tikkie of contant.' },
       { q: 'Kan ik meerdere tanks tegelijk bestellen?', a: 'Ja. Geef aantallen en formaten door via WhatsApp en we bevestigen beschikbaarheid, prijs en aankomsttijd.' },
       { q: 'Kan ik een tijdstip afspreken?', a: 'Ja. Geef in je bericht aan wanneer je wilt dat de koerier komt, bijvoorbeeld als je pas later aanwezig bent.' },
       { q: 'Wat als ik niet thuis ben?', a: 'Neem contact met ons op. De tank wordt alleen persoonlijk aan de besteller overhandigd.' },
@@ -272,7 +273,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Geef bij je bestelling juiste en volledige gegevens door, zoals je adres, telefoonnummer en het beoogde gebruik. Voor de gevolgen van onjuiste of onvolledige gegevens, bijvoorbeeld een mislukte levering, zijn wij niet verantwoordelijk.' },
 
       { t: 'h2', x: '5. Betaling' },
-      { t: 'p', x: 'Je betaalt bij aflevering met PIN of contant. Vooruitbetaling of een account is niet nodig.' },
+      { t: 'p', x: 'Je betaalt bij aflevering met PIN, Tikkie of contant. Vooruitbetaling of een account is niet nodig.' },
 
       { t: 'h2', x: '6. Levering' },
       { t: 'p', x: 'Aankomsttijden zijn verwachtingen, geen garanties. De tank wordt persoonlijk aan de besteller overhandigd. Zorg dat je op het afgesproken adres en tijdstip aanwezig en bereikbaar bent en houd je legitimatie klaar. Is niemand aanwezig, neem dan contact met ons op. Afhalen is niet mogelijk; we bezorgen uitsluitend. Zodra de tank aan jou is overhandigd en betaald, ben je zelf verantwoordelijk voor opslag, gebruik en afvoer.' },

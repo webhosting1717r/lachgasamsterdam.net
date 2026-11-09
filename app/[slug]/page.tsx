@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 const chipsFor = (p: Page): string[] | null => {
   switch (p.kind) {
     case 'location':
-      return ['24/7 bereikbaar', `Binnen ${p.eta ?? site.etaShort}`, 'PIN of contant', `${site.minAge}+`];
+      return ['24/7 bereikbaar', `Binnen ${p.eta ?? site.etaShort}`, 'PIN, Tikkie of contant', `${site.minAge}+`];
     case 'product':
-      return ['Verzegeld', 'Geen statiegeld', 'PIN of contant', `${site.minAge}+`];
+      return ['Verzegeld', 'Geen statiegeld', 'PIN, Tikkie of contant', `${site.minAge}+`];
     case 'service':
-      return ['24/7 bereikbaar', 'Prijs vooraf', 'PIN of contant', `${site.minAge}+`];
+      return ['24/7 bereikbaar', 'Prijs vooraf', 'PIN, Tikkie of contant', `${site.minAge}+`];
     default:
       return null;
   }

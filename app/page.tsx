@@ -18,7 +18,7 @@ const faq: Faq[] = [
   { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
   { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Hoe je bestelt staat op [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/); op [Amsterdam per stadsdeel](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
   { q: 'Hoe snel bezorgen jullie lachgas in Amsterdam?', a: 'Gemiddeld staat onze koerier binnen 20 tot 30 minuten voor de deur, dag en nacht. Buiten Amsterdam hoor je op de pagina van je plaats wat de verwachte tijd is. Bij je bestelling bevestigen we altijd de aankomsttijd.' },
-  { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
+  { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN, Tikkie of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
   { q: 'Wat kost een Fastgas tank?', a: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom noemen we hem per bericht en altijd vooraf. Stuur je adres en formaat via [WhatsApp](/lachgas-bestellen-whatsapp/) en je hoort meestal binnen enkele minuten het totaalbedrag. Meer uitleg staat op [lachgas prijs](/lachgas-prijs/).' },
   { q: 'Welke tanks leveren jullie?', a: 'De originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Elke tank is verzegeld en voorzien van een label met inhoud en keuringsgegevens. Zie [alle lachgas tanks](/lachgas-tanks/). Hoe je de echtheid controleert, staat op [Fastgas uitgelegd](/fastgas/).' },
   { q: 'Welk formaat tank moet ik kiezen?', a: 'Kies naar verbruik. De 2KG past bij kleine keukens, de 4KG bij een drukke keuken of catering, de 10KG bij professioneel gebruik met veel verbruik. Twijfel je, stuur dan je situatie door; we denken mee. Zie ook [Fastgas 4KG](/fastgas-4kg/) en [Fastgas 10KG](/fastgas-10kg/).' },
@@ -40,7 +40,7 @@ const sizes = [
 export default function Home() {
   return (
     <>
-      <JsonLd data={graph(null, [{ name: 'Home', path: '/' }], faq, 'Bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. 24/7 bereikbaar, betalen bij aflevering met PIN of contant. Alleen 18+ en voor toegestaan gebruik.')} />
+      <JsonLd data={graph(null, [{ name: 'Home', path: '/' }], faq, 'Bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. 24/7 bereikbaar, betalen bij aflevering met PIN, Tikkie of contant. Alleen 18+ en voor toegestaan gebruik.')} />
       <section className="hero home">
         <div className="wrap">
           <div className="row two">
@@ -53,7 +53,7 @@ export default function Home() {
           <Cta />
           <ul className="chips">
             <li>24/7 bereikbaar</li>
-            <li>PIN of contant</li>
+            <li>PIN, Tikkie of contant</li>
             <li>Prijs vooraf</li>
             <li>{site.minAge}+</li>
           </ul>
@@ -74,7 +74,7 @@ export default function Home() {
             <li><strong>Wat:</strong> bezorging van de originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG</li>
             <li><strong>Waar:</strong> alle stadsdelen van Amsterdam, Weesp en 14 plaatsen eromheen</li>
             <li><strong>Wanneer:</strong> 24/7, in Amsterdam doorgaans binnen 20 tot 30 minuten</li>
-            <li><strong>Betalen:</strong> bij aflevering met PIN of contant, de prijs hoor je vooraf</li>
+            <li><strong>Betalen:</strong> bij aflevering met PIN, Tikkie of contant, de prijs hoor je vooraf</li>
             <li><strong>Voor wie:</strong> klanten van 18 jaar en ouder met een toegestane toepassing, zoals keuken, horeca, catering en techniek</li>
           </ul>
           <p>
@@ -127,7 +127,7 @@ export default function Home() {
           <ol className="steps">
             <li><strong>Stuur een WhatsApp-bericht</strong><span>Geef je adres, het gewenste formaat en voor welk gebruik je het nodig hebt.</span></li>
             <li><strong>Wij bevestigen prijs en tijd</strong><span>Je hoort vooraf wat het kost en hoe laat de koerier er is.</span></li>
-            <li><strong>Betaal bij aflevering</strong><span>PIN of contant, zonder account en zonder vooruitbetaling.</span></li>
+            <li><strong>Betaal bij aflevering</strong><span>PIN, Tikkie of contant, zonder account en zonder vooruitbetaling.</span></li>
           </ol>
           <p>
             <Rich text="Voeg bij voorkeur een locatiepin toe en noteer bel- of toegangscode en etage; dan hoeft de koerier niet te zoeken. Bij [bestellen via WhatsApp](/lachgas-bestellen-whatsapp/) staat een voorbeeldbericht, en alles over de route vind je op [bestellen](/bestellen/). Woon je in de stad, lees dan [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/)." />

@@ -265,7 +265,7 @@ export function Header() {
             </div>
             <div className="sheet-cta">
               <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> Bestel via WhatsApp</a>
-              <p>{site.whatsappText}<span className="sep">&middot;</span>PIN of contant<span className="sep">&middot;</span>{site.minAge}+</p>
+              <p>{site.whatsappText}<span className="sep">&middot;</span>PIN, Tikkie of contant<span className="sep">&middot;</span>{site.minAge}+</p>
             </div>
           </div>
         </details>

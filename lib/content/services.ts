@@ -7,7 +7,7 @@ const NOTE =
 const STEPS: [string, string][] = [
   ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
   ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
-  ['Betaal bij aflevering', 'PIN of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
+  ['Betaal bij aflevering', 'PIN, Tikkie of contant bij de koerier. Een account of vooruitbetaling is niet nodig.'],
 ];
 
 export const services: Page[] = [
@@ -48,7 +48,7 @@ export const services: Page[] = [
       { t: 'h2', x: 'Lachgas kopen in drie stappen' },
       { t: 'steps', x: STEPS },
       { t: 'h2', x: 'Wat kost lachgas kopen in Amsterdam?' },
-      { t: 'p', x: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom staat er geen vaste prijs op de site. Je hoort de totaalprijs per bericht voordat de koerier rijdt en wat je afspreekt betaal je bij aflevering met PIN of contant. Hoe dat precies werkt, lees je op [lachgas prijs](/lachgas-prijs/).' },
+      { t: 'p', x: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom staat er geen vaste prijs op de site. Je hoort de totaalprijs per bericht voordat de koerier rijdt en wat je afspreekt betaal je bij aflevering met PIN, Tikkie of contant. Hoe dat precies werkt, lees je op [lachgas prijs](/lachgas-prijs/).' },
       { t: 'h2', x: 'Waarom kopen met bezorging?' },
       { t: 'p', x: 'Wij werken uitsluitend met bezorging; afhalen is niet mogelijk. Dat heeft een praktisch voordeel: de tank komt verzegeld bij je aan en je hoeft hem niet zelf te vervoeren. Bestellen kan dag en nacht via [WhatsApp](/contact/) en het [bezorggebied](/bezorggebied/) omvat alle stadsdelen van Amsterdam en 15 plaatsen eromheen.' },
       { t: 'note', x: NOTE },
@@ -140,7 +140,7 @@ export const services: Page[] = [
       { q: 'Moet ik thuis zijn als de koerier komt?', a: 'Ja. De tank wordt persoonlijk aan de besteller overhandigd, na een leeftijdscontrole op verzoek. Bestel dus voor een adres waar jij zelf bent.' },
       { q: 'Wat als mijn adres lastig te vinden is?', a: 'Stuur een locatiepin en een korte aanwijzing, zoals de ingang of een toegangscode. Zeker bij nieuwbouw, binnenhoven en bedrijfsterreinen scheelt dat veel tijd.' },
       { q: 'Kan ik meerdere tanks tegelijk bestellen?', a: 'Ja. Vermeld aantal en formaat, dan bevestigen we beschikbaarheid, prijs en aankomsttijd. Zie [lachgas tank bestellen](/lachgas-tank-bestellen/) voor de formaten.' },
-      { q: 'Welke betaalmethoden zijn er?', a: 'PIN of contant, aan de koerier bij aflevering. Vooraf betalen of een account aanmaken is niet nodig.' },
+      { q: 'Welke betaalmethoden zijn er?', a: 'PIN, Tikkie of contant, aan de koerier bij aflevering. Vooraf betalen of een account aanmaken is niet nodig.' },
     ],
     related: ['lachgas-bestellen-whatsapp', 'lachgas-bezorgen', 'lachgas-amsterdam', 'bestellen', 'lachgas-tank-bestellen', 'lachgas-24-7'],
   },
@@ -152,7 +152,7 @@ export const services: Page[] = [
     lead: 'Lachgas Amsterdam bezorgt dag en nacht in alle stadsdelen en een groot deel van de regio. Je bestelt, wij komen.',
     blocks: [
       { t: 'h2', x: 'Hoe werkt lachgas bezorgen?' },
-      { t: 'p', x: 'Na je bestelling bevestigen we prijs en verwachte aankomsttijd. De koerier brengt de verzegelde tank naar je adres, controleert desgewenst je leeftijd en neemt de betaling aan (PIN of contant). Er is geen afhaalpunt: bezorging is de enige manier waarop wij leveren.' },
+      { t: 'p', x: 'Na je bestelling bevestigen we prijs en verwachte aankomsttijd. De koerier brengt de verzegelde tank naar je adres, controleert desgewenst je leeftijd en neemt de betaling aan (PIN, Tikkie of contant). Er is geen afhaalpunt: bezorging is de enige manier waarop wij leveren.' },
       { t: 'p', x: 'Bestellen doe je via [WhatsApp](/lachgas-bestellen-amsterdam/), dag en nacht. Zo houden we de lijn kort: één bericht van jou, één bevestiging van ons en dan rijdt de koerier.' },
       { t: 'h2', x: 'Waar bezorgen we?' },
       { t: 'p', x: 'In alle stadsdelen van Amsterdam en in 15 plaatsen eromheen, van Haarlem tot Almere en van Purmerend tot Amstelveen. Bekijk het volledige [bezorggebied](/bezorggebied/) of zoek je plaats via [lachgas in de buurt](/lachgas-in-de-buurt/).' },
@@ -170,7 +170,7 @@ export const services: Page[] = [
       { t: 'steps', x: [
         ['Hij meldt zich en noemt je bestelling', 'Je hebt zelf besteld, dus je herkent adres en afspraak. Betaal nooit voor een bestelling die je niet zelf hebt geplaatst.'],
         ['Hij controleert op verzoek leeftijd en gebruik', 'Voor 18+ is een geldig legitimatiebewijs nodig. Bij twijfel levert hij niet.'],
-        ['Hij overhandigt de tank en neemt de betaling aan', 'PIN of contant, tegen de vooraf afgesproken prijs.'],
+        ['Hij overhandigt de tank en neemt de betaling aan', 'PIN, Tikkie of contant, tegen de vooraf afgesproken prijs.'],
       ] },
       { t: 'h2', x: 'Een tijdstip afspreken' },
       { t: 'p', x: 'Wil je dat de tank op een bepaald moment aankomt, bijvoorbeeld voordat de keuken opengaat, vermeld dat dan in je bericht. We bevestigen of dat past. Voor bedrijven die elke week een levering nodig hebben, regelen we een vast moment; zie [lachgas voor horeca](/lachgas-horeca/).' },
@@ -283,7 +283,7 @@ export const services: Page[] = [
       { t: 'steps', x: [
         ['Hij rijdt direct naar je adres', 'Zodra prijs en tijd zijn bevestigd, vertrekt de koerier met jouw bestelling.'],
         ['Hij controleert leeftijd en gebruik', 'Op verzoek vraagt hij je legitimatie; bij twijfel levert hij niet.'],
-        ['Hij overhandigt de tank en neemt de betaling aan', 'PIN of contant, tegen de vooraf afgesproken prijs.'],
+        ['Hij overhandigt de tank en neemt de betaling aan', 'PIN, Tikkie of contant, tegen de vooraf afgesproken prijs.'],
       ] },
       { t: 'h2', x: 'Van bestelling tot voordeur' },
       { t: 'h3', x: 'Voor het vertrek' },
@@ -291,7 +291,7 @@ export const services: Page[] = [
       { t: 'h3', x: 'Onderweg' },
       { t: 'p', x: 'Onze koeriers kennen de stad en de regio. In de binnenstad leggen ze de laatste meters vaak lopend of per fiets af, naar Noord gaan ze via de IJtunnel of nemen ze de pont als dat sneller is, en buiten de ring rijden ze tot voor de deur. Je kunt gebeld of geappt worden als het adres onduidelijk is.' },
       { t: 'h3', x: 'Bij de deur' },
-      { t: 'p', x: 'De koerier noemt je adres en de afgesproken bestelling. Je laat desgevraagd je legitimatie zien, neemt de tank aan en betaalt het afgesproken bedrag met PIN of contant.' },
+      { t: 'p', x: 'De koerier noemt je adres en de afgesproken bestelling. Je laat desgevraagd je legitimatie zien, neemt de tank aan en betaalt het afgesproken bedrag met PIN, Tikkie of contant.' },
       { t: 'h2', x: 'Wat controleert de koerier?' },
       { t: 'table', head: ['Controle', 'Wat hij doet'], rows: [
         ['Leeftijd', 'Vraagt op verzoek een geldig legitimatiebewijs; je moet 18 jaar of ouder zijn'],
@@ -349,7 +349,7 @@ export const services: Page[] = [
       { t: 'table', head: ['Dag', 'Tijden'], rows: [['Maandag', '00:00 – 24:00'], ['Dinsdag', '00:00 – 24:00'], ['Woensdag', '00:00 – 24:00'], ['Donderdag', '00:00 – 24:00'], ['Vrijdag', '00:00 – 24:00'], ['Zaterdag', '00:00 – 24:00'], ['Zondag', '00:00 – 24:00']] },
       { t: 'p', x: 'Ook op Koningsdag, Kerst en Oud & Nieuw zijn we bereikbaar. In de nacht en op drukke dagen kan de levertijd afwijken; je hoort dat bij je bestelling.' },
       { t: 'h2', x: 'Wat betekent 24/7 in de praktijk?' },
-      { t: 'p', x: 'Telefoon en WhatsApp worden op elk uur opgenomen, de koeriers staan dag en nacht klaar en we bevestigen bij iedere bestelling prijs en aankomsttijd. De prijs noemen we op elk tijdstip vooraf, en betalen doe je bij aflevering met PIN of contant.' },
+      { t: 'p', x: 'Telefoon en WhatsApp worden op elk uur opgenomen, de koeriers staan dag en nacht klaar en we bevestigen bij iedere bestelling prijs en aankomsttijd. De prijs noemen we op elk tijdstip vooraf, en betalen doe je bij aflevering met PIN, Tikkie of contant.' },
       { t: 'p', x: 'Het is dezelfde procedure als overdag: [bestellen](/lachgas-bestellen-amsterdam/), bevestigen, bezorgen. Ook de regels blijven gelijk: alleen 18+ en alleen voor toegestaan gebruik, zoals uitgelegd bij [is lachgas verboden](/is-lachgas-verboden/).' },
       { t: 'h2', x: 'Wat kun je verwachten per moment van de dag?' },
       { t: 'h3', x: 'Overdag' },
@@ -377,7 +377,7 @@ export const services: Page[] = [
       { t: 'ul', x: [
         'Alleen levering aan 18+, met een leeftijdscontrole op verzoek',
         'Alleen voor toegestaan gebruik, zoals keuken, horeca en technisch gebruik',
-        'De totaalprijs vooraf, betaling bij aflevering met PIN of contant',
+        'De totaalprijs vooraf, betaling bij aflevering met PIN, Tikkie of contant',
         'De tank wordt persoonlijk aan de besteller overhandigd',
       ] },
       { t: 'h2', x: 'Dag en nacht in heel het bezorggebied' },
@@ -444,7 +444,7 @@ export const services: Page[] = [
       { q: 'Hoe snel is nachtlevering?', a: 'Doorgaans 20 tot 30 minuten in Amsterdam en vaak sneller dan overdag. Buiten de stad is het 25 tot 45 minuten. We bevestigen de tijd bij je bestelling.' },
       { q: 'Wordt er ’s nachts ook op leeftijd gecontroleerd?', a: 'Ja. De koerier kan om legitimatie vragen en levert alleen aan 18+ en voor toegestaan gebruik.' },
       { q: 'Wat als niemand opendoet?', a: 'Dan geeft de koerier de tank niet af; hij overhandigt hem alleen aan de besteller. Neem contact op via [contact](/contact/) en spreek een nieuw moment af.' },
-      { q: 'Kan ik ’s nachts met PIN betalen?', a: 'Ja, PIN of contant bij de koerier, zoals op elk ander tijdstip.' },
+      { q: 'Kan ik ’s nachts met PIN betalen?', a: 'Ja, PIN, Tikkie of contant bij de koerier, zoals op elk ander tijdstip.' },
     ],
     related: ['lachgas-24-7', 'overdag-bestellen', 'lachgas-amsterdam', 'bestellen', 'lachgas-koerier', 'lachgas-bezorgen'],
   },
@@ -457,7 +457,7 @@ export const services: Page[] = [
     blocks: [
       { t: 'h2', x: 'Overdag lachgas bestellen: wat is anders?' },
       { t: 'p', x: 'Overdag is het drukker op de weg, dus de aankomsttijd kan wat langer zijn dan ’s nachts. Bij je bestelling bevestigen we de verwachte tijd. Je kunt ook een tijdstip afspreken waarop jij er bent.' },
-      { t: 'p', x: 'Verder verandert er niets: je [bestelt via WhatsApp](/lachgas-bestellen-amsterdam/), je hoort prijs en tijd vooraf en je betaalt bij aflevering met PIN of contant.' },
+      { t: 'p', x: 'Verder verandert er niets: je [bestelt via WhatsApp](/lachgas-bestellen-amsterdam/), je hoort prijs en tijd vooraf en je betaalt bij aflevering met PIN, Tikkie of contant.' },
       { t: 'h2', x: 'Verkeer en bereikbaarheid overdag' },
       { t: 'p', x: 'Drie dingen bepalen overdag hoe snel de koerier er is:' },
       { t: 'ul', x: [
@@ -478,7 +478,7 @@ export const services: Page[] = [
       { t: 'h2', x: 'Wat heb je nodig bij de ontvangst?' },
       { t: 'table', head: ['Onderdeel', 'Waarom'], rows: [
         ['Legitimatiebewijs', 'De koerier kan de leeftijdscontrole (18+) uitvoeren'],
-        ['PIN-pas of contant geld', 'Betaling gebeurt bij aflevering'],
+        ['PIN-pas, Tikkie of contant geld', 'Betaling gebeurt bij aflevering'],
         ['Bereikbare telefoon', 'De koerier kan je bellen als hij er bijna is'],
         ['Plek voor de tank', 'Een stabiele, droge ruimte; zie [opslag en transport](/lachgas-opslag-en-transport/)'],
       ] },
@@ -577,7 +577,7 @@ export const services: Page[] = [
   {
     slug: 'lachgas-prijs', group: 'service', kind: 'service', nav: 'Lachgas prijs', parent: 'home',
     title: 'Lachgas prijs: wat kost een Fastgas tank?',
-    desc: 'Wat kost lachgas? De prijs hangt af van het formaat (2KG, 4KG of 10KG). Je hoort de totaalprijs vooraf, betaling bij aflevering met PIN of contant.',
+    desc: 'Wat kost lachgas? De prijs hangt af van het formaat (2KG, 4KG of 10KG). Je hoort de totaalprijs vooraf, betaling bij aflevering met PIN, Tikkie of contant.',
     h1: 'Lachgas prijs', kicker: 'Wat kost het?',
     lead: 'De prijs van een Fastgas tank hangt af van het formaat en je locatie. Daarom noemen we hem per bericht, altijd vooraf.',
     blocks: [
@@ -591,7 +591,7 @@ export const services: Page[] = [
         ['Stuur formaat en locatie', 'Een bericht met bijvoorbeeld “Fastgas 4KG, Amsterdam Noord” is genoeg om een prijs te krijgen.'],
         ['Wij noemen de totaalprijs en de aankomsttijd', 'Meestal binnen enkele minuten, dag en nacht.'],
         ['Jij bevestigt of laat het zitten', 'Pas als je akkoord geeft, vertrekt de koerier.'],
-        ['Betaal bij aflevering', 'PIN of contant, tegen het afgesproken bedrag.'],
+        ['Betaal bij aflevering', 'PIN, Tikkie of contant, tegen het afgesproken bedrag.'],
       ] },
       { t: 'p', x: 'Je kunt de prijs ook zonder bestelverplichting opvragen via [WhatsApp](/lachgas-bestellen-whatsapp/).' },
       { t: 'h2', x: 'Formaten vergelijken zonder vaste prijzen' },
@@ -611,7 +611,7 @@ export const services: Page[] = [
       ] },
       { t: 'p', x: 'Een lage prijs zegt weinig als de tank niet verzegeld is of de aanbieder niet naar leeftijd en gebruik vraagt. Zie ook [Fastgas uitgelegd](/fastgas/).' },
       { t: 'h2', x: 'Totaalprijs en betaling' },
-      { t: 'p', x: 'Je hoort de totaalprijs voordat de koerier rijdt. Betalen doe je bij aflevering met PIN of contant. Er zijn geen verborgen kosten achteraf en je hoeft geen account aan te maken. De bevestiging blijft in je WhatsApp-gesprek staan, dus je kunt later terugkijken wat is afgesproken.' },
+      { t: 'p', x: 'Je hoort de totaalprijs voordat de koerier rijdt. Betalen doe je bij aflevering met PIN, Tikkie of contant. Er zijn geen verborgen kosten achteraf en je hoeft geen account aan te maken. De bevestiging blijft in je WhatsApp-gesprek staan, dus je kunt later terugkijken wat is afgesproken.' },
       { t: 'h2', x: 'Zakelijk en grotere aantallen' },
       { t: 'p', x: 'Bestel je regelmatig of meerdere tanks tegelijk, vermeld dat dan in je eerste bericht, samen met bedrijfsnaam, adres en verwacht verbruik. We noemen dan de totaalprijs voor het geheel en bespreken een eventuele terugkerende levering. Zie [lachgas voor horeca](/lachgas-horeca/) en [overdag bestellen](/overdag-bestellen/).' },
       { t: 'note', x: NOTE },
@@ -620,7 +620,7 @@ export const services: Page[] = [
       { q: 'Waarom staat er geen vaste prijs op de site?', a: 'De prijs hangt af van formaat en locatie. We noemen hem vooraf per bericht zodat hij altijd klopt voor jouw bestelling.' },
       { q: 'Is bezorgen gratis?', a: 'Dat hangt af van je locatie en bestelling. Je hoort het totaalbedrag vooraf, dus je weet wat je betaalt voordat de koerier rijdt.' },
       { q: 'Kan ik een prijs vragen zonder te bestellen?', a: 'Ja. Stuur je formaat en locatie, dan noemen we de prijs en de aankomsttijd. Pas als jij akkoord geeft, vertrekt de koerier.' },
-      { q: 'Kan ik met PIN betalen?', a: 'Ja, PIN of contant, aan de koerier bij aflevering. Vooruitbetalen is niet nodig.' },
+      { q: 'Kan ik met PIN betalen?', a: 'Ja, PIN, Tikkie of contant, aan de koerier bij aflevering. Vooruitbetalen is niet nodig.' },
       { q: 'Verandert de prijs ’s nachts?', a: 'We noemen de totaalprijs vooraf, op elk tijdstip. Wat we afspreken, betaal je bij aflevering. Zie ook [lachgas 24/7](/lachgas-24-7/).' },
       { q: 'Welk formaat is voordeligst?', a: 'Dat hangt af van je verbruik. Vergelijk de prijs per equivalent patroon, zoals in de tabel hierboven, en kies het formaat dat je ook echt opgebruikt.' },
       { q: 'Wordt de prijs hoger buiten Amsterdam?', a: 'De afstand speelt een rol. Voor Haarlem, Almere of Volendam hoor je de totaalprijs dus ook vooraf. Zie het [bezorggebied](/bezorggebied/).' },
@@ -803,7 +803,7 @@ export const services: Page[] = [
       { t: 'steps', x: [
         ['Stuur de evenementgegevens', 'Locatie, ontvangstpunt, datum, gewenste tijd en een contactpersoon op het terrein.'],
         ['Wij bevestigen prijs en aankomst', 'Ook bij meerdere tanks hoor je de totaalprijs vooraf.'],
-        ['Neem de tank in ontvangst', 'De contactpersoon toont legitimatie en betaalt met PIN of contant.'],
+        ['Neem de tank in ontvangst', 'De contactpersoon toont legitimatie en betaalt met PIN, Tikkie of contant.'],
       ] },
       { t: 'p', x: 'Zakelijk bestellen werkt hetzelfde als bij [horeca](/lachgas-horeca/). Wie buiten kantooruren wil bestellen, vindt tips bij [nachtlevering](/lachgas-nachtlevering/).' },
       { t: 'note', x: NOTE },

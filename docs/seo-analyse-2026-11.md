@@ -13,7 +13,7 @@ Doel: beter ranken dan lachgasamsterdam247.nl voor "lachgas amsterdam" en varian
 | Lighthouse mobiel | 100 / 96 / 100 / 100 | 56 / 96 / 75 / 100 |
 | LCP mobiel | 1,4 s | 9,4 s |
 | Gewicht homepage | 855 KiB | 3,2 MiB (2,3 MiB te besparen met moderne afbeeldingsformaten) |
-| Contact | WhatsApp +31 97 010 270 187 | WhatsApp 06 26 76 66 30 (Nederlands nummer) |
+| Contact | WhatsApp +31 97 010 270 187 | WhatsApp 06 26 76 66 30 |
 | Reviews | geen | vier verzonnen testimonials met demo-afbeeldingen uit het thema |
 | Framing | keuken, horeca, techniek; 18+; Opiumwet uitgelegd | "feest of privégebruik", "discretie voorop" |
 | Domein actief sinds | eind oktober 2026 | november 2025 |
@@ -31,19 +31,19 @@ Conclusie: op inhoud, techniek en structured data staan we ruim voor. De concurr
 6. fastgas247.nl
 7. lachgasamsterdam.nl (laughing-gas-delivery-amsterdam)
 8. lachgasnu.nl
-9. lachgas247amsterdam.nl (zustermerk van de concurrent, met locatiepagina's voor Weesp, Zaandam, Naarden, Almere, Hoofddorp en productpagina's "lachgas tanks amsterdam" en "lachgas patronen amsterdam")
+9. lachgas247amsterdam.nl (verwant merk van de concurrent, met locatiepagina's voor Weesp, Zaandam, Naarden, Almere, Hoofddorp en productpagina's "lachgas tanks amsterdam" en "lachgas patronen amsterdam")
 
-Opvallend: lachgasamsterdam.nl heeft bijna dezelfde URL-structuur als deze site (lachgas-amsterdam-centrum, laughing-gas-delivery-amsterdam, slagroompatronen, lachgas-informatie, bezorggebied, horeca, lachgas-haarlem) en dezelfde positionering (Fastgas 2KG/4KG/10KG, 20 tot 30 minuten, geen statiegeld). Als die inhoud (deels) gelijk is aan die van lachgasamsterdam.net, kiest Google één versie en verliest de nieuwste. Dit kon vanuit deze omgeving niet worden gecontroleerd (de host was niet bereikbaar). Controleer het zelf: kopieer een alinea van /lachgas-amsterdam/ en zoek die tussen aanhalingstekens.
+Let op: lachgasamsterdam.nl is een andere aanbieder met een vergelijkbare URL-structuur en positionering (Fastgas 2KG/4KG/10KG, 20 tot 30 minuten, geen statiegeld). lachgasamsterdam.net staat volledig los van die site en van alle andere lachgassites; alles op dit domein is uitsluitend voor dit domein geschreven. Controle op 9 november 2026: unieke zinnen van deze site (onder meer uit /lachgas-amsterdam/ en /over-ons/) komen in zoekmachines nergens anders voor. De .nl-site zelf kon vanuit de bouwomgeving niet worden opgehaald, dus herhaal de controle af en toe: zoek een zin tussen aanhalingstekens in Google. Neem nooit tekst over van andere lachgassites en laat niemand tekst van deze site hergebruiken.
 
 ## 3. Acties buiten de code (hoogste prioriteit)
 
 1. **Search Console.** Voeg `lachgasamsterdam.net` toe als Domein-property, dien `https://www.lachgasamsterdam.net/sitemap.xml` in en vraag via URL-inspectie indexering aan voor /, /lachgas-amsterdam/, /bestellen/, /lachgas-tanks/ en /bezorggebied/. Controleer na een week onder Pagina's of er "Gecrawld, momenteel niet geïndexeerd" of "Duplicaat" staat.
 2. **IndexNow.** Na elke deploy met gewijzigde inhoud: `npm run build && npm run indexnow`. Dit meldt alle URL's bij Bing, Yandex, Seznam en Naver (Google doet niet mee). Het sleutelbestand staat al op de site.
 3. **Bing Webmaster Tools.** Importeer de Search Console-property; Bing levert ook DuckDuckGo en de AI-zoekmachines.
-4. **Duplicate content met zustersites.** Zorg dat lachgasamsterdam.net, lachgasamsterdam.nl, lachgasdienstamsterdam.nl en lachgasholland.nl geen (deels) gelijke teksten hebben. Eén aanbod, één tekst per domein. Als twee domeinen hetzelfde bedrijf zijn, kies dan één hoofddomein en laat het andere daarnaar verwijzen (301), of geef het eigen teksten. Dit is de meest waarschijnlijke reden dat een technisch superieure site niet verschijnt.
-5. **Nederlands nummer.** Sinds 9 november 2026 staat overal het Nederlandse WhatsApp-nummer +31 97 010 270 187 (daarvoor een +44-nummer, wat voor een Amsterdamse bezorgdienst een vertrouwenssignaal in het nadeel was). Zet hetzelfde nummer op de zustersites en in het Google Bedrijfsprofiel, zodat naam, nummer en website overal gelijk zijn.
+4. **Duplicaten.** Binnen de site is de overlap tussen locatiepagina's teruggebracht (de identieke staart met bestelstappen en twee algemene FAQ's is vervangen door één plaatsspecifieke alinea) en `/lachgas-tank-bestellen/` deelt geen blokken meer met `/bestellen/`. Naar buiten toe: deze site deelt geen teksten, nummer of naam met andere websites. Houd dat zo.
+5. **Nederlands nummer.** Sinds 9 november 2026 staat overal het eigen WhatsApp-nummer +31 97 010 270 187 (daarvoor een +44-nummer, wat voor een Amsterdamse bezorgdienst een vertrouwenssignaal in het nadeel was). Gebruik dit nummer uitsluitend voor lachgasamsterdam.net en zet het identiek in het Google Bedrijfsprofiel.
 6. **Google Bedrijfsprofiel.** Een profiel als "bezorgdienst zonder bezoekadres" (service area business) met Amsterdam en de 15 plaatsen als werkgebied, de website-URL en openingstijden 24/7. Echte reviews daar wegen zwaarder dan wat dan ook op de site.
-7. **Backlinks.** Minimaal: vermeldingen op de zustersites naar lachgasamsterdam.net (één link per site, met ankertekst "Lachgas Amsterdam"), bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), en een KvK-vermelding als het bedrijf is ingeschreven. Geen gekochte links.
+7. **Backlinks.** Bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), een KvK-vermelding als het bedrijf is ingeschreven, en lokale vermeldingen (leveranciersoverzichten voor horeca). Geen gekochte links en geen links vanaf andere lachgassites.
 8. **Geduld en vers houden.** De site is twee weken oud. Werk `lastmod` bij als inhoud verandert, voeg maandelijks een of twee pagina's toe (bijvoorbeeld plaatsen die de concurrent wel heeft: Naarden, Bussum, Uithoorn, Aalsmeer, Zaandijk) en houd de FAQ's actueel.
 
 ## 4. Codewijzigingen in deze ronde (9 november 2026)
@@ -64,7 +64,7 @@ Zeven onafhankelijke audits (on-page, schema, techniek, content, interne links, 
 
 **Snelheid en mobiel.** Achtergrondvideo van 739 KB naar 150 KB (960x540, zelfde beeld); OG-afbeelding van 415 KB naar 64 KB (WhatsApp toont boven circa 300 KB vaak geen voorvertoning); extra 480 px-variant van de blueprint. Tabellen vielen op 360 px buiten beeld (alleen de eerste kolom zichtbaar); ze passen nu, en tabellen met drie kolommen stapelen. H1 brak op 360 px in vier regels met een losse "min."; contrast van kicker, kruimelpad en lead op de poster verhoogd. De vaste WhatsApp-balk verschijnt pas als de hero-knop uit beeld is (browsers zonder scroll-animaties tonen hem direct) en heet "Bestel via WhatsApp". `content-visibility` op panelen veroorzaakte de Lighthouse-fout op tikdoelen en een springende scrollbalk; verwijderd.
 
-**Eerder deze dag:** nieuw mobiel menu, IndexNow-script met sleutelbestand, Nederlands WhatsApp-nummer.
+**Eerder deze dag:** nieuw mobiel menu, IndexNow-script met sleutelbestand, eigen Nederlands WhatsApp-nummer, Tikkie als betaalmethode naast PIN en contant.
 
 ## 5. Bewust niet gedaan
 

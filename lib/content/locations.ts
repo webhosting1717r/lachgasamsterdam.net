@@ -843,17 +843,9 @@ function make(l: Loc): Page {
   const spotTxt = l.spots.join(', ');
 
   const faq: Faq[] = [
-    { q: `Hoe snel bezorgen jullie ${where}?`, a: `${l.time} Je betaalt bij aflevering met PIN of contant.` },
+    { q: `Hoe snel bezorgen jullie ${where}?`, a: `${l.time} Je betaalt bij aflevering met PIN, Tikkie of contant.` },
     l.q,
     ...l.extraQ,
-    {
-      q: `Welke Fastgas tanks kan ik ${where} bestellen?`,
-      a: 'We bezorgen de Fastgas Wegwerp Tank in 2KG (2000 gram), 4KG (4000 gram) en 10KG (10.000 gram), verzegeld en met een label met serienummer, inhoud en keuringsgegevens. Er is geen statiegeld. Een overzicht staat op [alle lachgas tanks](/lachgas-tanks/).',
-    },
-    {
-      q: `Is er een minimumleeftijd ${where}?`,
-      a: `Ja, ook ${where} leveren we uitsluitend aan klanten van ${site.minAge} jaar en ouder en uitsluitend voor toegestaan gebruik, zoals keuken, horeca, catering of technische toepassingen. De koerier kan om legitimatie vragen en levert niet bij twijfel. Lees [wat de Opiumwet zegt](/is-lachgas-verboden/).`,
-    },
   ];
 
   const blocks: Block[] = [
@@ -893,15 +885,7 @@ function make(l: Loc): Page {
     { t: 'h2', x: l.tipsH ?? `Tips voor een snelle levering ${where}` },
     { t: 'ul', x: l.tips },
     { t: 'h2', x: `Lachgas bestellen ${where}` },
-    {
-      t: 'steps',
-      x: [
-        ['Stuur een WhatsApp-bericht', `Geef je adres ${where}, je gewenste formaat (2KG, 4KG of 10KG) en wat voor gebruik het is.`],
-        ['Wij bevestigen prijs en tijd', `Verwachte aankomst: ${eta}. We noemen vooraf de prijs; er zijn geen verrassingen achteraf.`],
-        ['Betaal bij aflevering', 'Betalen kan met PIN of contant. Een account of vooruitbetaling is niet nodig.'],
-      ],
-    },
-    { t: 'p', x: `Meer weten voordat je bestelt? Lees [hoe bestellen werkt](/bestellen/), bekijk het [volledige bezorggebied](/bezorggebied/) of de [veelgestelde vragen](/veelgestelde-vragen/). ${stad ? '' : plaats ? `Zoek je een adres net buiten ${l.name}, kijk dan bij [lachgas in de buurt](/lachgas-in-de-buurt/). ` : 'Alle stadsdelen op een rij staan op [Amsterdam per stadsdeel](/lachgas-amsterdam/). '}Over de regels rond lachgas lees je op [is lachgas verboden](/is-lachgas-verboden/) en [veilig gebruik](/veilig-gebruik-lachgas/).` },
+    { t: 'p', x: `Bestellen ${where} gaat via WhatsApp: stuur je adres, het formaat (2KG, 4KG of 10KG) en waarvoor je de tank gebruikt. Wij bevestigen de totaalprijs en de aankomsttijd, ${where} doorgaans ${eta}, en je betaalt bij aflevering met PIN, Tikkie of contant. ${stad ? 'De volledige uitleg staat op [bestellen](/bestellen/); de regels rond lachgas lees je op [is lachgas verboden](/is-lachgas-verboden/).' : plaats ? `Zoek je een adres net buiten ${l.name}, kijk dan bij [lachgas in de buurt](/lachgas-in-de-buurt/); hoe bestellen precies werkt staat op [bestellen](/bestellen/).` : 'Alle stadsdelen op een rij staan op [Amsterdam per stadsdeel](/lachgas-amsterdam/); hoe bestellen precies werkt staat op [bestellen](/bestellen/).'}` },
     { t: 'note', x: `Levering uitsluitend aan ${site.minAge}+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Bij twijfel over het beoogde gebruik leveren we niet.` },
     { t: 'h2', x: `Ook in de buurt van ${l.name}` },
     {
