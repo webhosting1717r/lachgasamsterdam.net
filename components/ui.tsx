@@ -176,6 +176,47 @@ const navItems = [
   ['Contact', '/contact/'],
 ] as const;
 
+/* Mobiel menu: gegroepeerd, met een korte uitleg per link. Alleen interne links (statische site). */
+type MenuLink = [label: string, sub: string, href: string];
+const menuGroups: { h: string; items: MenuLink[] }[] = [
+  {
+    h: 'Bestellen',
+    items: [
+      ['Bestellen', 'In drie stappen via WhatsApp', '/bestellen/'],
+      ['Lachgas prijs', 'Totaalprijs vooraf, betalen bij aflevering', '/lachgas-prijs/'],
+      ['Lachgas 24/7', 'Dag en nacht, ook in het weekend', '/lachgas-24-7/'],
+    ],
+  },
+  {
+    h: 'Bezorggebied',
+    items: [
+      ['Lachgas Amsterdam', `Alle stadsdelen, binnen ${site.etaShort}`, '/lachgas-amsterdam/'],
+      ['Alle plaatsen', 'Weesp en 15 plaatsen rond Amsterdam', '/bezorggebied/'],
+    ],
+  },
+  {
+    h: 'Meer',
+    items: [
+      ['Horeca en evenementen', 'Zakelijk bestellen, ook tijdens de dienst', '/lachgas-horeca/'],
+      ['Informatie', 'Wetgeving, veiligheid en uitleg', '/lachgas-informatie/'],
+      ['Over ons', 'Werkwijze en regels', '/over-ons/'],
+      ['Contact', 'WhatsApp, dag en nacht', '/contact/'],
+    ],
+  },
+];
+const menuTanks: [string, string][] = [
+  ['Alle tanks', '/lachgas-tanks/'],
+  ['2KG', '/fastgas-2kg/'],
+  ['4KG', '/fastgas-4kg/'],
+  ['10KG', '/fastgas-10kg/'],
+];
+
+const Chevron = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M9 6l6 6-6 6" />
+  </svg>
+);
+
 export function Header() {
   return (
     <header className="nav">
@@ -192,12 +233,46 @@ export function Header() {
           {navItems.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
         </nav>
         <a className="btn pri sm hide-s" href={waHref()} rel="noopener">Bestel</a>
-        <details className="menu">
-          <summary aria-label="Menu"><span /><span /></summary>
+        {/* <details>: werkt zonder JavaScript. Sluiten kan via de knop, via de donkere overlay (die hoort bij <summary>)
+            of met Escape (lib/behavior.ts). De scroll-lock zit in CSS (html:has(.menu[open])). */}
+        <details className="menu" id="menu">
+          <summary>
+            <span className="mtxt"><span className="mo">Menu</span><span className="mc">Sluiten</span></span>
+            <span className="mico" aria-hidden="true"><i /><i /></span>
+          </summary>
           <div className="sheet">
-            {navItems.map(([l, h]) => <a key={h} href={h}>{l}</a>)}
-            <a href="/lachgas-24-7/">Lachgas 24/7</a>
-            <a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a>
+            <div className="sheet-in">
+              <p className="sheet-status"><span className="dot" aria-hidden="true" /><span><strong>Nu bereikbaar, 24/7</strong><small>Amsterdam binnen {site.etaShort}, betalen bij aflevering</small></span></p>
+              <nav aria-label="Menu, bestellen">
+                <p className="sh">Bestellen</p>
+                <ul className="mlist">
+                  {menuGroups[0].items.map(([l, sub, h]) => (
+                    <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span><Chevron /></a></li>
+                  ))}
+                </ul>
+              </nav>
+              <nav aria-label="Menu, tanks">
+                <p className="sh">Tanks</p>
+                <ul className="mtanks">
+                  {menuTanks.map(([l, h]) => <li key={h}><a href={h}>{l}</a></li>)}
+                </ul>
+              </nav>
+              {menuGroups.slice(1).map((g) => (
+                <nav key={g.h} aria-label={`Menu, ${g.h.toLowerCase()}`}>
+                  <p className="sh">{g.h}</p>
+                  <ul className="mlist">
+                    {g.items.map(([l, sub, h]) => (
+                      <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span><Chevron /></a></li>
+                    ))}
+                  </ul>
+                </nav>
+              ))}
+              <p className="men"><a href="/laughing-gas-delivery-amsterdam/" lang="en" hrefLang="en">English: laughing gas delivery Amsterdam</a></p>
+            </div>
+            <div className="sheet-cta">
+              <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> Bestel via WhatsApp</a>
+              <p>{site.whatsappText}<span className="sep">&middot;</span>PIN of contant<span className="sep">&middot;</span>{site.minAge}+</p>
+            </div>
           </div>
         </details>
       </div>
@@ -245,7 +320,8 @@ export function Footer() {
   );
 }
 
-/* Zwevende WhatsApp-knop: altijd zichtbaar, rechtsonder. Op mobiel boven de vaste knoppenbalk. Zonder JavaScript. */
+/* Zwevende WhatsApp-knop: rechtsonder op tablet en desktop. Op mobiel verborgen: daar staat al de vaste knoppenbalk,
+   en de knop bedekte daar tikdoelen (Lighthouse target-size). Zonder JavaScript. */
 export function WaFloat() {
   return (
     <a className="wa-float" href={waHref()} rel="noopener" aria-label="Bestel via WhatsApp" title="Bestel via WhatsApp">
@@ -291,7 +367,7 @@ export function BlueprintZoom({ alt, priority }: { alt: string; priority?: boole
         decoding="async"
         {...(priority ? { fetchPriority: 'high' as const } : { loading: 'lazy' as const })}
       />
-      <a className="zoom" href="#bp-zoom" aria-label="Blueprint vergroten">
+      <a className="zoom" href="#bp-zoom" aria-label="Inzoomen op de blueprint">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
           <circle cx="10.5" cy="10.5" r="6.5" />
           <path d="M20 20l-4.8-4.8M10.5 7.5v6M7.5 10.5h6" />

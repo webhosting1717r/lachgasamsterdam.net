@@ -6,16 +6,18 @@ export const site = {
   brand: 'Fastgas',
   url: 'https://www.lachgasamsterdam.net',
   host: 'www.lachgasamsterdam.net',
-  lastmod: '2026-10-30',
+  lastmod: '2026-11-09',
   /** dag/maand/jaar voor de zichtbare "Bijgewerkt"-regel */
-  lastmodText: '30 oktober 2026',
-  lastmodTextEn: '30 October 2026',
+  lastmodText: '9 november 2026',
+  lastmodTextEn: '9 November 2026',
   /* Contact loopt uitsluitend via WhatsApp. */
   whatsapp: '+447441484380',
   whatsappText: '+44 7441 484380',
   eta: '20 tot 30 minuten',
   etaShort: '20-30 min',
   minAge: 18,
+  /* IndexNow-sleutel (Bing, Yandex, Seznam, Naver). Openbaar bestand /<key>.txt; zie scripts/indexnow.mjs. */
+  indexNowKey: '8d0318a4f2ca3ac806848fd5b99318fe',
 };
 
 export const waNumber = digits(site.whatsapp);

@@ -1,6 +1,6 @@
 # lachgasamsterdam.net
 
-Next.js 16 (App Router) als statische export, bedoeld voor Vercel. De build levert pure HTML + ~10 KB inline CSS + één script van ±0,6 KB (start de achtergrondvideo). `scripts/build.mjs` draait `next build` en daarna `scripts/postbuild.mjs`, dat de volledige Next/React-runtime uit `out/` haalt, dus er is geen JavaScript-bundel (leeg Lighthouse-treemap).
+Next.js 16 (App Router) als statische export, bedoeld voor Vercel. De build levert pure HTML + ~12 KB inline CSS + één script van ±0,8 KB (sluit het mobiele menu met Escape en start de achtergrondvideo). `scripts/build.mjs` draait `next build` en daarna `scripts/postbuild.mjs`, dat de volledige Next/React-runtime uit `out/` haalt, dus er is geen JavaScript-bundel (leeg Lighthouse-treemap).
 
 ## Gebruiken
 
@@ -14,13 +14,15 @@ node serve.mjs 8797  # lokaal testen met brotli, op http://localhost:8797
 
 | Pad | Inhoud |
 | --- | --- |
-| `lib/site.ts` | domein, WhatsApp (+44 7441 484380), levertijd, lastmod |
+| `lib/site.ts` | domein, WhatsApp (+44 7441 484380), levertijd, lastmod, IndexNow-sleutel |
 | `lib/content/*.ts` | alle pagina-inhoud: `products`, `services` (zoekopdrachten), `locations`, `info`, `hubs` (bestellen, bezorggebied, contact, juridisch) |
 | `lib/pages.ts` | verzamelt alle pagina's en controleert dubbele slugs en kapotte "bekijk ook"-links tijdens de build |
 | `app/[slug]/page.tsx` | template voor elke subpagina (metadata, JSON-LD, FAQ, kruimelpad) |
 | `app/page.tsx` | homepage |
+| `components/ui.tsx` | header met desktopmenu en mobiel menu (`<details>`, gegroepeerd, sluit via knop, overlay of Escape, scroll-lock in CSS), footer, blokken, FAQ, blueprint-zoom |
 | `lib/schema.ts` | JSON-LD: LocalBusiness, WebSite, WebPage, BreadcrumbList, Service, ProductModel, Article, FAQPage |
-| `public/` | video (`bg-v1.mp4`), poster, productfoto's, OG-afbeelding, iconen, `llms.txt` |
+| `public/` | video (`bg-v1.mp4`), poster, productfoto's, OG-afbeelding, iconen, `llms.txt`, IndexNow-sleutelbestand |
+| `scripts/indexnow.mjs` | `npm run indexnow`: meldt alle URL's uit de sitemap (of alleen de opgegeven paden) bij IndexNow (Bing, Yandex, Seznam, Naver) |
 
 Blokken in `blocks`: `p`, `h2`, `h3`, `ul`, `steps`, `cards`, `table`, `note`. Bij vier of meer `h2`-koppen komt vanzelf een inhoudsopgave met ankerlinks. `lang: 'en'` zet de taal van een pagina, `twin` koppelt een Nederlandse en een Engelse pagina met hreflang.
 
@@ -32,6 +34,7 @@ Een nieuwe zoekopdracht-pagina toevoegen = een object toevoegen in `lib/content/
 2. Voeg bij Domains `www.lachgasamsterdam.net` toe (primair) en `lachgasamsterdam.net`, dat in het dashboard naar www doorstuurt. Zet in `vercel.json` geen tweede redirect in de andere richting: dat geeft een redirectlus.
 3. Zet bij je DNS-provider de records die Vercel noemt.
 4. Search Console: voeg `https://www.lachgasamsterdam.net/` toe als Domein-property, dien `https://www.lachgasamsterdam.net/sitemap.xml` in en vraag de homepage te laten indexeren.
+5. Na elke deploy met gewijzigde inhoud: `npm run build && npm run indexnow` (alle URL's) of `node scripts/indexnow.mjs /pad/ /ander-pad/` (alleen gewijzigde pagina's). Google gebruikt IndexNow niet; daar blijft Search Console voor nodig.
 
 Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sitemap en de JSON-LD gebruiken `https://www.lachgasamsterdam.net`.
 
@@ -42,3 +45,4 @@ Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sit
 - `npm run seo` (na de build) controleert titels, descriptions, koppen, woordaantallen, interne links, dubbele ids, JSON-LD en de sitemap. Exitcode 1 bij fouten.
 - Werk `lastmod` en `lastmodText` in `lib/site.ts` bij als je inhoud wijzigt.
 - Lighthouse mobile en desktop op home, een product-, locatie- en infopagina.
+- Mobiel menu: open en sluit via de knop, een tik op de overlay en Escape; controleer ook met JavaScript uit (het is een `<details>`). De zwevende WhatsApp-knop staat alleen vanaf 760 px; op mobiel is er de vaste knoppenbalk.
