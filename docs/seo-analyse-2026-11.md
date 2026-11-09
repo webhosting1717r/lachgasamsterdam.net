@@ -13,7 +13,7 @@ Doel: beter ranken dan lachgasamsterdam247.nl voor "lachgas amsterdam" en varian
 | Lighthouse mobiel | 100 / 96 / 100 / 100 | 56 / 96 / 75 / 100 |
 | LCP mobiel | 1,4 s | 9,4 s |
 | Gewicht homepage | 855 KiB | 3,2 MiB (2,3 MiB te besparen met moderne afbeeldingsformaten) |
-| Contact | WhatsApp +44 7441 484380 | WhatsApp 06 26 76 66 30 (Nederlands nummer) |
+| Contact | WhatsApp +31 97 010 270 187 | WhatsApp 06 26 76 66 30 (Nederlands nummer) |
 | Reviews | geen | vier verzonnen testimonials met demo-afbeeldingen uit het thema |
 | Framing | keuken, horeca, techniek; 18+; Opiumwet uitgelegd | "feest of privégebruik", "discretie voorop" |
 | Domein actief sinds | eind oktober 2026 | november 2025 |
@@ -41,7 +41,7 @@ Opvallend: lachgasamsterdam.nl heeft bijna dezelfde URL-structuur als deze site 
 2. **IndexNow.** Na elke deploy met gewijzigde inhoud: `npm run build && npm run indexnow`. Dit meldt alle URL's bij Bing, Yandex, Seznam en Naver (Google doet niet mee). Het sleutelbestand staat al op de site.
 3. **Bing Webmaster Tools.** Importeer de Search Console-property; Bing levert ook DuckDuckGo en de AI-zoekmachines.
 4. **Duplicate content met zustersites.** Zorg dat lachgasamsterdam.net, lachgasamsterdam.nl, lachgasdienstamsterdam.nl en lachgasholland.nl geen (deels) gelijke teksten hebben. Eén aanbod, één tekst per domein. Als twee domeinen hetzelfde bedrijf zijn, kies dan één hoofddomein en laat het andere daarnaar verwijzen (301), of geef het eigen teksten. Dit is de meest waarschijnlijke reden dat een technisch superieure site niet verschijnt.
-5. **Nederlands nummer.** Een +44-nummer is voor een Amsterdamse bezorgdienst een vertrouwenssignaal in het nadeel, zowel voor bezoekers als voor Google (de zoekresultaten noemden het nummerverschil zelfs expliciet). Een Nederlands 06- of 020-nummer op WhatsApp, consequent op alle zustersites, helpt conversie en lokale relevantie. Dit is een bedrijfskeuze; de site is er klaar voor (één regel in `lib/site.ts`).
+5. **Nederlands nummer.** Sinds 9 november 2026 staat overal het Nederlandse WhatsApp-nummer +31 97 010 270 187 (daarvoor een +44-nummer, wat voor een Amsterdamse bezorgdienst een vertrouwenssignaal in het nadeel was). Zet hetzelfde nummer op de zustersites en in het Google Bedrijfsprofiel, zodat naam, nummer en website overal gelijk zijn.
 6. **Google Bedrijfsprofiel.** Een profiel als "bezorgdienst zonder bezoekadres" (service area business) met Amsterdam en de 15 plaatsen als werkgebied, de website-URL en openingstijden 24/7. Echte reviews daar wegen zwaarder dan wat dan ook op de site.
 7. **Backlinks.** Minimaal: vermeldingen op de zustersites naar lachgasamsterdam.net (één link per site, met ankertekst "Lachgas Amsterdam"), bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), en een KvK-vermelding als het bedrijf is ingeschreven. Geen gekochte links.
 8. **Geduld en vers houden.** De site is twee weken oud. Werk `lastmod` bij als inhoud verandert, voeg maandelijks een of twee pagina's toe (bijvoorbeeld plaatsen die de concurrent wel heeft: Naarden, Bussum, Uithoorn, Aalsmeer, Zaandijk) en houd de FAQ's actueel.

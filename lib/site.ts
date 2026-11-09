@@ -11,8 +11,8 @@ export const site = {
   lastmodText: '9 november 2026',
   lastmodTextEn: '9 November 2026',
   /* Contact loopt uitsluitend via WhatsApp. */
-  whatsapp: '+447441484380',
-  whatsappText: '+44 7441 484380',
+  whatsapp: '+3197010270187',
+  whatsappText: '+31 97 010 270 187',
   eta: '20 tot 30 minuten',
   etaShort: '20-30 min',
   minAge: 18,

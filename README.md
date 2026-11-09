@@ -14,7 +14,7 @@ node serve.mjs 8797  # lokaal testen met brotli, op http://localhost:8797
 
 | Pad | Inhoud |
 | --- | --- |
-| `lib/site.ts` | domein, WhatsApp (+44 7441 484380), levertijd, lastmod, IndexNow-sleutel |
+| `lib/site.ts` | domein, WhatsApp (+31 97 010 270 187), levertijd, lastmod, IndexNow-sleutel |
 | `lib/content/*.ts` | alle pagina-inhoud: `products`, `services` (zoekopdrachten), `locations`, `info`, `hubs` (bestellen, bezorggebied, contact, juridisch) |
 | `lib/pages.ts` | verzamelt alle pagina's en controleert dubbele slugs en kapotte "bekijk ook"-links tijdens de build |
 | `app/[slug]/page.tsx` | template voor elke subpagina (metadata, JSON-LD, FAQ, kruimelpad) |
