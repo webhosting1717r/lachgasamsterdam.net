@@ -1,7 +1,7 @@
 import type { Page } from '../types';
 
 const NOTE =
-  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Lees de [wettelijke status](/is-lachgas-verboden/).';
+  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik.';
 
 const ORDER_STEPS: [string, string][] = [
   ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat en voor welk gebruik je de tank nodig hebt.'],
@@ -11,9 +11,9 @@ const ORDER_STEPS: [string, string][] = [
 
 export const products: Page[] = [
   {
-    slug: 'lachgas-tanks', group: 'product', kind: 'product', nav: 'Lachgas tanks', parent: 'home', twin: 'nitrous-oxide-tanks',
-    title: 'Lachgas tanks: Fastgas 2KG, 4KG en 10KG',
-    desc: 'Lachgas tank bestellen in Amsterdam: de verzegelde Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Bezorgd binnen 20 tot 30 minuten, PIN of contant.',
+    slug: 'lachgas-tanks', group: 'product', kind: 'product', nav: 'Lachgas tanks', parent: 'home', twin: 'nitrous-oxide-tanks', updated: '2026-11-09',
+    title: 'Lachgas tanks Amsterdam: 2KG, 4KG en 10KG',
+    desc: 'Lachgas tanks in Amsterdam: Fastgas 2KG, 4KG en 10KG, verzegeld en 24/7 bezorgd binnen 20 tot 30 minuten. Kies je formaat en betaal bij aflevering.',
     h1: 'Lachgas tanks in Amsterdam', kicker: 'Fastgas Wegwerp Tank',
     lead: 'De Fastgas Wegwerp Tank is verzegeld, heeft een label met serienummer en keuringsgegevens en is direct klaar voor gebruik. Drie formaten, bezorgd in en rond Amsterdam.',
     img: { src: '/fastgas-4kg.webp', alt: 'Fastgas lachgas tanks 2KG en 4KG, navy met gele band', w: 640, h: 512 },
@@ -79,9 +79,11 @@ export const products: Page[] = [
       { t: 'p', x: 'De prijs hangt af van het formaat, het aantal tanks en je locatie, en we noemen hem per bericht, voordat de koerier vertrekt. Zo klopt het bedrag altijd en hoef je niet te zoeken naar een verouderde prijslijst. Er zijn geen kosten achteraf en geen borg, omdat het om een wegwerptank gaat.' },
       { t: 'p', x: 'Wil je vooraf weten waar de prijs van afhangt, lees dan [lachgas prijs](/lachgas-prijs/). Voor een vaste zakelijke behoefte stemmen we de levering en de administratie met je af.' },
 
+      { t: 'h2', x: 'Lachgastank, lachgascilinder of lachgasfles: hetzelfde product' },
+      { t: 'p', x: 'Een lachgastank wordt ook lachgascilinder, lachgasfles of N2O-tank genoemd. Het gaat steeds om dezelfde stalen gasfles met distikstofmonoxide onder druk. Wij leveren hem uitsluitend als verzegelde Fastgas Wegwerp Tank in 2KG, 4KG en 10KG, en bestellen kan via [lachgas tank bestellen in Amsterdam](/lachgas-tank-bestellen/).' },
       { t: 'h2', x: 'Zo bestel je een lachgas tank' },
       { t: 'steps', x: ORDER_STEPS },
-      { t: 'p', x: 'De prijs noemen we per bericht, vooraf, omdat hij afhangt van formaat, aantal en locatie. Hoe dat werkt, lees je op [lachgas prijs](/lachgas-prijs/). We bezorgen dag en nacht in [Amsterdam](/lachgas-amsterdam/) en in 15 plaatsen eromheen, zie het [bezorggebied](/bezorggebied/). Een complete uitleg van de bestelling staat op [lachgas tank bestellen](/lachgas-tank-bestellen/).' },
+      { t: 'p', x: 'De prijs noemen we per bericht, vooraf, omdat hij afhangt van formaat, aantal en locatie. Hoe dat werkt, lees je op [lachgas prijs](/lachgas-prijs/). We bezorgen dag en nacht in Amsterdam en in 15 plaatsen eromheen, zie het [bezorggebied](/bezorggebied/). Wat je vooraf moet weten over label, verzegeling en regels staat op [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/). Een complete uitleg van de bestelling staat op [lachgas tank bestellen](/lachgas-tank-bestellen/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
@@ -306,8 +308,8 @@ export const products: Page[] = [
     related: ['fastgas-4kg', 'fastgas-2kg', 'lachgas-horeca', 'lachgas-evenementen', 'lachgas-tanks', 'lachgas-opslag-en-transport'],
   },
   {
-    slug: 'wegwerp-lachgas-tanks', group: 'product', kind: 'product', nav: 'Wegwerp lachgas tanks', parent: 'lachgas-tanks',
-    title: 'Wegwerp lachgas tanks: voordelen en gebruik',
+    slug: 'wegwerp-lachgas-tanks', group: 'product', kind: 'product', nav: 'Wegwerp lachgas tanks', parent: 'lachgas-tanks', updated: '2026-11-09',
+    title: 'Wegwerp lachgas tanks zonder statiegeld',
     desc: 'Wegwerp lachgas tank kopen: geen statiegeld, verzegeld en direct klaar. Alles over de Fastgas wegwerptank en hoe je hem veilig afvoert.',
     h1: 'Wegwerp lachgas tanks', kicker: 'Zonder statiegeld',
     lead: 'Een wegwerp lachgas tank is een eenmalig gebruikte, verzegelde tank. Je hoeft hem niet terug te brengen of bij te vullen.',
@@ -374,11 +376,11 @@ export const products: Page[] = [
     related: ['lachgas-tanks', 'lachgas-opslag-en-transport', 'nitrous-oxide-tanks', 'veilig-gebruik-lachgas', 'fastgas', 'fastgas-4kg'],
   },
   {
-    slug: 'lachgas-tank-bestellen', group: 'product', kind: 'service', nav: 'Lachgas tank bestellen', parent: 'lachgas-tanks',
+    slug: 'lachgas-tank-bestellen', group: 'product', kind: 'service', nav: 'Lachgas tank bestellen', parent: 'lachgas-tanks', updated: '2026-11-09',
     title: 'Lachgas tank bestellen in Amsterdam',
     desc: 'Lachgas tank bestellen: kies 2KG, 4KG of 10KG en bestel via WhatsApp. 24/7 bezorgd in Amsterdam, betalen bij aflevering.',
-    h1: 'Lachgas tank bestellen', kicker: 'Bestellen in drie stappen',
-    lead: 'Een lachgas tank bestel je bij ons zonder account en zonder formulier: een bericht of een telefoontje is genoeg.',
+    h1: 'Lachgas tank bestellen in Amsterdam', kicker: 'Bestellen in drie stappen',
+    lead: 'Een lachgas tank bestel je bij ons zonder account en zonder formulier: een WhatsApp-bericht is genoeg.',
     blocks: [
       { t: 'h2', x: 'Zo bestel je een lachgas tank' },
       { t: 'p', x: 'Je bestelt via WhatsApp en betaalt bij aflevering. Er is geen webwinkel, geen winkelwagen en geen account. Dat scheelt tijd, en je krijgt direct antwoord van iemand die je kunt bereiken.' },
@@ -505,12 +507,14 @@ export const products: Page[] = [
     related: ['laughing-gas-delivery-amsterdam', 'lachgas-tanks', 'bestellen', 'contact', 'bezorggebied', 'wegwerp-lachgas-tanks'],
   },
   {
-    slug: 'slagroompatronen', group: 'product', kind: 'service', nav: 'Slagroompatronen', parent: 'lachgas-tanks',
-    title: 'Slagroompatronen: 8 gram N2O voor de keuken',
-    desc: 'Slagroompatronen voor slagroomspuiten: wat er in zit, hoeveel je nodig hebt en wanneer een tank slimmer is. Advies voor horeca en thuis.',
-    h1: 'Slagroompatronen', kicker: 'Voor slagroomspuiten',
+    slug: 'slagroompatronen', group: 'product', kind: 'service', nav: 'Slagroompatronen', parent: 'lachgas-tanks', updated: '2026-11-09',
+    title: 'Lachgas patronen of slagroompatronen',
+    desc: 'Lachgas patronen of slagroompatronen: 8 gram N2O per patroon. Wat erin zit, hoeveel je nodig hebt en wanneer een Fastgas tank in Amsterdam slimmer is.',
+    h1: 'Slagroompatronen (lachgas patronen)', kicker: 'Voor slagroomspuiten',
     lead: 'Een slagroompatroon is een klein stalen cilindertje met 8 gram lachgas, bedoeld om slagroom en schuimen te maken in een slagroomspuit.',
     blocks: [
+      { t: 'h2', x: 'Lachgas patronen, slagroompatronen of N2O-patronen: hetzelfde product' },
+      { t: 'p', x: 'Lachgas patronen, slagroompatronen en N2O-patronen zijn drie namen voor hetzelfde product: een klein stalen patroon met 8 gram distikstofmonoxide, bedoeld voor een slagroomspuit. Wij verkopen geen losse patronen; wij bezorgen in Amsterdam de Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Hieronder lees je wat een patroon doet en wanneer een tank de slimmere keuze is.' },
       { t: 'h2', x: 'Wat is een slagroompatroon?' },
       { t: 'p', x: 'Een slagroompatroon bevat 8 gram lachgas (N₂O) en past in de houder van een slagroomspuit. Het gas lost op in de room en zorgt dat de room luchtig wordt en onder druk uit de spuit komt. Een patroon is voor eenmalig gebruik: na gebruik is hij leeg en voer je hem af.' },
       { t: 'p', x: 'Wij bezorgen geen losse patronen. Wij leveren uitsluitend de verzegelde Fastgas Wegwerp Tank in [2KG, 4KG en 10KG](/lachgas-tanks/). Deze pagina legt uit hoe patronen werken, zodat je kunt bepalen of een tank voor jouw keuken slimmer is.' },

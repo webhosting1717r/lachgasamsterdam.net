@@ -1,18 +1,18 @@
 import type { Page } from '../types';
-import { locationData } from './locations';
+import { etaRows, locationData } from './locations';
 
 const NOTE =
-  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Lees de [wettelijke status](/is-lachgas-verboden/).';
+  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik.';
 
 export const hubs: Page[] = [
   {
-    slug: 'bestellen', group: 'hub', kind: 'service', nav: 'Bestellen', parent: 'home',
-    title: 'Lachgas bestellen: zo werkt het in 3 stappen',
+    slug: 'bestellen', group: 'hub', kind: 'service', nav: 'Bestellen', parent: 'home', absolute: true, updated: '2026-11-09',
+    title: 'Bestellen bij Lachgas Amsterdam: in 3 stappen via WhatsApp',
     desc: 'Bestellen bij Lachgas Amsterdam in drie stappen: stuur een WhatsApp, wij bevestigen prijs en tijd, jij betaalt bij aflevering. 24/7.',
     h1: 'Bestellen bij Lachgas Amsterdam', kicker: 'In drie stappen',
     lead: 'Bij Lachgas Amsterdam bestel je zonder account of formulier: een WhatsApp-bericht is genoeg. Je betaalt de koerier bij aflevering.',
     blocks: [
-      { t: 'h2', x: 'Lachgas bestellen in drie stappen' },
+      { t: 'h2', x: 'Zo bestel je in drie stappen' },
       { t: 'steps', x: [
         ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
         ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is, doorgaans binnen 20 tot 30 minuten.'],
@@ -79,14 +79,14 @@ export const hubs: Page[] = [
     related: ['lachgas-tank-bestellen', 'lachgas-bestellen-whatsapp', 'lachgas-tanks', 'contact', 'lachgas-bestellen-amsterdam', 'lachgas-prijs'],
   },
   {
-    slug: 'bezorggebied', group: 'hub', kind: 'service', nav: 'Bezorggebied', parent: 'home',
+    slug: 'bezorggebied', group: 'hub', kind: 'service', nav: 'Bezorggebied', parent: 'home', updated: '2026-11-09',
     title: 'Bezorggebied: Amsterdam en 15 plaatsen',
     desc: 'Ons bezorggebied: alle stadsdelen van Amsterdam en 15 plaatsen, van Haarlem tot Almere en van Purmerend tot Amstelveen. Doorgaans binnen 20 tot 30 minuten.',
     h1: 'Bezorggebied', kicker: '23 locaties',
     lead: 'We bezorgen in Amsterdam en een groot deel van de regio. Klik door voor wijken, bereikbaarheid en verwachte levertijd per locatie.',
     blocks: [
       { t: 'h2', x: 'Waar bezorgen wij lachgas?' },
-      { t: 'p', x: 'Ons bezorggebied omvat alle stadsdelen van Amsterdam, Weesp en 15 plaatsen eromheen, van Haarlem in het westen tot Almere in het oosten en van Amstelveen in het zuiden tot Purmerend en Volendam in het noorden. We bezorgen dag en nacht, elke dag van het jaar, aan huis en aan horeca, kantoren en evenementenlocaties. Alle producten, [de Fastgas tanks in 2KG, 4KG en 10KG](/lachgas-tanks/), gaan op dezelfde manier mee.' },
+      { t: 'p', x: 'Ons bezorggebied omvat alle stadsdelen van Amsterdam, Weesp en 14 plaatsen eromheen, van Haarlem in het westen tot Almere in het oosten en van Amstelveen in het zuiden tot Purmerend en Volendam in het noorden. We bezorgen dag en nacht, elke dag van het jaar, aan huis en aan horeca, kantoren en evenementenlocaties. Alle producten, [de Fastgas tanks in 2KG, 4KG en 10KG](/lachgas-tanks/), gaan op dezelfde manier mee.' },
 
       { t: 'h2', x: 'Amsterdam' },
       { t: 'cards', x: locationData.filter((l) => l.kind !== 'plaats').map((l) => ({ h: `Lachgas ${l.name}`, p: l.intro.split('. ')[0] + '.', href: `/${l.slug}/` })) },
@@ -95,12 +95,7 @@ export const hubs: Page[] = [
 
       { t: 'h2', x: 'Verwachte levertijd per gebied' },
       { t: 'p', x: 'De tijd hangt af van de afstand, het verkeer en het tijdstip. Dit zijn gemiddelden; bij je bestelling bevestigen we de actuele tijd.' },
-      { t: 'table', head: ['Gebied', 'Verwachte tijd'], rows: [
-        ['[Amsterdam](/lachgas-amsterdam/), [Diemen](/lachgas-diemen/), [Amstelveen](/lachgas-amstelveen/), [Badhoevedorp](/lachgas-badhoevedorp/)', '20 tot 30 minuten'],
-        ['[Haarlem](/lachgas-haarlem/), [Hoofddorp](/lachgas-hoofddorp/), [Zaandam](/lachgas-zaandam/), [Weesp](/lachgas-weesp/), [Zwanenburg](/lachgas-zwanenburg/)', '25 tot 35 minuten'],
-        ['[Abcoude](/lachgas-abcoude/), [Krommenie](/lachgas-krommenie/), [Landsmeer](/lachgas-landsmeer/), [Purmerend](/lachgas-purmerend/), [Wormerveer](/lachgas-wormerveer/)', '25 tot 40 minuten'],
-        ['[Almere](/lachgas-almere/), [Volendam](/lachgas-volendam/)', '30 tot 45 minuten'],
-      ] },
+      { t: 'table', head: ['Gebied', 'Verwachte tijd'], rows: etaRows(true) },
 
       { t: 'h2', x: 'Hoe bepalen we ons bezorggebied?' },
       { t: 'p', x: 'We kijken naar de reistijd vanaf onze standplaats in Amsterdam en naar de bereikbaarheid van de plaats via de snelweg. Een plaats moet binnen een redelijke tijd te bereiken zijn, want we noemen bij je bestelling een aankomsttijd. Daarom staat niet elke plaats in de regio op de lijst.' },
@@ -132,7 +127,7 @@ export const hubs: Page[] = [
     related: ['lachgas-amsterdam', 'lachgas-in-de-buurt', 'lachgas-bezorgen', 'bestellen', 'lachgas-24-7', 'contact'],
   },
   {
-    slug: 'contact', group: 'hub', kind: 'article', nav: 'Contact', parent: 'home',
+    slug: 'contact', group: 'hub', nav: 'Contact', parent: 'home', updated: '2026-11-09',
     title: 'Contact: WhatsApp Lachgas Amsterdam',
     desc: 'Contact met Lachgas Amsterdam: stuur een WhatsApp naar +31 97 010 270 187. Dag en nacht bereikbaar, ook in het weekend.',
     h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
@@ -182,7 +177,7 @@ export const hubs: Page[] = [
     related: ['bestellen', 'lachgas-bestellen-whatsapp', 'veelgestelde-vragen', 'bezorggebied', 'over-ons', 'lachgas-24-7'],
   },
   {
-    slug: 'privacy-en-cookies', group: 'legal', kind: 'article', nav: 'Privacy en cookies', parent: 'home', noCta: true,
+    slug: 'privacy-en-cookies', group: 'legal', nav: 'Privacy en cookies', parent: 'home', noCta: true, updated: '2026-11-09',
     title: 'Privacy en cookies',
     desc: 'Privacyverklaring van Lachgas Amsterdam: welke gegevens we verwerken, waarvoor en hoe lang. Deze website gebruikt geen cookies en geen trackers.',
     h1: 'Privacy en cookies', kicker: 'Juridisch',
@@ -256,7 +251,7 @@ export const hubs: Page[] = [
     related: ['algemene-voorwaarden', 'contact', 'bestellen', 'over-ons', 'veelgestelde-vragen', 'is-lachgas-verboden'],
   },
   {
-    slug: 'algemene-voorwaarden', group: 'legal', kind: 'article', nav: 'Algemene voorwaarden', parent: 'home', noCta: true,
+    slug: 'algemene-voorwaarden', group: 'legal', nav: 'Algemene voorwaarden', parent: 'home', noCta: true, updated: '2026-11-09',
     title: 'Algemene voorwaarden',
     desc: 'Algemene voorwaarden van Lachgas Amsterdam: leeftijd, toegestaan gebruik, bestellen, betalen, bezorgen en aansprakelijkheid.',
     h1: 'Algemene voorwaarden', kicker: 'Juridisch',

@@ -41,8 +41,8 @@ type Loc = {
 const L: Loc[] = [
   {
     slug: 'lachgas-amsterdam', name: 'Amsterdam', kind: 'stad', region: 'Noord-Holland',
-    title: 'Lachgas Amsterdam: bezorgd in elk stadsdeel, 24/7',
-    desc: 'Lachgas bezorgen in Amsterdam: Fastgas Wegwerp Tank (2KG, 4KG, 10KG) in alle stadsdelen, 24/7 en doorgaans binnen 20 tot 30 minuten. Betaal bij aflevering.',
+    title: 'Lachgas Amsterdam per stadsdeel: wijken en levertijd',
+    desc: 'Lachgas Amsterdam per stadsdeel: de Fastgas Wegwerp Tank (2KG, 4KG, 10KG) bezorgd in alle stadsdelen en Weesp, 24/7 en doorgaans binnen 20 tot 30 minuten.',
     spots: ['Centraal Station', 'Museumplein', 'NDSM-werf', 'Johan Cruijff ArenA'],
     intro: 'Amsterdam is ons kerngebied en we bezorgen in alle zeven stadsdelen en in Weesp. Sinds 2022 hoort Weesp bij de gemeente Amsterdam, dus je kiest uit acht gebieden.',
     detail: 'Van de grachtengordel tot de Bijlmer en van IJburg tot Osdorp: onze koeriers rijden elke dag en nacht door de hele stad, dus een adres in een smalle binnenstadsstraat is voor ons even gewoon als een nieuwbouwwijk aan de rand.',
@@ -355,7 +355,7 @@ const L: Loc[] = [
     desc: 'Lachgas bezorgen in Almere: Fastgas Wegwerp Tank 2KG, 4KG of 10KG naar Almere Stad, Buiten, Haven en Poort. 24/7, doorgaans 30 tot 45 minuten.',
     spots: ['station Almere Centrum', 'het Weerwater', 'de Hollandse Brug'],
     intro: 'Almere is de grootste stad van Flevoland en bestaat uit meerdere kernen, die allemaal een eigen bereikbaarheid hebben. Samen vormen ze een groot woongebied ten oosten van Amsterdam.',
-    detail: 'Via de A6 en de Hollandse Brug is Almere vanuit Amsterdam in een kwartier tot half uur te bereiken, afhankelijk van het verkeer. Omdat de kernen ver uit elkaar liggen, vragen we altijd in welk deel van Almere je zit.',
+    detail: 'Via de A6 en de Hollandse Brug is Almere vanuit Amsterdam in een half uur tot drie kwartier te bereiken, afhankelijk van het verkeer. Omdat de kernen ver uit elkaar liggen, vragen we altijd in welk deel van Almere je zit.',
     access: 'Noteer de wijk (bijvoorbeeld Almere Buiten of Almere Haven) en de straatnaam; veel straatnamen komen in meerdere kernen terug.',
     time: 'Vaak 30 tot 45 minuten. De exacte tijd hangt af van de A6 en je kern, en die geven we direct door.',
     character: 'Almere is gebouwd op nieuw land, met ruime wijken, brede wegen en een eigen centrum rond het Weerwater. De kernen liggen ver uit elkaar, dus wie in Almere Poort woont is voor een koerier een andere rit dan wie in Almere Buiten zit.',
@@ -814,6 +814,25 @@ const L: Loc[] = [
 
 const byslug = new Map(L.map((l) => [l.slug, l]));
 const range = (t: string) => (t.match(/\d+ tot \d+ minuten/) || ['20 tot 30 minuten'])[0];
+/** '25 tot 35 minuten' -> '25-35 min' */
+const short = (r: string) => r.replace(' tot ', '-').replace(' minuten', ' min');
+
+/** Levertijd per plaats, uit dezelfde bron als de locatiepagina's. */
+export const etaOf = (slug: string) => range(byslug.get(slug)!.time);
+
+/** Rijen voor een levertijdtabel: plaatsen gegroepeerd op levertijd, oplopend. Met `link` worden het interne links. */
+export function etaRows(link = false): string[][] {
+  const groups = new Map<string, Loc[]>();
+  for (const l of L) {
+    if (l.kind === 'stad') continue;
+    const r = range(l.time);
+    groups.set(r, [...(groups.get(r) ?? []), l]);
+  }
+  const num = (r: string) => r.split(' tot ').map(Number);
+  return [...groups.entries()]
+    .sort((a, b) => num(a[0])[0] - num(b[0])[0] || num(a[0])[1] - num(b[0])[1])
+    .map(([r, ls]) => [ls.map((l) => (link ? `[${l.name}](/${l.slug}/)` : l.name)).join(', '), r]);
+}
 
 function make(l: Loc): Page {
   const where = `in ${l.name}`;
@@ -838,7 +857,7 @@ function make(l: Loc): Page {
   ];
 
   const blocks: Block[] = [
-    { t: 'h2', x: stad ? 'Lachgas bezorgen in heel Amsterdam' : plaats ? `Lachgas laten bezorgen ${where}` : `Lachgas bezorgen ${where}` },
+    { t: 'h2', x: stad ? 'Zo bezorgen we in elk stadsdeel' : plaats ? `Lachgas laten bezorgen ${where}` : `Lachgas bezorgen ${where}` },
     { t: 'p', x: l.character },
     { t: 'p', x: l.detail },
     { t: 'p', x: l.access },
@@ -868,11 +887,12 @@ function make(l: Loc): Page {
     { t: 'h2', x: l.usesH ?? (stad ? 'Voor wie bezorgen we in Amsterdam?' : `Voor wie bezorgen we ${where}?`) },
     { t: 'p', x: l.uses },
     { t: 'p', x: l.size },
+    ...(stad ? [{ t: 'p', x: 'Wat je moet weten voordat je koopt, zoals het label, de verzegeling en de regels, staat op [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/).' } as Block] : []),
     { t: 'h2', x: l.routesH ?? (plaats ? `Bereikbaarheid ${where} vanaf Amsterdam` : stad ? 'Routes en bereikbaarheid in de stad' : `Routes en bereikbaarheid ${where}`) },
     { t: 'p', x: l.routes },
     { t: 'h2', x: l.tipsH ?? `Tips voor een snelle levering ${where}` },
     { t: 'ul', x: l.tips },
-    { t: 'h2', x: 'Zo bestel je' },
+    { t: 'h2', x: `Lachgas bestellen ${where}` },
     {
       t: 'steps',
       x: [
@@ -881,7 +901,7 @@ function make(l: Loc): Page {
         ['Betaal bij aflevering', 'Betalen kan met PIN of contant. Een account of vooruitbetaling is niet nodig.'],
       ],
     },
-    { t: 'p', x: 'Meer weten voordat je bestelt? Lees [hoe bestellen werkt](/bestellen/), bekijk het [volledige bezorggebied](/bezorggebied/) of de [veelgestelde vragen](/veelgestelde-vragen/). Over de regels rond lachgas lees je op [is lachgas verboden](/is-lachgas-verboden/) en [veilig gebruik](/veilig-gebruik-lachgas/).' },
+    { t: 'p', x: `Meer weten voordat je bestelt? Lees [hoe bestellen werkt](/bestellen/), bekijk het [volledige bezorggebied](/bezorggebied/) of de [veelgestelde vragen](/veelgestelde-vragen/). ${stad ? '' : plaats ? `Zoek je een adres net buiten ${l.name}, kijk dan bij [lachgas in de buurt](/lachgas-in-de-buurt/). ` : 'Alle stadsdelen op een rij staan op [Amsterdam per stadsdeel](/lachgas-amsterdam/). '}Over de regels rond lachgas lees je op [is lachgas verboden](/is-lachgas-verboden/) en [veilig gebruik](/veilig-gebruik-lachgas/).` },
     { t: 'note', x: `Levering uitsluitend aan ${site.minAge}+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Bij twijfel over het beoogde gebruik leveren we niet.` },
     { t: 'h2', x: `Ook in de buurt van ${l.name}` },
     {
@@ -895,17 +915,24 @@ function make(l: Loc): Page {
     group: 'location',
     kind: 'location',
     place: l.name,
-    nav: stad ? 'Lachgas Amsterdam' : l.name,
+    nav: stad ? 'Amsterdam per stadsdeel' : l.name,
     ...(stad ? { absolute: true } : {}),
-    parent: 'bezorggebied',
-    title: l.title ?? `Lachgas bezorgen in ${l.name}`,
+    /* stadsdelen en Weesp hangen onder de stadspagina; de plaatsen eromheen onder het bezorggebied */
+    parent: !plaats || l.slug === 'lachgas-weesp' ? (stad ? 'bezorggebied' : 'lachgas-amsterdam') : 'bezorggebied',
+    title: l.title ?? (plaats ? `Lachgas bezorgen in ${l.name}` : `Lachgas ${l.name}: 24/7 bezorgd`),
     desc: l.desc,
-    h1: `Lachgas ${l.name}`,
-    kicker: plaats ? `Bezorggebied ${l.region}` : stad ? 'Heel Amsterdam' : 'Stadsdeel van Amsterdam',
+    h1: stad ? 'Lachgas Amsterdam per stadsdeel' : `Lachgas ${l.name}`,
+    kicker: plaats ? `Bezorggebied ${l.region}` : stad ? 'Zeven stadsdelen en Weesp' : 'Stadsdeel van Amsterdam',
     lead: `${l.intro} Wij bezorgen de Fastgas Wegwerp Tank ${where}, dag en nacht.`,
+    eta: short(eta),
+    updated: '2026-11-09',
     blocks,
     faq,
-    related: ['lachgas-tanks', 'bestellen', 'bezorggebied', 'lachgas-24-7', 'lachgas-horeca', stad || !plaats ? 'lachgas-evenementen' : 'lachgas-bezorgen'],
+    related: stad
+      ? ['lachgas-bestellen-amsterdam', 'lachgas-kopen-amsterdam', 'lachgas-bezorgen', 'lachgas-horeca', 'lachgas-24-7', 'lachgas-in-de-buurt']
+      : plaats
+        ? ['lachgas-in-de-buurt', 'lachgas-bezorgen', 'lachgas-kopen-amsterdam', 'lachgas-24-7', ...l.near.slice(0, 2)]
+        : ['lachgas-amsterdam', 'lachgas-bestellen-amsterdam', 'lachgas-nachtlevering', 'lachgas-horeca', ...l.near.slice(0, 2)],
   };
 }
 

@@ -43,4 +43,10 @@ export type Page = {
   lang?: 'en';
   /** vertaalde tegenhanger (slug), voor hreflang */
   twin?: string;
+  /** korte levertijd voor de chip in de hero, bijv. '25-35 min' (standaard site.etaShort) */
+  eta?: string;
+  /** datum (JJJJ-MM-DD) waarop de tekst van deze pagina voor het laatst inhoudelijk wijzigde; standaard site.contentDate */
+  updated?: string;
+  /** eerste publicatiedatum; standaard site.published */
+  published?: string;
 };

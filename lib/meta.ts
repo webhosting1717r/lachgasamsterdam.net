@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from './site';
 
-const og = [{ url: '/og.png', width: 1200, height: 630, alt: 'Lachgas Amsterdam: Fastgas Wegwerp Tank bezorgd, 24/7' }];
+const og = [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Lachgas Amsterdam: Fastgas Wegwerp Tank bezorgd, 24/7' }];
 
 type Opts = {
   title: string;
@@ -13,6 +13,8 @@ type Opts = {
   /** 'article' voor kennispagina's: voegt gewijzigd-datum toe aan Open Graph */
   article?: boolean;
   locale?: string;
+  /** laatste inhoudelijke wijziging (JJJJ-MM-DD) voor og:article:modified_time */
+  modified?: string;
 };
 
 export function pageMeta(opts: Opts): Metadata {
@@ -30,9 +32,9 @@ export function pageMeta(opts: Opts): Metadata {
       title: full,
       description: opts.description,
       images: og,
-      ...(opts.article ? { modifiedTime: site.lastmod } : {}),
+      ...(opts.article ? { modifiedTime: opts.modified ?? site.lastmod } : {}),
     },
-    twitter: { card: 'summary_large_image', title: full, description: opts.description, images: ['/og.png'] },
+    twitter: { card: 'summary_large_image', title: full, description: opts.description, images: ['/og.jpg'] },
   };
 }
 

@@ -238,7 +238,7 @@ export const info: Page[] = [
   },
   {
     slug: 'veilig-gebruik-lachgas', group: 'info', kind: 'article', nav: 'Veilig gebruik', parent: 'lachgas-informatie',
-    title: 'Veilig omgaan met lachgas: tips en risico’s',
+    title: 'Veilig omgaan met lachgas: de regels',
     desc: 'Veilig omgaan met lachgas in keuken en bedrijf: ventilatie, adapters, opslag en brandveiligheid, plus de gezondheidsrisico’s bij misbruik.',
     h1: 'Veilig omgaan met lachgas', kicker: 'Veiligheid',
     lead: 'Lachgas is geen onschuldig gas. Voor keuken en techniek gelden duidelijke veiligheidsregels; gebruik als roesmiddel brengt echte gezondheidsrisico’s met zich mee.',
@@ -318,8 +318,8 @@ export const info: Page[] = [
     related: ['is-lachgas-verboden', 'lachgas-in-het-verkeer', 'lachgas-opslag-en-transport', 'wat-is-lachgas', 'wegwerp-lachgas-tanks', 'lachgas-horeca'],
   },
   {
-    slug: 'hoe-werkt-een-slagroomspuit', group: 'info', kind: 'article', nav: 'Hoe werkt een slagroomspuit?', parent: 'lachgas-informatie',
-    title: 'Hoe werkt een slagroomspuit? Stap voor stap',
+    slug: 'hoe-werkt-een-slagroomspuit', group: 'info', kind: 'article', nav: 'Hoe werkt een slagroomspuit?', parent: 'lachgas-informatie', updated: '2026-11-09',
+    title: 'Hoe werkt een slagroomspuit? Uitleg',
     desc: 'Hoe werkt een slagroomspuit? Onderdelen, stap voor stap gebruik, de juiste room, schoonmaken en oplossingen voor veelvoorkomende problemen.',
     h1: 'Hoe werkt een slagroomspuit?', kicker: 'Keukenuitleg',
     lead: 'Een slagroomspuit gebruikt lachgas onder druk om room luchtig te maken en uit de spuit te duwen. Zo gebruik je hem, stap voor stap.',
@@ -475,7 +475,7 @@ export const info: Page[] = [
   },
   {
     slug: 'lachgas-informatie', group: 'hub', kind: 'article', nav: 'Lachgas informatie', parent: 'home',
-    title: 'Lachgas informatie: wetgeving en veiligheid',
+    title: 'Lachgas informatie: wet en veiligheid',
     desc: 'Alle informatie over lachgas op een plek: wat het is, wat de wet zegt, veilig gebruik, slagroomspuiten en opslag. Betrouwbaar en eerlijk.',
     h1: 'Lachgas informatie', kicker: 'Kennisbank',
     lead: 'Goede informatie hoort bij verantwoord handelen. In deze kennisbank vind je de belangrijkste onderwerpen over lachgas: wat het is, wat de wet zegt en hoe je veilig met tanks en spuiten omgaat.',
@@ -523,7 +523,7 @@ export const info: Page[] = [
     related: ['veelgestelde-vragen', 'lachgas-tanks', 'bestellen', 'contact', 'over-ons', 'lachgas-horeca'],
   },
   {
-    slug: 'veelgestelde-vragen', group: 'hub', kind: 'article', nav: 'Veelgestelde vragen', parent: 'home',
+    slug: 'veelgestelde-vragen', group: 'hub', kind: 'article', nav: 'Veelgestelde vragen', parent: 'home', updated: '2026-11-09',
     title: 'Veelgestelde vragen over lachgas bezorgen',
     desc: 'Veelgestelde vragen over lachgas bezorgen in Amsterdam: levertijd, betalen, 18+, tanks, veiligheid en wetgeving. Kort en duidelijk beantwoord.',
     h1: 'Veelgestelde vragen', kicker: 'Antwoorden',
@@ -546,7 +546,7 @@ export const info: Page[] = [
       { q: 'Hoe kan ik betalen?', a: 'Bij aflevering met PIN of contant. Vooraf betalen of een account aanmaken is niet nodig.' },
       { q: 'Welke tanks leveren jullie?', a: 'De originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG, verzegeld en met een label met serienummer en keuringsgegevens.' },
       { q: 'Is er een minimumleeftijd?', a: 'Ja, 18 jaar. De koerier kan om legitimatie vragen en bij twijfel over leeftijd leveren we niet.' },
-      { q: 'Waar bezorgen jullie?', a: 'In alle stadsdelen van Amsterdam, in Weesp en in 15 plaatsen eromheen. Zie het [bezorggebied](/bezorggebied/) voor de lijst en de verwachte tijd per plaats.' },
+      { q: 'Waar bezorgen jullie?', a: 'In alle stadsdelen van Amsterdam, in Weesp en in 14 plaatsen eromheen. Zie het [bezorggebied](/bezorggebied/) voor de lijst en de verwachte tijd per plaats.' },
       { q: 'Is lachgas verboden?', a: 'Voor recreatief gebruik wel: sinds 2023 staat lachgas op de Opiumwet. Toepassingen zoals keuken, horeca en techniek blijven toegestaan. Lees [meer](/is-lachgas-verboden/).' },
       { q: 'Zijn jullie 24/7 open?', a: 'Ja, elke dag van het jaar, ook ’s nachts en op feestdagen. Zie [lachgas 24/7](/lachgas-24-7/) voor de details.' },
       { q: 'Moet ik een lege tank terugbrengen?', a: 'Nee, het zijn wegwerptanks zonder statiegeld. Voer de lege tank af volgens de lokale regels, zie [wegwerp lachgas tanks](/wegwerp-lachgas-tanks/).' },
@@ -570,7 +570,7 @@ export const info: Page[] = [
     related: ['bestellen', 'lachgas-informatie', 'bezorggebied', 'contact', 'lachgas-tanks', 'is-lachgas-verboden'],
   },
   {
-    slug: 'over-ons', group: 'hub', kind: 'article', nav: 'Over ons', parent: 'home',
+    slug: 'over-ons', group: 'hub', kind: 'article', nav: 'Over ons', parent: 'home', updated: '2026-11-09',
     title: 'Over Lachgas Amsterdam: onze werkwijze',
     desc: 'Over Lachgas Amsterdam: een bezorgdienst voor de originele Fastgas Wegwerp Tank in Amsterdam en regio. Zo werken we en dit zijn onze regels.',
     h1: 'Over Lachgas Amsterdam', kicker: 'Wie we zijn',
@@ -603,7 +603,7 @@ export const info: Page[] = [
       ] },
       { t: 'h2', x: 'Zo verloopt een levering' },
       { t: 'steps', x: [
-        ['Je stuurt een bericht of belt', 'Met adres, formaat en voor welk gebruik je de tank nodig hebt.'],
+        ['Je stuurt een WhatsApp-bericht', 'Met adres, formaat en voor welk gebruik je de tank nodig hebt.'],
         ['Wij bevestigen prijs en tijd', 'Je hoort vooraf wat het kost en hoe laat de koerier er is.'],
         ['De koerier komt naar je toe', 'Hij rijdt direct naar je adres, zie [de koerier](/lachgas-koerier/).'],
         ['Leeftijds- en gebruikscontrole', 'Op verzoek vraagt hij je legitimatie. Bij twijfel levert hij niet.'],

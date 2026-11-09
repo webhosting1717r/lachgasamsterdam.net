@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 export const dynamic = 'force-static';
 
 const prio = (g: string, slug: string) =>
-  slug === 'lachgas-amsterdam' || slug === 'lachgas-tanks' || slug === 'bestellen'
+  slug === 'lachgas-bestellen-amsterdam' || slug === 'lachgas-tanks' || slug === 'bestellen' || slug === 'lachgas-bezorgen'
     ? 0.9
     : g === 'legal'
       ? 0.2
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/`, lastModified: site.lastmod, changeFrequency: 'weekly', priority: 1 },
     ...pages.map((p) => ({
       url: `${site.url}/${p.slug}/`,
-      lastModified: site.lastmod,
+      lastModified: p.updated ?? site.contentDate,
       changeFrequency: 'monthly' as const,
       priority: prio(p.group, p.slug),
     })),

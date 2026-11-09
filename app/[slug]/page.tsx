@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import type { Page } from '@/lib/types';
 import { notFound } from 'next/navigation';
 import { bySlug, pages } from '@/lib/pages';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
 import { Blocks, BlueprintZoom, Cta, Crumbs, FaqList, JsonLd, Related, Toc, trailOf } from '@/components/ui';
-import { site } from '@/lib/site';
+import { dateText, site } from '@/lib/site';
 
 export const dynamicParams = false;
 
@@ -17,25 +18,39 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const p = bySlug.get(slug);
   if (!p) return {};
   const twin = p.twin ? bySlug.get(p.twin) : undefined;
+  /* x-default wijst altijd naar de Nederlandse versie */
   const languages = twin
-    ? { [p.lang === 'en' ? 'en' : 'nl-NL']: `/${p.slug}/`, [twin.lang === 'en' ? 'en' : 'nl-NL']: `/${twin.slug}/` }
+    ? { [p.lang === 'en' ? 'en' : 'nl-NL']: `/${p.slug}/`, [twin.lang === 'en' ? 'en' : 'nl-NL']: `/${twin.slug}/`, 'x-default': `/${p.lang === 'en' ? twin.slug : p.slug}/` }
     : undefined;
-  return pageMeta({ title: p.title, description: p.desc, path: `/${p.slug}/`, absolute: p.absolute, languages, article: p.kind === 'article', locale: p.lang === 'en' ? 'en_US' : 'nl_NL' });
+  return pageMeta({ title: p.title, description: p.desc, path: `/${p.slug}/`, absolute: p.absolute, languages, article: p.kind === 'article', locale: p.lang === 'en' ? 'en_US' : 'nl_NL', modified: p.updated ?? site.contentDate });
 }
 
-const chips: Record<string, string[]> = {
-  location: ['24/7 bereikbaar', `Binnen ${site.etaShort}`, 'PIN of contant', `${site.minAge}+`],
-  product: ['Verzegeld', 'Geen statiegeld', 'PIN of contant', `${site.minAge}+`],
-  service: ['24/7 bereikbaar', 'Prijs vooraf', 'PIN of contant', `${site.minAge}+`],
+/* Chips in de hero; de levertijd komt per locatie uit de pagina zelf (p.eta). */
+const chipsFor = (p: Page): string[] | null => {
+  switch (p.kind) {
+    case 'location':
+      return ['24/7 bereikbaar', `Binnen ${p.eta ?? site.etaShort}`, 'PIN of contant', `${site.minAge}+`];
+    case 'product':
+      return ['Verzegeld', 'Geen statiegeld', 'PIN of contant', `${site.minAge}+`];
+    case 'service':
+      return ['24/7 bereikbaar', 'Prijs vooraf', 'PIN of contant', `${site.minAge}+`];
+    default:
+      return null;
+  }
 };
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+/* FAQ-kop met het onderwerp van de pagina erin, in plaats van dezelfde kop op elke pagina. */
+const faqTitle = (p: Page, en: boolean) =>
+  en ? 'Frequently asked questions' : p.place ? `Veelgestelde vragen over lachgas in ${p.place}` : p.slug === 'veelgestelde-vragen' ? 'Veelgestelde vragen' : `Veelgestelde vragen: ${p.nav}`;
+
+export default async function SlugPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const p = bySlug.get(slug);
   if (!p) notFound();
   const trail = trailOf(p);
-  const chip = p.noCta ? null : chips[p.kind ?? ''];
+  const chip = p.noCta ? null : chipsFor(p);
   const en = p.lang === 'en';
+  const updated = p.updated ?? site.contentDate;
   return (
     <div className="pg" lang={p.lang}>
       <JsonLd data={graph(p, trail, p.faq)} />
@@ -61,14 +76,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <section className="panel narrow">
           <Toc blocks={p.blocks} title={en ? 'On this page' : undefined} />
           <Blocks blocks={p.blocks} />
-          <p className="updated">{en ? 'Last updated' : 'Bijgewerkt'}: <time dateTime={site.lastmod}>{en ? site.lastmodTextEn : site.lastmodText}</time></p>
+          <p className="updated">{en ? 'Last updated' : 'Bijgewerkt'}: <time dateTime={updated}>{dateText(updated, en)}</time></p>
         </section>
         {p.faq && p.faq.length > 0 && (
-          <div className="panel narrow"><FaqList faq={p.faq} title={en ? 'Frequently asked questions' : undefined} /></div>
+          <div className="panel narrow"><FaqList faq={p.faq} title={faqTitle(p, en)} /></div>
         )}
         {!p.noCta && (
           <section className="panel final">
-            <h2>{en ? 'Ready to order?' : 'Klaar om te bestellen?'}</h2>
+            <p className="big">{en ? 'Ready to order?' : 'Klaar om te bestellen?'}</p>
             <p>{en ? 'Send a message with your address and tank size. You hear the price and arrival time straight away.' : 'Stuur een bericht met je adres en formaat. Je hoort direct prijs en aankomsttijd.'}</p>
             <Cta en={en} />
           </section>

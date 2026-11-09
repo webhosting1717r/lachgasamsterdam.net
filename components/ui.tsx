@@ -84,10 +84,10 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return (
               <div key={i} className="cards">
                 {b.x.map((c) => (
-                  <a key={c.href} className="card" href={c.href}>
-                    <strong>{c.h}</strong>
+                  <div key={c.href} className="card">
+                    <strong><a href={c.href}>{c.h}</a></strong>
                     <span>{c.p}</span>
-                  </a>
+                  </div>
                 ))}
               </div>
             );
@@ -96,7 +96,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
               <div key={i} className="tw">
                 <table>
                   <thead><tr>{b.head.map((h) => <th key={h} scope="col">{h}</th>)}</tr></thead>
-                  <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}><Rich text={c} /></td>)}</tr>)}</tbody>
+                  <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k} data-label={b.head[k]}><Rich text={c} /></td>)}</tr>)}</tbody>
                 </table>
               </div>
             );
@@ -130,10 +130,10 @@ export function Related({ slugs, title = 'Bekijk ook' }: { slugs: string[]; titl
         {slugs.map((s) => {
           const p = bySlug.get(s)!;
           return (
-            <a key={s} className="card" href={`/${s}/`}>
-              <strong>{p.nav}</strong>
+            <div key={s} className="card">
+              <strong><a href={`/${s}/`}>{p.nav}</a></strong>
               <span>{p.kicker}</span>
-            </a>
+            </div>
           );
         })}
       </div>
@@ -190,8 +190,8 @@ const menuGroups: { h: string; items: MenuLink[] }[] = [
   {
     h: 'Bezorggebied',
     items: [
-      ['Lachgas Amsterdam', `Alle stadsdelen, binnen ${site.etaShort}`, '/lachgas-amsterdam/'],
-      ['Alle plaatsen', 'Weesp en 15 plaatsen rond Amsterdam', '/bezorggebied/'],
+      ['Amsterdam per stadsdeel', `Centrum tot Zuidoost, binnen ${site.etaShort}`, '/lachgas-amsterdam/'],
+      ['Alle plaatsen', 'Weesp en 14 plaatsen rond Amsterdam', '/bezorggebied/'],
     ],
   },
   {
@@ -241,7 +241,7 @@ export function Header() {
                 <p className="sh">Bestellen</p>
                 <ul className="mlist">
                   {menuGroups[0].items.map(([l, sub, h]) => (
-                    <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span></a></li>
+                    <li key={h}><strong><a href={h}>{l}</a></strong><small>{sub}</small></li>
                   ))}
                 </ul>
               </nav>
@@ -256,7 +256,7 @@ export function Header() {
                   <p className="sh">{g.h}</p>
                   <ul className="mlist">
                     {g.items.map(([l, sub, h]) => (
-                      <li key={h}><a href={h}><span><strong>{l}</strong><small>{sub}</small></span></a></li>
+                      <li key={h}><strong><a href={h}>{l}</a></strong><small>{sub}</small></li>
                     ))}
                   </ul>
                 </nav>
@@ -288,7 +288,7 @@ export function Footer() {
         </div>
         <div>
           <strong className="fh">Producten</strong>
-          <ul>{col(['lachgas-tanks', 'fastgas-2kg', 'fastgas-4kg', 'fastgas-10kg', 'wegwerp-lachgas-tanks', 'slagroompatronen', 'slagroomspuiten', 'nitrous-oxide-tanks'])}</ul>
+          <ul>{col(['lachgas-tanks', 'fastgas-2kg', 'fastgas-4kg', 'fastgas-10kg', 'lachgas-tank-bestellen', 'wegwerp-lachgas-tanks', 'fastgas', 'slagroompatronen', 'slagroomspuiten', 'nitrous-oxide-tanks'])}</ul>
         </div>
         <div>
           <strong className="fh">Bestellen</strong>
@@ -296,7 +296,7 @@ export function Footer() {
         </div>
         <div className="f2">
           <strong className="fh">Bezorggebied</strong>
-          <ul className="two">{locationData.map((l) => <li key={l.slug}><a href={`/${l.slug}/`}>{l.kind === 'stad' ? 'Lachgas Amsterdam' : l.name}</a></li>)}</ul>
+          <ul className="two">{locationData.map((l) => <li key={l.slug}><a href={`/${l.slug}/`}>{l.kind === 'stad' ? 'Amsterdam per stadsdeel' : l.name}</a></li>)}</ul>
         </div>
         <div>
           <strong className="fh">Informatie</strong>
@@ -329,7 +329,7 @@ export function WaFloat() {
 export function StickyCta() {
   return (
     <div className="sticky" role="group" aria-label="Snel bestellen">
-      <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> WhatsApp</a>
+      <a className="btn pri" href={waHref()} rel="noopener"><IconWa /> Bestel via WhatsApp</a>
     </div>
   );
 }
@@ -340,7 +340,7 @@ export function JsonLd({ data }: { data: unknown }) {
 
 /* Poster is het eerste beeld (LCP); de twee gespiegelde video's (zelfde bestand) faden er na load overheen. */
 export function Bg(): ReactNode {
-  const html = `<img class="poster" src="/bg-poster-v1.webp" alt="" width="960" height="540" decoding="async" fetchpriority="high"><video class="v1" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video><video class="v2" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v1.mp4"></video>`;
+  const html = `<img class="poster" src="/bg-poster-v1.webp" alt="" width="960" height="540" decoding="async" fetchpriority="high"><video class="v1" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v2.mp4"></video><video class="v2" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/bg-v2.mp4"></video>`;
   return <div className="bg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
@@ -353,7 +353,7 @@ export function BlueprintZoom({ alt, priority }: { alt: string; priority?: boole
       <img
         className="blueprint"
         src="/fastgas-blueprint.webp"
-        srcSet="/fastgas-blueprint.webp 768w, /fastgas-blueprint-1200.webp 1200w"
+        srcSet="/fastgas-blueprint-480.webp 480w, /fastgas-blueprint.webp 768w, /fastgas-blueprint-1200.webp 1200w"
         sizes="(min-width: 900px) 540px, 92vw"
         alt={alt}
         width={768}

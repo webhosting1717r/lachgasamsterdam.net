@@ -14,15 +14,17 @@ node serve.mjs 8797  # lokaal testen met brotli, op http://localhost:8797
 
 | Pad | Inhoud |
 | --- | --- |
-| `lib/site.ts` | domein, WhatsApp (+31 97 010 270 187), levertijd, lastmod, IndexNow-sleutel |
-| `lib/content/*.ts` | alle pagina-inhoud: `products`, `services` (zoekopdrachten), `locations`, `info`, `hubs` (bestellen, bezorggebied, contact, juridisch) |
+| `lib/site.ts` | domein, WhatsApp (+31 97 010 270 187), levertijd, datums (`lastmod`, `contentDate`, `published`), IndexNow-sleutel |
+| `lib/content/*.ts` | alle pagina-inhoud: `products`, `services` (zoekopdrachten), `locations` (ook `etaRows()`: de levertijdtabel die home, bezorggebied en lachgas-bezorgen delen), `info`, `hubs` (bestellen, bezorggebied, contact, juridisch) |
 | `lib/pages.ts` | verzamelt alle pagina's en controleert dubbele slugs en kapotte "bekijk ook"-links tijdens de build |
 | `app/[slug]/page.tsx` | template voor elke subpagina (metadata, JSON-LD, FAQ, kruimelpad) |
 | `app/page.tsx` | homepage |
 | `components/ui.tsx` | header met desktopmenu en mobiel menu (`<details>`, gegroepeerd, sluit via knop, overlay of Escape, scroll-lock in CSS), footer, blokken, FAQ, blueprint-zoom |
 | `lib/schema.ts` | JSON-LD: LocalBusiness, WebSite, WebPage, BreadcrumbList, Service, ProductModel, Article, FAQPage |
-| `public/` | video (`bg-v1.mp4`), poster, productfoto's, OG-afbeelding, iconen, `llms.txt`, IndexNow-sleutelbestand |
+| `public/` | video (`bg-v2.mp4`, 150 KB), poster, productfoto's, OG-afbeelding (`og.jpg`), iconen, `llms.txt`, IndexNow-sleutelbestand |
 | `scripts/indexnow.mjs` | `npm run indexnow`: meldt alle URL's uit de sitemap (of alleen de opgegeven paden) bij IndexNow (Bing, Yandex, Seznam, Naver) |
+
+De homepage is de enige pagina voor de hoofdquery "lachgas amsterdam"; `/lachgas-amsterdam/` is de hub "Amsterdam per stadsdeel" (stadsdelen en Weesp hangen daar in het kruimelpad onder). Houd dat zo: geen tweede pagina met H1 of titel "Lachgas Amsterdam".
 
 Blokken in `blocks`: `p`, `h2`, `h3`, `ul`, `steps`, `cards`, `table`, `note`. Bij vier of meer `h2`-koppen komt vanzelf een inhoudsopgave met ankerlinks. `lang: 'en'` zet de taal van een pagina, `twin` koppelt een Nederlandse en een Engelse pagina met hreflang.
 
@@ -42,7 +44,7 @@ Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sit
 
 - `npm run build` moet zonder fouten eindigen (postbuild faalt als er nog een `<script src>` naar `/_next/` of een JS-bestand in `out/_next/` over is).
 - Googlebot rekt het venster op tot de hele paginahoogte (bijvoorbeeld 412×8000). Gebruik daarom geen `100vh`, `100svh` of `100%` zonder plafond (`min(…, 1100px)`): anders wordt de hero duizenden pixels hoog en valt de kop buiten de Search Console-screenshot.
-- `npm run seo` (na de build) controleert titels, descriptions, koppen, woordaantallen, interne links, dubbele ids, JSON-LD en de sitemap. Exitcode 1 bij fouten.
-- Werk `lastmod` en `lastmodText` in `lib/site.ts` bij als je inhoud wijzigt.
+- `npm run seo` (na de build) controleert titels (max 62 tekens incl. merk), descriptions, koppen (ook dubbele H1's), woordaantallen, interne links, dubbele ids, JSON-LD, de sitemap en verboden formuleringen (superlatieven, recreatieve termen, 'bellen'). Exitcode 1 bij fouten.
+- Zet `updated: 'JJJJ-MM-DD'` op de pagina waarvan je de tekst wijzigt (sitemap, JSON-LD en de regel "Bijgewerkt" volgen). `site.lastmod` is alleen voor home en overzicht, `site.contentDate` de fallback voor pagina's zonder `updated`.
 - Lighthouse mobile en desktop op home, een product-, locatie- en infopagina.
 - Mobiel menu: open en sluit via de knop, een tik op de overlay en Escape; controleer ook met JavaScript uit (het is een `<details>`). De zwevende WhatsApp-knop staat alleen vanaf 760 px; op mobiel is er de vaste knoppenbalk.

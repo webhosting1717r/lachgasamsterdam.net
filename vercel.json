@@ -28,7 +28,7 @@
       ]
     },
     {
-      "source": "/(bg-v1.mp4|bg-poster-v1.webp|fastgas-2kg.webp|fastgas-4kg.webp|fastgas-10kg.webp|fastgas-2kg-tile.webp|fastgas-4kg-tile.webp|fastgas-10kg-tile.webp|fastgas-blueprint.webp|fastgas-blueprint-1200.webp|fastgas-blueprint-full.webp|fastgas-close-up.webp)",
+      "source": "/(bg-v2.mp4|bg-poster-v1.webp|fastgas-blueprint-480.webp|fastgas-2kg.webp|fastgas-4kg.webp|fastgas-10kg.webp|fastgas-2kg-tile.webp|fastgas-4kg-tile.webp|fastgas-10kg-tile.webp|fastgas-blueprint.webp|fastgas-blueprint-1200.webp|fastgas-blueprint-full.webp|fastgas-close-up.webp)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "source": "/(og.png|icon.svg|icon-192.png|icon-512.png|apple-icon.png|favicon.ico|manifest.webmanifest)",
+      "source": "/(og.jpg|icon.svg|icon-192.png|icon-512.png|apple-icon.png|favicon.ico|manifest.webmanifest)",
       "headers": [
         {
           "key": "Cache-Control",

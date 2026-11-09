@@ -42,6 +42,7 @@ const errors = [];
 const warns = [];
 const titles = new Map();
 const descs = new Map();
+const h1texts = new Map();
 const rows = [];
 
 /* Formuleringen die we niet willen: superlatieven, aanprijzing van recreatief gebruik, AI-clichés. */
@@ -50,6 +51,7 @@ const banned = [
   [/\b(beste (prijs|service|kwaliteit|bezorgdienst|aanbieder|lachgas)|goedkoopste|snelste van|nummer 1|#1)\b/i, 'superlatief'],
   [/\b(ballon(nen)?|high worden|feestje|discreet|anoniem)\b/i, 'recreatief/discreet'],
   [/\b(ontdek|duik in|in de wereld van|naadloos)\b/i, 'AI-cliché'],
+  [/\b(of belt|telefoontje|bel ons|bellen met ons|kunt bellen)\b/i, 'bellen (contact loopt alleen via WhatsApp)'],
 ];
 
 for (const { path, html } of pages) {
@@ -70,7 +72,7 @@ for (const { path, html } of pages) {
 
   if (!title) e('geen <title>');
   else {
-    if (title.length > 66) w(`title ${title.length} tekens (>66)`);
+    if (title.length > 62) w(`title ${title.length} tekens (>62, wordt in Google afgekapt)`);
     titles.set(title, [...(titles.get(title) || []), path]);
   }
   if (!desc) e('geen meta description');
@@ -79,6 +81,8 @@ for (const { path, html } of pages) {
     descs.set(desc, [...(descs.get(desc) || []), path]);
   }
   if (h1s !== 1) e(`${h1s} h1-koppen`);
+  const h1 = decode((first(/<h1[^>]*>([\s\S]*?)<\/h1>/, main) || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+  if (h1) h1texts.set(h1, [...(h1texts.get(h1) || []), path]);
   if (canon !== ORIGIN + path) e(`canonical ${canon} (verwacht ${ORIGIN + path})`);
   if (path !== '/overzicht/' && !/\/(privacy-en-cookies|algemene-voorwaarden)\/$/.test(path) && words < MIN_WORDS) w(`${words} woorden (<${MIN_WORDS})`);
   for (const h of new Set(internal)) if (!exists(h)) e(`kapotte interne link ${h}`);
@@ -104,6 +108,7 @@ for (const { path, html } of pages) {
 }
 
 for (const [t, p] of titles) if (p.length > 1) errors.push(`dubbele title "${t}": ${p.join(', ')}`);
+for (const [t, p] of h1texts) if (p.length > 1) errors.push(`dubbele h1 "${t}": ${p.join(', ')}`);
 for (const [d, p] of descs) if (p.length > 1) errors.push(`dubbele description (${d.slice(0, 50)}…): ${p.join(', ')}`);
 
 /* sitemap = alle pagina's */

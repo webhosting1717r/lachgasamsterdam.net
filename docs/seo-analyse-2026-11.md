@@ -46,10 +46,30 @@ Opvallend: lachgasamsterdam.nl heeft bijna dezelfde URL-structuur als deze site 
 7. **Backlinks.** Minimaal: vermeldingen op de zustersites naar lachgasamsterdam.net (één link per site, met ankertekst "Lachgas Amsterdam"), bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), en een KvK-vermelding als het bedrijf is ingeschreven. Geen gekochte links.
 8. **Geduld en vers houden.** De site is twee weken oud. Werk `lastmod` bij als inhoud verandert, voeg maandelijks een of twee pagina's toe (bijvoorbeeld plaatsen die de concurrent wel heeft: Naarden, Bussum, Uithoorn, Aalsmeer, Zaandijk) en houd de FAQ's actueel.
 
-## 4. Codewijzigingen in deze ronde
+## 4. Codewijzigingen in deze ronde (9 november 2026)
 
-Zie hoofdstuk 5 voor de bevindingen uit de audit; dit zijn de wijzigingen die zijn doorgevoerd.
+Zeven onafhankelijke audits (on-page, schema, techniek, content, interne links, concurrentie-gap, mobiele UX) leverden 70 bevindingen; de bevestigde punten zijn doorgevoerd.
 
-- Nieuw mobiel menu (zie README) en twee toegankelijkheidsfixes uit Lighthouse.
-- IndexNow-script en sleutelbestand.
-- `lastmod` bijgewerkt.
+**Kannibalisatie op "lachgas amsterdam" opgelost.** Home en `/lachgas-amsterdam/` hadden vrijwel dezelfde titel en H1, en 130+ interne ankers "Lachgas Amsterdam" wezen naar de subpagina. De homepage is nu de enige pagina voor de hoofdquery; `/lachgas-amsterdam/` is "Amsterdam per stadsdeel" (titel, H1, kruimelpad, menu, footer). Stadsdelen en Weesp hangen in het kruimelpad onder die hub.
+
+**Titels en H1's gericht op de queries van de concurrent.** `/lachgas-24-7/` heet nu "Lachgas Amsterdam 24/7: dag en nacht bezorgd" (de exacte zoekfrase stond op geen enkele pagina). "Fastgas Amsterdam", "Lachgas tanks Amsterdam", "Lachgas bezorgdienst in Amsterdam", "lachgas patronen" (naast slagroompatronen) en de synoniemen lachgastank, lachgascilinder en lachgasfles staan nu in titels, H1's of eigen alinea's. Stadsdeelpagina's heten "Lachgas {stadsdeel}: 24/7 bezorgd" zodat "lachgas bezorgen in Amsterdam" alleen nog bij `/lachgas-bezorgen/` hoort. Negen te lange titels (merknaam werd afgekapt) zijn ingekort; de SEO-check waarschuwt nu vanaf 62 tekens en faalt op dubbele H1's.
+
+**Tegenstrijdigheden weggehaald.** De hero-chip "Binnen 20-30 min" stond op alle 23 locatiepagina's, ook waar de tekst 30 tot 45 minuten zei; de chip toont nu de tijd van de plaats zelf. De vier levertijdtabellen (home, bezorggebied, lachgas bezorgen, in de buurt) spraken elkaar tegen (Purmerend 25-40, 30-45 en 30-40) en komen nu uit één bron. Vier pagina's zeiden dat je kon bellen; contact loopt alleen via WhatsApp. "Weesp en 15 plaatsen" telde Weesp dubbel. Almere sprak zichzelf tegen over de rijtijd.
+
+**Interne links.** De homepage linkt nu in de tekst naar `/lachgas-bestellen-amsterdam/` en `/lachgas-bezorgen/` (de twee transactionele pagina's kregen geen enkele link van de sterkste pagina). `/lachgas-kopen-amsterdam/` krijgt links vanuit tanks, bestellen en de stadspagina; `/lachgas-in-de-buurt/` vanuit alle 15 plaatsen. De "Bekijk ook"-blokken van locatiepagina's verwijzen niet langer naar zes hubs die al in het menu staan, maar naar querypagina's en buurplaatsen. De juridische notitie onderaan 40 pagina's linkt niet meer naar de wetspagina (die kreeg 245 links, meer dan elke commerciële pagina). Kaart- en menu-ankers bevatten alleen nog de kop, niet de beschrijving (de kaart blijft volledig klikbaar).
+
+**Structured data.** `servicePhone` verwijst naar het WhatsApp-ContactPoint (was een string, ongeldig). Contact is een ContactPage, over ons een AboutPage; juridische pagina's zijn geen Article meer. Stadsdelen zijn AdministrativeArea binnen Amsterdam, plaatsen City binnen hun gemeente. De drie formaten zijn varianten van de hoofdtank, met 18+ als doelgroep. FAQ-antwoorden houden hun links. Engelse pagina's hebben Engelse serviceType en inLanguage, plus hreflang x-default. Geen BreadcrumbList met één item op de homepage.
+
+**Datums.** Elke pagina heeft een eigen `updated`-datum (sitemap, JSON-LD en de zichtbare regel "Bijgewerkt"); 46 pagina's staan op 9 november, 17 ongewijzigde pagina's op 30 oktober. Een sitemap waarin alle datums bij elke deploy gelijk opschuiven, negeert Google.
+
+**Snelheid en mobiel.** Achtergrondvideo van 739 KB naar 150 KB (960x540, zelfde beeld); OG-afbeelding van 415 KB naar 64 KB (WhatsApp toont boven circa 300 KB vaak geen voorvertoning); extra 480 px-variant van de blueprint. Tabellen vielen op 360 px buiten beeld (alleen de eerste kolom zichtbaar); ze passen nu, en tabellen met drie kolommen stapelen. H1 brak op 360 px in vier regels met een losse "min."; contrast van kicker, kruimelpad en lead op de poster verhoogd. De vaste WhatsApp-balk verschijnt pas als de hero-knop uit beeld is (browsers zonder scroll-animaties tonen hem direct) en heet "Bestel via WhatsApp". `content-visibility` op panelen veroorzaakte de Lighthouse-fout op tikdoelen en een springende scrollbalk; verwijderd.
+
+**Eerder deze dag:** nieuw mobiel menu, IndexNow-script met sleutelbestand, Nederlands WhatsApp-nummer.
+
+## 5. Bewust niet gedaan
+
+- Geen prijzen op de site (keuze van de eigenaar), geen verzonnen reviews of cijfers, geen recreatieve framing.
+- Geen bedrijfsgegevens (handelsnaam, KvK, vestigingsplaats, e-mail) toegevoegd: die moet de eigenaar aanleveren. Dit is wel het sterkste ontbrekende vertrouwenssignaal (E-E-A-T) en de concurrent toont ze ook niet; zet ze in `/over-ons/`, `/contact/`, de privacyverklaring en de footer, en in `lib/schema.ts` als `legalName`, `email` en `identifier` (KvK).
+- Horeca-factuur: vijf pagina's zeggen "vraag na bij je eerste bestelling". Leg de echte werkwijze vast (factuur met btw ja/nee, per levering of maandelijks) en zet dat ene antwoord op alle vijf plekken.
+- Extra plaatsen (Naarden, Bussum, Muiden) alleen toevoegen als je er echt bezorgt; één object in `lib/content/locations.ts` volstaat.
+- Footer met 57 links is bewust gelaten: voor een nieuwe site helpen de sitebrede links de locatiepagina's gecrawld te krijgen. Heroverweeg na indexatie.

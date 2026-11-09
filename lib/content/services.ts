@@ -1,7 +1,8 @@
 import type { Page } from '../types';
+import { etaRows } from './locations';
 
 const NOTE =
-  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik. Lees de [wettelijke status](/is-lachgas-verboden/).';
+  'Levering uitsluitend aan 18+ en uitsluitend voor toegestane toepassingen, zoals keuken, horeca en technisch gebruik.';
 
 const STEPS: [string, string][] = [
   ['Stuur een WhatsApp-bericht', 'Geef je adres, het gewenste formaat (2KG, 4KG of 10KG) en voor welk gebruik je het nodig hebt.'],
@@ -65,14 +66,14 @@ export const services: Page[] = [
     related: ['lachgas-bestellen-amsterdam', 'lachgas-tanks', 'lachgas-prijs', 'bestellen', 'is-lachgas-verboden', 'fastgas'],
   },
   {
-    slug: 'lachgas-bestellen-amsterdam', group: 'service', kind: 'service', nav: 'Lachgas bestellen Amsterdam', parent: 'home',
-    title: 'Lachgas bestellen in Amsterdam via WhatsApp',
+    slug: 'lachgas-bestellen-amsterdam', group: 'service', kind: 'service', nav: 'Lachgas bestellen Amsterdam', parent: 'home', updated: '2026-11-09',
+    title: 'Lachgas bestellen in Amsterdam, 24/7',
     desc: 'Lachgas bestellen in Amsterdam: stuur een WhatsApp, kies 2KG, 4KG of 10KG en betaal bij aflevering. 24/7 bezorgd binnen 20 tot 30 minuten.',
     h1: 'Lachgas bestellen in Amsterdam', kicker: 'Bestellen zonder account',
     lead: 'Bestellen duurt een minuut: een WhatsApp-bericht met je adres en formaat, en de koerier rijdt naar je toe.',
     blocks: [
       { t: 'h2', x: 'Lachgas bestellen in Amsterdam in drie stappen' },
-      { t: 'p', x: 'Je hebt geen account en geen formulier nodig. Je stuurt een bericht of belt, je krijgt prijs en aankomsttijd terug en je betaalt de koerier bij aflevering. Zo ziet dat eruit:' },
+      { t: 'p', x: 'Je hebt geen account en geen formulier nodig. Je stuurt een WhatsApp-bericht, je krijgt prijs en aankomsttijd terug en je betaalt de koerier bij aflevering. Zo ziet dat eruit:' },
       { t: 'steps', x: STEPS },
       { t: 'h2', x: 'Wat staat er in je bestelbericht?' },
       { t: 'p', x: 'Hoe completer je eerste bericht, hoe minder heen-en-weer en hoe sneller de koerier vertrekt. Dit hoort erin:' },
@@ -127,7 +128,7 @@ export const services: Page[] = [
         '**Niet aanwezig zijn:** de tank wordt alleen aan de besteller zelf overhandigd',
         '**Geen legitimatie bij de hand:** zonder leeftijdscontrole levert de koerier niet',
       ] },
-      { t: 'p', x: 'Loop je tegen een probleem aan, stuur dan gerust een WhatsApp naar +31 97 010 270 187; dan lossen we het samen op.' },
+      { t: 'p', x: 'Loop je tegen een probleem aan, stuur dan gerust een WhatsApp naar +31 97 010 270 187; dan lossen we het samen op. Wil je eerst weten waar je op let voordat je koopt, lees dan [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/).' },
       { t: 'h2', x: 'Woon je buiten Amsterdam?' },
       { t: 'p', x: 'We bezorgen ook in 15 plaatsen rondom de stad, van Haarlem tot Almere. Bekijk het volledige [bezorggebied](/bezorggebied/) of ga direct naar [lachgas in de buurt](/lachgas-in-de-buurt/). Staat je plaats er niet bij, stuur dan je adres; dan laten we direct weten of we kunnen komen.' },
       { t: 'note', x: NOTE },
@@ -144,8 +145,8 @@ export const services: Page[] = [
     related: ['lachgas-bestellen-whatsapp', 'lachgas-bezorgen', 'lachgas-amsterdam', 'bestellen', 'lachgas-tank-bestellen', 'lachgas-24-7'],
   },
   {
-    slug: 'lachgas-bezorgen', group: 'service', kind: 'service', nav: 'Lachgas bezorgen', parent: 'home', twin: 'laughing-gas-delivery-amsterdam',
-    title: 'Lachgas bezorgen: 24/7 in Amsterdam en regio',
+    slug: 'lachgas-bezorgen', group: 'service', kind: 'service', nav: 'Lachgas bezorgen', parent: 'home', twin: 'laughing-gas-delivery-amsterdam', updated: '2026-11-09',
+    title: 'Lachgas bezorgen in Amsterdam, 24/7',
     desc: 'Lachgas laten bezorgen in Amsterdam en omstreken: verzegelde Fastgas tanks, 24/7, doorgaans binnen 20 tot 30 minuten. Betalen bij aflevering.',
     h1: 'Lachgas bezorgen in Amsterdam', kicker: 'Bezorgservice',
     lead: 'Lachgas Amsterdam bezorgt dag en nacht in alle stadsdelen en een groot deel van de regio. Je bestelt, wij komen.',
@@ -156,13 +157,8 @@ export const services: Page[] = [
       { t: 'h2', x: 'Waar bezorgen we?' },
       { t: 'p', x: 'In alle stadsdelen van Amsterdam en in 15 plaatsen eromheen, van Haarlem tot Almere en van Purmerend tot Amstelveen. Bekijk het volledige [bezorggebied](/bezorggebied/) of zoek je plaats via [lachgas in de buurt](/lachgas-in-de-buurt/).' },
       { t: 'h2', x: 'Levertijd per gebied' },
-      { t: 'table', head: ['Gebied', 'Verwachte tijd'], rows: [
-        ['Amsterdam', '20 tot 30 minuten'],
-        ['Diemen, Amstelveen, Badhoevedorp', '20 tot 30 minuten'],
-        ['Haarlem, Hoofddorp, Zaandam, Weesp', '25 tot 35 minuten'],
-        ['Purmerend, Almere, Volendam', '30 tot 45 minuten'],
-      ] },
-      { t: 'p', x: 'Dit zijn gemiddelden; bij je bestelling bevestigen we de actuele tijd. Overige plaatsen in het bezorggebied, zoals [Abcoude](/lachgas-abcoude/), [Krommenie](/lachgas-krommenie/) en [Wormerveer](/lachgas-wormerveer/), liggen doorgaans tussen 25 en 45 minuten.' },
+      { t: 'table', head: ['Gebied', 'Verwachte tijd'], rows: etaRows(true) },
+      { t: 'p', x: 'Dit zijn gemiddelden; bij je bestelling bevestigen we de actuele tijd. Dezelfde tijden staan op de pagina van elke plaats, zie het [bezorggebied](/bezorggebied/).' },
       { t: 'h3', x: 'Wat bepaalt de levertijd?' },
       { t: 'ul', x: [
         'De afstand tussen jouw adres en onze koerier op dat moment',
@@ -218,11 +214,11 @@ export const services: Page[] = [
     related: ['lachgas-bezorgdienst', 'lachgas-koerier', 'bezorggebied', 'lachgas-24-7', 'lachgas-in-de-buurt', 'lachgas-bestellen-amsterdam'],
   },
   {
-    slug: 'lachgas-bezorgdienst', group: 'service', kind: 'service', nav: 'Lachgas bezorgdienst', parent: 'home',
-    title: 'Lachgas bezorgdienst: onze werkwijze',
-    desc: 'De lachgas bezorgdienst van Amsterdam: wat we leveren, hoe we controleren en voor wie we werken. Eén product, één service, 24/7 bereikbaar.',
+    slug: 'lachgas-bezorgdienst', group: 'service', kind: 'service', nav: 'Lachgas bezorgdienst', parent: 'home', updated: '2026-11-09',
+    title: 'Lachgas bezorgdienst in Amsterdam, 24/7',
+    desc: 'Lachgas bezorgdienst in Amsterdam: de Fastgas Wegwerp Tank in 2KG, 4KG en 10KG, dag en nacht bezorgd binnen 20 tot 30 minuten. Betaal bij aflevering.',
     h1: 'Lachgas bezorgdienst Amsterdam', kicker: 'Eén product, één service',
-    lead: 'Onze bezorgdienst levert één ding: de originele Fastgas Wegwerp Tank. Daardoor kunnen we snel, duidelijk en consequent werken.',
+    lead: 'Onze lachgas bezorgdienst in Amsterdam levert één ding: de originele Fastgas Wegwerp Tank. Daardoor kunnen we snel, duidelijk en consequent werken.',
     blocks: [
       { t: 'h2', x: 'Hoe werkt onze lachgas bezorgdienst?' },
       { t: 'p', x: 'Een bezorgdienst werkt alleen als de afspraken kloppen. Daarom is ons proces bewust kort: je bestelt, wij bevestigen prijs en aankomsttijd, de koerier levert en jij betaalt bij aflevering. Geen account, geen vooruitbetaling, geen afhaalpunt.' },
@@ -254,7 +250,7 @@ export const services: Page[] = [
       { t: 'p', x: 'Ook voor technische toepassingen die de wet toestaat kun je bij ons bestellen. Geef bij je bericht aan om welke toepassing het gaat, dan weten we meteen of en hoe we kunnen leveren.' },
       { t: 'h2', x: 'Wat gebeurt er na je bericht?' },
       { t: 'table', head: ['Moment', 'Wat er gebeurt'], rows: [
-        ['Je stuurt een bericht of belt', 'Adres, formaat en gebruik komen binnen'],
+        ['Je stuurt een WhatsApp-bericht', 'Adres, formaat en gebruik komen binnen'],
         ['Binnen enkele minuten', 'Wij bevestigen totaalprijs en aankomsttijd'],
         ['Na jouw akkoord', 'De koerier vertrekt met de verzegelde tank'],
         ['Bij de deur', 'Leeftijdscontrole op verzoek, overhandiging en betaling'],
@@ -276,8 +272,8 @@ export const services: Page[] = [
     related: ['lachgas-bezorgen', 'lachgas-koerier', 'over-ons', 'bestellen', 'lachgas-horeca', 'is-lachgas-verboden'],
   },
   {
-    slug: 'lachgas-koerier', group: 'service', kind: 'service', nav: 'Lachgas koerier', parent: 'home',
-    title: 'Lachgas koerier in Amsterdam: dag en nacht',
+    slug: 'lachgas-koerier', group: 'service', kind: 'service', nav: 'Lachgas koerier', parent: 'home', updated: '2026-11-09',
+    title: 'Lachgas koerier Amsterdam, dag en nacht',
     desc: 'De lachgaskoerier van Amsterdam: onze koeriers bezorgen de Fastgas tank dag en nacht. Zo werkt een levering en wat de koerier controleert.',
     h1: 'De lachgaskoerier van Amsterdam', kicker: 'Onze koeriers',
     lead: 'Een bezorgservice is zo goed als de koerier die voor je deur staat. Onze koeriers kennen de stad en de snelste routes.',
@@ -343,11 +339,11 @@ export const services: Page[] = [
     related: ['lachgas-bezorgdienst', 'lachgas-bezorgen', 'lachgas-24-7', 'bestellen', 'lachgas-nachtlevering', 'bezorggebied'],
   },
   {
-    slug: 'lachgas-24-7', group: 'service', kind: 'service', nav: 'Lachgas 24/7', parent: 'home',
-    title: 'Lachgas 24/7 bestellen: dag en nacht open',
-    desc: 'Lachgas 24/7: onze bezorgdienst is elke dag van het jaar bereikbaar, ook ’s nachts en op feestdagen. Bestel via WhatsApp.',
-    h1: 'Lachgas 24/7 in Amsterdam', kicker: 'Altijd bereikbaar',
-    lead: 'Bij ons bestaat “gesloten” niet. Je kunt dag en nacht bestellen, ook op zondag en feestdagen.',
+    slug: 'lachgas-24-7', group: 'service', kind: 'service', nav: 'Lachgas 24/7', parent: 'home', absolute: true, updated: '2026-11-09',
+    title: 'Lachgas Amsterdam 24/7: dag en nacht bezorgd',
+    desc: 'Lachgas Amsterdam 24/7: dag en nacht bereikbaar, ook in het weekend en op feestdagen. In Amsterdam doorgaans binnen 20 tot 30 minuten bezorgd. Bestel via WhatsApp.',
+    h1: 'Lachgas Amsterdam 24/7', kicker: 'Altijd bereikbaar',
+    lead: 'Lachgas Amsterdam is 24/7 bereikbaar: bij ons bestaat “gesloten” niet. Je kunt dag en nacht bestellen, ook op zondag en feestdagen.',
     blocks: [
       { t: 'h2', x: 'Openingstijden: elke dag, de hele dag' },
       { t: 'table', head: ['Dag', 'Tijden'], rows: [['Maandag', '00:00 – 24:00'], ['Dinsdag', '00:00 – 24:00'], ['Woensdag', '00:00 – 24:00'], ['Donderdag', '00:00 – 24:00'], ['Vrijdag', '00:00 – 24:00'], ['Zaterdag', '00:00 – 24:00'], ['Zondag', '00:00 – 24:00']] },
@@ -385,7 +381,7 @@ export const services: Page[] = [
         'De tank wordt persoonlijk aan de besteller overhandigd',
       ] },
       { t: 'h2', x: 'Dag en nacht in heel het bezorggebied' },
-      { t: 'p', x: 'De 24/7 bereikbaarheid geldt voor het hele [bezorggebied](/bezorggebied/): alle stadsdelen van Amsterdam, Weesp en 15 plaatsen eromheen. Buiten Amsterdam kan de tijd langer zijn, zie de tijden bij [lachgas bezorgen](/lachgas-bezorgen/).' },
+      { t: 'p', x: 'De 24/7 bereikbaarheid geldt voor het hele [bezorggebied](/bezorggebied/): alle stadsdelen van Amsterdam, Weesp en 14 plaatsen eromheen. Buiten Amsterdam kan de tijd langer zijn, zie de tijden bij [lachgas bezorgen](/lachgas-bezorgen/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [
@@ -400,7 +396,7 @@ export const services: Page[] = [
   },
   {
     slug: 'lachgas-nachtlevering', group: 'service', kind: 'service', nav: 'Lachgas nachtlevering', parent: 'lachgas-24-7',
-    title: 'Lachgas ’s nachts bestellen: nachtlevering',
+    title: 'Lachgas ’s nachts bestellen in Amsterdam',
     desc: 'Lachgas ’s nachts laten bezorgen in Amsterdam: onze koeriers rijden de hele nacht. Zo bestel je, wat je moet voorbereiden en wat je kunt verwachten.',
     h1: 'Lachgas ’s nachts bestellen', kicker: 'Nachtlevering',
     lead: 'Ook na middernacht staat er een koerier klaar. Dat is vooral handig voor horeca en evenementen die laat nog iets nodig hebben.',
@@ -453,8 +449,8 @@ export const services: Page[] = [
     related: ['lachgas-24-7', 'overdag-bestellen', 'lachgas-amsterdam', 'bestellen', 'lachgas-koerier', 'lachgas-bezorgen'],
   },
   {
-    slug: 'overdag-bestellen', group: 'service', kind: 'service', nav: 'Overdag bestellen', parent: 'lachgas-24-7',
-    title: 'Overdag lachgas bestellen en laten bezorgen',
+    slug: 'overdag-bestellen', group: 'service', kind: 'service', nav: 'Overdag bestellen', parent: 'lachgas-24-7', updated: '2026-11-09',
+    title: 'Overdag lachgas bestellen in Amsterdam',
     desc: 'Overdag lachgas bestellen in Amsterdam: ook tijdens kantooruren bezorgen we aan huis, kantoor of horeca. Binnen 20 tot 30 minuten.',
     h1: 'Overdag bestellen', kicker: 'Tijdens kantooruren',
     lead: 'Overdag bezorgen we aan woningen, kantoren en horeca. Voor zakelijke adressen is een afgesproken ontvangstpunt het handigst.',
@@ -511,7 +507,7 @@ export const services: Page[] = [
     related: ['lachgas-24-7', 'lachgas-nachtlevering', 'lachgas-horeca', 'bestellen', 'lachgas-bezorgen', 'lachgas-bestellen-amsterdam'],
   },
   {
-    slug: 'lachgas-bestellen-whatsapp', group: 'service', kind: 'service', nav: 'Lachgas bestellen via WhatsApp', parent: 'home',
+    slug: 'lachgas-bestellen-whatsapp', group: 'service', kind: 'service', nav: 'Lachgas bestellen via WhatsApp', parent: 'home', updated: '2026-11-09',
     title: 'Lachgas bestellen via WhatsApp',
     desc: 'Lachgas bestellen via WhatsApp: stuur adres en formaat naar +31 97 010 270 187 en ontvang de Fastgas tank binnen 20 tot 30 minuten. Betalen bij aflevering.',
     h1: 'Lachgas bestellen via WhatsApp', kicker: 'Snelste manier',
@@ -632,7 +628,7 @@ export const services: Page[] = [
     related: ['lachgas-kopen-amsterdam', 'lachgas-tank-bestellen', 'lachgas-bestellen-whatsapp', 'bestellen', 'lachgas-tanks', 'lachgas-horeca'],
   },
   {
-    slug: 'laughing-gas-delivery-amsterdam', group: 'service', kind: 'service', nav: 'Laughing gas delivery Amsterdam', parent: 'home', lang: 'en', twin: 'lachgas-bezorgen',
+    slug: 'laughing-gas-delivery-amsterdam', group: 'service', kind: 'service', nav: 'Laughing gas delivery Amsterdam', parent: 'home', lang: 'en', twin: 'lachgas-bezorgen', updated: '2026-11-09',
     title: 'Laughing gas delivery Amsterdam (N2O)',
     desc: 'Laughing gas delivery in Amsterdam: sealed Fastgas tanks 2KG, 4KG and 10KG, delivered 24/7 in 20 to 30 minutes. Order by WhatsApp. 18+ only.',
     h1: 'Laughing gas delivery Amsterdam', kicker: 'English',
@@ -825,7 +821,7 @@ export const services: Page[] = [
   },
   {
     slug: 'lachgas-in-de-buurt', group: 'service', kind: 'service', nav: 'Lachgas in de buurt', parent: 'bezorggebied',
-    title: 'Lachgas in de buurt: bezorgd bij jou thuis',
+    title: 'Lachgas in de buurt: bezorgd aan huis',
     desc: 'Lachgas in de buurt nodig? Kies je plaats of stadsdeel en zie hoe snel we bij je zijn. 23 locaties in en rond Amsterdam, dag en nacht bereikbaar.',
     h1: 'Lachgas in de buurt', kicker: 'Kies je locatie',
     lead: 'In plaats van een winkel in de buurt zoeken, laat je de tank bezorgen. Kies hieronder je plaats of stadsdeel.',
@@ -889,11 +885,11 @@ export const services: Page[] = [
     related: ['bezorggebied', 'lachgas-amsterdam', 'lachgas-bezorgen', 'bestellen', 'lachgas-bestellen-amsterdam', 'lachgas-24-7'],
   },
   {
-    slug: 'fastgas', group: 'service', kind: 'article', nav: 'Fastgas', parent: 'lachgas-tanks',
-    title: 'Fastgas: de wegwerp lachgas tank uitgelegd',
-    desc: 'Alles over Fastgas: de verzegelde wegwerp lachgas tank in 2KG, 4KG en 10KG. Wat het label zegt, de veiligheidsvoorschriften en waar je hem bestelt.',
-    h1: 'Fastgas uitgelegd', kicker: 'Het merk',
-    lead: 'Fastgas is de naam van de wegwerp lachgas tank die wij bezorgen. Hier lees je wat op het label staat en wat dat betekent.',
+    slug: 'fastgas', group: 'service', kind: 'article', nav: 'Fastgas', parent: 'lachgas-tanks', updated: '2026-11-09',
+    title: 'Fastgas Amsterdam: wegwerp tank uitgelegd',
+    desc: 'Fastgas in Amsterdam: alles over de verzegelde wegwerp lachgas tank in 2KG, 4KG en 10KG. Wat het label zegt, hoe je de echtheid controleert en hoe je bestelt.',
+    h1: 'Fastgas in Amsterdam', kicker: 'Het merk dat wij bezorgen',
+    lead: 'Fastgas is de wegwerp lachgas tank die wij in Amsterdam en omstreken bezorgen, dag en nacht. Hier lees je wat op het label staat en wat dat betekent.',
     img: { src: '/fastgas-blueprint.webp', alt: 'Technisch overzicht van de Fastgas 2KG tank met label, druk en keuringsgegevens', w: 768, h: 512 },
     blocks: [
       { t: 'h2', x: 'Wat is Fastgas?' },
@@ -943,7 +939,7 @@ export const services: Page[] = [
         'Een adapter gebruiken die niet voor de tank bestemd is',
         'De tank onbeheerd laten staan binnen bereik van kinderen',
       ] },
-      { t: 'h2', x: 'Waar bestel je Fastgas?' },
+      { t: 'h2', x: 'Fastgas bestellen in Amsterdam' },
       { t: 'p', x: 'Bij ons, bezorgd in Amsterdam en omstreken. Je bestelt via [WhatsApp](/lachgas-tank-bestellen/), hoort prijs en aankomsttijd vooraf en betaalt bij aflevering. Zie ook [lachgas kopen in Amsterdam](/lachgas-kopen-amsterdam/).' },
       { t: 'note', x: NOTE },
     ],

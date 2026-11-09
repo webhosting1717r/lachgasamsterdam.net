@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
 import { Blocks, BlueprintZoom, Cta, FaqList, JsonLd, Rich } from '@/components/ui';
-import { locationData } from '@/lib/content/locations';
+import { etaRows, locationData } from '@/lib/content/locations';
 import { site } from '@/lib/site';
 import type { Faq } from '@/lib/types';
 
@@ -16,11 +16,11 @@ export const metadata: Metadata = pageMeta({
 
 const faq: Faq[] = [
   { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
-  { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Op [lachgas Amsterdam](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
+  { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Hoe je bestelt staat op [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/); op [Amsterdam per stadsdeel](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
   { q: 'Hoe snel bezorgen jullie lachgas in Amsterdam?', a: 'Gemiddeld staat onze koerier binnen 20 tot 30 minuten voor de deur, dag en nacht. Buiten Amsterdam hoor je op de pagina van je plaats wat de verwachte tijd is. Bij je bestelling bevestigen we altijd de aankomsttijd.' },
   { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
   { q: 'Wat kost een Fastgas tank?', a: 'De prijs hangt af van het formaat, het aantal tanks en je locatie. Daarom noemen we hem per bericht en altijd vooraf. Stuur je adres en formaat via [WhatsApp](/lachgas-bestellen-whatsapp/) en je hoort meestal binnen enkele minuten het totaalbedrag. Meer uitleg staat op [lachgas prijs](/lachgas-prijs/).' },
-  { q: 'Welke tanks leveren jullie?', a: 'De originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Elke tank is verzegeld en voorzien van een label met inhoud en keuringsgegevens. Zie [alle lachgas tanks](/lachgas-tanks/).' },
+  { q: 'Welke tanks leveren jullie?', a: 'De originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG. Elke tank is verzegeld en voorzien van een label met inhoud en keuringsgegevens. Zie [alle lachgas tanks](/lachgas-tanks/). Hoe je de echtheid controleert, staat op [Fastgas uitgelegd](/fastgas/).' },
   { q: 'Welk formaat tank moet ik kiezen?', a: 'Kies naar verbruik. De 2KG past bij kleine keukens, de 4KG bij een drukke keuken of catering, de 10KG bij professioneel gebruik met veel verbruik. Twijfel je, stuur dan je situatie door; we denken mee. Zie ook [Fastgas 4KG](/fastgas-4kg/) en [Fastgas 10KG](/fastgas-10kg/).' },
   { q: 'Bezorgen jullie ook buiten Amsterdam?', a: 'Ja, in een groot deel van de regio: van Haarlem en Hoofddorp tot Almere en Purmerend. Zie het [bezorggebied](/bezorggebied/) voor alle plaatsen en de verwachte levertijd per locatie.' },
   { q: 'Kunnen bedrijven en horeca ook bestellen?', a: 'Ja. Restaurants, bars en cateraars bestellen regelmatig bij ons, ook midden in de dienst. Geef bedrijfsnaam, ontvangstpunt en contactpersoon door. Lees meer op [lachgas voor horeca](/lachgas-horeca/).' },
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="row two">
             <div>
           <p className="kicker"><span className="dot" aria-hidden="true" />De lachgaskoerier van Amsterdam</p>
-          <h1>Lachgas Amsterdam.<br />Binnen {site.etaShort}.</h1>
+          <h1>Lachgas Amsterdam.<br />Binnen {site.etaShort.replace(' ', '\u00a0')}.</h1>
           <p className="lead">
             De Fastgas Wegwerp Tank, verzegeld en 24/7 bezorgd in Amsterdam en omstreken. Bestel via WhatsApp en betaal bij aflevering.
           </p>
@@ -55,7 +55,7 @@ export default function Home() {
             <li>24/7 bereikbaar</li>
             <li>PIN of contant</li>
             <li>Prijs vooraf</li>
-            <li>{site.minAge}+ en toegestaan gebruik</li>
+            <li>{site.minAge}+</li>
           </ul>
             </div>
             <BlueprintZoom priority alt="Technisch overzicht van de Fastgas 2KG tank: streepcode, serienummer, inhoud 2000 gram, maximale druk 180 bar, keuringslichaam en afmetingen" />
@@ -72,13 +72,13 @@ export default function Home() {
           <h3>Lachgas Amsterdam in het kort</h3>
           <ul className="ticks">
             <li><strong>Wat:</strong> bezorging van de originele Fastgas Wegwerp Tank in 2KG, 4KG en 10KG</li>
-            <li><strong>Waar:</strong> alle stadsdelen van Amsterdam, Weesp en 15 plaatsen eromheen</li>
+            <li><strong>Waar:</strong> alle stadsdelen van Amsterdam, Weesp en 14 plaatsen eromheen</li>
             <li><strong>Wanneer:</strong> 24/7, in Amsterdam doorgaans binnen 20 tot 30 minuten</li>
             <li><strong>Betalen:</strong> bij aflevering met PIN of contant, de prijs hoor je vooraf</li>
             <li><strong>Voor wie:</strong> klanten van 18 jaar en ouder met een toegestane toepassing, zoals keuken, horeca, catering en techniek</li>
           </ul>
           <p>
-            <Rich text="Onze klanten zijn restaurants, bars en cateraars die [slagroom, schuimen en mousses](/slagroomspuiten/) maken, evenementenbedrijven die op locatie werken en particulieren met een toegestane keukentoepassing. Omdat we één product leveren, kunnen we snel, duidelijk en zonder omwegen werken: geen webshop met winkelwagen, geen account, geen wachtmuziek. Per stadsdeel lees je meer op [lachgas Amsterdam](/lachgas-amsterdam/)." />
+            <Rich text="Onze klanten zijn restaurants, bars en cateraars die [slagroom, schuimen en mousses](/slagroomspuiten/) maken, evenementenbedrijven die op locatie werken en particulieren met een toegestane keukentoepassing. Omdat we één product leveren, kunnen we snel, duidelijk en zonder omwegen werken: geen webshop met winkelwagen, geen account, geen wachtmuziek. Per stadsdeel lees je meer op [Amsterdam per stadsdeel](/lachgas-amsterdam/)." />
           </p>
           <p>
             <Rich text="Lachgas valt sinds 1 januari 2023 onder de Opiumwet. We leveren daarom alleen aan 18+ en alleen voor toegestaan gebruik. Hoe dat precies zit, lees je onder [is lachgas verboden](/is-lachgas-verboden/)." />
@@ -130,7 +130,7 @@ export default function Home() {
             <li><strong>Betaal bij aflevering</strong><span>PIN of contant, zonder account en zonder vooruitbetaling.</span></li>
           </ol>
           <p>
-            <Rich text="Voeg bij voorkeur een locatiepin toe en noteer bel- of toegangscode en etage; dan hoeft de koerier niet te zoeken. Bij [bestellen via WhatsApp](/lachgas-bestellen-whatsapp/) staat een voorbeeldbericht, en alles over de route vind je op [bestellen](/bestellen/)." />
+            <Rich text="Voeg bij voorkeur een locatiepin toe en noteer bel- of toegangscode en etage; dan hoeft de koerier niet te zoeken. Bij [bestellen via WhatsApp](/lachgas-bestellen-whatsapp/) staat een voorbeeldbericht, en alles over de route vind je op [bestellen](/bestellen/). Woon je in de stad, lees dan [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/)." />
           </p>
         </section>
 
@@ -146,10 +146,11 @@ export default function Home() {
               <li><strong>Bestellen via WhatsApp</strong>, geen account nodig</li>
               <li><strong>Groot bezorggebied</strong> in en rond Amsterdam</li>
               <li><strong>Leeftijdscontrole</strong> en alleen voor toegestaan gebruik</li>
+              <li><strong>Echtheid controleerbaar</strong>: serienummer en verificatielink op elk label</li>
             </ul>
           </div>
           <p>
-            <Rich text="Meer over hoe we werken lees je op [over ons](/over-ons/), bij [de lachgaskoerier](/lachgas-koerier/) en op de pagina over onze [bezorgdienst](/lachgas-bezorgdienst/)." />
+            <Rich text="Meer over hoe we werken lees je op [over ons](/over-ons/), bij [de lachgaskoerier](/lachgas-koerier/), op [lachgas bezorgen](/lachgas-bezorgen/) en bij onze [lachgas bezorgdienst in Amsterdam](/lachgas-bezorgdienst/)." />
           </p>
         </section>
 
@@ -182,19 +183,14 @@ export default function Home() {
         <section className="panel" aria-labelledby="area-h">
           <h2 id="area-h">Lachgas Amsterdam: waar wij bezorgen</h2>
           <p>
-            <Rich text="Alle stadsdelen van Amsterdam en 15 plaatsen eromheen. Kies je locatie voor wijken, bereikbaarheid en de verwachte levertijd. Staat je plaats er niet bij, vraag het via [WhatsApp](/contact/); soms kunnen we er toch komen." />
+            <Rich text="Alle stadsdelen van Amsterdam, Weesp en 14 plaatsen eromheen. Kies je locatie voor wijken, bereikbaarheid en de verwachte levertijd. Staat je plaats er niet bij, vraag het via [WhatsApp](/contact/); soms kunnen we er toch komen." />
           </p>
           <Blocks
             blocks={[
               {
                 t: 'table',
                 head: ['Gebied', 'Verwachte levertijd'],
-                rows: [
-                  ['Amsterdam (alle stadsdelen), Diemen, Amstelveen, Badhoevedorp', '20 tot 30 minuten'],
-                  ['Haarlem, Hoofddorp, Zaandam, Weesp, Zwanenburg', '25 tot 35 minuten'],
-                  ['Abcoude, Krommenie, Landsmeer, Wormerveer', '25 tot 40 minuten'],
-                  ['Purmerend, Almere, Volendam', '30 tot 45 minuten'],
-                ],
+                rows: etaRows(),
               },
             ]}
           />

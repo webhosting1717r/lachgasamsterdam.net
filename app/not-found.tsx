@@ -12,6 +12,13 @@ export default function NotFound() {
           <a href="/bezorggebied/">bezorggebied</a> of bestel direct.
         </p>
         <Cta />
+        <ul className="places">
+          <li><a href="/lachgas-tanks/">Lachgas tanks</a></li>
+          <li><a href="/bestellen/">Bestellen</a></li>
+          <li><a href="/lachgas-amsterdam/">Amsterdam per stadsdeel</a></li>
+          <li><a href="/veelgestelde-vragen/">Veelgestelde vragen</a></li>
+          <li><a href="/overzicht/">Alle pagina&rsquo;s</a></li>
+        </ul>
       </div>
     </section>
   );

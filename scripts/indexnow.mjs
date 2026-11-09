@@ -19,7 +19,15 @@ if (args.length) {
 }
 if (!urlList.length) throw new Error('geen URL\'s gevonden');
 
-const body = { host, key, keyLocation: `${url}/${key}.txt`, urlList };
+const keyLocation = `${url}/${key}.txt`;
+// Zonder bereikbaar sleutelbestand weigert IndexNow de melding; controleer dat eerst, zodat dit niet stil misgaat.
+const check = await fetch(keyLocation, { method: 'HEAD' });
+if (check.status !== 200) {
+  console.log(`Sleutelbestand ${keyLocation} geeft ${check.status}; deploy eerst en probeer opnieuw.`);
+  process.exit(1);
+}
+
+const body = { host, key, keyLocation, urlList };
 const res = await fetch('https://api.indexnow.org/indexnow', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json; charset=utf-8' },
