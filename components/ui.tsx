@@ -142,7 +142,7 @@ export function Related({ slugs, title = 'Bekijk ook' }: { slugs: string[]; titl
 }
 
 export function trailOf(p: Page): { name: string; path: string }[] {
-  const t: { name: string; path: string }[] = [{ name: 'Home', path: '/' }];
+  const t: { name: string; path: string }[] = [{ name: site.name, path: '/' }];
   const chain: Page[] = [];
   let cur: Page | undefined = p;
   while (cur) {
@@ -282,7 +282,7 @@ export function Footer() {
     <footer className="foot">
       <div className="wrap fgrid">
         <div>
-          <strong className="fh">Lachgas Amsterdam</strong>
+          <strong className="fh"><a href="/">Lachgas Amsterdam</a></strong>
           <p className="fp">Bezorgdienst voor de originele Fastgas Wegwerp Tank in Amsterdam en omstreken. Dag en nacht bereikbaar.</p>
           <p className="fp"><a href={waHref()} rel="noopener">WhatsApp {site.whatsappText}</a></p>
         </div>

@@ -4,6 +4,7 @@ import { pageMeta } from '@/lib/meta';
 import { Crumbs, Cta, JsonLd } from '@/components/ui';
 import { graph } from '@/lib/schema';
 import type { Group } from '@/lib/types';
+import { site } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta({
   title: 'Alle pagina’s van Lachgas Amsterdam',
@@ -21,7 +22,7 @@ const groups: [Group, string, string][] = [
 ];
 
 export default function Overzicht() {
-  const trail = [{ name: 'Home', path: '/' }, { name: 'Alle pagina’s', path: '/overzicht/' }];
+  const trail = [{ name: site.name, path: '/' }, { name: 'Alle pagina’s', path: '/overzicht/' }];
   return (
     <>
       <JsonLd data={graph(null, trail, undefined, 'Overzicht van alle pagina’s van Lachgas Amsterdam.')} />
