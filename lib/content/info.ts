@@ -577,7 +577,7 @@ export const info: Page[] = [
     lead: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank. We werken in Amsterdam en een groot deel van de regio, met duidelijke afspraken over leeftijd en gebruik.',
     blocks: [
       { t: 'h2', x: 'Wie is Lachgas Amsterdam?' },
-      { t: 'p', x: 'Lachgas Amsterdam is een bezorgdienst, geen winkel. Je bestelt via WhatsApp en onze koerier brengt de tank naar je adres. We leveren de [Fastgas Wegwerp Tank](/lachgas-tanks/) in 2KG, 4KG en 10KG, verzegeld en met een label.' },
+      { t: 'p', x: '[Lachgas Amsterdam](/) is een bezorgdienst, geen winkel. Je bestelt via WhatsApp en onze koerier brengt de tank naar je adres. We leveren de [Fastgas Wegwerp Tank](/lachgas-tanks/) in 2KG, 4KG en 10KG, verzegeld en met een label.' },
       { t: 'p', x: 'We zijn dag en nacht bereikbaar en bezorgen in alle stadsdelen van [Amsterdam](/lachgas-amsterdam/) en in een groot deel van de regio. Over het product zelf lees je meer op [Fastgas uitgelegd](/fastgas/).' },
       { t: 'h2', x: 'Onze uitgangspunten' },
       { t: 'ul', x: [
