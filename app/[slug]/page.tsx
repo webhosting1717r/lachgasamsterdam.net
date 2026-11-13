@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { bySlug, pages } from '@/lib/pages';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
-import { Blocks, BlueprintZoom, Cta, Crumbs, FaqList, JsonLd, Related, Toc, trailOf } from '@/components/ui';
+import { Blocks, BlueprintZoom, Crumbs, FaqList, JsonLd, Related, Toc, trailOf } from '@/components/ui';
 import { dateText, site } from '@/lib/site';
 
 export const dynamicParams = false;
@@ -62,7 +62,6 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
               <p className="kicker"><span className="dot" aria-hidden="true" />{p.kicker}</p>
               <h1>{p.h1}</h1>
               <p className="lead">{p.lead}</p>
-              {!p.noCta && <Cta en={en} text={en ? `Hi, I would like to order (${p.nav}).` : `Hoi, ik wil graag bestellen (${p.nav}).`} />}
               {chip && <ul className="chips">{chip.map((c) => <li key={c}>{c}</li>)}</ul>}
             </div>
             {p.img && p.img.src === '/fastgas-blueprint.webp' && <BlueprintZoom priority alt={p.img.alt} />}
@@ -85,7 +84,6 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
           <section className="panel final">
             <p className="big">{en ? 'Ready to order?' : 'Klaar om te bestellen?'}</p>
             <p>{en ? 'Send a message with your address and tank size. You hear the price and arrival time straight away.' : 'Stuur een bericht met je adres en formaat. Je hoort direct prijs en aankomsttijd.'}</p>
-            <Cta en={en} />
           </section>
         )}
         <div className="panel"><Related slugs={p.related} title={en ? 'See also' : undefined} /></div>

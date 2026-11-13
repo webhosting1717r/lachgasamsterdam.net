@@ -128,14 +128,14 @@ export const hubs: Page[] = [
     related: ['lachgas-amsterdam', 'lachgas-in-de-buurt', 'lachgas-bezorgen', 'bestellen', 'lachgas-24-7', 'contact'],
   },
   {
-    slug: 'contact', group: 'hub', nav: 'Contact', parent: 'home', updated: '2026-11-09',
+    slug: 'contact', group: 'hub', nav: 'Contact', parent: 'home', updated: '2026-11-13',
     title: 'Contact: WhatsApp Lachgas Amsterdam',
-    desc: 'Contact met Lachgas Amsterdam: stuur een WhatsApp naar +31 97 010 270 187. Dag en nacht bereikbaar, ook in het weekend.',
+    desc: 'Contact met Lachgas Amsterdam: stuur ons een WhatsApp-bericht met je vraag of bestelling. Dag en nacht bereikbaar, ook in het weekend en op feestdagen.',
     h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
     lead: 'Bestellen of een vraag? Stuur Lachgas Amsterdam een WhatsApp-bericht. We reageren dag en nacht.',
     blocks: [
       { t: 'h2', x: 'Zo bereik je ons' },
-      { t: 'ul', x: ['WhatsApp: +31 97 010 270 187', 'Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
+      { t: 'ul', x: ['Bereikbaar: 24 uur per dag, 7 dagen per week, ook op feestdagen'] },
       { t: 'p', x: 'Er is geen webformulier waarop je een antwoord moet afwachten: je spreekt direct met ons. Dat is de snelste manier om een bestelling te regelen.' },
 
       { t: 'h2', x: 'Waarom WhatsApp?' },
@@ -158,7 +158,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'We reageren dag en nacht. Bij drukte, bijvoorbeeld rond evenementen of feestdagen, kan het een paar minuten langer duren voor je een antwoord hebt. Bereik je ons niet meteen, stuur dan gerust nog een bericht.' },
 
       { t: 'h2', x: 'Vragen over een bestelling, privacy of voorwaarden' },
-      { t: 'p', x: 'Heb je een vraag of klacht over een levering, neem dan contact met ons op via hetzelfde nummer. Je vindt onze regels in de [algemene voorwaarden](/algemene-voorwaarden/) en in de [privacyverklaring](/privacy-en-cookies/). Antwoorden op veelgestelde vragen staan op [veelgestelde vragen](/veelgestelde-vragen/).' },
+      { t: 'p', x: 'Heb je een vraag of klacht over een levering, neem dan contact met ons op. Je vindt onze regels in de [algemene voorwaarden](/algemene-voorwaarden/) en in de [privacyverklaring](/privacy-en-cookies/). Antwoorden op veelgestelde vragen staan op [veelgestelde vragen](/veelgestelde-vragen/).' },
 
       { t: 'h2', x: 'Wat doen we met je gegevens?' },
       { t: 'p', x: 'We gebruiken je naam, nummer en adres alleen om je bestelling te bevestigen, te bezorgen en te administreren. We plaatsen geen cookies op deze website. Alle details lees je in de [privacyverklaring](/privacy-en-cookies/).' },
@@ -168,24 +168,23 @@ export const hubs: Page[] = [
       { t: 'note', x: NOTE },
     ],
     faq: [
-      { q: 'Kan ik Lachgas Amsterdam bellen?', a: 'Nee, we werken uitsluitend via WhatsApp: +31 97 010 270 187. We reageren dag en nacht, ook in het weekend en op feestdagen.' },
-      { q: 'Wat is het WhatsApp-nummer?', a: 'Je bereikt ons via +31 97 010 270 187. Via de knoppen op deze site open je direct een gesprek.' },
+      { q: 'Kan ik Lachgas Amsterdam bellen?', a: 'Nee, we werken uitsluitend via WhatsApp. We reageren dag en nacht, ook in het weekend en op feestdagen.' },
       { q: 'Kan ik jullie ook ’s nachts bereiken?', a: 'Ja, we zijn 24 uur per dag bereikbaar, 7 dagen per week.' },
       { q: 'Is er een winkel of afhaalpunt?', a: 'Nee. We bezorgen uitsluitend aan huis of aan je zaak. Afhalen is niet mogelijk.' },
       { q: 'Spreken jullie Engels?', a: 'Ja, je kunt in het Engels bestellen via WhatsApp.' },
-      { q: 'Waar meld ik een klacht?', a: 'Via hetzelfde nummer. We reageren zo snel mogelijk. Je rechten staan in de [algemene voorwaarden](/algemene-voorwaarden/).' },
+      { q: 'Waar meld ik een klacht?', a: 'Stuur ons een bericht; we reageren zo snel mogelijk. Je rechten staan in de [algemene voorwaarden](/algemene-voorwaarden/).' },
     ],
     related: ['bestellen', 'lachgas-bestellen-whatsapp', 'veelgestelde-vragen', 'bezorggebied', 'over-ons', 'lachgas-24-7'],
   },
   {
-    slug: 'privacy-en-cookies', group: 'legal', nav: 'Privacy en cookies', parent: 'home', noCta: true, updated: '2026-11-09',
+    slug: 'privacy-en-cookies', group: 'legal', nav: 'Privacy en cookies', parent: 'home', noCta: true, updated: '2026-11-13',
     title: 'Privacy en cookies',
     desc: 'Privacyverklaring van Lachgas Amsterdam: welke gegevens we verwerken, waarvoor en hoe lang. Deze website gebruikt geen cookies en geen trackers.',
     h1: 'Privacy en cookies', kicker: 'Juridisch',
     lead: 'Deze website gebruikt geen cookies en geen advertentie- of analysetrackers. We verwerken alleen gegevens die je zelf aan ons doorgeeft.',
     blocks: [
       { t: 'h2', x: 'Wie is verantwoordelijk voor je gegevens?' },
-      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +31 97 010 270 187.' },
+      { t: 'p', x: 'Lachgas Amsterdam, de bezorgdienst achter deze website, is verantwoordelijk voor de verwerking van de gegevens die je ons geeft. Heb je een vraag over deze verklaring, neem dan contact met ons op via de [contactpagina](/contact/).' },
 
       { t: 'h2', x: 'Welke gegevens verwerken we?' },
       { t: 'p', x: 'Als je een bestelling plaatst via WhatsApp, verwerken we de gegevens die je zelf doorgeeft:' },
@@ -252,7 +251,7 @@ export const hubs: Page[] = [
     related: ['algemene-voorwaarden', 'contact', 'bestellen', 'over-ons', 'veelgestelde-vragen', 'is-lachgas-verboden'],
   },
   {
-    slug: 'algemene-voorwaarden', group: 'legal', nav: 'Algemene voorwaarden', parent: 'home', noCta: true, updated: '2026-11-09',
+    slug: 'algemene-voorwaarden', group: 'legal', nav: 'Algemene voorwaarden', parent: 'home', noCta: true, updated: '2026-11-13',
     title: 'Algemene voorwaarden',
     desc: 'Algemene voorwaarden van Lachgas Amsterdam: leeftijd, toegestaan gebruik, bestellen, betalen, bezorgen en aansprakelijkheid.',
     h1: 'Algemene voorwaarden', kicker: 'Juridisch',
@@ -303,7 +302,7 @@ export const hubs: Page[] = [
       { t: 'p', x: 'Op deze voorwaarden en op alle bestellingen is Nederlands recht van toepassing. Dwingend consumentenrecht dat jou beschermt, blijft van kracht. We kunnen deze voorwaarden wijzigen. De datum onder deze tekst laat zien wanneer ze voor het laatst is bijgewerkt; op een bestelling zijn de voorwaarden van toepassing die golden toen je bestelde.' },
 
       { t: 'h2', x: '15. Nietigheid en vragen' },
-      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/) of stuur een WhatsApp naar +31 97 010 270 187.' },
+      { t: 'p', x: 'Is een bepaling in deze voorwaarden niet geldig of niet afdwingbaar, dan blijven de overige bepalingen van kracht. Heb je een vraag over deze voorwaarden, neem dan contact met ons op via de [contactpagina](/contact/).' },
     ],
     related: ['privacy-en-cookies', 'is-lachgas-verboden', 'contact', 'bestellen', 'veilig-gebruik-lachgas', 'over-ons'],
   },

@@ -523,7 +523,7 @@ export const info: Page[] = [
     related: ['veelgestelde-vragen', 'lachgas-tanks', 'bestellen', 'contact', 'over-ons', 'lachgas-horeca'],
   },
   {
-    slug: 'veelgestelde-vragen', group: 'hub', kind: 'article', nav: 'Veelgestelde vragen', parent: 'home', updated: '2026-11-09',
+    slug: 'veelgestelde-vragen', group: 'hub', kind: 'article', nav: 'Veelgestelde vragen', parent: 'home', updated: '2026-11-13',
     title: 'Veelgestelde vragen over lachgas bezorgen',
     desc: 'Veelgestelde vragen over lachgas bezorgen in Amsterdam: levertijd, betalen, 18+, tanks, veiligheid en wetgeving. Kort en duidelijk beantwoord.',
     h1: 'Veelgestelde vragen', kicker: 'Antwoorden',
@@ -565,12 +565,12 @@ export const info: Page[] = [
       { q: 'Hoe bewaar ik een tank veilig?', a: 'Rechtop, vastgezet, koel en geventileerd, uit de zon en buiten bereik van kinderen. Alle regels staan op [opslag en transport](/lachgas-opslag-en-transport/).' },
       { q: 'Kan ik zakelijk bestellen en een factuur krijgen?', a: 'Ja. Vraag bij je eerste bestelling naar zakelijke administratie en stuur bedrijfsnaam en contactpersoon mee. Zie [lachgas voor horeca](/lachgas-horeca/).' },
       { q: 'Bezorgen jullie op een evenement?', a: 'Ja, als je het exacte punt op het terrein doorgeeft. Bij afzettingen spreken we een alternatief punt af. Zie [lachgas voor evenementen](/lachgas-evenementen/).' },
-      { q: 'Hoe bereik ik jullie?', a: 'Stuur een WhatsApp naar +31 97 010 270 187. We zijn dag en nacht bereikbaar. Zie [contact](/contact/).' },
+      { q: 'Hoe bereik ik jullie?', a: 'Stuur ons een WhatsApp-bericht. We zijn dag en nacht bereikbaar. Zie [contact](/contact/).' },
     ],
     related: ['bestellen', 'lachgas-informatie', 'bezorggebied', 'contact', 'lachgas-tanks', 'is-lachgas-verboden'],
   },
   {
-    slug: 'over-ons', group: 'hub', kind: 'article', nav: 'Over ons', parent: 'home', updated: '2026-11-09',
+    slug: 'over-ons', group: 'hub', kind: 'article', nav: 'Over ons', parent: 'home', updated: '2026-11-13',
     title: 'Over Lachgas Amsterdam: onze werkwijze',
     desc: 'Over Lachgas Amsterdam: een bezorgdienst voor de originele Fastgas Wegwerp Tank in Amsterdam en regio. Zo werken we en dit zijn onze regels.',
     h1: 'Over Lachgas Amsterdam', kicker: 'Wie we zijn',
@@ -626,7 +626,7 @@ export const info: Page[] = [
       { t: 'p', x: 'Lachgas staat sinds 1 januari 2023 op de Opiumwet. Recreatief gebruik is verboden, gebruik in keuken, horeca en techniek is toegestaan. Lees onze uitleg op [is lachgas verboden](/is-lachgas-verboden/).' },
       { t: 'p', x: 'Onze afspraken met klanten staan in de [algemene voorwaarden](/algemene-voorwaarden/). Wat we met gegevens doen lees je in de [privacyverklaring](/privacy-en-cookies/).' },
       { t: 'h2', x: 'Zo bereik je ons' },
-      { t: 'p', x: 'Stuur een WhatsApp naar +31 97 010 270 187. We zijn 24 uur per dag bereikbaar, ook in het weekend en op feestdagen. Meer over openingstijden staat bij [lachgas 24/7](/lachgas-24-7/). Wil je bestellen? Zie [bestellen](/bestellen/) of de [veelgestelde vragen](/veelgestelde-vragen/).' },
+      { t: 'p', x: 'Stuur ons een WhatsApp-bericht. We zijn 24 uur per dag bereikbaar, ook in het weekend en op feestdagen. Meer over openingstijden staat bij [lachgas 24/7](/lachgas-24-7/). Wil je bestellen? Zie [bestellen](/bestellen/) of de [veelgestelde vragen](/veelgestelde-vragen/).' },
       { t: 'note', x: NOTE },
     ],
     faq: [

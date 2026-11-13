@@ -14,7 +14,7 @@ node serve.mjs 8797  # lokaal testen met brotli, op http://localhost:8797
 
 | Pad | Inhoud |
 | --- | --- |
-| `lib/site.ts` | domein, WhatsApp (+31 97 010 270 187), levertijd, datums (`lastmod`, `contentDate`, `published`), IndexNow-sleutel |
+| `lib/site.ts` | domein, levertijd, datums (`lastmod`, `contentDate`, `published`), IndexNow-sleutel |
 | `lib/content/*.ts` | alle pagina-inhoud: `products`, `services` (zoekopdrachten), `locations` (ook `etaRows()`: de levertijdtabel die home, bezorggebied en lachgas-bezorgen delen), `info`, `hubs` (bestellen, bezorggebied, contact, juridisch) |
 | `lib/pages.ts` | verzamelt alle pagina's en controleert dubbele slugs en kapotte "bekijk ook"-links tijdens de build |
 | `app/[slug]/page.tsx` | template voor elke subpagina (metadata, JSON-LD, FAQ, kruimelpad) |
@@ -47,4 +47,4 @@ Elke URL heeft een slash aan het eind (`trailingSlash`), alle canonicals, de sit
 - `npm run seo` (na de build) controleert titels (max 62 tekens incl. merk), descriptions, koppen (ook dubbele H1's), woordaantallen, interne links, dubbele ids, JSON-LD, de sitemap en verboden formuleringen (superlatieven, recreatieve termen, 'bellen'). Exitcode 1 bij fouten.
 - Zet `updated: 'JJJJ-MM-DD'` op de pagina waarvan je de tekst wijzigt (sitemap, JSON-LD en de regel "Bijgewerkt" volgen). `site.lastmod` is alleen voor home en overzicht, `site.contentDate` de fallback voor pagina's zonder `updated`.
 - Lighthouse mobile en desktop op home, een product-, locatie- en infopagina.
-- Mobiel menu: open en sluit via de knop, een tik op de overlay en Escape; controleer ook met JavaScript uit (het is een `<details>`). De zwevende WhatsApp-knop staat alleen vanaf 760 px; op mobiel is er de vaste knoppenbalk.
+- Mobiel menu: open en sluit via de knop, een tik op de overlay en Escape; controleer ook met JavaScript uit (het is een `<details>`).

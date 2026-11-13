@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { pages } from '@/lib/pages';
 import { pageMeta } from '@/lib/meta';
-import { Crumbs, Cta, JsonLd } from '@/components/ui';
+import { Crumbs, JsonLd } from '@/components/ui';
 import { graph } from '@/lib/schema';
 import type { Group } from '@/lib/types';
 import { site } from '@/lib/site';
@@ -38,7 +38,6 @@ export default function Overzicht() {
           <p>
             Lachgas Amsterdam bezorgt de originele Fastgas Wegwerp Tank in Amsterdam en omstreken. Naast de homepage staan hier alle {pages.length} pagina&rsquo;s van de site, geordend per onderwerp. Wil je direct bestellen, ga dan naar <a href="/bestellen/">bestellen</a> of stuur een bericht via WhatsApp. Staat je vraag er niet bij, kijk dan bij de <a href="/veelgestelde-vragen/">veelgestelde vragen</a> of neem <a href="/contact/">contact</a> op.
           </p>
-          <Cta />
         </section>
         {groups.map(([g, title, intro]) => (
           <section className="panel" key={g}>

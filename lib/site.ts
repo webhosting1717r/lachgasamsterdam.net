@@ -1,20 +1,15 @@
-/* Eén plek voor alle vaste gegevens: domein, nummers, tijden. Wijzig hier, niet in de pagina's. */
-const digits = (s: string) => s.replace(/\D/g, '');
-
+/* Eén plek voor alle vaste gegevens: domein, tijden. Wijzig hier, niet in de pagina's. */
 export const site = {
   name: 'Lachgas Amsterdam',
   brand: 'Fastgas',
   url: 'https://www.lachgasamsterdam.net',
   host: 'www.lachgasamsterdam.net',
   /** datum van de site als geheel (home, overzicht, sitemap-fallback) */
-  lastmod: '2026-11-09',
+  lastmod: '2026-11-13',
   /** eerste publicatie van de site */
   published: '2026-10-29',
   /** fallback 'bijgewerkt'-datum voor subpagina's zonder eigen `updated` */
   contentDate: '2026-10-30',
-  /* Contact loopt uitsluitend via WhatsApp. */
-  whatsapp: '+3197010270187',
-  whatsappText: '+31 97 010 270 187',
   eta: '20 tot 30 minuten',
   etaShort: '20-30 min',
   minAge: 18,
@@ -22,9 +17,6 @@ export const site = {
   indexNowKey: '8d0318a4f2ca3ac806848fd5b99318fe',
 };
 
-export const waNumber = digits(site.whatsapp);
-export const waHref = (text = 'Hoi, ik wil graag een Fastgas tank bestellen.') =>
-  `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
 export const abs = (path: string) => `${site.url}${path}`;
 
 const MONTHS_NL = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];

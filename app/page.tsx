@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { pageMeta } from '@/lib/meta';
 import { graph } from '@/lib/schema';
-import { Blocks, BlueprintZoom, Cta, FaqList, JsonLd, Rich } from '@/components/ui';
+import { Blocks, BlueprintZoom, FaqList, JsonLd, Rich } from '@/components/ui';
 import { etaRows, locationData } from '@/lib/content/locations';
 import { site } from '@/lib/site';
 import type { Faq } from '@/lib/types';
@@ -50,7 +50,6 @@ export default function Home() {
           <p className="lead">
             De Fastgas Wegwerp Tank, verzegeld en 24/7 bezorgd in Amsterdam en omstreken. Bestel via WhatsApp en betaal bij aflevering.
           </p>
-          <Cta />
           <ul className="chips">
             <li>24/7 bereikbaar</li>
             <li>PIN, Tikkie of contant</li>
@@ -235,7 +234,6 @@ export default function Home() {
         <section className="panel final">
           <p className="big">Bestel nu. Wij komen.</p>
           <p>Stuur een bericht met je adres en formaat. Je hoort direct prijs en aankomsttijd.</p>
-          <Cta />
         </section>
       </div>
     </>
