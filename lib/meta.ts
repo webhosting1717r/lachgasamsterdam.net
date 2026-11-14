@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from './site';
 
-const og = [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Lachgas Amsterdam: Fastgas Wegwerp Tank bezorgd, 24/7' }];
+const og = [{ url: site.ogImage, width: 1200, height: 630, alt: 'Lachgas Amsterdam: Fastgas Wegwerp Tank bezorgd, 24/7' }];
 
 type Opts = {
   title: string;
@@ -34,7 +34,7 @@ export function pageMeta(opts: Opts): Metadata {
       images: og,
       ...(opts.article ? { modifiedTime: opts.modified ?? site.lastmod } : {}),
     },
-    twitter: { card: 'summary_large_image', title: full, description: opts.description, images: ['/og.jpg'] },
+    twitter: { card: 'summary_large_image', title: full, description: opts.description, images: [site.ogImage] },
   };
 }
 

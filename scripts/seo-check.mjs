@@ -1,6 +1,7 @@
 // Controle van de gebouwde site (out/): `npm run build && npm run seo`.
-// Controleert per pagina titel, description, koppen, woorden, canonical, interne links, dubbele ids,
-// JSON-LD en formuleringen die we bewust niet willen gebruiken. Exitcode 1 bij fouten.
+// Controleert per pagina titel, description, koppen, woorden, canonical, robots, hreflang, interne links, dubbele ids,
+// JSON-LD en formuleringen die we bewust niet willen gebruiken. Daarnaast: nergens een telefoonnummer of bel-/WhatsApp-link
+// (HTML, JSON-LD, llms.txt, sitemap, manifest), robots.txt, de deel-afbeelding en de 404-pagina. Exitcode 1 bij fouten.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
@@ -38,8 +39,28 @@ const exists = (href) => {
   return existsSync(target) && (statSync(target).isFile() || existsSync(join(target, 'index.html')));
 };
 
+/* Telefoonnummers en bel-/WhatsApp-links horen nergens op de site te staan (keuze van de eigenaar).
+   Het alarmnummer 112 in de veiligheidsteksten valt buiten deze patronen. Afbeeldingen kan dit script niet lezen:
+   de deel-afbeelding komt uit scripts/og.mjs, daar staat de tekst die erop komt. */
+const phoneLink = /\b(?:tel|sms|callto):|wa\.me\/|api\.whatsapp\.com|whatsapp:\/\/|"(?:telephone|faxNumber)"\s*:/i;
+const phoneNumber = [
+  /(?:\+|\b00)[1-9]\d?(?:[\s().-]{0,2}\d){8,12}\b/, // internationaal: plus of 00, landcode en nog 8 tot 12 cijfers
+  /\b0[1-9](?:[\s.-]?\d){8}\b/, // Nederlands: tien cijfers die met 0 beginnen (mobiel, vast, 085/088), met of zonder spaties of streepjes
+  /\b0[89]00[\s-]?\d{4,7}\b/, // 0800- en 0900-nummers
+];
+const findPhone = (s) => {
+  const link = s.match(phoneLink);
+  if (link) return link[0];
+  for (const re of phoneNumber) {
+    const m = s.match(re);
+    if (m) return m[0];
+  }
+  return null;
+};
+
 const errors = [];
 const warns = [];
+const hreflang = new Map();
 const titles = new Map();
 const descs = new Map();
 const h1texts = new Map();
@@ -84,6 +105,18 @@ for (const { path, html } of pages) {
   const h1 = decode((first(/<h1[^>]*>([\s\S]*?)<\/h1>/, main) || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
   if (h1) h1texts.set(h1, [...(h1texts.get(h1) || []), path]);
   if (canon !== ORIGIN + path) e(`canonical ${canon} (verwacht ${ORIGIN + path})`);
+  const robots = first(/<meta name="robots" content="([^"]*)"/, html) || '';
+  if (!/^index, follow/.test(robots)) e(`robots-meta "${robots}" (verwacht index, follow)`);
+  const ogImg = first(/<meta property="og:image" content="([^"]*)"/, html) || '';
+  if (!ogImg.startsWith(ORIGIN + '/') || !exists(ogImg.slice(ORIGIN.length))) e(`og:image "${ogImg}" staat niet in out/`);
+  const attrs = [...html.matchAll(/\s(?:alt|title|aria-label|content|href)="([^"]*)"/g)].map((m) => decode(m[1])).join('\n');
+  const jsonLd = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('\n');
+  for (const [where, s] of [['de tekst', text(html)], ['een attribuut', attrs], ['de JSON-LD', jsonLd]]) {
+    const hit = findPhone(s);
+    if (hit) e(`telefoonnummer of bel-/WhatsApp-link in ${where}: "${hit}"`);
+  }
+  const alts = [...html.matchAll(/<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]);
+  if (alts.length) hreflang.set(ORIGIN + path, alts);
   if (path !== '/overzicht/' && !/\/(privacy-en-cookies|algemene-voorwaarden)\/$/.test(path) && words < MIN_WORDS) w(`${words} woorden (<${MIN_WORDS})`);
   for (const h of new Set(internal)) if (!exists(h)) e(`kapotte interne link ${h}`);
   const dup = ids.filter((id, i) => ids.indexOf(id) !== i);
@@ -91,14 +124,17 @@ for (const { path, html } of pages) {
   for (const m of html.matchAll(/<img (?![^>]*\balt=)[^>]*>/g)) e(`img zonder alt: ${m[0].slice(0, 60)}`);
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
-      JSON.parse(m[1].replace(/\\u003c/g, '<'));
+      const data = JSON.parse(m[1].replace(/\\u003c/g, '<'));
+      /* de pagina beschrijft zichzelf, niet een andere URL (anders krijgt bijvoorbeeld de homepage twee beschrijvingen) */
+      const web = (data['@graph'] || []).find((n) => /^(Web|About|Contact)Page$/.test(n['@type']));
+      if (!web || web.url !== ORIGIN + path) e(`JSON-LD: WebPage-url is ${web ? web.url : 'afwezig'} (verwacht ${ORIGIN + path})`);
     } catch (err) {
       e('ongeldige JSON-LD: ' + err.message);
     }
   }
   if (!/<script type="application\/ld\+json">/.test(html)) e('geen JSON-LD');
   if (/<script src=/.test(html)) w('extern script aanwezig');
-  const outbound = links.filter((h) => /^https?:/.test(h) && !h.startsWith(ORIGIN) && !h.startsWith('https://wa.me/'));
+  const outbound = links.filter((h) => /^https?:/.test(h) && !h.startsWith(ORIGIN));
   for (const h of outbound) if (!/rel="noopener/.test(main.slice(main.indexOf(h) - 80, main.indexOf(h) + h.length + 80))) w(`externe link zonder rel: ${h}`);
   for (const [re, label] of banned) {
     const m = body.match(re);
@@ -116,6 +152,35 @@ const sm = existsSync(join(out, 'sitemap.xml')) ? readFileSync(join(out, 'sitema
 const inMap = new Set([...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
 for (const { path } of pages) if (!inMap.has(ORIGIN + path)) errors.push(`${path}  ontbreekt in sitemap.xml`);
 for (const u of inMap) if (!pages.some((p) => ORIGIN + p.path === u)) errors.push(`sitemap verwijst naar onbekende pagina ${u}`);
+const tomorrow = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
+for (const m of sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(m[1]) || m[1].slice(0, 10) > tomorrow) errors.push(`sitemap.xml  lastmod ${m[1]} is ongeldig of ligt in de toekomst`);
+}
+
+/* hreflang: elke pagina verwijst naar zichzelf, heeft x-default en wordt door de tegenhanger teruggelinkt */
+for (const [url, alts] of hreflang) {
+  const p = url.slice(ORIGIN.length);
+  if (!alts.some(([, h]) => h === url)) errors.push(`${p}  hreflang zonder verwijzing naar zichzelf`);
+  if (!alts.some(([l]) => l === 'x-default')) errors.push(`${p}  hreflang zonder x-default`);
+  for (const [l, h] of alts) {
+    if (h === url) continue;
+    const back = hreflang.get(h);
+    if (!back || !back.some(([, b]) => b === url)) errors.push(`${p}  hreflang ${l} naar ${h} wordt niet teruggelinkt`);
+  }
+}
+
+/* robots.txt, 404 en de overige tekstbestanden */
+const robotsTxt = existsSync(join(out, 'robots.txt')) ? readFileSync(join(out, 'robots.txt'), 'utf8') : '';
+if (!robotsTxt.includes(`Sitemap: ${ORIGIN}/sitemap.xml`)) errors.push('robots.txt  mist de Sitemap-regel');
+if (/^Disallow:\s*\/\s*$/im.test(robotsTxt)) errors.push('robots.txt  blokkeert de hele site (Disallow: /)');
+if (existsSync(join(out, '404', 'index.html'))) errors.push('/404/  bestaat als gewone pagina (status 200); postbuild hoort die map te verwijderen');
+const notFound = existsSync(join(out, '404.html')) ? readFileSync(join(out, '404.html'), 'utf8') : '';
+if (!/<meta name="robots" content="noindex/.test(notFound)) errors.push('404.html  ontbreekt of mist noindex');
+for (const f of walk(out).filter((p) => /\.(txt|xml|webmanifest|json|svg|html)$/.test(p) && !pages.some((pg) => pg.f === p))) {
+  const src = readFileSync(f, 'utf8');
+  const hit = findPhone(f.endsWith('.html') ? text(src) : src);
+  if (hit) errors.push(`/${relative(out, f).replaceAll('\\', '/')}  telefoonnummer of bel-/WhatsApp-link: "${hit}"`);
+}
 
 rows.sort((a, b) => a.words - b.words);
 console.log('woorden  h2  intern  titel  descr  pad');

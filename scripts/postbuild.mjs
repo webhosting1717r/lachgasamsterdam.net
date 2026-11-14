@@ -41,8 +41,10 @@ for (const f of files) {
   if (isRuntime || isRsc) rmSync(f);
 }
 
-// /_not-found/ is een dubbel van 404.html en zou op de host met status 200 bereikbaar zijn.
+// /_not-found/ en /404/ zijn dubbels van 404.html en zouden op de host met status 200 bereikbaar zijn (soft 404).
+// Alleen 404.html blijft: die serveert de host met status 404 voor elke onbekende URL.
 rmSync(join(out, '_not-found'), { recursive: true, force: true });
+rmSync(join(out, '404'), { recursive: true, force: true });
 
 const left = walk(out).filter((p) => /\/_next\/.+\.js$/.test(p.replaceAll('\\', '/')));
 if (left.length) throw new Error(`JS-bestanden over in out/_next: ${left.join(', ')}`);

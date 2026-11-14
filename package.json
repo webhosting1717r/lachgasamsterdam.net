@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev -p 8796",
     "build": "node scripts/build.mjs",
-    "start": "npx serve out -l 8797",
+    "start": "node serve.mjs 8797",
     "typecheck": "tsc --noEmit",
     "seo": "node scripts/seo-check.mjs",
+    "check": "npm run typecheck && npm run build && npm run seo",
+    "og": "node scripts/og.mjs",
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {

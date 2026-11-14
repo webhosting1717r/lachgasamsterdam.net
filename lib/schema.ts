@@ -27,14 +27,14 @@ export const business = {
   '@type': 'LocalBusiness',
   '@id': abs('/#business'),
   name: site.name,
-  alternateName: ['Lachgaskoerier Amsterdam', 'Lachgas Amsterdam bezorgdienst'],
+  alternateName: [...site.alternateNames, 'Lachgaskoerier Amsterdam', 'Lachgas Amsterdam bezorgdienst'],
   slogan: 'Fastgas tank bezorgd, 24/7, binnen 20 tot 30 minuten',
   knowsAbout: ['Lachgas (distikstofmonoxide, N2O)', 'Slagroomspuiten en slagroompatronen', 'Veilige opslag en transport van gastanks', 'Opiumwet en lachgas'],
   description:
     'Bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. 24/7 bereikbaar, betalen bij aflevering met PIN, Tikkie of contant. Alleen 18+ en voor toegestaan gebruik.',
   url: abs('/'),
   logo: abs('/icon-512.png'),
-  image: abs('/og.jpg'),
+  image: abs(site.ogImage),
   currenciesAccepted: 'EUR',
   paymentAccepted: 'Cash, Debit Card, Tikkie',
   address: { '@type': 'PostalAddress', addressLocality: 'Amsterdam', addressRegion: 'Noord-Holland', addressCountry: 'NL' },
@@ -47,6 +47,8 @@ export const websiteNode = {
   '@id': abs('/#website'),
   url: abs('/'),
   name: site.name,
+  /* Google leidt de sitenaam in de zoekresultaten af van name en alternateName op de homepage. */
+  alternateName: site.alternateNames,
   inLanguage: 'nl-NL',
   publisher: { '@id': abs('/#business') },
 };
@@ -64,8 +66,11 @@ export function crumbs(items: { name: string; path: string }[]) {
   };
 }
 
-export function graph(page: Page | null, trail: { name: string; path: string }[], faq?: Faq[], home?: string) {
-  const path = page ? `/${page.slug}/` : '/';
+/* `page` is null voor pagina's buiten lib/content (home, overzicht): pad en naam komen dan uit het laatste kruimel,
+   `desc` is de omschrijving van die pagina. */
+export function graph(page: Page | null, trail: { name: string; path: string }[], faq?: Faq[], desc?: string) {
+  const last = trail[trail.length - 1];
+  const path = page ? `/${page.slug}/` : last.path;
   const en = page?.lang === 'en';
   const updated = page ? (page.updated ?? site.contentDate) : site.lastmod;
   const published = page?.published ?? site.published;
@@ -75,11 +80,11 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
     '@type': webType,
     '@id': abs(path) + '#webpage',
     url: abs(path),
-    name: page ? page.h1 : site.name,
-    description: page ? page.desc : (home ?? undefined),
+    name: page ? page.h1 : path === '/' ? site.name : last.name,
+    description: page ? page.desc : desc,
     inLanguage: en ? 'en' : 'nl-NL',
     isPartOf: { '@id': abs('/#website') },
-    primaryImageOfPage: { '@type': 'ImageObject', url: abs(page?.img?.src ?? '/og.jpg') },
+    primaryImageOfPage: { '@type': 'ImageObject', url: abs(page?.img?.src ?? site.ogImage) },
     about: { '@id': abs('/#business') },
     ...(webType === 'ContactPage' ? { mainEntity: { '@id': abs('/#business') } } : {}),
     datePublished: published,
@@ -141,7 +146,7 @@ export function graph(page: Page | null, trail: { name: string; path: string }[]
       headline: page.h1,
       description: page.desc,
       inLanguage: en ? 'en' : 'nl-NL',
-      image: abs(page.img?.src ?? '/og.jpg'),
+      image: abs(page.img?.src ?? site.ogImage),
       dateModified: updated,
       datePublished: published,
       author: { '@id': abs('/#business') },

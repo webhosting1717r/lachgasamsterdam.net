@@ -285,7 +285,7 @@ export function Footer() {
       </div>
       <div className="wrap fbot">
         <p>Levering uitsluitend aan 18+ en uitsluitend voor toegestaan gebruik. Lachgas valt onder de Opiumwet; zie de <a href="/is-lachgas-verboden/">wettelijke status</a>.</p>
-        <p>&copy; 2026 {site.name} &middot; <a href="/privacy-en-cookies/">Privacy en cookies</a> &middot; <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></p>
+        <p>&copy; {site.lastmod.slice(0, 4)} {site.name} &middot; {site.domain} &middot; <a href="/privacy-en-cookies/">Privacy en cookies</a> &middot; <a href="/algemene-voorwaarden/">Algemene voorwaarden</a></p>
       </div>
     </footer>
   );

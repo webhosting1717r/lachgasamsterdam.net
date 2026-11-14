@@ -13,7 +13,7 @@ Doel: beter ranken dan lachgasamsterdam247.nl voor "lachgas amsterdam" en varian
 | Lighthouse mobiel | 100 / 96 / 100 / 100 | 56 / 96 / 75 / 100 |
 | LCP mobiel | 1,4 s | 9,4 s |
 | Gewicht homepage | 855 KiB | 3,2 MiB (2,3 MiB te besparen met moderne afbeeldingsformaten) |
-| Contact | WhatsApp +31 97 010 270 187 | WhatsApp 06 26 76 66 30 |
+| Contact | geen telefoonnummer op de site (sinds 13 november 2026) | een 06-nummer op elke pagina |
 | Reviews | geen | vier verzonnen testimonials met demo-afbeeldingen uit het thema |
 | Framing | keuken, horeca, techniek; 18+; Opiumwet uitgelegd | "feest of privégebruik", "discretie voorop" |
 | Domein actief sinds | eind oktober 2026 | november 2025 |
@@ -41,8 +41,8 @@ Let op: lachgasamsterdam.nl is een andere aanbieder met een vergelijkbare URL-st
 2. **IndexNow.** Na elke deploy met gewijzigde inhoud: `npm run build && npm run indexnow`. Dit meldt alle URL's bij Bing, Yandex, Seznam en Naver (Google doet niet mee). Het sleutelbestand staat al op de site.
 3. **Bing Webmaster Tools.** Importeer de Search Console-property; Bing levert ook DuckDuckGo en de AI-zoekmachines.
 4. **Duplicaten.** Binnen de site is de overlap tussen locatiepagina's teruggebracht (de identieke staart met bestelstappen en twee algemene FAQ's is vervangen door één plaatsspecifieke alinea) en `/lachgas-tank-bestellen/` deelt geen blokken meer met `/bestellen/`. Naar buiten toe: deze site deelt geen teksten, nummer of naam met andere websites. Houd dat zo.
-5. **Nederlands nummer.** Sinds 9 november 2026 staat overal het eigen WhatsApp-nummer +31 97 010 270 187 (daarvoor een +44-nummer, wat voor een Amsterdamse bezorgdienst een vertrouwenssignaal in het nadeel was). Gebruik dit nummer uitsluitend voor lachgasamsterdam.net en zet het identiek in het Google Bedrijfsprofiel.
-6. **Google Bedrijfsprofiel.** Een profiel als "bezorgdienst zonder bezoekadres" (service area business) met Amsterdam en de 15 plaatsen als werkgebied, de website-URL en openingstijden 24/7. Echte reviews daar wegen zwaarder dan wat dan ook op de site.
+5. **Geen telefoonnummer.** Op verzoek van de eigenaar staat er sinds 13 november 2026 nergens een telefoon- of WhatsApp-nummer: niet in de teksten, niet in schema.org, niet in `llms.txt` en sinds 14 november ook niet meer in de deel-afbeelding (`og.jpg`). `npm run seo` faalt zodra er weer een nummer of een `tel:`-/`wa.me`-link in de build staat. Gevolg voor SEO en omzet: zie hoofdstuk 6.
+6. **Google Bedrijfsprofiel.** Een profiel als "bezorgdienst zonder bezoekadres" (service area business) met Amsterdam en de 15 plaatsen als werkgebied, de website-URL en openingstijden 24/7. Echte reviews daar wegen zwaarder dan wat dan ook op de site. Google vraagt voor zo'n profiel wel een verifieerbaar contactkanaal.
 7. **Backlinks.** Bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), een KvK-vermelding als het bedrijf is ingeschreven, en lokale vermeldingen (leveranciersoverzichten voor horeca). Geen gekochte links en geen links vanaf andere lachgassites.
 8. **Geduld en vers houden.** De site is twee weken oud. Werk `lastmod` bij als inhoud verandert, voeg maandelijks een of twee pagina's toe (bijvoorbeeld plaatsen die de concurrent wel heeft: Naarden, Bussum, Uithoorn, Aalsmeer, Zaandijk) en houd de FAQ's actueel.
 
@@ -73,3 +73,35 @@ Zeven onafhankelijke audits (on-page, schema, techniek, content, interne links, 
 - Horeca-factuur: vijf pagina's zeggen "vraag na bij je eerste bestelling". Leg de echte werkwijze vast (factuur met btw ja/nee, per levering of maandelijks) en zet dat ene antwoord op alle vijf plekken.
 - Extra plaatsen (Naarden, Bussum, Muiden) alleen toevoegen als je er echt bezorgt; één object in `lib/content/locations.ts` volstaat.
 - Footer met 57 links is bewust gelaten: voor een nieuwe site helpen de sitebrede links de locatiepagina's gecrawld te krijgen. Heroverweeg na indexatie.
+
+## 6. Ronde 14 november 2026: nummers, indexering, merknaam
+
+Aanleiding: de site moet zonder enig telefoonnummer live staan, foutloos indexeren in Search Console en gevonden worden op de eigen naam ("lachgasamsterdam", de domeinnaam zonder .net).
+
+**Telefoonnummers.** De site zelf was al schoon, maar er stonden nog nummers op plekken die een tekstzoekopdracht niet vindt:
+
+- `public/og.jpg` (de afbeelding bij gedeelde links in WhatsApp en op sociale media) toonde een 085-nummer in een gele knop. De afbeelding is opnieuw gemaakt met de domeinnaam op die plek. Ze komt nu uit `scripts/og.mjs` (`npm run og`), zodat de tekst erop voortaan in de code staat en doorzoekbaar is.
+- Dit document noemde het oude eigen nummer en het nummer van een concurrent; beide zijn weggehaald.
+- De commitgeschiedenis op GitHub bevat de oude nummers nog in commitberichten en oude versies van bestanden. Dat is alleen zichtbaar voor wie toegang tot de repository heeft en staat niet op de website.
+- Controle: alle afbeeldingen zijn bekeken, van de achtergrondvideo twintig beelden verspreid over de volle vijf seconden, en de metadata van alle bestanden is doorzocht. `npm run seo` controleert nu elke pagina (tekst, attributen, JSON-LD) en elk tekstbestand in `out/` op nummers en bel-/WhatsApp-links en geeft dan een fout.
+- Het alarmnummer 112 in de veiligheidsteksten is bewust blijven staan.
+
+**Indexering.** Vergelijking van de live site met de build op 14 november: alle 63 URL's uit de sitemap geven status 200, verwijzen met hun canonical naar zichzelf, hebben `index, follow` en zijn byte voor byte gelijk aan de build. Redirects kloppen (http naar https, zonder www naar www, zonder slash naar met slash), onbekende URL's geven een echte 404. Geen enkele pagina is ooit hernoemd of verwijderd, dus er zijn geen oude URL's die een 404 geven. Wat wel is aangepast:
+
+- `/404/` gaf status 200 (een kopie van de foutpagina die Next.js meelevert). Postbuild verwijdert die map nu, zodat alleen de echte 404 overblijft.
+- `favicon.ico` was een beschadigd bestand (afgekapt, strikte lezers konden het niet openen). Het is opnieuw gemaakt in 16, 32 en 48 pixels.
+- `llms.txt` krijgt de header `X-Robots-Tag: noindex`, zodat het tekstbestand niet als los zoekresultaat in Google kan komen.
+- De SEO-check controleert nu ook de robots-meta per pagina, hreflang (zelfverwijzing, x-default, wederkerigheid), `robots.txt`, de 404-pagina en datums in de sitemap.
+- In `lib/site.ts` staat `verification` klaar: vul daar de code van Search Console (en eventueel Bing) in als je via een HTML-tag wilt verifiëren in plaats van via DNS.
+
+Wat Search Console normaal laat zien en geen fout is: "Pagina met omleiding" voor de varianten met http, zonder www en zonder slash aan het eind; "Alternatieve pagina met correcte canonieke tag" voor URL's met een parameter erachter; en in het videorapport de melding dat de video niet de hoofdinhoud is (dat is de decoratieve achtergrondvideo).
+
+**Merknaam.** Voor de zoekopdracht op de domeinnaam telt vooral dat de homepage geïndexeerd is en dat Google de schrijfwijze aan de site koppelt:
+
+- `WebSite` en het bedrijf in schema.org hebben nu `alternateName` "Lachgasamsterdam" en "lachgasamsterdam.net" (Google leidt daar de sitenaam in de zoekresultaten van af).
+- De domeinnaam staat zichtbaar in de eerste alinea en het eerste FAQ-antwoord van de homepage, op Over ons, in de footer van elke pagina, in `llms.txt` en op de deel-afbeelding.
+- De titel van de contactpagina bevatte de merknaam twee keer en is ingekort.
+
+**Wat code niet oplost.** Er bestaat een oudere site op de .nl-variant van dezelfde naam, met reviews en een jaar voorsprong. Bovenaan komen op "lachgasamsterdam" lukt daarom alleen met de acties uit hoofdstuk 3: de property in Search Console, de sitemap indienen, indexering aanvragen voor de homepage en de vijf belangrijkste pagina's, en een paar echte vermeldingen op andere websites. Reken op dagen tot enkele weken voor indexering en langer voor de eerste plek.
+
+**Gevolg van een site zonder contactkanaal.** Overal staat "bestel via WhatsApp", maar er is geen nummer, link of formulier. Een bezoeker kan dus niet bestellen, en een commerciële site zonder contactgegevens of bedrijfsidentiteit scoort bij Google slechter op betrouwbaarheid. Als het nummer bewust weg moet, overweeg dan een ander kanaal (bijvoorbeeld een e-mailadres of formulier) en zet dat op `/contact/`.

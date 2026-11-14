@@ -128,8 +128,8 @@ export const hubs: Page[] = [
     related: ['lachgas-amsterdam', 'lachgas-in-de-buurt', 'lachgas-bezorgen', 'bestellen', 'lachgas-24-7', 'contact'],
   },
   {
-    slug: 'contact', group: 'hub', nav: 'Contact', parent: 'home', updated: '2026-11-13',
-    title: 'Contact: WhatsApp Lachgas Amsterdam',
+    slug: 'contact', group: 'hub', nav: 'Contact', parent: 'home', absolute: true, updated: '2026-11-14',
+    title: 'Contact met Lachgas Amsterdam: dag en nacht bereikbaar',
     desc: 'Contact met Lachgas Amsterdam: stuur ons een WhatsApp-bericht met je vraag of bestelling. Dag en nacht bereikbaar, ook in het weekend en op feestdagen.',
     h1: 'Contact met Lachgas Amsterdam', kicker: 'Dag en nacht bereikbaar',
     lead: 'Bestellen of een vraag? Stuur Lachgas Amsterdam een WhatsApp-bericht. We reageren dag en nacht.',

@@ -4,8 +4,16 @@ export const site = {
   brand: 'Fastgas',
   url: 'https://www.lachgasamsterdam.net',
   host: 'www.lachgasamsterdam.net',
+  /** domeinnaam zoals bezoekers hem intypen; staat zichtbaar op home, over ons, footer en deel-afbeelding */
+  domain: 'lachgasamsterdam.net',
+  /** schrijfwijzen van de merknaam waarop mensen zoeken (schema.org alternateName van WebSite en bedrijf) */
+  alternateNames: ['Lachgasamsterdam', 'lachgasamsterdam.net'],
+  /** deel-afbeelding (Open Graph, schema.org); opnieuw maken met `npm run og` */
+  ogImage: '/og.jpg',
+  /** verificatiecodes van Search Console en Bing Webmaster Tools (alleen de code uit de meta-tag); leeg = geen tag */
+  verification: { google: '', bing: '' },
   /** datum van de site als geheel (home, overzicht, sitemap-fallback) */
-  lastmod: '2026-11-13',
+  lastmod: '2026-11-14',
   /** eerste publicatie van de site */
   published: '2026-10-29',
   /** fallback 'bijgewerkt'-datum voor subpagina's zonder eigen `updated` */

@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMeta({
 });
 
 const faq: Faq[] = [
-  { q: 'Wat is Lachgas Amsterdam?', a: 'Lachgas Amsterdam is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).' },
+  { q: 'Wat is Lachgas Amsterdam?', a: `Lachgas Amsterdam, online te vinden op ${site.domain}, is een bezorgdienst voor de originele Fastgas Wegwerp Tank (2KG, 4KG en 10KG) in Amsterdam en omstreken. Je bestelt via WhatsApp, wij bevestigen prijs en tijd en je betaalt bij aflevering. We leveren alleen aan 18+ en alleen voor toegestaan gebruik. Lees meer [over ons](/over-ons/).` },
   { q: 'Waar kan ik lachgas in Amsterdam bestellen?', a: 'Bij ons, via WhatsApp, voor levering in alle stadsdelen van Amsterdam en de regio. Er is geen winkel of afhaalpunt: de koerier komt naar je toe. Hoe je bestelt staat op [lachgas bestellen in Amsterdam](/lachgas-bestellen-amsterdam/); op [Amsterdam per stadsdeel](/lachgas-amsterdam/) staan de stadsdelen en de verwachte levertijd.' },
   { q: 'Hoe snel bezorgen jullie lachgas in Amsterdam?', a: 'Gemiddeld staat onze koerier binnen 20 tot 30 minuten voor de deur, dag en nacht. Buiten Amsterdam hoor je op de pagina van je plaats wat de verwachte tijd is. Bij je bestelling bevestigen we altijd de aankomsttijd.' },
   { q: 'Kan ik bij aflevering betalen?', a: 'Ja. Je betaalt de koerier bij aflevering met PIN, Tikkie of contant. Vooraf betalen of een account aanmaken is niet nodig, en de totaalprijs hoor je al voordat de koerier vertrekt.' },
@@ -46,7 +46,7 @@ export default function Home() {
           <div className="row two">
             <div>
           <p className="kicker"><span className="dot" aria-hidden="true" />De lachgaskoerier van Amsterdam</p>
-          <h1>Lachgas Amsterdam.<br />Binnen {site.etaShort.replace(' ', '\u00a0')}.</h1>
+          <h1>Lachgas Amsterdam.<br />Binnen <span className="nb">{site.etaShort}.</span></h1>
           <p className="lead">
             De Fastgas Wegwerp Tank, verzegeld en 24/7 bezorgd in Amsterdam en omstreken. Bestel via WhatsApp en betaal bij aflevering.
           </p>
@@ -66,7 +66,7 @@ export default function Home() {
         <section className="panel narrow" aria-labelledby="intro-h">
           <h2 id="intro-h">Lachgas Amsterdam: bestellen en laten bezorgen</h2>
           <p>
-            <Rich text="**Lachgas Amsterdam** is een bezorgdienst voor één product: de originele Fastgas Wegwerp Tank. Je bestelt via WhatsApp, wij bevestigen prijs en aankomsttijd, en de koerier brengt de verzegelde tank naar je adres in Amsterdam of de regio. Je betaalt pas bij aflevering." />
+            <Rich text={`**Lachgas Amsterdam** (${site.domain}) is een bezorgdienst voor één product: de originele Fastgas Wegwerp Tank. Je bestelt via WhatsApp, wij bevestigen prijs en aankomsttijd, en de koerier brengt de verzegelde tank naar je adres in Amsterdam of de regio. Je betaalt pas bij aflevering.`} />
           </p>
           <h3>Lachgas Amsterdam in het kort</h3>
           <ul className="ticks">
