@@ -13,7 +13,7 @@ Doel: beter ranken dan lachgasamsterdam247.nl voor "lachgas amsterdam" en varian
 | Lighthouse mobiel | 100 / 96 / 100 / 100 | 56 / 96 / 75 / 100 |
 | LCP mobiel | 1,4 s | 9,4 s |
 | Gewicht homepage | 855 KiB | 3,2 MiB (2,3 MiB te besparen met moderne afbeeldingsformaten) |
-| Contact | geen telefoonnummer op de site (sinds 13 november 2026) | een 06-nummer op elke pagina |
+| Contact | WhatsApp via een eigen 06-nummer op elke pagina (sinds 22 november 2026) | een 06-nummer op elke pagina |
 | Reviews | geen | vier verzonnen testimonials met demo-afbeeldingen uit het thema |
 | Framing | keuken, horeca, techniek; 18+; Opiumwet uitgelegd | "feest of privégebruik", "discretie voorop" |
 | Domein actief sinds | eind oktober 2026 | november 2025 |
@@ -41,7 +41,7 @@ Let op: lachgasamsterdam.nl is een andere aanbieder met een vergelijkbare URL-st
 2. **IndexNow.** Na elke deploy met gewijzigde inhoud: `npm run build && npm run indexnow`. Dit meldt alle URL's bij Bing, Yandex, Seznam en Naver (Google doet niet mee). Het sleutelbestand staat al op de site.
 3. **Bing Webmaster Tools.** Importeer de Search Console-property; Bing levert ook DuckDuckGo en de AI-zoekmachines.
 4. **Duplicaten.** Binnen de site is de overlap tussen locatiepagina's teruggebracht (de identieke staart met bestelstappen en twee algemene FAQ's is vervangen door één plaatsspecifieke alinea) en `/lachgas-tank-bestellen/` deelt geen blokken meer met `/bestellen/`. Naar buiten toe: deze site deelt geen teksten, nummer of naam met andere websites. Houd dat zo.
-5. **Geen telefoonnummer.** Op verzoek van de eigenaar staat er sinds 13 november 2026 nergens een telefoon- of WhatsApp-nummer: niet in de teksten, niet in schema.org, niet in `llms.txt` en sinds 14 november ook niet meer in de deel-afbeelding (`og.jpg`). `npm run seo` faalt zodra er weer een nummer of een `tel:`-/`wa.me`-link in de build staat. Gevolg voor SEO en omzet: zie hoofdstuk 6.
+5. **WhatsApp-nummer.** Sinds 22 november 2026 staat er weer een WhatsApp-nummer op de site, nu een Nederlands 06-nummer (van 13 tot 22 november stond er geen; zie hoofdstuk 6 en 7). Het staat op één plek, `lib/site.ts`; knoppen, teksten en schema.org lezen het daar uit, en `npm run seo` faalt als er ergens een ander nummer staat. Gebruik dit nummer uitsluitend voor lachgasamsterdam.net en zet het identiek in het Google Bedrijfsprofiel.
 6. **Google Bedrijfsprofiel.** Een profiel als "bezorgdienst zonder bezoekadres" (service area business) met Amsterdam en de 15 plaatsen als werkgebied, de website-URL en openingstijden 24/7. Echte reviews daar wegen zwaarder dan wat dan ook op de site. Google vraagt voor zo'n profiel wel een verifieerbaar contactkanaal.
 7. **Backlinks.** Bedrijfsgidsen (Telefoonboek, Cylex, Openingstijden.nl), een KvK-vermelding als het bedrijf is ingeschreven, en lokale vermeldingen (leveranciersoverzichten voor horeca). Geen gekochte links en geen links vanaf andere lachgassites.
 8. **Geduld en vers houden.** De site is twee weken oud. Werk `lastmod` bij als inhoud verandert, voeg maandelijks een of twee pagina's toe (bijvoorbeeld plaatsen die de concurrent wel heeft: Naarden, Bussum, Uithoorn, Aalsmeer, Zaandijk) en houd de FAQ's actueel.
@@ -105,3 +105,15 @@ Wat Search Console normaal laat zien en geen fout is: "Pagina met omleiding" voo
 **Wat code niet oplost.** Er bestaat een oudere site op de .nl-variant van dezelfde naam, met reviews en een jaar voorsprong. Bovenaan komen op "lachgasamsterdam" lukt daarom alleen met de acties uit hoofdstuk 3: de property in Search Console, de sitemap indienen, indexering aanvragen voor de homepage en de vijf belangrijkste pagina's, en een paar echte vermeldingen op andere websites. Reken op dagen tot enkele weken voor indexering en langer voor de eerste plek.
 
 **Gevolg van een site zonder contactkanaal.** Overal staat "bestel via WhatsApp", maar er is geen nummer, link of formulier. Een bezoeker kan dus niet bestellen, en een commerciële site zonder contactgegevens of bedrijfsidentiteit scoort bij Google slechter op betrouwbaarheid. Als het nummer bewust weg moet, overweeg dan een ander kanaal (bijvoorbeeld een e-mailadres of formulier) en zet dat op `/contact/`.
+
+## 7. Ronde 22 november 2026: WhatsApp-nummer terug
+
+Op verzoek van de eigenaar staat er weer een WhatsApp-nummer op de site: een Nederlands 06-nummer. Daarmee is het punt uit hoofdstuk 6 opgelost dat bezoekers nergens konden bestellen.
+
+- Alle knoppen van vóór 13 november zijn terug (header, mobiel menu, hero, slotblok, vaste balk op mobiel, zwevende knop vanaf 760 px, footer) en openen een WhatsApp-gesprek met het nieuwe nummer.
+- Het nummer staat weer in de teksten (contact, bestellen via WhatsApp, veelgestelde vragen, over ons, de juridische pagina's), in schema.org (`telephone`, `contactPoint`) en in `llms.txt`.
+- Het nummer staat nu op één plek, `lib/site.ts`. De teksten lezen het daar uit in plaats van het elk apart te noemen, dus een volgende wissel is één wijziging (plus `llms.txt`); de stappen staan in de README.
+- `npm run seo` is omgedraaid: niet meer "nergens een nummer", maar "overal dit ene nummer". Een ander of oud nummer, een `wa.me`-link naar een ander nummer, een pagina zonder WhatsApp-link of een bel-link geeft een fout.
+- De deel-afbeelding (`og.jpg`) toont bewust de domeinnaam en geen nummer: een nummer in een afbeelding blijft bij een wissel ongemerkt achter, zoals eerder gebeurde.
+
+Buiten de code: zet hetzelfde nummer in het Google Bedrijfsprofiel (hoofdstuk 3, punt 6) en meld de gewijzigde pagina's na de deploy met `npm run build && npm run indexnow`.

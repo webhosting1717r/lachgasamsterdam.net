@@ -1,7 +1,8 @@
 // Controle van de gebouwde site (out/): `npm run build && npm run seo`.
 // Controleert per pagina titel, description, koppen, woorden, canonical, robots, hreflang, interne links, dubbele ids,
-// JSON-LD en formuleringen die we bewust niet willen gebruiken. Daarnaast: nergens een telefoonnummer of bel-/WhatsApp-link
-// (HTML, JSON-LD, llms.txt, sitemap, manifest), robots.txt, de deel-afbeelding en de 404-pagina. Exitcode 1 bij fouten.
+// JSON-LD en formuleringen die we bewust niet willen gebruiken. Daarnaast: overal hetzelfde WhatsApp-nummer als in
+// lib/site.ts en nergens een ander nummer of een bel-link (HTML, JSON-LD, llms.txt, sitemap, manifest), robots.txt,
+// de deel-afbeelding en de 404-pagina. Exitcode 1 bij fouten.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
@@ -39,24 +40,39 @@ const exists = (href) => {
   return existsSync(target) && (statSync(target).isFile() || existsSync(join(target, 'index.html')));
 };
 
-/* Telefoonnummers en bel-/WhatsApp-links horen nergens op de site te staan (keuze van de eigenaar).
+/* Contact loopt uitsluitend via WhatsApp, op het ene nummer uit lib/site.ts (whatsapp, whatsappText, whatsappIntl).
+   Elk nummer in de build moet dat nummer zijn, in een van die drie schrijfwijzen, en elke wa.me-link moet ernaar wijzen:
+   zo blijft er na een nummerwissel nergens een oud nummer staan. Bel-links (tel:, sms:) horen er niet te zijn.
+   Staat er geen nummer in lib/site.ts, dan mag er nergens een nummer of WhatsApp-link staan.
    Het alarmnummer 112 in de veiligheidsteksten valt buiten deze patronen. Afbeeldingen kan dit script niet lezen:
    de deel-afbeelding komt uit scripts/og.mjs, daar staat de tekst die erop komt. */
-const phoneLink = /\b(?:tel|sms|callto):|wa\.me\/|api\.whatsapp\.com|whatsapp:\/\/|"(?:telephone|faxNumber)"\s*:/i;
+const siteTs = readFileSync(join(process.cwd(), 'lib', 'site.ts'), 'utf8');
+const siteValue = (key) => first(new RegExp(`\\b${key}: '([^']+)'`), siteTs) || '';
+const waForms = ['whatsapp', 'whatsappText', 'whatsappIntl'].map(siteValue).filter(Boolean).sort((a, b) => b.length - a.length);
+const waDigits = siteValue('whatsapp').replace(/\D/g, '');
+const callLink = /\b(?:tel|sms|callto):|api\.whatsapp\.com|whatsapp:\/\/|"faxNumber"\s*:/i;
+const waLink = /wa\.me\/\+?(\d*)/gi;
 const phoneNumber = [
   /(?:\+|\b00)[1-9]\d?(?:[\s().-]{0,2}\d){8,12}\b/, // internationaal: plus of 00, landcode en nog 8 tot 12 cijfers
   /\b0[1-9](?:[\s.-]?\d){8}\b/, // Nederlands: tien cijfers die met 0 beginnen (mobiel, vast, 085/088), met of zonder spaties of streepjes
   /\b0[89]00[\s-]?\d{4,7}\b/, // 0800- en 0900-nummers
 ];
+/* Geeft de eerste bel-link, de eerste WhatsApp-link naar een ander nummer of het eerste andere nummer terug; anders null. */
 const findPhone = (s) => {
-  const link = s.match(phoneLink);
-  if (link) return link[0];
+  const call = s.match(callLink);
+  if (call) return call[0];
+  for (const m of s.matchAll(waLink)) if (!waDigits || m[1] !== waDigits) return m[0];
+  /* het eigen nummer in een bekende schrijfwijze is goed; wat daarna nog op een nummer lijkt, is fout */
+  let rest = s.replace(waLink, ' # ');
+  for (const form of waForms) rest = rest.split(form).join(' # ');
   for (const re of phoneNumber) {
-    const m = s.match(re);
+    const m = rest.match(re);
     if (m) return m[0];
   }
   return null;
 };
+const attrsOf = (html) => [...html.matchAll(/\s(?:alt|title|aria-label|content|href)="([^"]*)"/g)].map((m) => decode(m[1])).join('\n');
+const phoneMsg = (where, hit) => `${where}: "${hit}" is een bel-link of een ander nummer dan het WhatsApp-nummer uit lib/site.ts`;
 
 const errors = [];
 const warns = [];
@@ -109,12 +125,12 @@ for (const { path, html } of pages) {
   if (!/^index, follow/.test(robots)) e(`robots-meta "${robots}" (verwacht index, follow)`);
   const ogImg = first(/<meta property="og:image" content="([^"]*)"/, html) || '';
   if (!ogImg.startsWith(ORIGIN + '/') || !exists(ogImg.slice(ORIGIN.length))) e(`og:image "${ogImg}" staat niet in out/`);
-  const attrs = [...html.matchAll(/\s(?:alt|title|aria-label|content|href)="([^"]*)"/g)].map((m) => decode(m[1])).join('\n');
   const jsonLd = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('\n');
-  for (const [where, s] of [['de tekst', text(html)], ['een attribuut', attrs], ['de JSON-LD', jsonLd]]) {
+  for (const [where, s] of [['tekst', text(html)], ['attribuut', attrsOf(html)], ['JSON-LD', jsonLd]]) {
     const hit = findPhone(s);
-    if (hit) e(`telefoonnummer of bel-/WhatsApp-link in ${where}: "${hit}"`);
+    if (hit) e(phoneMsg(where, hit));
   }
+  if (waDigits && !html.includes(`href="https://wa.me/${waDigits}`)) e('geen WhatsApp-link naar het nummer uit lib/site.ts');
   const alts = [...html.matchAll(/<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]);
   if (alts.length) hreflang.set(ORIGIN + path, alts);
   if (path !== '/overzicht/' && !/\/(privacy-en-cookies|algemene-voorwaarden)\/$/.test(path) && words < MIN_WORDS) w(`${words} woorden (<${MIN_WORDS})`);
@@ -178,8 +194,8 @@ const notFound = existsSync(join(out, '404.html')) ? readFileSync(join(out, '404
 if (!/<meta name="robots" content="noindex/.test(notFound)) errors.push('404.html  ontbreekt of mist noindex');
 for (const f of walk(out).filter((p) => /\.(txt|xml|webmanifest|json|svg|html)$/.test(p) && !pages.some((pg) => pg.f === p))) {
   const src = readFileSync(f, 'utf8');
-  const hit = findPhone(f.endsWith('.html') ? text(src) : src);
-  if (hit) errors.push(`/${relative(out, f).replaceAll('\\', '/')}  telefoonnummer of bel-/WhatsApp-link: "${hit}"`);
+  const hit = f.endsWith('.html') ? findPhone(text(src)) || findPhone(attrsOf(src)) : findPhone(src);
+  if (hit) errors.push(`/${relative(out, f).replaceAll('\\', '/')}  ${phoneMsg('bestand', hit)}`);
 }
 
 rows.sort((a, b) => a.words - b.words);

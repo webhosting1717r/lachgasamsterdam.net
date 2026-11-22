@@ -1,4 +1,6 @@
-/* Eén plek voor alle vaste gegevens: domein, tijden. Wijzig hier, niet in de pagina's. */
+/* Eén plek voor alle vaste gegevens: domein, nummers, tijden. Wijzig hier, niet in de pagina's. */
+const digits = (s: string) => s.replace(/\D/g, '');
+
 export const site = {
   name: 'Lachgas Amsterdam',
   brand: 'Fastgas',
@@ -13,11 +15,19 @@ export const site = {
   /** verificatiecodes van Search Console en Bing Webmaster Tools (alleen de code uit de meta-tag); leeg = geen tag */
   verification: { google: '', bing: '' },
   /** datum van de site als geheel (home, overzicht, sitemap-fallback) */
-  lastmod: '2026-11-14',
+  lastmod: '2026-11-22',
   /** eerste publicatie van de site */
   published: '2026-10-29',
   /** fallback 'bijgewerkt'-datum voor subpagina's zonder eigen `updated` */
   contentDate: '2026-10-30',
+  /* Contact loopt uitsluitend via WhatsApp. Eén nummer in drie schrijfwijzen: pas ze bij een nieuw nummer alle drie aan.
+     Alle knoppen, teksten en de schema.org-data lezen het hier uit; alleen public/llms.txt heeft een eigen kopie. */
+  /** internationaal en aan elkaar: voor de wa.me-link en schema.org */
+  whatsapp: '+31684698166',
+  /** zoals het nummer in Nederlandse teksten staat */
+  whatsappText: '06 84 69 81 66',
+  /** zoals het nummer in Engelse teksten staat */
+  whatsappIntl: '+31 6 84 69 81 66',
   eta: '20 tot 30 minuten',
   etaShort: '20-30 min',
   minAge: 18,
@@ -25,6 +35,9 @@ export const site = {
   indexNowKey: '8d0318a4f2ca3ac806848fd5b99318fe',
 };
 
+export const waNumber = digits(site.whatsapp);
+export const waHref = (text = 'Hoi, ik wil graag een Fastgas tank bestellen.') =>
+  `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
 export const abs = (path: string) => `${site.url}${path}`;
 
 const MONTHS_NL = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'];

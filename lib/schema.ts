@@ -1,6 +1,6 @@
 import type { Faq, Page } from './types';
 import { locationData } from './content/locations';
-import { abs, site } from './site';
+import { abs, site, waNumber } from './site';
 
 /* FAQ-antwoorden: **vet** en [label](/pad/) worden <strong> en absolute <a>; Google staat deze HTML toe in Answer.text. */
 const faqHtml = (s: string) =>
@@ -19,8 +19,8 @@ function area(slug: string) {
   return { '@type': 'City', name: l.name, containedInPlace: { '@type': 'AdministrativeArea', name: l.region } };
 }
 
-/* Bestelkanaal van elke Service. */
-const channel = { '@type': 'ServiceChannel', serviceUrl: abs('/bestellen/'), availableLanguage: ['nl', 'en'] };
+/* Bestelkanaal van elke Service: servicePhone verwijst naar het WhatsApp-ContactPoint (schema.org verwacht een ContactPoint, geen tekst). */
+const channel = { '@type': 'ServiceChannel', serviceUrl: abs('/bestellen/'), servicePhone: { '@id': abs('/#whatsapp') }, availableLanguage: ['nl', 'en'] };
 const serviceType = (en: boolean) => (en ? 'Delivery of Fastgas disposable nitrous oxide tanks (N2O)' : 'Bezorging van Fastgas Wegwerp Tank (N2O)');
 
 export const business = {
@@ -35,11 +35,15 @@ export const business = {
   url: abs('/'),
   logo: abs('/icon-512.png'),
   image: abs(site.ogImage),
+  telephone: site.whatsapp,
   currenciesAccepted: 'EUR',
   paymentAccepted: 'Cash, Debit Card, Tikkie',
   address: { '@type': 'PostalAddress', addressLocality: 'Amsterdam', addressRegion: 'Noord-Holland', addressCountry: 'NL' },
   areaServed: locationData.map((l) => area(l.slug)),
   openingHoursSpecification: hours,
+  contactPoint: [
+    { '@type': 'ContactPoint', '@id': abs('/#whatsapp'), contactType: 'sales', name: 'WhatsApp bestellen', telephone: site.whatsapp, url: `https://wa.me/${waNumber}`, availableLanguage: ['nl', 'en'], hoursAvailable: hours },
+  ],
 };
 
 export const websiteNode = {
