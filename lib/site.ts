@@ -23,11 +23,11 @@ export const site = {
   /* Contact loopt uitsluitend via WhatsApp. Eén nummer in drie schrijfwijzen: pas ze bij een nieuw nummer alle drie aan.
      Alle knoppen, teksten en de schema.org-data lezen het hier uit; alleen public/llms.txt heeft een eigen kopie. */
   /** internationaal en aan elkaar: voor de wa.me-link en schema.org */
-  whatsapp: '+31684698166',
+  whatsapp: '+31684570611',
   /** zoals het nummer in Nederlandse teksten staat */
-  whatsappText: '06 84 69 81 66',
+  whatsappText: '06 84 57 06 11',
   /** zoals het nummer in Engelse teksten staat */
-  whatsappIntl: '+31 6 84 69 81 66',
+  whatsappIntl: '+31 6 84 57 06 11',
   eta: '20 tot 30 minuten',
   etaShort: '20-30 min',
   minAge: 18,
